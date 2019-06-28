@@ -2,6 +2,7 @@ $black: #010000;
 $white: #ffffff;
 $lightBlue: #33BFFF;
 $lightGrey: #e6e6e6;
+$darkGrey: #383838;
 
 body{
   font-size: 10px;
@@ -10,21 +11,49 @@ body{
 .ImageUpload{
   background: $white;
   position: absolute;
-	top: 3%; right: 30px; left: 20px;
+	top: 3%; right: 1000px; left: 20px;
+  .chooseFile{
+    text-decoration: none !important;
+    font-size: 10px;
+  }
+  .upload{
+    background-color: $white;
+  }
 }
 
-.chooseFile{
-  text-decoration: none !important;
-  font-size: 10px;
-}
-
-.upload{
-  background-color: $white;
-}
 
 .InfoBar{
   border: 1px solid black;
   position: absolute;
   font-size: 20px;
 	top: 56%; right: 1100px; left: 20px;
+}
+
+.QuestionInput{
+  .title{
+    font-size: 20px;
+  }
+  .buttonGroup{
+    margin: 10px;
+    font-size:15px;
+    .pressed{
+      background-color: $darkGrey;
+    }
+  }
+  position: absolute;
+  top: 62%; right: 1050px; left: 20px;
+}
+
+.divider{
+    width:10px;
+    height:auto;
+    display:inline-block;
+}
+
+.DiffDiag{
+  //border: 1px solid black;
+  font-size: 20px;
+  position: absolute;
+  top: 3%; right: 40%; left: 30%;
+  bottom:10%;
 }

@@ -29,7 +29,6 @@ class ImageUpload extends Component {
     (error) => {
       //error function
       console.log(error);
-
     },
     () => {
       //complete function
