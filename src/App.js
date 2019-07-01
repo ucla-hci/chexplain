@@ -4,6 +4,7 @@ import ImageUpload from './components/ImageUpload';
 import PatientInfo from './components/PatientInfo';
 import QuestionInput from './components/QuestionInput';
 import DiffDiag from './components/DiffDiag';
+import PriorImages from './components/PriorImages';
 
 class App extends Component {
   render(){
@@ -13,6 +14,7 @@ class App extends Component {
         <PatientInfo/>
         <QuestionInput/>
         <DiffDiag/>
+        <PriorImages/>
       </div>
     );
   }

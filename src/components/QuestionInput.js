@@ -10,7 +10,6 @@ class QuestionInput extends Component {
       buttonPressed: [["QT1",false], ["QT2",false], ["QT3",false], ["QT4",false], ["QT5",false], ["QT6",false]]
     };
   }
-
   handleClick(whichbutton){
     console.log(whichbutton);
     this.state.buttonPressed.map((buttons) => {
@@ -44,17 +43,26 @@ class QuestionInput extends Component {
       <div className="QuestionInput">
         <div className="title">Question Input</div>
         <div className="buttonGroup">
-          <button className={QT1_c} onClick = {() => this.handleClick(QT1)}>Symptom 1</button>
-          <div class="divider"/>
-          <button className={QT2_c} onClick = {() => this.handleClick(QT2)}>Symptom 2</button>
-          <div class="divider"/>
-          <button className={QT3_c} onClick = {() => this.handleClick(QT3)}>Symptom 3</button>
-          <div class="divider"/>
-          <button className={QT4_c} onClick = {() => this.handleClick(QT4)}>Symptom 4</button>
-          <div class="divider"/>
-          <button className={QT5_c} onClick = {() => this.handleClick(QT5)}>Symptom 5</button>
-          <div class="divider"/>
-          <button className={QT6_c} onClick = {() => this.handleClick(QT6)}>Symptom 6</button>
+          <ul>
+            <li>
+            <button className={QT1_c} onClick = {() => this.handleClick(QT1)}>Symptom 1</button>
+            </li>
+            <li>
+            <button className={QT2_c} onClick = {() => this.handleClick(QT2)}>Symptom 2</button>
+            </li>
+            <li>
+            <button className={QT3_c} onClick = {() => this.handleClick(QT3)}>Symptom 3</button>
+            </li>
+            <li>
+            <button className={QT4_c} onClick = {() => this.handleClick(QT4)}>Symptom 4</button>
+            </li>
+            <li>
+            <button className={QT5_c} onClick = {() => this.handleClick(QT5)}>Symptom 5</button>
+            </li>
+            <li>
+            <button className={QT6_c} onClick = {() => this.handleClick(QT6)}>Symptom 6</button>
+            </li>
+          </ul>
         </div>
       </div>
     );
