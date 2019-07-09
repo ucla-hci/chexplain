@@ -14,21 +14,28 @@ const images = [
 class PriorImages extends Component{
   constructor(props) {
     super(props);
-
     this.state = {
       photoIndex: 0,
       isOpen: false,
     };
   }
+
   render(){
     const { photoIndex, isOpen } = this.state;
-
+    var iheight = 64, iwidth = 78;
     return (
-      <div>
-        <button type="button" onClick={() => this.setState({ isOpen: true })}>
-          Prior Images
-        </button>
-
+      <div className="PriorImages">
+        <div className="title">Prior Images</div>
+        <div className="ImageGroup">
+          <ul>
+            <li><img src = {images[0]} alt="Image_0" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 0})}/></li>
+            <li><img src = {images[1]} alt="Image_1" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 1})}/></li>
+            <li><img src = {images[2]} alt="Image_2" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 2})}/></li>
+            <li><img src = {images[3]} alt="Image_3" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 3})}/></li>
+            <li><img src = {images[4]} alt="Image_4" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 4})}/></li>
+            <li><img src = {images[5]} alt="Image_5" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 5})}/></li>
+          </ul>
+        </div>
         {isOpen && (
           <Lightbox
             mainSrc={images[photoIndex]}

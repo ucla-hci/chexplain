@@ -1,0 +1,20 @@
+.QuestionInput{
+  .title{
+    font-size: 20px;
+  }
+  .buttonGroup{
+    font-size:15px;
+    .pressed{
+      background-color: $darkGrey;
+    }
+    ul, li{
+      list-style-type: none !important;
+      list-style-position: inside;
+      display: inline-block;
+      margin: 4px;
+      padding-left: 0;
+    }
+  }
+  position: absolute;
+  top: 62%; right: 1100px; left: 20px;
+}

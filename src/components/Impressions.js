@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class DiffDiag extends Component {
+class Impressions extends Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
@@ -40,31 +40,31 @@ class DiffDiag extends Component {
             QT6_c = this.state.buttonPressed[5][1]? "pressed":"QT6";
         var QT1 = "QT1", QT2 = "QT2", QT3 = "QT3", QT4 = "QT4", QT5 = "QT5", QT6 = "QT6";
         return (
-          <div className="List1">
+          <div className="List2">
             <div className="buttonGroup">
                 <ul>
                     <li>
-                        <button className={QT1_c} onClick = {() => this.handleClick(QT1)}>Lung Cancer</button>
+                        <button className={QT1_c} onClick = {() => this.handleClick(QT1)}>Strange nodes</button>
                         <div class="divider"/>
                     </li>
                     <li>
-                        <button className={QT2_c} onClick = {() => this.handleClick(QT2)}>Pleural Thickening</button>
+                        <button className={QT2_c} onClick = {() => this.handleClick(QT2)}>Wide Eyes</button>
                         <div class="divider"/>
                     </li>
                     <li>
-                        <button className={QT3_c} onClick = {() => this.handleClick(QT3)}>Hilar Nodules</button>
+                        <button className={QT3_c} onClick = {() => this.handleClick(QT3)}>RunTimeError</button>
                         <div class="divider"/>
                     </li>
                     <li>
-                        <button className={QT4_c} onClick = {() => this.handleClick(QT4)}>More Lung Cancer</button>
+                        <button className={QT4_c} onClick = {() => this.handleClick(QT4)}>More Nodes</button>
                         <div class="divider"/>
                     </li>
                     <li>
-                        <button className={QT5_c} onClick = {() => this.handleClick(QT5)}>Impression 6</button>
+                        <button className={QT5_c} onClick = {() => this.handleClick(QT5)}>Other finding</button>
                         <div class="divider"/>
                     </li>
                     <li>
-                        <button className={QT6_c} onClick = {() => this.handleClick(QT6)}>Monkey Brain</button>
+                        <button className={QT6_c} onClick = {() => this.handleClick(QT6)}>Errno 2: Lung not found</button>
                     </li>
                 </ul>
             </div>
@@ -72,4 +72,4 @@ class DiffDiag extends Component {
         );
     }
 }
-export default DiffDiag;
+export default Impressions;
