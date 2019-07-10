@@ -41,6 +41,7 @@ class Impressions extends Component {
         var QT1 = "QT1", QT2 = "QT2", QT3 = "QT3", QT4 = "QT4", QT5 = "QT5", QT6 = "QT6";
         return (
           <div className="Impressions">
+            <h1>Impressions</h1>
             <div className="buttonGroup">
                 <ul>
                     <li>

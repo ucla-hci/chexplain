@@ -1,4 +1,8 @@
 .DiffDiag{
+  h1{
+    position:absolute; top: -10px; left:80px;
+    font-size: 15px;
+  }
   position:absolute; top: 20px; left: 305px;
   button{
     height: 75px; width: 250px; left: 100px; outline: none; border: 0px solid;
@@ -17,6 +21,10 @@
 }
 
 .Impressions{
+  h1{
+    position:absolute; top: -10px; left:100px;
+    font-size: 15px;
+  }
   position:absolute; top: 20px; left: 575px;
   button{
     height: 75px; width: 250px; left: 100px; outline: none; border: 0px solid;
@@ -35,6 +43,10 @@
 }
 
 .Exam2{
+  h1{
+    position:absolute; top: 10px; left:900px;
+    font-size: 15px;
+  }
   .scroll{
     position: absolute;
     top: 30px; left: 885px;
