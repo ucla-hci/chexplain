@@ -7,7 +7,7 @@ class Exam extends Component {
         this.state = {
           inputsSelected: [],
           inputsSet: new Set(),
-          buttonPressed: [["QT1",false], ["QT2",false], ["QT3",false], ["QT4",false], ["QT5",false], ["QT6",false], 
+          buttonPressed: [["QT1",false], ["QT2",false], ["QT3",false], ["QT4",false], ["QT5",false], ["QT6",false],
             ["QT7", false], ["QT8", false], ["QT9", false], ["QT10", false], ["QT11", false], ["QT12", false], ["QT13", false]]
         };
       }
@@ -48,7 +48,7 @@ class Exam extends Component {
         var QT1 = "QT1", QT2 = "QT2", QT3 = "QT3", QT4 = "QT4", QT5 = "QT5", QT6 = "QT6";
         var QT7 = "QT7", QT8 = "QT8", QT9 = "QT9", QT10 = "QT10", QT11 = "QT11", QT12 = "QT12", QT13 = "QT13";
         return(
-            <div className="Exam">
+            <div className="Exam2">
                 <div className = "scroll">
                     {/*<a href="#" class = "active"> button 1</a>
                     <a href="#" class = "active"> button 2</a>

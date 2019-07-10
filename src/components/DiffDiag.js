@@ -40,7 +40,7 @@ class DiffDiag extends Component {
             QT6_c = this.state.buttonPressed[5][1]? "pressed":"QT6";
         var QT1 = "QT1", QT2 = "QT2", QT3 = "QT3", QT4 = "QT4", QT5 = "QT5", QT6 = "QT6";
         return (
-          <div className="List1">
+          <div className="DiffDiag">
             <div className="buttonGroup">
                 <ul>
                     <li>

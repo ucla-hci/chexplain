@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './Assets/css/default.min.css';
-import './Assets/css/default.css';
 import ImageUpload from './components/ImageUpload';
 import PatientInfo from './components/PatientInfo';
 import QuestionInput from './components/QuestionInput';

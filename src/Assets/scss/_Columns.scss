@@ -1,0 +1,52 @@
+.DiffDiag{
+  position:absolute; top: 20px; left: 305px;
+  button{
+    height: 75px; width: 250px; left: 100px; outline: none; border: 0px solid;
+  }
+  .buttonGroup{
+    .pressed{
+      background-color: aqua;
+    }
+  }
+  ul li{
+    list-style-type:none!important; margin:0px;
+  }
+  font-size: 15px;
+  position: absolute;
+  bottom: 10%;
+}
+
+.Impressions{
+  position:absolute; top: 20px; left: 575px;
+  button{
+    height: 75px; width: 250px; left: 100px; outline: none; border: 0px solid;
+  }
+  .buttonGroup{
+    .pressed{
+      background-color: magenta;
+    }
+  }
+  ul li{
+    list-style-type:none!important; margin:0px;
+  }
+  font-size: 15px;
+  position: absolute;
+  bottom: 10%;
+}
+
+.Exam2{
+  .scroll{
+    position: absolute;
+    top: 30px; left: 885px;
+    height: 90%; width: 250px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    .pressed{
+      background-color: lightgreen;
+    }
+  }
+  button {
+    height: 75px; width: 250px; left: 100px;
+    outline: none; border: 0px solid;
+  }
+}
