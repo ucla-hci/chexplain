@@ -48,16 +48,8 @@ class Exam extends Component {
         var QT1 = "QT1", QT2 = "QT2", QT3 = "QT3", QT4 = "QT4", QT5 = "QT5", QT6 = "QT6";
         var QT7 = "QT7", QT8 = "QT8", QT9 = "QT9", QT10 = "QT10", QT11 = "QT11", QT12 = "QT12", QT13 = "QT13";
         return(
-            <div className="Exam">
+            <div className="Exam2">
                 <div className = "scroll">
-                    {/*<a href="#" class = "active"> button 1</a>
-                    <a href="#" class = "active"> button 2</a>
-                    <a href="#" class = "active"> button 3</a>
-                    <a href="#"> button 4</a>
-                    <a href="#"> button 5</a>
-                    <a href="#"> button 6</a>
-                    <a href="#"> button 7</a>
-                    <a href="#"> button 8</a>*/}
                      <button className={QT1_c} onClick = {() => this.handleClick(QT1)}>Lung Cancer</button>
                      <button className={QT2_c} onClick = {() => this.handleClick(QT2)}>Lung Cancer</button>
                      <button className={QT3_c} onClick = {() => this.handleClick(QT3)}>Lung Cancer</button>
