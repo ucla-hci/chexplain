@@ -49,7 +49,6 @@ class Exam extends Component {
         var QT7 = "QT7", QT8 = "QT8", QT9 = "QT9", QT10 = "QT10", QT11 = "QT11", QT12 = "QT12", QT13 = "QT13";
         return(
             <div className="Exam2">
-              <h1>Examination</h1>
                 <div className = "scroll">
                      <button className={QT1_c} onClick = {() => this.handleClick(QT1)}>Lung Cancer</button>
                      <button className={QT2_c} onClick = {() => this.handleClick(QT2)}>Lung Cancer</button>

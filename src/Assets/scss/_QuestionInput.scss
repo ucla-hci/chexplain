@@ -2,17 +2,58 @@
   .title{
     font-size: 20px;
   }
-  .buttonGroup{
+  .buttonGroup1{
     font-size:15px;
     .pressed{
       background-color: $darkGrey;
+    }
+    .showMore{
+      outline: none; border: 0px solid;
+      font-size: 10px;
     }
     ul, li{
       list-style-type: none !important;
       list-style-position: inside;
       display: inline-block;
-      margin: 4px;
+      margin: 2px;
       padding-left: 0;
+      padding-top: 0
+    }
+  }
+  .buttonGroup2{
+    font-size:15px;
+    .pressed{
+      background-color: $darkGrey;
+    }
+    .showMore{
+      outline: none; border: 0px solid;
+      font-size: 10px;
+    }
+    ul, li{
+      list-style-type: none !important;
+      list-style-position: inside;
+      display: inline-block;
+      margin: 2px;
+      padding-left: 0;
+      padding-top: 0
+    }
+  }
+  .buttonGroup3{
+    font-size:15px;
+    .pressed{
+      background-color: $darkGrey;
+    }
+    .showMore{
+      outline: none; border: 0px solid;
+      font-size: 10px;
+    }
+    ul, li{
+      list-style-type: none !important;
+      list-style-position: inside;
+      display: inline-block;
+      margin: 2px;
+      padding-left: 0;
+      padding-top: 0
     }
   }
   position: absolute;

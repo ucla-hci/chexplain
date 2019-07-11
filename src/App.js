@@ -7,6 +7,8 @@ import DiffDiag from './components/DiffDiag';
 import PriorImages from './components/PriorImages';
 import Impressions from './components/Impressions';
 import Exam from './components/Exam';
+import Header from './components/Header'
+import Test from './components/test';
 
 class App extends Component {
   render(){
@@ -16,9 +18,9 @@ class App extends Component {
         <PatientInfo/>
         <QuestionInput/>
         <DiffDiag/>
-        <PriorImages/>
         <Impressions/>
         <Exam/>
+        <Header/>
       </div>
     );
   }
