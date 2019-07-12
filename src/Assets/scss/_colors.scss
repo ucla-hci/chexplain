@@ -3,3 +3,15 @@ $white: #ffffff;
 $lightBlue: #33BFFF;
 $lightGrey: #e6e6e6;
 $darkGrey: #383838;
+
+@mixin translateX($e){
+	-webkit-transform: translateX($e);
+		-moz-transform: translateX($e);
+			transform: translateX($e);
+}
+
+@mixin translateY($e){
+	-webkit-transform: translateY($e);
+		-moz-transform: translateY($e);
+			transform: translateY($e);
+}

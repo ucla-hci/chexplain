@@ -7,10 +7,15 @@ class QuestionInput extends Component {
     this.state = {
       more: [false, false, false],
       inputsSelected: [],
+      displayInput:[],
       inputsSet: new Set(),
-      buttonPressed: [["I1",false], ["I2",false], ["I3",false], ["I4",false], ["I5",false], ["I6",false],
-        ["I7", false], ["I8", false], ["I9", false], ["I10", false], ["I11", false], ["I12", false], ["I13", false],
-        ["I14", false], ["I15", false], ["I16", false], ["I17", false], ["I18", false], ["I19", false], ["I20", false]]
+      buttonPressed: [["I1",false,"Pleural Effusion"], ["I2",false, "Pleural Thickening"], ["I3",false, "Lung Opacity"],
+                      ["I4",false,"Support Device"], ["I5",false,"Symptom 5"], ["I6",false,"Symptom 6"],
+                      ["I7", false, "Chest Pain"], ["I8", false, "Shortness of Breath"], ["I9", false, "Cough"],
+                      ["I10", false, "Weight Loss"], ["I11", false, "Lung Cancer"], ["I12", false, "Lung Cancer"],
+                      ["I13", false, "Lung Cancer"], ["I14", false, "Projection"], ["I15", false, "Airway"],
+                      ["I16", false, "Breathing"], ["I17", false, "Weight Loss"], ["I18", false, "Lung Cancer"],
+                      ["I19", false, "Lung Cancer"], ["I20", false, "Lung Cancer"]]
     };
   }
   handleClick(whichbutton){
@@ -18,10 +23,10 @@ class QuestionInput extends Component {
     this.state.buttonPressed.map((buttons) => {
       if(whichbutton===buttons[0]&&!buttons[1]){
         buttons[1] = true;
-        this.state.inputsSet.add(buttons[0]);
+        this.state.inputsSet.add(buttons[2]);
       }else if(whichbutton===buttons[0]&&buttons[1]){
         buttons[1] = false;
-        this.state.inputsSet.delete(buttons[0]);
+        this.state.inputsSet.delete(buttons[2]);
       }
     });
     this.state.inputsSelected.map(item => {
@@ -30,7 +35,8 @@ class QuestionInput extends Component {
       }
     });
     this.setState({
-      inputsSelected:[...this.state.inputsSelected, whichbutton]
+      inputsSelected:[...this.state.inputsSelected, whichbutton],
+      displayInput:Array.from(this.state.inputsSet)
     });
   }
   handleMoreButtons(whichbutton){
@@ -70,6 +76,7 @@ class QuestionInput extends Component {
     return (
       <div className="QuestionInput">
         <div className="title">Question Input</div>
+        <div className="selectedInputs">Selected Questions:&ensp;{this.state.displayInput.join(", ")}</div>
         <div className="buttonGroup1">
           <ul>
             <li>

@@ -1,8 +1,13 @@
+$trans_x_amount: 50%; //translate x amount for columns
+$trans_x_amount_h: 10%; //translate x amount for headers
+
+
 .DiffDiagTitle{
   h1{
     position:absolute; top: 20px; left:400px;
     font-size: 15px;
   }
+  @include translateX($trans_x_amount_h);
 }
 
 .ImpressionTitle{
@@ -10,6 +15,7 @@
     position:absolute; top: 20px; left:700px;
     font-size: 15px;
   }
+  @include translateX($trans_x_amount_h);
 }
 
 .ExamTitle{
@@ -17,6 +23,7 @@
     position:absolute; top: 20px; left:950px;
     font-size: 15px;
   }
+  @include translateX($trans_x_amount_h);
 }
 
 .DiffDiag{
@@ -35,6 +42,7 @@
   font-size: 15px;
   position: absolute;
   bottom: 10%;
+  @include translateX($trans_x_amount);
 }
 
 .Impressions{
@@ -53,13 +61,14 @@
   font-size: 15px;
   position: absolute;
   bottom: 10%;
+  @include translateX($trans_x_amount);
 }
 
 .Exam2{
   .scroll{
     position: absolute;
     top: 45px; left: 885px;
-    height: 90%; width: 250px;
+    height: 90%; width: 330px;
     overflow-y: scroll;
     overflow-x: hidden;
     .pressed{
@@ -68,6 +77,8 @@
   }
   button {
     height: 75px; width: 250px; left: 100px;
+    @include translateX($trans_x_amount);
     outline: none; border: 0px solid;
   }
+
 }
