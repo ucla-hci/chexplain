@@ -1,6 +1,7 @@
 .QuestionInput{
   .title{
     font-size: 20px;
+    font-weight: bold;
   }
   .selectedInputs{
     font-size: 15px;
@@ -59,6 +60,18 @@
       padding-top: 0
     }
   }
+
+}
+
+.QuestionInputTitle{
   position: absolute;
-  top: 62%; right: 930px; left: 20px;
+  top: 75%; right: 930px; left: 20px;
+  @include translate(0%, 30%);
+  .title{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .selectedInputs{
+    font-size: 15px;
+  }
 }

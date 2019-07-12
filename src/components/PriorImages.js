@@ -22,10 +22,10 @@ class PriorImages extends Component{
 
   render(){
     const { photoIndex, isOpen } = this.state;
-    var iheight = 64, iwidth = 78;
+    var iheight = 108, iwidth = 132;
     return (
       <div className="PriorImages">
-        <div className="title">Prior Images</div>
+        <div className="title"></div>
         <div className="ImageGroup">
           <ul>
             <li><img src = {images[0]} alt="Image_0" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 0})}/></li>

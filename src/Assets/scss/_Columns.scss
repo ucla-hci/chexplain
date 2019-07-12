@@ -1,84 +1,104 @@
-$trans_x_amount: 50%; //translate x amount for columns
-$trans_x_amount_h: 10%; //translate x amount for headers
+$trans_x_amount: 60%; //translate x amount for columns
+$trans_x_amount_h: 110%; //translate x amount for headers
+$trans_y_amount: 20%; //translate y amount for columns
+$trans_y_amount_h: 700%; //translate x amount for headers
+
 
 
 .DiffDiagTitle{
   h1{
     position:absolute; top: 20px; left:400px;
+    @include translate($trans_x_amount_h, $trans_y_amount_h);
+    font-weight: bold;
     font-size: 15px;
   }
-  @include translateX($trans_x_amount_h);
 }
 
 .ImpressionTitle{
   h1{
-    position:absolute; top: 20px; left:700px;
+    position:absolute; top: 20px; left:790px;
+    @include translate($trans_x_amount_h, $trans_y_amount_h);
     font-size: 15px;
+    font-weight: bold;
+
   }
-  @include translateX($trans_x_amount_h);
+
 }
 
 .ExamTitle{
   h1{
-    position:absolute; top: 20px; left:950px;
+    position:absolute; top: 20px; left:1010px;
+    @include translate($trans_x_amount_h, $trans_y_amount_h);
     font-size: 15px;
+    font-weight: bold;
+
   }
-  @include translateX($trans_x_amount_h);
+
 }
 
-.DiffDiag{
-  position:absolute; top: 40px; left: 305px;
-  button{
-    height: 75px; width: 250px; left: 100px; outline: none; border: 0px solid;
-  }
-  .buttonGroup{
-    .pressed{
-      background-color: aqua;
+.Columns{
+  .DiffDiag{
+    position:absolute; top: 40px; left: 305px;
+    button{
+      height: 75px; width: 250px; left: 100px; outline: none; border: 0px solid;
     }
-  }
-  ul li{
-    list-style-type:none!important; margin:0px;
-  }
-  font-size: 15px;
-  position: absolute;
-  bottom: 10%;
-  @include translateX($trans_x_amount);
-}
-
-.Impressions{
-  position:absolute; top: 40px; left: 575px;
-  button{
-    height: 75px; width: 250px; left: 100px; outline: none; border: 0px solid;
-  }
-  .buttonGroup{
-    .pressed{
-      background-color: magenta;
+    .buttonGroup{
+      .pressed{
+        background-color: aqua;
+      }
     }
-  }
-  ul li{
-    list-style-type:none!important; margin:0px;
-  }
-  font-size: 15px;
-  position: absolute;
-  bottom: 10%;
-  @include translateX($trans_x_amount);
-}
-
-.Exam2{
-  .scroll{
+    ul li{
+      list-style-type:none!important; margin:0px;
+    }
+    font-size: 15px;
     position: absolute;
-    top: 45px; left: 885px;
-    height: 90%; width: 330px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    .pressed{
-      background-color: lightgreen;
-    }
-  }
-  button {
-    height: 75px; width: 250px; left: 100px;
-    @include translateX($trans_x_amount);
-    outline: none; border: 0px solid;
+    bottom: 10%;
+    @include translate($trans_x_amount, $trans_y_amount);
+    //@include translateY($trans_y_amount);
   }
 
+  .Impressions{
+    position:absolute; top: 40px; left: 575px;
+    button{
+      height: 75px; width: 250px; left: 100px; outline: none; border: 0px solid;
+    }
+    .buttonGroup{
+      .pressed{
+        background-color: magenta;
+      }
+    }
+    ul li{
+      list-style-type:none!important; margin:0px;
+    }
+
+    font-size: 15px;
+    position: absolute;
+    bottom: 10%;
+    @include translate($trans_x_amount, $trans_y_amount);
+    //@include translateY($trans_y_amount);
+  }
+
+  .Exam{
+    .scroll{
+      position: absolute;
+      top: 45px; left: 1050px;
+      @include translate(0,$trans_y_amount+7%);
+      height: 60%; width: 240px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      .pressed{
+        background-color: lightgreen;
+      }
+    }
+    button {
+      height: 75px; width: 240px; left:-100px;
+      //@include translate($trans_x_amount, $trans_y_amount);
+      //@include translateY($trans_y_amount);
+      outline: none; border: 0px solid;
+    }
+
+  }
+  .off{
+    display: none!important;
+  }
 }

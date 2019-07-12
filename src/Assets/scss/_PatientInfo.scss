@@ -3,4 +3,5 @@
   position: absolute;
   font-size: 20px;
 	top: 57%; right: 1200px; left: 20px;
+  @include translate(0%, 400%);
 }

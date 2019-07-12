@@ -46,7 +46,7 @@ class ImageUpload extends Component {
         <input className="chooseFile" type="file" onChange={this.handleChange}/>
         <button className="upload" onClick={this.handleUpload}>Upload</button>
         <br/>
-        <img src={this.state.url || 'https://via.placeholder.com/389x320'} alt="Uploaded Images" height="400" width="469"/>
+        <img src={this.state.url || 'https://via.placeholder.com/550x500'} alt="Uploaded Images" height="550" width="500"/>
       </div>
     );
   }

@@ -7,9 +7,9 @@ class Exam extends Component {
         this.state = {
           inputsSelected: [],
           inputsSet: new Set(),
-          buttonPressed: [["QT1",false], ["QT2",false], ["QT3",false], ["QT4",false], ["QT5",false], ["QT6",false], 
+          buttonPressed: [["QT1",false], ["QT2",false], ["QT3",false], ["QT4",false], ["QT5",false], ["QT6",false],
             ["QT7", false], ["QT8", false], ["QT9", false], ["QT10", false], ["QT11", false], ["QT12", false], ["QT13", false],
-            ["QT14",false], ["QT15",false], ["QT16",false], ["QT17",false], ["QT18",false], ["QT19",false], 
+            ["QT14",false], ["QT15",false], ["QT16",false], ["QT17",false], ["QT18",false], ["QT19",false],
             ["QT20", false], ["QT21", false], ["QT22", false], ["QT23", false], ["QT24", false], ["QT25", false]]
         };
         var showObs = "off";
@@ -66,20 +66,21 @@ class Exam extends Component {
         var QT14 = "QT14", QT15 = "QT15", QT16 = "QT16", QT17 = "QT17", QT18 = "QT18", QT19 = "QT19", QT20 = "QT20";
         var QT21 = "QT21", QT22 = "QT22", QT23 = "QT23", QT24 = "QT24", QT25 = "QT25";
         if(QT1_c == "pressed" || QT2_c == "pressed" ||QT3_c == "pressed" ||QT4_c == "pressed" ||QT5_c == "pressed" ||QT6_c == "pressed") {
-            this.showObs = "buttonGroup2";
+            this.showObs = "Impressions";
             console.log(this.showObs + "observation")
         } else {
             this.showObs = "off";
         };
         if((QT7_c == "pressed" || QT8_c == "pressed" ||QT9_c == "pressed" ||QT10_c == "pressed" ||QT11_c == "pressed" ||QT12_c == "pressed") && this.showObs != "off") {
-            this.showExam = "scroll"
+            this.showExam = "Exam"
             console.log(this.showExam + "examination")
         } else {
             this.showExam = "off";
         };
         return(
-            <div className="Exam">
-                <div className="buttonGroup1">
+            <div className="Columns">
+                <div className="DiffDiag">
+                  <div className="buttonGroup">
                     <ul>
                         <li>
                             <button className={QT1_c} onClick = {() => this.handleClick(QT1)}>Lung Cancer</button>
@@ -105,8 +106,10 @@ class Exam extends Component {
                             <button className={QT6_c} onClick = {() => this.handleClick(QT6)}>Monkey Brain</button>
                         </li>
                     </ul>
+                    </div>
                 </div>
                 <div className= {this.showObs}>
+                <div className="buttonGroup">
                     <ul>
                         <li>
                             <button className={QT7_c} onClick = {() => this.handleClick(QT7)}>Strange nodes</button>
@@ -133,7 +136,9 @@ class Exam extends Component {
                         </li>
                     </ul>
                 </div>
+                </div>
                 <div className = {this.showExam}>
+                  <div className = "scroll">
                      <button className={QT13_c} onClick = {() => this.handleClick(QT13)}>Lung Cancer</button>
                      <button className={QT14_c} onClick = {() => this.handleClick(QT14)}>Lung Cancer</button>
                      <button className={QT15_c} onClick = {() => this.handleClick(QT15)}>Lung Cancer</button>
@@ -147,6 +152,7 @@ class Exam extends Component {
                      <button className={QT23_c} onClick = {() => this.handleClick(QT23)}>Lung Cancer</button>
                      <button className={QT24_c} onClick = {() => this.handleClick(QT24)}>Lung Cancer</button>
                      <button className={QT25_c} onClick = {() => this.handleClick(QT25)}>Lung Cancer</button>
+                  </div>
                 </div>
             </div>
         );

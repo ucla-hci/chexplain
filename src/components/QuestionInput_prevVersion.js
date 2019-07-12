@@ -1,15 +1,15 @@
+//THIS VERSION OF QUESTION INPUT IS DEPRECATED, original version of no popup
 import React, {Component} from 'react'
 
 class QuestionInput extends Component {
-
   constructor(props){
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.state = {
       more: [false, false, false],
       inputsSelected: [],
-      displayInput: this.props.currentSet,
-      inputsSet: new Set(this.props.currentSet),
+      displayInput:[],
+      inputsSet: new Set(),
       buttonPressed: [["I1",false,"Pleural Effusion"], ["I2",false, "Pleural Thickening"], ["I3",false, "Lung Opacity"],
                       ["I4",false,"Support Device"], ["I5",false,"Symptom 5"], ["I6",false,"Symptom 6"],
                       ["I7", false, "Chest Pain"], ["I8", false, "Shortness of Breath"], ["I9", false, "Cough"],
@@ -19,8 +19,7 @@ class QuestionInput extends Component {
                       ["I19", false, "Lung Cancer"], ["I20", false, "Lung Cancer"]]
     };
   }
-
-  async handleClick(whichbutton){
+  handleClick(whichbutton){
     console.log(whichbutton);
     this.state.buttonPressed.map((buttons) => {
       if(whichbutton===buttons[0]&&!buttons[1]){
@@ -36,15 +35,11 @@ class QuestionInput extends Component {
         console.log("Button already pushed");
       }
     });
-
-    await this.setState({
+    this.setState({
       inputsSelected:[...this.state.inputsSelected, whichbutton],
-      displayInput:Array.from(this.state.inputsSet),
+      displayInput:Array.from(this.state.inputsSet)
     });
-    this.props.callbackFromParent(this.state.displayInput);
-
   }
-
   handleMoreButtons(whichbutton){
     const {more} = this.state;
     more[whichbutton]=!more[whichbutton];
@@ -52,8 +47,6 @@ class QuestionInput extends Component {
       more
     });
   }
-
-
   render(){
     //Group 1
     var I1_c = this.state.buttonPressed[0][1]? "pressed":"I1",
@@ -81,7 +74,6 @@ class QuestionInput extends Component {
         I19_c = this.state.buttonPressed[18][1]? "pressed":"I19",
         I20_c = this.state.buttonPressed[19][1]? "pressed":"I20";
     var I14 = "I14", I15 = "I15", I16 = "I16", I17 = "I17", I18 = "I18", I19 = "I19", I20 = "I20";
-
     return (
       <div className="QuestionInput">
         <div className="title">Question Input</div>

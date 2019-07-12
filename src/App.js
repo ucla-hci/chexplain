@@ -2,13 +2,10 @@ import React, {Component} from 'react';
 import './Assets/css/default.min.css';
 import ImageUpload from './components/ImageUpload';
 import PatientInfo from './components/PatientInfo';
-import QuestionInput from './components/QuestionInput';
-import DiffDiag from './components/DiffDiag';
 import PriorImages from './components/PriorImages';
-import Impressions from './components/Impressions';
-import Exam from './components/Exam';
 import Header from './components/Header'
-import Test from './components/test';
+import QuestionInputMinimized from './components/QuestionInputMinimized';
+import ButtonListProto from './components/ButtonListProto'
 
 class App extends Component {
   render(){
@@ -16,11 +13,10 @@ class App extends Component {
       <div className="App">
         <ImageUpload/>
         <PatientInfo/>
-        <QuestionInput/>
-        <DiffDiag/>
-        <Impressions/>
-        <Exam/>
+        <ButtonListProto/>
         <Header/>
+        <PriorImages/>
+        <QuestionInputMinimized/>
       </div>
     );
   }
