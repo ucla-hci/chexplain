@@ -5,6 +5,7 @@ class QuestionInput extends Component {
   constructor(props){
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.handleClear = this.handleClear.bind(this);
     this.state = {
       more: [false, false, false],
       inputsSelected: [],
@@ -20,8 +21,20 @@ class QuestionInput extends Component {
     };
   }
 
+  componentWillMount(){ //runs before component is re-rendered
+    let tempCopy = [...this.state.buttonPressed];
+    this.props.currentSet.map((currElement) => {
+      tempCopy.map((currButton) => {
+        if(currElement===currButton[2])
+          currButton[1]=true;
+      });
+    });
+    this.setState({
+      buttonPressed: tempCopy
+    });
+  }
+
   async handleClick(whichbutton){
-    console.log(whichbutton);
     this.state.buttonPressed.map((buttons) => {
       if(whichbutton===buttons[0]&&!buttons[1]){
         buttons[1] = true;
@@ -31,18 +44,12 @@ class QuestionInput extends Component {
         this.state.inputsSet.delete(buttons[2]);
       }
     });
-    this.state.inputsSelected.map(item => {
-      if(whichbutton===item){
-        console.log("Button already pushed");
-      }
-    });
 
     await this.setState({
       inputsSelected:[...this.state.inputsSelected, whichbutton],
       displayInput:Array.from(this.state.inputsSet),
     });
     this.props.callbackFromParent(this.state.displayInput);
-
   }
 
   handleMoreButtons(whichbutton){
@@ -51,6 +58,19 @@ class QuestionInput extends Component {
     this.setState({
       more
     });
+  }
+
+  async handleClear(){
+    let tempCopy = [...this.state.buttonPressed];
+    tempCopy.map((currElement) => {
+      currElement[1]=false;
+    });
+    await this.setState({
+      buttonPressed: tempCopy,
+      inputsSet: new Set(),
+      displayInput: []
+    });
+    this.props.callbackFromParent(this.state.displayInput);
   }
 
 
@@ -85,6 +105,7 @@ class QuestionInput extends Component {
     return (
       <div className="QuestionInput">
         <div className="title">Question Input</div>
+        <button onClick = {() => this.handleClear()}>Clear</button>
         <div className="selectedInputs">Selected Questions:&ensp;{this.state.displayInput.join(", ")}</div>
         <div className="buttonGroup1">
           <ul>

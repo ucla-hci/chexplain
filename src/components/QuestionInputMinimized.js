@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Dialog from './Dialog';
 import QuestionInput from './QuestionInput'
 
+
+//Parent class of QuestionInput, will pass props into QuestionInput
 class QuestionInputMinimized extends Component {
   constructor(props){
     super(props);
