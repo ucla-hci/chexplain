@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Dialog from './Dialog';
-import ReactImageMagnify from 'react-image-magnify';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
 const images = [
   'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2Ftest1.jpg?alt=media&token=8b20e1dc-6641-4a85-9a74-a5135bc0275e',
@@ -24,7 +24,6 @@ class PriorImages extends Component{
     const { photoIndex, isOpen } = this.state;
     var iheight = 108, iwidth = 132;
     return (
-      <div>
       <div className="PriorImages">
         <div className="title"></div>
         <div className="ImageGroup">
@@ -37,60 +36,24 @@ class PriorImages extends Component{
             <li><img src = {images[5]} alt="Image_5" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 5})}/></li>
           </ul>
         </div>
-      </div>
-       <Dialog isOpen={this.state.isOpen} big = {true} onClose={(e) => this.setState({isOpen:false})}>
-      <div className="blah">
-            <ReactImageMagnify {...{
-                smallImage: {
-                    alt: 'PriorImage',
-                    isFluidWidth: false,
-                    width: 500*0.8,
-                    height: 550*0.8,
-                    src: require('../images/testimage.png'),
-                },
-                largeImage: {
-                    src: require('../images/testimage.png'),
-                    width: 500*2,
-                    height: 550*2
-                },
-                enlargedImageContainerDimensions: {
-                    width: '30%',
-                    height: '30%'
-                },
-                isHintEnabled: true
-            }} />
-      </div>
-      <div className="divider2"/><div className="divider2"/><div className="divider2"/><div className="divider"/>
-      <div className="blah2">
-            <ReactImageMagnify {...{
-                smallImage: {
-                    alt: 'PriorImage',
-                    isFluidWidth: false,
-                    width: iwidth*3.5,
-                    height: iheight*3.5,
-                    src: images[this.state.photoIndex],
-                },
-                largeImage: {
-                    src: images[this.state.photoIndex],
-                    width: iwidth*6,
-                    height: iheight*6
-                },
-                enlargedImageContainerDimensions: {
-                    width: '30%',
-                    height: '40%'
-                },
-                isHintEnabled: true
-            }} />
-      </div>
-      <div className="prevNext">
-      <button onClick={() => this.setState({
-        photoIndex: (this.state.photoIndex + images.length - 1) % images.length
-      })}>Previous</button>
-      <button onClick={() => this.setState({
-        photoIndex: (this.state.photoIndex + 1) % images.length
-      })}>Next</button>
-      </div>
-      </Dialog>
+        {isOpen && (
+          <Lightbox
+            mainSrc={images[photoIndex]}
+            nextSrc={images[(photoIndex + 1) % images.length]}
+            prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+            onCloseRequest={() => this.setState({ isOpen: false })}
+            onMovePrevRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + images.length - 1) % images.length,
+              })
+            }
+            onMoveNextRequest={() =>
+              this.setState({
+                photoIndex: (photoIndex + 1) % images.length,
+              })
+            }
+          />
+        )}
       </div>
     );
   }

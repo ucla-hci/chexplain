@@ -1,7 +1,23 @@
 import React, {Component} from 'react';
 
-let dialogStyles = {
-    width: '500px',
+let dialogStyles_big = {
+    width: '90%',
+    maxWidth: '100%',
+    margin: '0 auto',
+    position: 'absolute',
+    left: '50%',
+    top: '50%',
+    transform: 'translate(-50%,-50%)',
+    zIndex: '999',
+    backgroundColor: '#eee',
+    padding: '10px 10px 40px 70px',
+    borderRadius: '8px',
+    display: 'flex',
+    flexDirection: 'column'
+};
+
+let dialogStyles_small = {
+    width: '40%',
     maxWidth: '100%',
     margin: '0 auto',
     position: 'fixed',
@@ -10,7 +26,7 @@ let dialogStyles = {
     transform: 'translate(-50%,-50%)',
     zIndex: '999',
     backgroundColor: '#eee',
-    padding: '10px 20px 40px',
+    padding: '10px 10px 40px 40px',
     borderRadius: '8px',
     display: 'flex',
     flexDirection: 'column'
@@ -30,6 +46,7 @@ let dialogCloseButtonStyles = {
 
 class Dialog extends Component{
   render(){
+    let dialogStyles = this.props.big?dialogStyles_big:dialogStyles_small;
     let dialog = (
       <div className="Dialog" style={dialogStyles}>
         <button style={dialogCloseButtonStyles} onClick={this.props.onClose}>x</button>

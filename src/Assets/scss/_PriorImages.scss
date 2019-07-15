@@ -14,3 +14,12 @@
   top: 5%;  left: 20px;
   @include translate(60%,-20%);
 }
+
+.ImageWindow{
+  img.center {
+    display: block;
+    margin: 0 auto;
+  }
+  position: absolute;
+  left:10%;
+}

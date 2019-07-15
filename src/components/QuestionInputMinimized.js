@@ -33,6 +33,7 @@ class QuestionInputMinimized extends Component {
           </div>
      <div>
           <Dialog isOpen={this.state.isOpen}
+                  big={false}
                   onClose={(e) => this.setState({isOpen:false})}>
             <QuestionInput currentSet={this.state.displayInputFromChild} callbackFromParent={this.myCallBack}/>
           </Dialog>
