@@ -43,11 +43,15 @@ body{font-size:10px}
 .Exam .off {display: none!important;}
 
 .draw {position: relative; height: 400px; width: 400px;}
-.draw .true{height: 300px; width: 300px;}
+.draw .PleuralEffusion {border-color:lightblue;}
+.draw .Airway {border-color:lightgreen;}
+.draw .Breathing {border-color:lightgreen;}
+.draw .Cardiac {border-color:lightgreen;}
+.draw .Unclear {border-color:lightgray;}
 .draw .false{display: none!important;}
 .draw .toggle {position: absolute; top: 0px; left: 0px; outline: none; border: 0px; font-size: 12px;}
+.draw textarea {background-color: transparent; resize: none; font-size: 8px;}
 
-.div .a1 {position: absolute; top: 0px; left: 5px;}
 
 
 
