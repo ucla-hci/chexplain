@@ -3,156 +3,182 @@ import React, { Component } from "react";
 class Exam extends Component {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
+        this.handleClick1 = this.handleClick1.bind(this);
+        this.handleClick2 = this.handleClick2.bind(this);
+        this.handleClick3 = this.handleClick3.bind(this);
         this.state = {
-          inputsSelected: [],
-          inputsSet: new Set(),
-          buttonPressed: [["QT1",false], ["QT2",false], ["QT3",false], ["QT4",false], ["QT5",false], ["QT6",false],
-            ["QT7", false], ["QT8", false], ["QT9", false], ["QT10", false], ["QT11", false], ["QT12", false], ["QT13", false],
-            ["QT14",false], ["QT15",false], ["QT16",false], ["QT17",false], ["QT18",false], ["QT19",false],
-            ["QT20", false], ["QT21", false], ["QT22", false], ["QT23", false], ["QT24", false], ["QT25", false]]
+          inputsSelected1: [],
+          inputsSet1: new Set(),
+          buttonPressed1: [["QT1",false], ["QT2",false], ["QT3",false], ["QT4",false], ["QT5",false]],
+          inputsSelected2: [],
+          inputsSet2: new Set(),
+          buttonPressed2: [["QT6",false], ["QT7",false]],
+          inputsSelected3: [],
+          inputsSet3: new Set(),
+          buttonPressed3: [["QT8",false], ["QT9",false], ["QT10",false], ["QT11",false], ["QT12",false],
+          ["QT13",false], ["QT14", false], ["QT15", false], ["QT16", false]],
         };
+        this.initialPressed2 = this.state.buttonPressed2;
+        this.initialPressed3 = this.state.buttonPressed3;
         var showObs = "off";
         var showExam = "off";
+        var showObsHeader = "off";
+        var showExamHeader = "off";
       }
-    handleClick(whichbutton){
+    handleClick1(whichbutton){
         console.log(whichbutton);
-        this.state.buttonPressed.map((buttons) => {
-          if(whichbutton===buttons[0]&&!buttons[1]){
-            buttons[1] = true;
-            this.state.inputsSet.add(buttons[0]);
-          }else if(whichbutton===buttons[0]&&buttons[1]){
-            buttons[1] = false;
-            this.state.inputsSet.delete(buttons[0]);
+        this.state.buttonPressed1.map((buttons1) => {
+          if(whichbutton===buttons1[0]&&!buttons1[1]){
+            buttons1[1] = true;
+            this.state.inputsSet1.add(buttons1[0]);
+          }else if(whichbutton===buttons1[0]&&buttons1[1]){
+            buttons1[1] = false;
+            this.state.inputsSet1.delete(buttons1[0]);
           }
         });
-        this.state.inputsSelected.map(item => {
+        this.state.inputsSelected1.map(item => {
           if(whichbutton===item){
             console.log("Button already pushed");
           }
         });
         this.setState({
-          inputsSelected:[...this.state.inputsSelected, whichbutton]
+          inputsSelected1:[...this.state.inputsSelected1, whichbutton]
+        });
+      }
+      handleClick2(whichbutton){
+        console.log(whichbutton);
+        this.state.buttonPressed2.map((buttons2) => {
+          if(whichbutton===buttons2[0]&&!buttons2[1]){
+            buttons2[1] = true;
+            this.state.inputsSet2.add(buttons2[0]);
+          }else if(whichbutton===buttons2[0]&&buttons2[1]){
+            buttons2[1] = false;
+            this.state.inputsSet2.delete(buttons2[0]);
+          }
+        });
+        this.state.inputsSelected2.map(item => {
+          if(whichbutton===item){
+            console.log("Button already pushed");
+          }
+        });
+        this.setState({
+          inputsSelected2:[...this.state.inputsSelected2, whichbutton]
+        });
+      }
+      handleClick3(whichbutton){
+        console.log(whichbutton);
+        this.state.buttonPressed3.map((buttons3) => {
+          if(whichbutton===buttons3[0]&&!buttons3[1]){
+            buttons3[1] = true;
+            this.state.inputsSet3.add(buttons3[0]);
+          }else if(whichbutton===buttons3[0]&&buttons3[1]){
+            buttons3[1] = false;
+            this.state.inputsSet3.delete(buttons3[0]);
+          }
+        });
+        this.state.inputsSelected3.map(item => {
+          if(whichbutton===item){
+            console.log("Button already pushed");
+          }
+        });
+        this.setState({
+          inputsSelected3:[...this.state.inputsSelected3, whichbutton]
         });
       }
     render(){
-        var QT1_c = this.state.buttonPressed[0][1]? "pressed":"QT1",
-            QT2_c = this.state.buttonPressed[1][1]? "pressed":"QT2",
-            QT3_c = this.state.buttonPressed[2][1]? "pressed":"QT3",
-            QT4_c = this.state.buttonPressed[3][1]? "pressed":"QT4",
-            QT5_c = this.state.buttonPressed[4][1]? "pressed":"QT5",
-            QT6_c = this.state.buttonPressed[5][1]? "pressed":"QT6",
-            QT7_c = this.state.buttonPressed[6][1]? "pressed":"QT7",
-            QT8_c = this.state.buttonPressed[7][1]? "pressed":"QT8",
-            QT9_c = this.state.buttonPressed[8][1]? "pressed":"QT9",
-            QT10_c = this.state.buttonPressed[9][1]? "pressed":"QT10",
-            QT11_c = this.state.buttonPressed[10][1]? "pressed":"QT11",
-            QT12_c = this.state.buttonPressed[11][1]? "pressed":"QT12",
-            QT13_c = this.state.buttonPressed[12][1]? "pressed":"QT13",
-            QT14_c = this.state.buttonPressed[13][1]? "pressed":"QT14",
-            QT15_c = this.state.buttonPressed[14][1]? "pressed":"QT15",
-            QT16_c = this.state.buttonPressed[15][1]? "pressed":"QT16",
-            QT17_c = this.state.buttonPressed[16][1]? "pressed":"QT17",
-            QT18_c = this.state.buttonPressed[17][1]? "pressed":"QT18",
-            QT19_c = this.state.buttonPressed[18][1]? "pressed":"QT19",
-            QT20_c = this.state.buttonPressed[19][1]? "pressed":"QT20",
-            QT21_c = this.state.buttonPressed[20][1]? "pressed":"QT21",
-            QT22_c = this.state.buttonPressed[21][1]? "pressed":"QT22",
-            QT23_c = this.state.buttonPressed[22][1]? "pressed":"QT23",
-            QT24_c = this.state.buttonPressed[23][1]? "pressed":"QT24",
-            QT25_c = this.state.buttonPressed[24][1]? "pressed":"QT25";
+        var QT1_1 = this.state.buttonPressed1[0][1]? "pressed":"QT1",
+            QT1_2 = this.state.buttonPressed1[1][1]? "pressed":"QT2",
+            QT1_3 = this.state.buttonPressed1[2][1]? "pressed":"QT3",
+            QT1_4 = this.state.buttonPressed1[3][1]? "pressed":"QT4",
+            QT1_5 = this.state.buttonPressed1[4][1]? "pressed":"QT5",
+            QT2_1 = this.state.buttonPressed2[0][1]? "pressed":"QT6",
+            QT2_2 = this.state.buttonPressed2[1][1]? "pressed":"QT7",
+            QT3_1 = this.state.buttonPressed3[0][1]? "pressed":"QT8",
+            QT3_2 = this.state.buttonPressed3[1][1]? "pressed":"QT9",
+            QT3_3 = this.state.buttonPressed3[2][1]? "pressed":"QT10",
+            QT3_4 = this.state.buttonPressed3[3][1]? "pressed":"QT11",
+            QT3_5 = this.state.buttonPressed3[4][1]? "pressed":"QT12",
+            QT3_6 = this.state.buttonPressed3[5][1]? "pressed":"QT13",
+            QT3_7 = this.state.buttonPressed3[6][1]? "pressed":"QT14",
+            QT3_8 = this.state.buttonPressed3[7][1]? "pressed":"QT15",
+            QT3_9 = this.state.buttonPressed3[8][1]? "pressed":"QT16";
         var QT1 = "QT1", QT2 = "QT2", QT3 = "QT3", QT4 = "QT4", QT5 = "QT5", QT6 = "QT6";
         var QT7 = "QT7", QT8 = "QT8", QT9 = "QT9", QT10 = "QT10", QT11 = "QT11", QT12 = "QT12", QT13 = "QT13";
-        var QT14 = "QT14", QT15 = "QT15", QT16 = "QT16", QT17 = "QT17", QT18 = "QT18", QT19 = "QT19", QT20 = "QT20";
-        var QT21 = "QT21", QT22 = "QT22", QT23 = "QT23", QT24 = "QT24", QT25 = "QT25";
-        if(QT1_c == "pressed" || QT2_c == "pressed" ||QT3_c == "pressed" ||QT4_c == "pressed" ||QT5_c == "pressed" ||QT6_c == "pressed") {
-            this.showObs = "Impressions";
+        var QT14 = "QT14", QT15 = "QT15", QT16 = "QT16";
+        if(QT1_1 == "pressed" || QT1_2 == "pressed" ||QT1_3 == "pressed" ||QT1_4 == "pressed" ||QT1_5 == "pressed") {
+            this.showObs = "buttonGroup2";
+            this.showObsHeader = "observationHeader";
             console.log(this.showObs + "observation")
         } else {
             this.showObs = "off";
+            this.showObsHeader = "off";
+            this.showExam = "off";
+            this.showExamHeader = "off";
+            //this.setState(state => ({buttonPressed2: this.initialPressed2, buttonPressed3: this.initialPressed3}))
+            //this.setState(state => ({inputsSelected2: [], inputsSet2: new Set(), inputsSelected3: [], inputsSet3: new Set(),}));
         };
-        if((QT7_c == "pressed" || QT8_c == "pressed" ||QT9_c == "pressed" ||QT10_c == "pressed" ||QT11_c == "pressed" ||QT12_c == "pressed") && this.showObs != "off") {
-            this.showExam = "Exam"
+        if((QT2_1 == "pressed" || QT2_2 == "pressed")) {
+            this.showExam = "scroll"
+            this.showExamHeader = "examinationHeader";
             console.log(this.showExam + "examination")
         } else {
             this.showExam = "off";
+            this.showExamHeader = "off";
+            //this.setState (state => ({buttonPressed3: this.initialPressed3, inputsSelected3: [], inputsSet3: new Set(),}));
         };
         return(
-            <div className="Columns">
-                <div className="DiffDiag">
-                  <div className="buttonGroup">
+            <div className="Exam">
+                <div className = "impressionHeader"> DD + Confidence </div>
+                <div className="buttonGroup1">
                     <ul>
                         <li>
-                            <button className={QT1_c} onClick = {() => this.handleClick(QT1)}>Lung Cancer</button>
+                            <button className={QT1_1} onClick = {() => this.handleClick1(QT1)}>Pneumonia</button>
                             <div class="divider"/>
                         </li>
                         <li>
-                            <button className={QT2_c} onClick = {() => this.handleClick(QT2)}>Pleural Thickening</button>
+                            <button className={QT1_2} onClick = {() => this.handleClick1(QT2)}>Acute Pancreatitis</button>
                             <div class="divider"/>
                         </li>
                         <li>
-                            <button className={QT3_c} onClick = {() => this.handleClick(QT3)}>Hilar Nodules</button>
+                            <button className={QT1_3} onClick = {() => this.handleClick1(QT3)}>Pulmonary infarction</button>
                             <div class="divider"/>
                         </li>
                         <li>
-                            <button className={QT4_c} onClick = {() => this.handleClick(QT4)}>More Lung Cancer</button>
+                            <button className={QT1_4} onClick = {() => this.handleClick1(QT4)}>TB</button>
                             <div class="divider"/>
                         </li>
                         <li>
-                            <button className={QT5_c} onClick = {() => this.handleClick(QT5)}>Impression 6</button>
-                            <div class="divider"/>
-                        </li>
-                        <li>
-                            <button className={QT6_c} onClick = {() => this.handleClick(QT6)}>Monkey Brain</button>
+                            <button className={QT1_5} onClick = {() => this.handleClick1(QT5)}>Meigs Syndrome</button>
                         </li>
                     </ul>
+                </div>
+                <div className = {this.showObsHeader}> Observations </div>
+                <div className= {this.showObs}>
+                    <div>
+                        <ul>
+                            <li>
+                                <button className={QT2_1} onClick = {() => this.handleClick2(QT6)}>Large right sided pleural effusion</button>
+                                <div class="divider"/>
+                            </li>
+                            <li>
+                                <button className={QT2_2} onClick = {() => this.handleClick2(QT7)}>Small left sided pleural effusion</button>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div className= {this.showObs}>
-                <div className="buttonGroup">
-                    <ul>
-                        <li>
-                            <button className={QT7_c} onClick = {() => this.handleClick(QT7)}>Strange nodes</button>
-                            <div class="divider"/>
-                        </li>
-                        <li>
-                            <button className={QT8_c} onClick = {() => this.handleClick(QT8)}>Wide Eyes</button>
-                            <div class="divider"/>
-                        </li>
-                        <li>
-                            <button className={QT9_c} onClick = {() => this.handleClick(QT9)}>RunTimeError</button>
-                            <div class="divider"/>
-                        </li>
-                        <li>
-                            <button className={QT10_c} onClick = {() => this.handleClick(QT10)}>More Nodes</button>
-                            <div class="divider"/>
-                        </li>
-                        <li>
-                            <button className={QT11_c} onClick = {() => this.handleClick(QT11)}>Other finding</button>
-                            <div class="divider"/>
-                        </li>
-                        <li>
-                            <button className={QT12_c} onClick = {() => this.handleClick(QT12)}>Errno 2: Lung not found</button>
-                        </li>
-                    </ul>
-                </div>
-                </div>
+                <div className = {this.showExamHeader}> Examinations </div>
                 <div className = {this.showExam}>
-                  <div className = "scroll">
-                     <button className={QT13_c} onClick = {() => this.handleClick(QT13)}>Lung Cancer</button>
-                     <button className={QT14_c} onClick = {() => this.handleClick(QT14)}>Lung Cancer</button>
-                     <button className={QT15_c} onClick = {() => this.handleClick(QT15)}>Lung Cancer</button>
-                     <button className={QT16_c} onClick = {() => this.handleClick(QT16)}>Lung Cancer</button>
-                     <button className={QT17_c} onClick = {() => this.handleClick(QT17)}>Lung Cancer</button>
-                     <button className={QT18_c} onClick = {() => this.handleClick(QT18)}>Lung Cancer</button>
-                     <button className={QT19_c} onClick = {() => this.handleClick(QT19)}>Lung Cancer</button>
-                     <button className={QT20_c} onClick = {() => this.handleClick(QT20)}>Lung Cancer</button>
-                     <button className={QT21_c} onClick = {() => this.handleClick(QT21)}>Lung Cancer</button>
-                     <button className={QT22_c} onClick = {() => this.handleClick(QT22)}>Lung Cancer</button>
-                     <button className={QT23_c} onClick = {() => this.handleClick(QT23)}>Lung Cancer</button>
-                     <button className={QT24_c} onClick = {() => this.handleClick(QT24)}>Lung Cancer</button>
-                     <button className={QT25_c} onClick = {() => this.handleClick(QT25)}>Lung Cancer</button>
-                  </div>
+                     <div className = "scrollList">
+                        <button className={QT3_1} onClick = {() => this.handleClick3(QT8)}>Projection: PA</button>
+                        <button className={QT3_2} onClick = {() => this.handleClick3(QT9)}>Technical Aspects</button>
+                        <button className={ `QT3_3 ${"red"}`} onClick = {() => this.handleClick3(QT10)}>Homogenous Opacity</button>
+                        <button className={QT3_4} onClick = {() => this.handleClick3(QT11)}>Right Lung: Clear</button>
+                        <button className={QT3_5} onClick = {() => this.handleClick3(QT12)}>Pneumothorax: No</button>
+                        <button className={QT3_6} onClick = {() => this.handleClick3(QT13)}>Trachea, heart: Central</button>
+                        <button className={QT3_7} onClick = {() => this.handleClick3(QT14)}>Left Lung: Clear</button>
+                        <button className={ `QT3_8 ${"red"}`} onClick = {() => this.handleClick3(QT15)}>Left costophrenic angle: minor blunting</button>
+                        <button className={QT3_9} onClick = {() => this.handleClick3(QT16)}>Free diagphragmatic gas: No</button>
+                    </div>
                 </div>
             </div>
         );
