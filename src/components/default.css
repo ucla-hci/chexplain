@@ -1,0 +1,53 @@
+body{font-size:10px}
+
+.ImageUpload{background:#fff;position:absolute;top:3%;right:1000px;left:20px}
+.ImageUpload .chooseFile {text-decoration:none!important;font-size:10px}
+.ImageUpload .upload{background-color:#fff}
+
+.InfoBar{border:1px solid #000;position:absolute;font-size:20px;top:56%;right:1100px;left:20px}
+
+.QuestionInput{position:absolute;top:62%;right:1000px;left:20px}
+.QuestionInput .title{font-size:20px}
+.QuestionInput .buttonGroup{font-size:15px}
+.QuestionInput .buttonGroup .pressed{background-color:#383838}
+.QuestionInput ul li{list-style-type:none!important;display:inline-block;margin:4px}
+
+.divider{width:10px;height:auto;display:inline-block}
+
+.Exam .impressionHeader {position:absolute; top: 0px; left:344px; font-size: 20px}
+.Exam .observationHeader {position:absolute; top: 0px; left: 614px; font-size: 20px}
+.Exam .examinationHeader {position:absolute; top: 0px; left: 884px; font-size: 20px}
+
+.buttonGroup1 {position:absolute; top: 25px; left: 305px;}
+.buttonGroup1 button {height: 75px; width: 250px; left: 100px; outline: none; border: 0px solid}
+.buttonGroup1 ul li{list-style-type:none!important; margin:0px;}
+.buttonGroup1 .pressed{background-color: aqua;}
+
+.buttonGroup2 {position:absolute; top: 25px; left: 575px; 
+    height: 90%;}
+.buttonGroup2 button {height: 75px; width: 250px; margin-left: 0; outline: none; border: 0px solid}
+.buttonGroup2 ul li{list-style-type:none!important; margin:0px;}
+.buttonGroup2 .pressed{background-color: magenta;}
+
+.scroll {position: absolute; 
+    top: 35px; left: 885px; 
+    height: 550px; width: 250px; 
+    overflow-y: auto;
+    overflow-x: hidden;}
+.scroll button {height: 75px; width: 250px; left: 100px; outline: none; border: 0px solid}
+/*.scroll .pressed {background-color: lightgreen;}*/
+
+.Exam .scroll .scrollList button {background-color: lightgreen;}
+.Exam .scroll .scrollList .red {background-color: lightcoral;}
+
+.Exam .off {display: none!important;}
+
+.draw {position: relative; height: 400px; width: 400px;}
+.draw .true{height: 300px; width: 300px;}
+.draw .false{display: none!important;}
+.draw .toggle {position: absolute; top: 0px; left: 0px; outline: none; border: 0px; font-size: 12px;}
+
+.div .a1 {position: absolute; top: 0px; left: 5px;}
+
+
+
