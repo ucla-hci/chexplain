@@ -10,7 +10,7 @@ $trans_y_amount_h: 700%; //translate x amount for headers
 
 .impressionHeader{
   position:absolute;
-  top:0.1%; left:5%;
+  top:0.1%; left:19%;
   @include translate($trans_x_amount_h, -150%);
   font-size: 15px;
   font-weight: bold;
@@ -83,12 +83,20 @@ $trans_y_amount_h: 700%; //translate x amount for headers
     }
     .scroll{
       position:absolute;
+      font-size: 15px;
       top: 23%; left: 78%;
       height: 60%; width: 240px;
       overflow-y: scroll;
       overflow-x: hidden;
       .pressed{
         background-color: lightgreen;
+      }
+      .red {background-color: lightcoral;}
+      .sub3_3 {background-color: $lightBlue; width: 250px; padding-left: 25px;}
+      .sub3_8 {background-color: $lightBlue;}
+      .dropdown {
+        position:absolute; display: inline-block;
+        .btn {float:left; width: 25px; height: 75px; background-color: lightcoral;}
       }
     }
     button {
