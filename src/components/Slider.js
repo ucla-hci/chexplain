@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Slider, Rail, Handles, Tracks, Ticks } from "react-compound-slider";
 import { SliderRail, Handle, Track, Tick } from "./components"; // example render components - source below
+import ButtonList from './ButtonList2';
 
 const sliderStyle = {
   position: "relative",
@@ -8,12 +9,32 @@ const sliderStyle = {
 };
 
 const domain = [0,1];
-const defaultValues = [1];
+const defaultValues = [0];
 
 class SlideBar extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      currentValue: 0,
+      columns: [true, true, true]
+    }
+    this.onChange = this.onChange.bind(this);
+  }
+  onChange(){
+    let copy = this.state.columns;
+    copy[2]=!copy[2];
+    this.setState({
+      currentValue: (this.state.currentValue + 1) % 2,
+      columns: copy
+    });
+    console.log(this.state.currentValue);
+  }
   render() {
     return (
-      <div style={{ position: "absolute", margin: "10%", height: 120, width: "80%", top: 225, left: 85}}>
+      <div>
+      <div className="slideBar">
+        <h1>Urgency Slider</h1>
+        <div className="divider"/><div className="divider"/><div className="divider"/>
         <Slider
           mode={1}
           step={1}
@@ -64,6 +85,8 @@ class SlideBar extends Component {
             )}
           </Ticks>
         </Slider>
+      </div>
+      <ButtonList currentValue={this.state.columns}/>
       </div>
     );
   }

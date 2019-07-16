@@ -1,9 +1,12 @@
+
 @import "_colors.scss"; //needs to be the first one as other files use the colors
 @import "_ImageUpload.scss";
 @import "_PriorImages.scss";
 @import "_PatientInfo.scss";
 @import "_QuestionInput.scss";
 @import "_Columns.scss";
+@import "_SlideBar.scss";
+@import "_Annotations.scss";
 
 body{
   font-size: 10px;
@@ -37,4 +40,10 @@ body{
 .prevNext{
   position: absolute;
   right:200px;
+}
+
+.SendButton{
+  position: absolute;
+  top:80%; left:38%;
+  font-size: 20px;
 }

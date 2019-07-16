@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Dialog from './Dialog';
-import QuestionInput from './QuestionInput'
+import QuestionInput from './QuestionInput';
+import ToggleAnnotation from './ToggleAnnotation';
 
 
 //Parent class of QuestionInput, will pass props into QuestionInput
@@ -9,8 +10,10 @@ class QuestionInputMinimized extends Component {
     super(props);
     this.state = {
       isOpen: false,
-      displayInputFromChild: []
+      displayInputFromChild:[],
+      displayAnnotation:[]
     }
+    this.myCallBack = this.myCallBack.bind(this);
   }
 
   myCallBack = (dataFromChild) => {
@@ -30,14 +33,15 @@ class QuestionInputMinimized extends Component {
               isOpen: true
             })
           )}>Show Questions</button>
-          </div>
-     <div>
+        </div>
+        <div>
           <Dialog isOpen={this.state.isOpen}
                   big={false}
                   onClose={(e) => this.setState({isOpen:false})}>
             <QuestionInput currentSet={this.state.displayInputFromChild} callbackFromParent={this.myCallBack}/>
           </Dialog>
-      </div>
+        </div>
+        <div><ToggleAnnotation display={this.state.displayInputFromChild}/></div>
       </div>
 
     );

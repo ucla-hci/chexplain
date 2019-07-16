@@ -17,6 +17,7 @@ class Exam extends Component {
           inputsSet3: new Set(),
           buttonPressed3: [["QT8",false], ["QT9",false], ["QT10",false], ["QT11",false], ["QT12",false],
           ["QT13",false], ["QT14", false], ["QT15", false], ["QT16", false]],
+          viewControl: [false, false, false],
         };
         this.initialPressed2 = this.state.buttonPressed2;
         this.initialPressed3 = this.state.buttonPressed3;
@@ -106,7 +107,7 @@ class Exam extends Component {
         var QT7 = "QT7", QT8 = "QT8", QT9 = "QT9", QT10 = "QT10", QT11 = "QT11", QT12 = "QT12", QT13 = "QT13";
         var QT14 = "QT14", QT15 = "QT15", QT16 = "QT16";
         if(QT1_1 == "pressed" || QT1_2 == "pressed" ||QT1_3 == "pressed" ||QT1_4 == "pressed" ||QT1_5 == "pressed") {
-            this.showObs = "buttonGroup2";
+            this.showObs = "Observations";
             this.showObsHeader = "observationHeader";
             console.log(this.showObs + "observation")
         } else {
@@ -114,8 +115,6 @@ class Exam extends Component {
             this.showObsHeader = "off";
             this.showExam = "off";
             this.showExamHeader = "off";
-            //this.setState(state => ({buttonPressed2: this.initialPressed2, buttonPressed3: this.initialPressed3}))
-            //this.setState(state => ({inputsSelected2: [], inputsSet2: new Set(), inputsSelected3: [], inputsSet3: new Set(),}));
         };
         if((QT2_1 == "pressed" || QT2_2 == "pressed")) {
             this.showExam = "scroll"
@@ -124,12 +123,12 @@ class Exam extends Component {
         } else {
             this.showExam = "off";
             this.showExamHeader = "off";
-            //this.setState (state => ({buttonPressed3: this.initialPressed3, inputsSelected3: [], inputsSet3: new Set(),}));
         };
         return(
-            <div className="Exam">
-                <div className = "impressionHeader"> DD + Confidence </div>
-                <div className="buttonGroup1">
+          <div className="Columns">
+              <div className="DiffDiag">
+              <div className = "impressionHeader"> DD + Confidence </div>
+                <div className="buttonGroup">
                     <ul>
                         <li>
                             <button className={QT1_1} onClick = {() => this.handleClick1(QT1)}>Pneumonia</button>
@@ -152,9 +151,10 @@ class Exam extends Component {
                         </li>
                     </ul>
                 </div>
-                <div className = {this.showObsHeader}> Observations </div>
+              </div>
                 <div className= {this.showObs}>
-                    <div>
+                <div className = {this.showObsHeader}> Observations </div>
+                    <div className="buttonGroup">
                         <ul>
                             <li>
                                 <button className={QT2_1} onClick = {() => this.handleClick2(QT6)}>Large right sided pleural effusion</button>
@@ -166,19 +166,19 @@ class Exam extends Component {
                         </ul>
                     </div>
                 </div>
+                <div className="Exam">
                 <div className = {this.showExamHeader}> Examinations </div>
                 <div className = {this.showExam}>
-                     <div className = "scrollList">
-                        <button className={QT3_1} onClick = {() => this.handleClick3(QT8)}>Projection: PA</button>
-                        <button className={QT3_2} onClick = {() => this.handleClick3(QT9)}>Technical Aspects</button>
-                        <button className={ `QT3_3 ${"red"}`} onClick = {() => this.handleClick3(QT10)}>Homogenous Opacity</button>
-                        <button className={QT3_4} onClick = {() => this.handleClick3(QT11)}>Right Lung: Clear</button>
-                        <button className={QT3_5} onClick = {() => this.handleClick3(QT12)}>Pneumothorax: No</button>
-                        <button className={QT3_6} onClick = {() => this.handleClick3(QT13)}>Trachea, heart: Central</button>
-                        <button className={QT3_7} onClick = {() => this.handleClick3(QT14)}>Left Lung: Clear</button>
-                        <button className={ `QT3_8 ${"red"}`} onClick = {() => this.handleClick3(QT15)}>Left costophrenic angle: minor blunting</button>
-                        <button className={QT3_9} onClick = {() => this.handleClick3(QT16)}>Free diagphragmatic gas: No</button>
-                    </div>
+                  <button className={QT3_1} onClick = {() => this.handleClick3(QT8)}>Projection: PA</button>
+                  <button className={QT3_2} onClick = {() => this.handleClick3(QT9)}>Technical Aspects</button>
+                  <button className={ `QT3_3 ${"red"}`} onClick = {() => this.handleClick3(QT10)}>Homogenous Opacity</button>
+                  <button className={QT3_4} onClick = {() => this.handleClick3(QT11)}>Right Lung: Clear</button>
+                  <button className={QT3_5} onClick = {() => this.handleClick3(QT12)}>Pneumothorax: No</button>
+                  <button className={QT3_6} onClick = {() => this.handleClick3(QT13)}>Trachea, heart: Central</button>
+                  <button className={QT3_7} onClick = {() => this.handleClick3(QT14)}>Left Lung: Clear</button>
+                  <button className={ `QT3_8 ${"red"}`} onClick = {() => this.handleClick3(QT15)}>Left costophrenic angle: minor blunting</button>
+                  <button className={QT3_9} onClick = {() => this.handleClick3(QT16)}>Free diagphragmatic gas: No</button>
+                </div>
                 </div>
             </div>
         );

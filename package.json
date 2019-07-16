@@ -11,6 +11,7 @@
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.2",
     "react": "^16.8.6",
+    "react-compound-slider": "^2.2.0",
     "react-dom": "^16.8.6",
     "react-image-lightbox": "^5.1.0",
     "react-image-magnify": "^2.7.4",
