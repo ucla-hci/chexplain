@@ -1,0 +1,32 @@
+.loading{
+  h1{
+    position: absolute;
+    left:38%;
+    top:65%;
+    z-index: 999;
+    color:$white;
+    font-size: 27px;
+  }
+
+  .sk-spinner {
+    transform: scale(4);
+    position: absolute;
+    left:50%;
+    z-index: 999;
+  }
+}
+
+.AnalyzeButton{
+  .StartAnalysis{
+    position: absolute;
+    top:80%; left:25%;
+    font-size: 20px;
+  }
+  .pressedAnL{
+    position: absolute;
+    top:80%; left:25%;
+    font-size: 20px;
+    background: $darkGrey;
+  }
+
+}

@@ -24,11 +24,28 @@
     outline: none; border: 0px;
     font-size: 12px;
   }
-  .pressed{
+  .showAll{
+    position: absolute;
+    z-index: 900;
+    top: 5%;
+    left: 20%;
+    outline: none; border: 0px;
+    font-size: 12px;
+  }
+  .pressed_t{
     position: absolute;
     z-index: 900;
     top: 5%;
     left: 27%;
+    outline: none; border: 0px;
+    font-size: 12px;
+    background-color: $darkGrey;
+  }
+  .pressed_s{
+    position: absolute;
+    z-index: 900;
+    top: 5%;
+    left: 20%;
     outline: none; border: 0px;
     font-size: 12px;
     background-color: $darkGrey;

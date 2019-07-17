@@ -15,7 +15,8 @@
     "react-dom": "^16.8.6",
     "react-image-lightbox": "^5.1.0",
     "react-image-magnify": "^2.7.4",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-spinkit": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

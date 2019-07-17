@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Slider, Rail, Handles, Tracks, Ticks } from "react-compound-slider";
 import { SliderRail, Handle, Track, Tick } from "./components"; // example render components - source below
 import ButtonList from './ButtonList2';
+import StartAnalysis from './StartAnalysis';
 
 const sliderStyle = {
   position: "relative",
@@ -86,7 +87,7 @@ class SlideBar extends Component {
           </Ticks>
         </Slider>
       </div>
-      <ButtonList currentValue={this.state.columns}/>
+      <StartAnalysis currentValue={this.state.columns}/>
       </div>
     );
   }

@@ -11,13 +11,13 @@ class QuestionInput extends Component {
       inputsSelected: [],
       displayInput: this.props.currentSet,
       inputsSet: new Set(this.props.currentSet),
-      buttonPressed: [["I1",false,"Pleural Effusion"], ["I2",false, "Pleural Thickening"], ["I3",false, "Lung Opacity"],
-                      ["I4",false,"Support Device"], ["I5",false,"Symptom 5"], ["I6",false,"Symptom 6"],
+      buttonPressed: [["I1",false,"Pleural Effusion"], ["I2",false, "Pleural Thickening"], ["I3",false, "Pneumothorax"],
+                      ["I4",false,"Lung Opacity"], ["I5",false,"Support Device"], ["I6",false,"Fracture"],
                       ["I7", false, "Chest Pain"], ["I8", false, "Shortness of Breath"], ["I9", false, "Cough"],
-                      ["I10", false, "Weight Loss"], ["I11", false, "Lung Cancer"], ["I12", false, "Lung Cancer"],
-                      ["I13", false, "Lung Cancer"], ["I14", false, "Projection"], ["I15", false, "Airway"],
-                      ["I16", false, "Breathing"], ["I17", false, "Cardiac"], ["I18", false, "Lung Cancer"],
-                      ["I19", false, "Lung Cancer"], ["I20", false, "Lung Cancer"]]
+                      ["I10", false, "Haemoptysis"], ["I11", false, "Weight Loss"], ["I12", false, "Swallow an Object"],
+                      ["I13", false, "Purulent Cough"], ["I14", false, "Projection"], ["I15", false, "Airway"],
+                      ["I16", false, "Breathing"], ["I17", false, "Cardiac"], ["I18", false, "Mediastinum"],
+                      ["I19", false, "Diaphragm"], ["I20", false, "Delicates"]]
     };
   }
 
@@ -110,38 +110,38 @@ class QuestionInput extends Component {
         <div className="buttonGroup1">
           <ul>
             <li>
-            <button className={I1_c} onClick = {() => this.handleClick(I1)}>Pleural Effusion</button>
+            <button className={I1_c} onClick = {() => this.handleClick(I1)}>{this.state.buttonPressed[0][2]}</button>
             </li>
             <li>
-            <button className={I2_c} onClick = {() => this.handleClick(I2)}>Pleural Thickening</button>
+            <button className={I2_c} onClick = {() => this.handleClick(I2)}>{this.state.buttonPressed[1][2]}</button>
             </li>
-            <li><button className={I3_c} onClick = {() => this.handleClick(I3)}>Lung Opacity</button></li>
-            <li><button className={I4_c} onClick = {() => this.handleClick(I4)}>Support Device</button></li>
-            <li><button className={I5_c} onClick = {() => this.handleClick(I5)}>Symptom 5</button></li>
-            <li><button className={I6_c} onClick = {() => this.handleClick(I6)}>Symptom 6</button></li>
+            <li><button className={I3_c} onClick = {() => this.handleClick(I3)}>{this.state.buttonPressed[2][2]}</button></li>
+            <li><button className={I4_c} onClick = {() => this.handleClick(I4)}>{this.state.buttonPressed[3][2]}</button></li>
+            <li><button className={I5_c} onClick = {() => this.handleClick(I5)}>{this.state.buttonPressed[4][2]}</button></li>
+            <li><button className={I6_c} onClick = {() => this.handleClick(I6)}>{this.state.buttonPressed[5][2]}</button></li>
           </ul>
 
         </div>
         <div className="buttonGroup2">
           <ul>
-            <li><button className={I7_c} onClick = {() => this.handleClick(I7)}>Chest Pain</button></li>
-            <li><button className={I8_c} onClick = {() => this.handleClick(I8)}>Shortness of Breath</button></li>
-            <li><button className={I9_c} onClick = {() => this.handleClick(I9)}>Cough</button></li>
-            <li><button className={I10_c} onClick = {() => this.handleClick(I10)}>Weight Loss</button></li>
-            <li><button className={I11_c} onClick = {() => this.handleClick(I11)}>Lung Cancer</button></li>
-            <li><button className={I12_c} onClick = {() => this.handleClick(I12)}>Lung Cancer</button></li>
-            <li><button className={I13_c} onClick = {() => this.handleClick(I13)}>Lung Cancer</button></li>
+            <li><button className={I7_c} onClick = {() => this.handleClick(I7)}>{this.state.buttonPressed[6][2]}</button></li>
+            <li><button className={I8_c} onClick = {() => this.handleClick(I8)}>{this.state.buttonPressed[7][2]}</button></li>
+            <li><button className={I9_c} onClick = {() => this.handleClick(I9)}>{this.state.buttonPressed[8][2]}</button></li>
+            <li><button className={I10_c} onClick = {() => this.handleClick(I10)}>{this.state.buttonPressed[9][2]}</button></li>
+            <li><button className={I11_c} onClick = {() => this.handleClick(I11)}>{this.state.buttonPressed[10][2]}</button></li>
+            <li><button className={I12_c} onClick = {() => this.handleClick(I12)}>{this.state.buttonPressed[11][2]}</button></li>
+            <li><button className={I13_c} onClick = {() => this.handleClick(I13)}>{this.state.buttonPressed[12][2]}</button></li>
           </ul>
         </div>
         <div className="buttonGroup3">
           <ul>
-            <li><button className={I14_c} onClick = {() => this.handleClick(I14)}>Projection</button></li>
-            <li><button className={I15_c} onClick = {() => this.handleClick(I15)}>Airway</button></li>
-            <li><button className={I16_c} onClick = {() => this.handleClick(I16)}>Breathing</button></li>
-            <li><button className={I17_c} onClick = {() => this.handleClick(I17)}>Cardiac</button></li>
-            <li><button className={I18_c} onClick = {() => this.handleClick(I18)}>Lung Cancer</button></li>
-            <li><button className={I19_c} onClick = {() => this.handleClick(I19)}>Lung Cancer</button></li>
-            <li><button className={I20_c} onClick = {() => this.handleClick(I20)}>Lung Cancer</button></li>
+            <li><button className={I14_c} onClick = {() => this.handleClick(I14)}>{this.state.buttonPressed[13][2]}</button></li>
+            <li><button className={I15_c} onClick = {() => this.handleClick(I15)}>{this.state.buttonPressed[14][2]}</button></li>
+            <li><button className={I16_c} onClick = {() => this.handleClick(I16)}>{this.state.buttonPressed[15][2]}</button></li>
+            <li><button className={I17_c} onClick = {() => this.handleClick(I17)}>{this.state.buttonPressed[16][2]}</button></li>
+            <li><button className={I18_c} onClick = {() => this.handleClick(I18)}>{this.state.buttonPressed[17][2]}</button></li>
+            <li><button className={I19_c} onClick = {() => this.handleClick(I19)}>{this.state.buttonPressed[18][2]}</button></li>
+            <li><button className={I20_c} onClick = {() => this.handleClick(I20)}>{this.state.buttonPressed[19][2]}</button></li>
           </ul>
         </div>
       </div>

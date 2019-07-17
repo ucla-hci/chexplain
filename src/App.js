@@ -8,7 +8,9 @@ import PriorImages from './components/PriorImages';
 import Slider from './components/Slider';
 import QuestionInputMinimized from './components/QuestionInputMinimized';
 import ButtonListProto from './components/ButtonList2';
-import SendToRadiologist from './components/SendToRadiologist'
+import SendToRadiologist from './components/SendToRadiologist';
+import StartAnalysis from './components/StartAnalysis';
+
 
 class App extends Component {
   render(){
@@ -19,7 +21,6 @@ class App extends Component {
         <PriorImages/>
         <QuestionInputMinimized/>
         <Slider/>
-        <SendToRadiologist/>
       </div>
     );
   }
