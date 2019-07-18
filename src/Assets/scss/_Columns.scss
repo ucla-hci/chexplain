@@ -32,7 +32,7 @@ $trans_y_amount_h: 700%; //translate x amount for headers
     }
     .buttonGroup{
       .pressed{
-        background-color: aqua;
+        background-color: #D3D3D3;
       }
     }
     ul li{
@@ -59,7 +59,10 @@ $trans_y_amount_h: 700%; //translate x amount for headers
     }
     .buttonGroup{
       .pressed{
-        background-color: magenta;
+        background-color: #BEBEBE;
+      }
+      .select{
+        border: 1px solid black;
       }
     }
     ul li{
@@ -85,18 +88,18 @@ $trans_y_amount_h: 700%; //translate x amount for headers
       position:absolute;
       font-size: 15px;
       top: 23%; left: 78%;
-      height: 60%; width: 240px;
+      height: 60%; width: 251px;
       overflow-y: scroll;
       overflow-x: hidden;
       .pressed{
-        background-color: lightgreen;
+        background-color: #909090;
       }
-      .red {background-color: lightcoral;}
-      .sub3_3 {background-color: $lightBlue; width: 250px; padding-left: 25px;}
-      .sub3_8 {background-color: $lightBlue;}
+      .red {background-color: #989898;}
+      .sub3_3 {border: 3px solid; width: 251px; padding-left: 25px;}
+      .sub3_8 {border: 3px solid; width: 251px; padding-left: 25px;}
       .dropdown {
         position:absolute; display: inline-block;
-        .btn {float:left; width: 25px; height: 75px; background-color: lightcoral;}
+        .btn {float:left; width: 25px; height: 75px; }
       }
     }
     button {

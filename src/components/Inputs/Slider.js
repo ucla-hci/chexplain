@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Slider, Rail, Handles, Tracks, Ticks } from "react-compound-slider";
-import { SliderRail, Handle, Track, Tick } from "./components"; // example render components - source below
-import ButtonList from './ButtonList2';
-import StartAnalysis from './StartAnalysis';
+import { SliderRail, Handle, Track, Tick } from "./slider_components"; // example render components - source below
 
 const sliderStyle = {
   position: "relative",
@@ -29,6 +27,7 @@ class SlideBar extends Component {
       columns: copy
     });
     console.log(this.state.currentValue);
+    this.props.callbackFromParent(this.state.columns);
   }
   render() {
     return (
@@ -87,7 +86,6 @@ class SlideBar extends Component {
           </Ticks>
         </Slider>
       </div>
-      <StartAnalysis currentValue={this.state.columns}/>
       </div>
     );
   }

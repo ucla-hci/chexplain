@@ -7,11 +7,11 @@
     color:$white;
     font-size: 27px;
   }
-
   .sk-spinner {
     transform: scale(4);
     position: absolute;
     left:50%;
+    top:40%;
     z-index: 999;
   }
 }

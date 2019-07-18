@@ -11,7 +11,7 @@ class SendToRadiologist extends Component {
   }
   render(){
     return (
-      <div className="SendButton">
+      <div id="SendButton">
         <button onClick={() => this.handleClick()}>Send To Radiologists</button>
       </div>
     );

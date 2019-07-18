@@ -12,7 +12,7 @@ class Loading extends Component {
       this.setState({isAnalyzed: true}); //After 1 second, set render to true
       console.log(this.state.isAnalyzed);
       this.props.callbackFromParent(this.state.isAnalyzed);
-    }.bind(this), 7000);
+    }.bind(this), 3000);
   }
   render(){
     var Spinner = require('react-spinkit');

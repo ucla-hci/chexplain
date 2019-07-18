@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Dialog from './Dialog';
+import Dialog from '../Dialog';
 import Loading from './Loading';
-import Results from './ButtonList2';
+import Results from '../Results/ButtonList2';
 
 class StartAnalysis extends Component {
   constructor(props){
@@ -18,14 +18,12 @@ class StartAnalysis extends Component {
     this.setState({
       isAnalyzed: dataFromChild
     });
+    this.props.callbackFromParent(this.state.isAnalyzed);
   }
 
   render(){
     let loading = (
       <Loading callbackFromParent={this.myCallBack}/>
-    );
-    let results = (
-      <Results currentValue={this.props.currentValue}/>
     );
     let startAnalysis = this.state.isPressed?"pressedAnL":"StartAnalysis";
     return (
@@ -38,9 +36,6 @@ class StartAnalysis extends Component {
         )}>Start Analysis</button>
         {
           this.state.isOpen && loading
-        }
-        {
-          this.state.isAnalyzed && results
         }
       </div>
     );

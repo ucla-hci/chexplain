@@ -1,5 +1,5 @@
 // @flow weak
-
+//FOR THE SLIDER
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 

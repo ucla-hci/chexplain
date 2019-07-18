@@ -44,6 +44,9 @@ class Exam extends Component {
           inputsSelected1:[whichbutton]
         });
     }
+    send(){
+      document.getElementById("SendButton").style.visibility = "visible";
+    }
     handleClick2(whichbutton){
       console.log(whichbutton);
       this.state.buttonPressed2.map((buttons2) => {
@@ -141,7 +144,7 @@ class Exam extends Component {
                         <div class="divider"/>
                     </li>
                     <li>
-                        <button className={QT1_2} onClick = {() => this.handleClick1(QT2)}>Acute Pancreatitis</button>
+                        <button className={QT1_2} onClick = {(event) => {this.handleClick1(QT2); this.send()}}>Acute Pancreatitis</button>
                         <div class="divider"/>
                     </li>
                     <li>
@@ -207,26 +210,26 @@ class Exam extends Component {
         return(
           <div className="Columns">
             {
-              this.state.viewControl[0]?
+              this.props.currentValue[0]?
               DiffDiag:
               null
             }
             {
-              this.state.viewControl[1]?
+              this.props.currentValue[1]?
               Observations:
               null
             }
             {
-              this.state.viewControl[2]?
+              this.props.currentValue[2]?
               Exam:
               null
             }
-            {(this.state.showExam = "Examination") ? Exam: null}
+            {(this.state.showExam === "Examination") ? Exam: null}
           </div>
         );
     }
 }
-
+//{(this.state.showExam === "Examination") ? Exam: null}
 export default Exam;
 
 // import React, { Component } from "react";
