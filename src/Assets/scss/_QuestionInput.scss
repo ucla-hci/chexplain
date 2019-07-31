@@ -1,15 +1,27 @@
+$blue: #BDD6FB;
+$red: #FAB9B9;
+$green: #B2F3CC;
+$gray: #C4C4C4;
 .QuestionInput{
   .title{
     font-size: 20px;
     font-weight: bold;
+    padding-left: 2%;
+    padding-top: 2%;
+  }
+  .clear{
+    margin-left: 2%;
   }
   .selectedInputs{
     font-size: 15px;
+    margin-left: 2%;
   }
   .buttonGroup1{
     font-size:15px;
+    font-family: 'Roboto', sans-serif;
     .pressed{
-      background-color: $darkGrey;
+      border: 3px solid #2D9CDB;
+      // box-sizing: border-box;
     }
     .showMore{
       outline: none; border: 0px solid;
@@ -19,15 +31,18 @@
       list-style-type: none !important;
       list-style-position: inside;
       display: inline-block;
-      margin: 2px;
+      margin: 4px;
       padding-left: 0;
       padding-top: 0
+    }
+    button{
+      background-color: $blue;
     }
   }
   .buttonGroup2{
     font-size:15px;
     .pressed{
-      background-color: $darkGrey;
+      border: 3px solid #EB5757;
     }
     .showMore{
       outline: none; border: 0px solid;
@@ -37,15 +52,18 @@
       list-style-type: none !important;
       list-style-position: inside;
       display: inline-block;
-      margin: 2px;
+      margin: 4px;
       padding-left: 0;
       padding-top: 0
+    }
+    button{
+      background-color: $red;
     }
   }
   .buttonGroup3{
     font-size:15px;
     .pressed{
-      background-color: $darkGrey;
+      border: 3px solid #27AE60;
     }
     .showMore{
       outline: none; border: 0px solid;
@@ -55,14 +73,23 @@
       list-style-type: none !important;
       list-style-position: inside;
       display: inline-block;
-      margin: 2px;
+      margin: 4px;
       padding-left: 0;
       padding-top: 0
     }
+    button{
+      background-color: $green;
+    }
   }
-
+  position: absolute;
+  top: 12%;
+  left: 2%;
+  width: 37%;
+  height: 50%;
+  background: $gray;
 }
 
+//NO LONGER USED, BECAUSE MINIMIZED IS DEPRECATED
 .QuestionInputTitle{
   position: absolute;
   top: 75%; right: 1100px; left: 20px;

@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import Dialog from '../Dialog';
 import Loading from './Loading';
-import Results from '../Results/ButtonList2';
+import ImageUpload from './ImageUpload';
 
-class StartAnalysis extends Component {
+class Header extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -27,19 +26,22 @@ class StartAnalysis extends Component {
     );
     let startAnalysis = this.state.isPressed?"pressedAnL":"StartAnalysis";
     return (
-      <div className="AnalyzeButton">
-        <button className={startAnalysis} onClick={(e)=>(
-          this.setState({
-            isOpen: true,
-            isPressed: true
-          })
-        )}>Start Analysis</button>
-        {
-          this.state.isOpen && loading
-        }
+      <div className="header">
+        <ImageUpload/>
+        <div className="AnalyzeButton">
+          <button className={startAnalysis} onClick={(e)=>(
+            this.setState({
+              isOpen: true,
+              isPressed: true
+            })
+          )}>Start Analysis</button>
+          {
+            this.state.isOpen && loading
+          }
+        </div>
       </div>
     );
   }
 }
 
-export default StartAnalysis;
+export default Header;

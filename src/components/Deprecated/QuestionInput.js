@@ -105,7 +105,7 @@ class QuestionInput extends Component {
     return (
       <div className="QuestionInput">
         <div className="title">Question Input</div>
-        <button className="clear" onClick = {() => this.handleClear()}>Clear</button>
+        <button onClick = {() => this.handleClear()}>Clear</button>
         <div className="selectedInputs">Selected Questions:&ensp;{this.state.displayInput.join(", ")}</div>
         <div className="buttonGroup1">
           <ul>
@@ -120,6 +120,7 @@ class QuestionInput extends Component {
             <li><button className={I5_c} onClick = {() => this.handleClick(I5)}>{this.state.buttonPressed[4][2]}</button></li>
             <li><button className={I6_c} onClick = {() => this.handleClick(I6)}>{this.state.buttonPressed[5][2]}</button></li>
           </ul>
+
         </div>
         <div className="buttonGroup2">
           <ul>

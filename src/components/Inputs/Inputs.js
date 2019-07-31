@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import StartAnalysis from './StartAnalysis';
-import Slider from './Slider';
-import QuestionInputMinimized from './QuestionInputMinimized';
+import Header from './Header';
+import TimeConstraint from './TimeConstraint';
+import QuestionInput from './QuestionInput';
 import Results from '../Results/Results';
 
 class Inputs extends Component {
@@ -21,7 +21,7 @@ class Inputs extends Component {
     });
   }
 
-  myCallBackFromStartAnalysis = (dataFromChild) => {
+  myCallBackFromHeader = (dataFromChild) => {
     console.log(dataFromChild);
     this.setState({
       finishedAnalyze: dataFromChild
@@ -35,16 +35,15 @@ class Inputs extends Component {
     });
   }
 
-
   render(){
     let results = (
       <Results dataFromSlider={this.state.dataFromSlider} dataFromQuestion={this.state.questionInput}/>
     );
     return (
       <div>
-        <Slider callbackFromParent={this.myCallBackFromSlider}/>
-        <QuestionInputMinimized callbackFromParent={this.myCallBackFromQuestionInput}/>
-        <StartAnalysis callbackFromParent={this.myCallBackFromStartAnalysis}/>
+        <TimeConstraint callbackFromParent={this.myCallBackFromSlider}/>
+        <QuestionInput currentSet={this.state.questionInput}  callbackFromParent={this.myCallBackFromQuestionInput}/>
+        <Header callbackFromParent={this.myCallBackFromHeader}/>
         {
           this.state.finishedAnalyze && results
         }
