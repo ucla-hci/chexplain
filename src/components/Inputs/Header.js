@@ -24,21 +24,24 @@ class Header extends Component {
     let loading = (
       <Loading callbackFromParent={this.myCallBack}/>
     );
-    let startAnalysis = this.state.isPressed?"pressedAnL":"StartAnalysis";
     return (
+      <div>
       <div className="header">
         <ImageUpload/>
         <div className="AnalyzeButton">
-          <button className={startAnalysis} onClick={(e)=>(
+          <button className="StartAnalysis" onClick={(e)=>(
             this.setState({
               isOpen: true,
               isPressed: true
             })
           )}>Start Analysis</button>
+        </div>
+      </div>
+      <div>
           {
             this.state.isOpen && loading
           }
-        </div>
+      </div>
       </div>
     );
   }

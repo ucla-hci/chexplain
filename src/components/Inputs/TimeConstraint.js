@@ -22,6 +22,9 @@ class TimeConstraint extends Component {
       }else if(whichbutton===buttons[0]&&buttons[1]){
         buttons[1] = false;
         this.state.inputsSet.delete(buttons[2]);
+      }else{
+        buttons[1] = false;
+        this.state.inputsSet.delete(buttons[2]);
       }
     });
 

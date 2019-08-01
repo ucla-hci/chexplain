@@ -39,11 +39,18 @@ class Inputs extends Component {
     let results = (
       <Results dataFromSlider={this.state.dataFromSlider} dataFromQuestion={this.state.questionInput}/>
     );
-    return (
+    let inputs = (
       <div>
         <TimeConstraint callbackFromParent={this.myCallBackFromSlider}/>
         <QuestionInput currentSet={this.state.questionInput}  callbackFromParent={this.myCallBackFromQuestionInput}/>
         <Header callbackFromParent={this.myCallBackFromHeader}/>
+      </div>
+    );
+    return (
+      <div>
+        {
+          !this.state.finishedAnalyze && inputs
+        }
         {
           this.state.finishedAnalyze && results
         }

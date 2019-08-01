@@ -8,12 +8,12 @@ class Results extends Component {
   render(){
     return (
       <div>
-        <ResultsColumns currentValue={this.props.dataFromSlider}/>
-        <PriorImages/>
-        <Annotations display={this.props.dataFromQuestion}/>
+        results
       </div>
     );
   }
 }
-
+// <ResultsColumns currentValue={this.props.dataFromSlider}/>
+// <PriorImages/>
+// <Annotations display={this.props.dataFromQuestion}/>
 export default Results;
