@@ -22,7 +22,7 @@ class TimeConstraint extends Component {
       }else if(whichbutton===buttons[0]&&buttons[1]){
         buttons[1] = false;
         this.state.inputsSet.delete(buttons[2]);
-      }else{
+      }else{ //allows only one input to be selected
         buttons[1] = false;
         this.state.inputsSet.delete(buttons[2]);
       }
