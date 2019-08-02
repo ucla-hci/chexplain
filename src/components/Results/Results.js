@@ -11,11 +11,18 @@ class Results extends Component {
       questionInput: this.props.dataFromQuestion
     }
   }
+
+  callbackFromQuestion = (dataFromChild) => {
+    this.setState({
+      questionInput: dataFromChild
+    });
+  }
+
   render(){
     return (
       <div>
         <Header/>
-        <QuestionInputSelected dataFromQuestion={this.state.questionInput}/>
+        <QuestionInputSelected dataFromQuestion={this.state.questionInput} callbackFromParent={this.callbackFromQuestion}/>
       </div>
     );
   }

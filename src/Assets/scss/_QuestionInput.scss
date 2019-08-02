@@ -2,7 +2,8 @@ $blue: #BDD6FB;
 $red: #FAB9B9;
 $green: #B2F3CC;
 $gray: #C4C4C4;
-.QuestionInput{
+
+@mixin QuestionInput($w: 37%) {
   .title{
     font-size: 1.389vw;
     font-weight: bold;
@@ -22,7 +23,6 @@ $gray: #C4C4C4;
     font-family: 'Roboto', sans-serif;
     .pressed{
       border: 0.208vw solid #2D9CDB;
-      // box-sizing: border-box;
     }
     ul, li{
       list-style-type: none !important;
@@ -73,9 +73,17 @@ $gray: #C4C4C4;
   position: absolute;
   top: 12%;
   left: 2%;
-  width: 37%;
+  width: $w;
   height: 50%;
+}
+
+.QuestionInput{
+  @include QuestionInput;
   background: $gray;
+}
+
+.QuestionInputDialog{
+  @include QuestionInput(90%);
 }
 
 //NO LONGER USED, BECAUSE MINIMIZED IS DEPRECATED

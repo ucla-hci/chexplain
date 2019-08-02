@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-
+import { GoX } from "react-icons/go";
+import { IconContext } from "react-icons";
 let dialogStyles_big = {
     width: '90%',
     maxWidth: '100%',
@@ -33,24 +34,21 @@ let dialogStyles_small = {
 };
 
 let dialogCloseButtonStyles = {
-    marginBottom: '15px',
-    padding: '3px 8px',
-    cursor: 'pointer',
-    borderRadius: '50%',
-    border: 'none',
-    width: '30px',
-    height: '30px',
-    fontWeight: 'bold',
     alignSelf: 'flex-end'
 };
 
 class Dialog extends Component{
+  constructor(props){
+    super(props);
+  }
   render(){
     let dialogStyles = this.props.big?dialogStyles_big:dialogStyles_small;
     let dialog = (
-      <div className="Dialog" style={dialogStyles}>
-        <button style={dialogCloseButtonStyles} onClick={this.props.onClose}>x</button>
-        <div>{this.props.children}</div>
+      <div className="Dialog">
+        {this.props.children}
+        <IconContext.Provider value={{ size: "3.2vw" }}>
+        <div className="closeButton" onClick={this.props.onClose}><GoX/></div>
+        </IconContext.Provider>
       </div>
     );
     if(!this.props.isOpen){

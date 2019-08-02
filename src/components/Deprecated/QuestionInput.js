@@ -101,7 +101,7 @@ class QuestionInput extends Component {
         I19_c = this.state.buttonPressed[18][1]? "pressed":"I19",
         I20_c = this.state.buttonPressed[19][1]? "pressed":"I20";
     var I14 = "I14", I15 = "I15", I16 = "I16", I17 = "I17", I18 = "I18", I19 = "I19", I20 = "I20";
-
+    
     return (
       <div className="QuestionInput">
         <div className="title">Question Input</div>
