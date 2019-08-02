@@ -8,9 +8,10 @@ class Inputs extends Component {
   constructor(props){
     super(props);
     this.state = {
-      dataFromSlider: [true, true, true],
+      dataFromSlider: [],
       finishedAnalyze: false,
-      questionInput: []
+      questionInput: [],
+      imageurl: ''
     }
   }
 
@@ -35,15 +36,21 @@ class Inputs extends Component {
     });
   }
 
+  myCallBackFromImage = (dataFromChild) => {
+    this.setState({
+      imageurl: dataFromChild
+    });
+  }
+
   render(){
     let results = (
-      <Results dataFromSlider={this.state.dataFromSlider} dataFromQuestion={this.state.questionInput}/>
+      <Results dataFromImage={this.state.imageurl} dataFromSlider={this.state.dataFromSlider} dataFromQuestion={this.state.questionInput}/>
     );
     let inputs = (
       <div>
         <TimeConstraint callbackFromParent={this.myCallBackFromSlider}/>
         <QuestionInput currentSet={this.state.questionInput}  callbackFromParent={this.myCallBackFromQuestionInput}/>
-        <Header callbackFromParent={this.myCallBackFromHeader}/>
+        <Header callbackFromParentLoading={this.myCallBackFromHeader} callbackFromParentImage={this.myCallBackFromImage}/>
       </div>
     );
     return (

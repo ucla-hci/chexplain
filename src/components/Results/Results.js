@@ -1,14 +1,21 @@
 import React, {Component} from 'react';
-import ResultsColumns from './ButtonList2';
-import Annotations from './ToggleAnnotation';
-import PriorImages from './PriorImages';
+import Header from './Header';
+import QuestionInputSelected from './QuestionInputSelected';
 
 class Results extends Component {
-
+  constructor(props){
+    super(props);
+    this.state={
+      imageurl: this.props.dataFromImage,
+      timeConstraint: this.props.dataFromSlider,
+      questionInput: this.props.dataFromQuestion
+    }
+  }
   render(){
     return (
       <div>
-        results
+        <Header/>
+        <QuestionInputSelected dataFromQuestion={this.state.questionInput}/>
       </div>
     );
   }

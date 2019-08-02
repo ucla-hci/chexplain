@@ -1,0 +1,86 @@
+.loading{
+  h1{
+    position: absolute;
+    left:38%;
+    top:65%;
+    z-index: 999;
+    color:$white;
+    font-size: 27px;
+  }
+  .sk-spinner {
+    transform: scale(4);
+    position: absolute;
+    left:50%;
+    top:40%;
+    z-index: 999;
+  }
+}
+
+.AnalyzeButton{
+  .StartAnalysis{
+    position: absolute;
+    top: 50%;
+    left: 28%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 1.111vw;
+  }
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 6%;
+  background: $black;
+}
+
+.headerResult{
+  .PatientInfo{
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 1%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.528vw;
+    line-height: 1.944vw;
+    color: $white;
+  }
+  .PriorImages{
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 90%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-family: 'Roboto', sans-serif;;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.528vw;
+    line-height: 1.944vw;
+    color: $white;
+  }
+  .ShowHide{
+    position: absolute;
+    top: 50%;
+    left: 39.4%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .OnlyAb{
+    position: absolute;
+    top: 50%;
+    left: 56%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  button{
+    font-size: 1.111vw;
+  }
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 6%;
+  background: $black;
+}

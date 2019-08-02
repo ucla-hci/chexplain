@@ -8,26 +8,36 @@ class Header extends Component {
     this.state = {
       isOpen: false,
       isAnalyzed: false,
-      isPressed: false
+      isPressed: false,
+      url: ''
     }
   }
 
-  myCallBack = (dataFromChild) => {
+  myCallBackFromLoading = (dataFromChild) => {
     console.log(dataFromChild);
     this.setState({
       isAnalyzed: dataFromChild
     });
-    this.props.callbackFromParent(this.state.isAnalyzed);
+    this.props.callbackFromParentLoading(this.state.isAnalyzed);
   }
+
+  myCallBackFromImage = (dataFromChild) => {
+    console.log(dataFromChild);
+    this.setState({
+      url: dataFromChild
+    });
+    this.props.callbackFromParentImage(this.state.url);
+  }
+
 
   render(){
     let loading = (
-      <Loading callbackFromParent={this.myCallBack}/>
+      <Loading callbackFromParent={this.myCallBackFromLoading}/>
     );
     return (
       <div>
       <div className="header">
-        <ImageUpload/>
+        <ImageUpload callbackFromParent={this.myCallBackFromImage}/>
         <div className="AnalyzeButton">
           <button className="StartAnalysis" onClick={(e)=>(
             this.setState({

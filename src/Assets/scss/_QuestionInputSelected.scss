@@ -1,0 +1,33 @@
+.QuestionInputSelected{
+  .title{
+    font-size: 1.389vw;
+    font-style: normal;
+    font-weight: bold;
+    padding-left: 2%;
+    padding-top: 2%;
+    width: 100%;
+  }
+  ul, li{
+    list-style-type: none !important;
+    list-style-position: inside;
+    display: inline-block;
+    li{
+      padding: 5px;
+      background: $white;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+    }
+    margin: 0.5vw;
+    padding-left: 0;
+    padding-top: 10px;
+
+  }
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 9.31%;
+  left: 2%;
+  width: 36.1%;
+  min-height: 16%;
+  background: $gray;
+}

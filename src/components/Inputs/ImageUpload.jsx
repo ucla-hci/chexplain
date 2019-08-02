@@ -35,6 +35,7 @@ class ImageUpload extends Component {
       storage.ref('images').child(image.name).getDownloadURL().then(url => {
         console.log(url);
         this.setState({url});
+        this.props.callbackFromParent(this.state.url || 'https://via.placeholder.com/550x500');
       })
     });
   }
