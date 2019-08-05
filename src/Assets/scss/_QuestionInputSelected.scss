@@ -1,4 +1,4 @@
-.QuestionInputSelected{
+@mixin inputsSelected($top: 9.31%, $position: absolute, $minheight: 16%){
   .title{
     font-size: 1.389vw;
     font-style: normal;
@@ -19,15 +19,23 @@
     }
     margin: 0.5vw;
     padding-left: 0;
-    padding-top: 0.694vw;
-
+    padding-top: 0.494vw;
+    padding-bottom: 0.694vw;
   }
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 9.31%;
+  position: $position;
+  top: $top;
   left: 2%;
   width: 36.1%;
-  min-height: 16%;
+  min-height: $minheight;
   background: $gray;
+}
+
+.QuestionInputSelected{
+  @include inputsSelected;
+}
+
+.TimeConstraintSelected{
+  @include inputsSelected(31%, absolute, 12%);
 }

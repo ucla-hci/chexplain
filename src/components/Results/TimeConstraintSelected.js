@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import Dialog from '../Dialog';
 import QuestionInput from '../Inputs/QuestionInput';
+import TimeConstraint from '../Inputs/TimeConstraint';
 
-class QuestionInputSelected extends Component {
+class TimeConstraintSelected extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      inputsSelected: this.props.dataFromQuestion,
+      inputsSelected: this.props.dataFromTime,
       isOpen: false
     };
   }
@@ -22,12 +23,12 @@ class QuestionInputSelected extends Component {
   render(){
     return (
       <div>
-      <div className="QuestionInputSelected" onClick={(e)=>(
+      <div className="TimeConstraintSelected" onClick={(e)=>(
         this.setState({
           isOpen: true
         })
       )}>
-        <div className="title">Question Input</div>
+        <div className="title">Time Constraint</div>
         <div className="buttonGroup1">
           <ul>
             {
@@ -40,15 +41,16 @@ class QuestionInputSelected extends Component {
       </div>
       <div>
         <Dialog isOpen={this.state.isOpen}
-                big={true}
+                big={false}
                 onClose={(e)=>(this.setState({
                   isOpen: false
                 }))}>
-                <QuestionInput type={false} currentSet={this.state.inputsSelected} callbackFromParent={this.myCallBack}/>
+          <TimeConstraint type={false} callbackFromParent={this.myCallBack}/>
         </Dialog>
       </div>
       </div>
     );
   }
 }
-export default QuestionInputSelected;
+
+export default TimeConstraintSelected;

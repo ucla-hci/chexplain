@@ -1,4 +1,4 @@
-.TimeConstraint{
+@mixin TimeConstraint($w: 37%, $t: 65%){
   .title{
     font-size: 1.389vw;
     font-weight: bold;
@@ -29,9 +29,17 @@
     }
   }
   position: absolute;
-  top: 65%;
+  top: $t;
   left: 2%;
-  width: 37%;
+  width: $w;
   height: 20%;
+}
+
+.TimeConstraint{
+  @include TimeConstraint;
   background: $gray;
+}
+
+.TimeConstraintDialog{
+  @include TimeConstraint($w: 90%, $t:0%);
 }

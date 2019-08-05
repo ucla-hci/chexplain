@@ -48,7 +48,7 @@ class Inputs extends Component {
     );
     let inputs = (
       <div>
-        <TimeConstraint callbackFromParent={this.myCallBackFromSlider}/>
+        <TimeConstraint type={true} callbackFromParent={this.myCallBackFromSlider}/>
         <QuestionInput type={true} currentSet={this.state.questionInput}  callbackFromParent={this.myCallBackFromQuestionInput}/>
         <Header callbackFromParentLoading={this.myCallBackFromHeader} callbackFromParentImage={this.myCallBackFromImage}/>
       </div>

@@ -1,14 +1,14 @@
-@mixin Dialog($width: 47%){
+@mixin Dialog($width: 47%, $height: 45%){
   position: absolute;
   min-width: $width;
   margin: 0 auto;
   padding: 10px 10px 40px 40px;
   left: 50%;
   top: 50%;
-  min-height: 50%;
+  min-height: $height;
   max-height: 100%;
   transform: translate(-50%,-50%);
-  z-index: 999;
+  z-index: 995;
   background-color:$white;
   border: 6px solid #C4C4C4;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
@@ -16,9 +16,14 @@
   flex-direction: column;
   .closeButton{
     align-self: flex-end;
+    z-index: 999;
   }
 }
 
 .Dialog{
   @include Dialog;
+
+}
+.DialogSmall{
+  @include Dialog(30%, 20%);
 }
