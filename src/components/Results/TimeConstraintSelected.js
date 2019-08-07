@@ -9,7 +9,8 @@ class TimeConstraintSelected extends Component {
     super(props);
     this.state = {
       inputsSelected: this.props.dataFromTime,
-      isOpen: false
+      isOpen: false,
+      questionHeight: -1
     };
   }
 
@@ -21,15 +22,16 @@ class TimeConstraintSelected extends Component {
   }
 
   render(){
+    console.log("rerendered");
     return (
       <div>
-      <div className="TimeConstraintSelected" onClick={(e)=>(
+      <div className="TimeConstraintSelected" id="tcs" onClick={(e)=>(
         this.setState({
           isOpen: true
         })
       )}>
         <div className="title">Time Constraint</div>
-        <div className="buttonGroup1">
+        <div className="buttonGroup1" >
           <ul>
             {
               this.state.inputsSelected.map((currElement) => {

@@ -2,10 +2,8 @@
 @import "_colors.scss"; //needs to be the first one as other files use the colors
 @import "_ImageUpload.scss";
 @import "_PriorImages.scss";
-@import "_PatientInfo.scss";
 @import "_QuestionInput.scss";
 @import "_QuestionInputSelected.scss";
-@import "_Columns.scss";
 @import "_TimeConstraint.scss";
 @import "_Annotations.scss";
 @import "_Header.scss";
@@ -37,6 +35,12 @@ body{
     width:50px;
     height:auto;
     display:table-cell;
+}
+
+.divider3{
+  width:auto;
+  position: absolute;
+  height: 50%;
 }
 
 .test{

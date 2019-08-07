@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import Header from './Header';
 import QuestionInputSelected from './QuestionInputSelected';
 import TimeConstraintSelected from './TimeConstraintSelected';
+import Observations from './Observations';
+import Impressions from './Impressions';
+
 
 class Results extends Component {
   constructor(props){
@@ -9,7 +12,9 @@ class Results extends Component {
     this.state={
       imageurl: this.props.dataFromImage,
       timeConstraint: this.props.dataFromSlider,
-      questionInput: this.props.dataFromQuestion
+      questionInput: this.props.dataFromQuestion,
+      observations: ["Large right sided pleural effusion","Small left sided pleural effusion"], //to be passed here by backend
+      impressions: ["Pneumonia", "Pulmonary Edema", "Pulmonary Infarction"]
     }
   }
 
@@ -29,8 +34,15 @@ class Results extends Component {
     return (
       <div>
         <Header/>
-        <QuestionInputSelected dataFromQuestion={this.state.questionInput} callbackFromParent={this.callbackFromQuestion}/>
-        <TimeConstraintSelected dataFromTime={this.state.timeConstraint} callbackFromParent={this.callbackFromTime}/>
+        <div className="results">
+          <QuestionInputSelected dataFromQuestion={this.state.questionInput} callbackFromParent={this.callbackFromQuestion}/>
+          <br/>
+          <TimeConstraintSelected dataFromTime={this.state.timeConstraint} callbackFromParent={this.callbackFromTime}/>
+          <br/>
+          <Observations observations={this.state.observations}/>
+          <br/>
+          <Impressions impressions={this.state.impressions}/>
+        </div>
       </div>
     );
   }
