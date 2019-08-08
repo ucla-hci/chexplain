@@ -95,3 +95,9 @@
 .Impressions{
   @include resultBox2(80%, 17%);
 }
+
+.imageDisplay{
+  position: absolute;
+  top: 6%; left:38.5%;
+  width: 50%;
+}

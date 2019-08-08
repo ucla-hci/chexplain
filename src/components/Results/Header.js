@@ -15,11 +15,12 @@ class Header extends Component {
       <div className="headerResult">
         <div className="PatientInfo">Patient Information: {this.state.gender}. {this.state.age}</div>
         <div className="PriorImages">Prior Images</div>
-        <button className="ShowHide">Show/Hide All</button>
-        <button className="OnlyAb">Only Abnormal</button>
+
       </div>
     );
   }
 }
+// <button className="ShowHide">Show/Hide All</button>
+// <button className="OnlyAb">Only Abnormal</button>
 
 export default Header;

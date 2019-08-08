@@ -4,6 +4,8 @@ import QuestionInputSelected from './QuestionInputSelected';
 import TimeConstraintSelected from './TimeConstraintSelected';
 import Observations from './Observations';
 import Impressions from './Impressions';
+import ImageDisplay from './ImageDisplay';
+import ToggleAnnotation from './ToggleAnnotation';
 
 
 class Results extends Component {
@@ -43,6 +45,8 @@ class Results extends Component {
           <br/>
           <Impressions impressions={this.state.impressions}/>
         </div>
+        <ImageDisplay url={this.state.imageurl}/>
+        <ToggleAnnotation display={this.state.questionInput}/>
       </div>
     );
   }

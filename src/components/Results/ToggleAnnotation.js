@@ -8,19 +8,20 @@ class ToggleAnnotation extends Component {
             show: true,
             showAll: false,
             inherited: [...this.props.display],
-            args: [false, false, false, false, true], //pleural effusion, airway, breathing, cardiac, unclear
+            args: [false, false, false, false, true, false], //pleural effusion, airway, breathing, cardiac, unclear, abnormal
             pressedResults:["Hom Opac"]
         }
     }
 
     handleClick(whichButton){
-      if(whichButton==="toggle"){
-        if(this.state.show === false){
-            this.setState({show: true});
-            console.log("true");
+      if(whichButton==="onlyAbnormal"){
+        var temp = this.state.args;
+        if(this.state.args[5] === false){
+            temp[5]=true;
+            this.setState({args: temp});
         } else {
-            this.setState({show: false});
-            console.log("false");
+            temp[5]=false;
+            this.setState({args: temp});
         }
       }
       if(whichButton==="showAll"){
@@ -54,6 +55,7 @@ class ToggleAnnotation extends Component {
             <textarea className= { `${"a5"} ${"Breathing"}`} rows="3" cols="7" disabled> Meniscus present</textarea>
             <textarea className= { `${"a6"} ${"Breathing"}`} rows="3" cols="12" disabled> Homogenous opacity </textarea>
             <textarea className= { `${"a2"} ${"Breathing"}`} rows="2" cols="7" disabled> Clear left lung </textarea>
+            <textarea className= { `${"a9"} ${"Breathing"}`} rows="3" cols="10" disabled> Evaluable right lung clear </textarea>
           </div>
         );
         let group4 = ( //cardiac
@@ -67,17 +69,26 @@ class ToggleAnnotation extends Component {
             <textarea className= { `${"a8"} ${"Unclear"}`} rows="4" cols="10" disabled> Obliteration of the right costophrenic angle </textarea>
           </div>
         );
+        let group6 = ( //abnormal
+          <div>
+            <textarea className= { `${"a4"} ${"Breathing"}`} rows="4" cols="12" disabled> Minor blunting of the left costophrenic angle</textarea>
+            <textarea className= { `${"a5"} ${"Breathing"}`} rows="3" cols="7" disabled> Meniscus present</textarea>
+            <textarea className= { `${"a6"} ${"Breathing"}`} rows="3" cols="12" disabled> Homogenous opacity </textarea>
+            <textarea className= { `${"a7"} ${"Unclear"}`} rows="4" cols="18" disabled> The right hemidiaphragm and cardiac contour are not visible</textarea>
+            <textarea className= { `${"a8"} ${"Unclear"}`} rows="4" cols="10" disabled> Obliteration of the right costophrenic angle </textarea>
+          </div>
+        );
         let all = (
-          <div>{group1}{group2}{group3}{group4}</div>
+          <div>{group1}{group2}{group3}{group4}{group5}</div>
         );
         let showAll = this.state.showAll?"pressed_s":"showAll";
         let showAllButton = (
           <div><button className = {showAll} onClick = {() => this.handleClick("showAll")}> Show All </button></div>
         );
-        let toggle = this.state.show?"pressed_t":"toggle";
+        let toggle = this.state.args[5]?"pressed_t":"toggle";
         return(
             <div className = "Annotations">
-              <button className = {toggle} onClick = {() => this.handleClick("toggle")}> Toggle Annotation </button>
+              <button className = {toggle} onClick = {() => this.handleClick("onlyAbnormal")}> Only Abnormal </button>
               <div>
               {
                 this.state.show && showAllButton
@@ -103,8 +114,8 @@ class ToggleAnnotation extends Component {
                   group4
               }
               {
-                this.state.show && true &&
-                  group5
+                this.state.show && this.state.args[5] &&
+                  group6
               }
               </div>
             </div>

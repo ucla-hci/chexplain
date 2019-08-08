@@ -71,7 +71,6 @@ class QuestionInputSelected extends Component {
     };
   }
 
-
   render(){
     return (
       <div>
