@@ -17,7 +17,8 @@ class Results extends Component {
       timeConstraint: this.props.dataFromSlider,
       questionInput: this.props.dataFromQuestion,
       observations: ["Large right sided pleural effusion","Small left sided pleural effusion"], //to be passed here by backend
-      impressions: ["Pneumonia", "Pulmonary Edema", "Pulmonary Infarction"]
+      impressions: ["Pneumonia", "Pulmonary Edema", "Pulmonary Infarction"],
+      priorImagesOpened: false
     }
   }
 
@@ -33,9 +34,15 @@ class Results extends Component {
     });
   }
 
+  callbackFromPriorImages = (dataFromChild) => {
+    this.setState({
+      priorImagesOpened: dataFromChild
+    });
+  }
+
   render(){
-    return (
-      <div>
+    let resultpart1 = (
+      <div className="resultpart1">
         <Header/>
         <div className="results">
           <QuestionInputSelected dataFromQuestion={this.state.questionInput} callbackFromParent={this.callbackFromQuestion}/>
@@ -48,7 +55,21 @@ class Results extends Component {
         </div>
         <ImageDisplay url={this.state.imageurl}/>
         <ToggleAnnotation display={this.state.questionInput}/>
-        <PriorImages/>
+      </div>
+    );
+    let resultpart2 = ( //prior images
+      <div>
+      <PriorImages callbackFromParent={this.callbackFromPriorImages}/>
+      </div>
+    );
+    return (
+      <div>
+        {
+          !this.state.priorImagesOpened && resultpart1
+        }
+        {
+          resultpart2
+        }
       </div>
     );
   }

@@ -10,12 +10,10 @@ class Header extends Component {
   }
 
   render(){
-
     return (
       <div className="headerResult">
         <div className="PatientInfo">Patient Information: {this.state.gender}. {this.state.age}</div>
         <div className="PriorImages">Prior Images</div>
-
       </div>
     );
   }
