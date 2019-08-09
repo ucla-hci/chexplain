@@ -6,6 +6,7 @@ import Observations from './Observations';
 import Impressions from './Impressions';
 import ImageDisplay from './ImageDisplay';
 import ToggleAnnotation from './ToggleAnnotation';
+import PriorImages from './PriorImages';
 
 
 class Results extends Component {
@@ -47,6 +48,7 @@ class Results extends Component {
         </div>
         <ImageDisplay url={this.state.imageurl}/>
         <ToggleAnnotation display={this.state.questionInput}/>
+        <PriorImages/>
       </div>
     );
   }

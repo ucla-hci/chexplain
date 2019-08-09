@@ -5,14 +5,13 @@
   ul, li{
     list-style-type: none !important;
     list-style-position: inside;
-    display: inline-block;
-    margin: 4px;
+    // display: inline-block;
+    margin-bottom: 10px;
     padding-left: 0;
   }
   font-size: 10px;
   position: absolute;
-  top: 5%;  left: 20px;
-  @include translate(60%,-20%);
+  top: 8%;  left: 89%;
 }
 
 .ImageWindow{
