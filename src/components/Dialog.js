@@ -3,9 +3,6 @@ import { GoX } from "react-icons/go";
 import { IconContext } from "react-icons";
 
 class Dialog extends Component{
-  constructor(props){
-    super(props);
-  }
   render(){
     let dialogStyles = this.props.big?"Dialog":"DialogSmall";
     let dialog = (

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Dialog from '../Dialog';
-import QuestionInput from '../Inputs/QuestionInput';
 import TimeConstraint from '../Inputs/TimeConstraint';
 
 class TimeConstraintSelected extends Component {

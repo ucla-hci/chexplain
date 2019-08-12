@@ -9,9 +9,6 @@
 @import "_Header.scss";
 @import "_Dialog.scss";
 
-body{
-  font-size: 10px;
-}
 
 .overlay{
   position: fixed; /* Sit on top of the page content */
@@ -24,6 +21,12 @@ body{
   background-color: rgba(0,0,0,0.5); /* Black background with opacity */
   z-index: 990; /* Specify a stack order in case you're using a different order for other elements */
 }
+
+.magnifying-glass{
+  z-index: 999;
+  position: absolute;
+}
+
 
 .divider{
     width:10px;

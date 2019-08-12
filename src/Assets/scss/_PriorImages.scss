@@ -4,6 +4,9 @@
     list-style-position: inside;
     margin-bottom: 0.894vw;
     padding-left: 0;
+    img{
+      height: 6vw;
+    }
   }
   font-size: 0.694vw;
   position: absolute;
@@ -14,11 +17,17 @@
   .currentImage{
     position: absolute;
     left: 0px; top: 6%;
+    width: 45%;
+    overflow: scroll;
+    z-index: 0;
   }
   .priorImage{
     position: absolute;
-    left: 49.306vw;
-    top: 6.5%;
+    left: 44.956vw;
+    top: 6%;
+    width: 45%;
+    overflow: scroll;
+    z-index: 0;
   }
 }
 

@@ -50,15 +50,14 @@ class PriorImages extends Component{
 
   render(){
     const { photoIndex,dateIndex,isOpen } = this.state;
-    var iheight = 86.4, iwidth = 105.6;
     let display = (
       <div className="display">
       <div className="currentImage">
-        <Magnifier src={require('../../images/testimage.png')} mgShape='square' width={70+"%"} />
+        <Magnifier src={images[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' width={900} />
       </div>
       <div className="divider2"/><div className="divider2"/><div className="divider2"/><div className="divider"/>
       <div className="priorImage">
-        <Magnifier src={images[this.state.photoIndex]} mgShape='square' width={500} />
+        <Magnifier src={images[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' width={900} />
       </div>
       <div className="headerPriorImage">
         <div className="ImageDescriptionRight">Prior CXR Image: {dates[this.state.dateIndex]}</div>
@@ -75,12 +74,12 @@ class PriorImages extends Component{
       <div className="PriorImages">
         <div className="ImageGroup">
           <ul>
-            <li><img src = {images[0]} alt="Image_0" height = {iheight} width = {iwidth} onClick = {() => this.handleClick(0)}/></li>
-            <li><img src = {images[1]} alt="Image_1" height = {iheight} width = {iwidth} onClick = {() => this.handleClick(1)}/></li>
-            <li><img src = {images[2]} alt="Image_2" height = {iheight} width = {iwidth} onClick = {() => this.handleClick(2)}/></li>
-            <li><img src = {images[3]} alt="Image_3" height = {iheight} width = {iwidth} onClick = {() => this.handleClick(3)}/></li>
-            <li><img src = {images[4]} alt="Image_4" height = {iheight} width = {iwidth} onClick = {() => this.handleClick(4)}/></li>
-            <li><img src = {images[5]} alt="Image_5" height = {iheight} width = {iwidth} onClick = {() => this.handleClick(5)}/></li>
+            <li><img src = {images[0]} alt="Image_0" onClick = {() => this.handleClick(0)}/></li>
+            <li><img src = {images[1]} alt="Image_1" onClick = {() => this.handleClick(1)}/></li>
+            <li><img src = {images[2]} alt="Image_2" onClick = {() => this.handleClick(2)}/></li>
+            <li><img src = {images[3]} alt="Image_3" onClick = {() => this.handleClick(3)}/></li>
+            <li><img src = {images[4]} alt="Image_4" onClick = {() => this.handleClick(4)}/></li>
+            <li><img src = {images[5]} alt="Image_5" onClick = {() => this.handleClick(5)}/></li>
           </ul>
         </div>
       </div>
