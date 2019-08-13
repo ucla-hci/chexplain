@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Magnifier from "react-magnifier";
+import Magnifier from "../Magnifier.es";
 import { GoX } from "react-icons/go";
 import { IconContext } from "react-icons";
 
@@ -53,11 +53,11 @@ class PriorImages extends Component{
     let display = (
       <div className="display">
       <div className="currentImage">
-        <Magnifier src={images[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' width={900} />
+        <Magnifier src={images[this.state.photoIndex]}  mgShape='square' mgShowOverflow='false' />
       </div>
       <div className="divider2"/><div className="divider2"/><div className="divider2"/><div className="divider"/>
       <div className="priorImage">
-        <Magnifier src={images[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' width={900} />
+        <Magnifier src={images[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' />
       </div>
       <div className="headerPriorImage">
         <div className="ImageDescriptionRight">Prior CXR Image: {dates[this.state.dateIndex]}</div>

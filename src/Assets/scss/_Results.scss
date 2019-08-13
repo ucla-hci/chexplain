@@ -1,3 +1,4 @@
+$width: 29vw;
 @mixin resultBox($top: 9.31%, $position: relative, $minheight: 16%){
   .title{
     font-size: 1.389vw;
@@ -13,8 +14,8 @@
   flex-direction: column;
   position: $position;
   top: $top;
-  left: 2%;
-  width: 36.111vw;
+  left: 1%;
+  width: $width;
   min-height: $minheight;
   background: $gray;
 }
@@ -39,7 +40,7 @@
 }
 
 @mixin rectangle{
-  width: 36.111vw;
+  width: $width;
   height: 3.472vw;
   background: #FFFFFF;
   border: 0.069vw solid #000000;
@@ -98,6 +99,6 @@
 
 .imageDisplay{
   position: absolute;
-  top: 6%; left:39.5%;
-  width: 50%;
+  top: 6%; left:30.5%;
+  width: 60%;
 }

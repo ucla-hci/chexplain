@@ -11,8 +11,8 @@ class ImageDisplay extends Component {
 
   render(){
     return (
-      <div>
-        <img className="imageDisplay" src={this.state.url || 'https://via.placeholder.com/739x842'} alt="Uploaded Images"/>
+      <div className="imageDisplayWindow">
+        <img className="imageDisplay" src={this.state.url || 'https://via.placeholder.com/390x320'} alt="Uploaded Images"/>
       </div>
     );
   }
