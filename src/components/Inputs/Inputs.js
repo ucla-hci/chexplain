@@ -8,7 +8,7 @@ class Inputs extends Component {
   constructor(props){
     super(props);
     this.state = {
-      dataFromSlider: [],
+      dataFromSlider: [], //Time Constraint, not most updated after going in output page
       finishedAnalyze: false,
       questionInput: [],
       imageurl: ''
@@ -48,7 +48,7 @@ class Inputs extends Component {
     );
     let inputs = (
       <div>
-        <TimeConstraint type={true} callbackFromParent={this.myCallBackFromSlider}/>
+        <TimeConstraint type={true} original={[]} callbackFromParent={this.myCallBackFromSlider}/>
         <QuestionInput type={true} currentSet={this.state.questionInput}  callbackFromParent={this.myCallBackFromQuestionInput}/>
         <Header callbackFromParentLoading={this.myCallBackFromHeader} callbackFromParentImage={this.myCallBackFromImage}/>
       </div>

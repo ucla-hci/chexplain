@@ -9,7 +9,6 @@ $width: 29vw;
     padding-bottom: 2%;
     width: 100%;
   }
-
   display: inline-block;
   flex-direction: column;
   position: $position;
@@ -53,12 +52,12 @@ $width: 29vw;
 }
 
 .TimeConstraintSelected{
-  @include resultBoxButton(25%, relative, 12%);
+  @include resultBox;
 }
 
 .results{
   position: absolute;
-  top: 10%;
+  top: 8%;
   width:100%;
   display: flex;
   flex-direction: column;
@@ -99,6 +98,6 @@ $width: 29vw;
 
 .imageDisplay{
   position: absolute;
-  top: 6%; left:30.5%;
+  top: 8%; left:30.5%;
   width: 60%;
 }

@@ -51,6 +51,7 @@ class PriorImages extends Component{
   render(){
     const { photoIndex,dateIndex,isOpen } = this.state;
     let display = (
+      <div>
       <div className="display">
       <div className="currentImage">
         <Magnifier src={images[this.state.photoIndex]}  mgShape='square' mgShowOverflow='false' />
@@ -68,10 +69,7 @@ class PriorImages extends Component{
         <button className="annotationButton">Annotations</button>
       </div>
       </div>
-    );
-    return (
-      <div>
-      <div className="PriorImages">
+      <div className="PriorImages2">
         <div className="ImageGroup">
           <ul>
             <li><img src = {images[0]} alt="Image_0" onClick = {() => this.handleClick(0)}/></li>
@@ -83,6 +81,26 @@ class PriorImages extends Component{
           </ul>
         </div>
       </div>
+      </div>
+    );
+    return (
+      <div>
+      {
+        !this.state.isOpen && (
+          <div className="PriorImages">
+            <div className="ImageGroup">
+              <ul>
+                <li><img src = {images[0]} alt="Image_0" onClick = {() => this.handleClick(0)}/></li>
+                <li><img src = {images[1]} alt="Image_1" onClick = {() => this.handleClick(1)}/></li>
+                <li><img src = {images[2]} alt="Image_2" onClick = {() => this.handleClick(2)}/></li>
+                <li><img src = {images[3]} alt="Image_3" onClick = {() => this.handleClick(3)}/></li>
+                <li><img src = {images[4]} alt="Image_4" onClick = {() => this.handleClick(4)}/></li>
+                <li><img src = {images[5]} alt="Image_5" onClick = {() => this.handleClick(5)}/></li>
+              </ul>
+            </div>
+          </div>
+        )
+      }
       {
         this.state.isOpen && display
       }

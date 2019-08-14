@@ -13,6 +13,21 @@ class TimeConstraint extends Component {
     };
   }
 
+  componentWillMount(){
+    let tempCopy = this.state.buttonPressed;
+    if(this.props.original.length === 0)
+      return;
+    tempCopy.map((currElement) => {
+      if(currElement[2]===this.props.original[0]){
+        console.log("match found");
+        currElement[1] = true;
+      }
+    });
+    this.setState({
+      buttonPressed: tempCopy
+    });
+  }
+
 
   async handleClick(whichbutton){
     this.state.buttonPressed.map((buttons) => {
@@ -40,7 +55,7 @@ class TimeConstraint extends Component {
         I2_c = this.state.buttonPressed[1][1]? "pressed":"I2",
         I3_c = this.state.buttonPressed[2][1]? "pressed":"I3";
     var I1 = "I1", I2 = "I2", I3 = "I3";
-    var divName = this.props.type?"TimeConstraint":"TimeConstraintDialog";
+    var divName = this.props.type?"TimeConstraint":"TimeConstraintResult";
     return (
       <div className={divName}>
         <div className="title">Time Constraint</div>

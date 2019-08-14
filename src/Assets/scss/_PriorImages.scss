@@ -11,8 +11,26 @@
   }
   font-size: 0.694vw;
   position: absolute;
-  top: 8%;  left: 91%;
+  top: 8%;  left: 91.5%;
 }
+
+.PriorImages2{
+  ul, li{ //list of image
+    list-style-type: none !important;
+    list-style-position: inside;
+    display: inline-block;
+    margin-bottom: 0.894vw;
+    padding-left: 0;
+    padding: 10px;
+    img{
+      height: 8vw;
+    }
+  }
+  font-size: 0.694vw;
+  position: absolute;
+  top: 80%;  left: 8.5%;
+}
+
 
 .display{
   img{
