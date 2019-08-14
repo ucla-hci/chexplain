@@ -42,6 +42,9 @@ class ToggleAnnotation extends Component {
             <textarea className= { `${"a4"} ${"Breathing"}`} rows="4" cols="12" disabled> Minor blunting of the left costophrenic angle</textarea>
             <textarea className= { `${"a5"} ${"Breathing"}`} rows="3" cols="7" disabled> Meniscus present</textarea>
             <textarea className= { `${"a6"} ${"Breathing"}`} rows="3" cols="12" disabled> Homogenous opacity </textarea>
+            <div className="c1p11s11"/>
+            <div className="c2p11s11"/>
+            <div className="c3p11s11"/>
           </div>
         );
         let group2 = ( //airway
@@ -89,7 +92,6 @@ class ToggleAnnotation extends Component {
         return(
             <div className = "Annotations">
               <button className = {toggle} onClick = {() => this.handleClick("onlyAbnormal")}> Only Abnormal </button>
-              <div>
               {
                 this.state.show && showAllButton
               }
@@ -117,7 +119,6 @@ class ToggleAnnotation extends Component {
                 this.state.show && this.state.args[5] &&
                   group6
               }
-              </div>
             </div>
         );
     }

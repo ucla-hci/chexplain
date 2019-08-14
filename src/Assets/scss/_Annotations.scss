@@ -1,8 +1,9 @@
 .Annotations{
-  width:1000px;
-  height: 1000px;
+  width:60%;
+  height: 86.2%;
   position: absolute;
-  top: 4%; left: 50%;
+  top: 8%; left: 30.5%;
+  border: 5px solid $black;
   .PleuralEffusion {
     border-color:$white;
   }
@@ -21,24 +22,24 @@
   .toggle{
     position: absolute;
     z-index: 900;
-    top: -2%;
-    left: -3%;
+    top: -8.5%;
+    left: 20%;
     outline: none; border: 0px;
     font-size: 1.111vw;
   }
   .showAll{
     position: absolute;
     z-index: 900;
-    top: -2%;
-    left: -14%;
+    top: -8.5%;
+    left: 3%;
     outline: none; border: 0px;
     font-size: 1.111vw;
   }
   .pressed_t{
     position: absolute;
     z-index: 900;
-    top: -2%;
-    left: -3%;
+    top: -8.5%;
+    left: 20%;
     outline: none; border: 0px;
     font-size: 1.111vw;
     background-color: $darkGrey;
@@ -46,8 +47,8 @@
   .pressed_s{
     position: absolute;
     z-index: 900;
-    top: -2%;
-    left: -14%;
+    top: -8.5%;
+    left: 3%;
     outline: none; border: 0px;
     font-size: 1.111vw;
     background-color: $darkGrey;
@@ -106,4 +107,37 @@
     font-size: 16px;
   }
 
+}
+
+$baseWidth: 1094;
+$baseHeight: 898;
+
+@function divideWidth($width){
+  @return percentage($width/$baseWidth);
+}
+
+@function divideHeight($height){
+  @return percentage($height/$baseHeight);
+}
+
+@mixin circle($width, $height, $left, $top){
+  border-radius: 100%;
+  position: absolute;
+  width: divideWidth($width);
+  height: divideHeight($height);
+  left: divideWidth($left);
+  top: divideHeight($top);
+  background: rgba(238, 101, 101, 0.45);
+}
+
+.c1p11s11{ //edema
+  @include circle(805, 361, 157, 500);
+}
+
+.c2p11s11{ //support device
+  @include circle(124, 114, 923, 200);
+}
+
+.c3p11s11{ //support device
+  @include circle(100, 91, 348, 314);
 }
