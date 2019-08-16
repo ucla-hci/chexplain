@@ -45,11 +45,20 @@ class PriorImages extends Component{
       gender: this.props.patientGender,
       age: this.props.patientAge
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClickPriorImage = this.handleClickPriorImage.bind(this);
+    this.handleClickCrossPatient = this.handleClickCrossPatient.bind(this);
     this.handleClose = this.handleClose.bind(this);
   }
 
-  async handleClick(num){
+  async handleClickPriorImage(num){
+    await this.setState({
+      isOpen: true,
+      photoIndex: num
+    });
+    this.props.callbackFromParent(this.state.isOpen);
+  }
+
+  async handleClickCrossPatient(num){
     await this.setState({
       isOpen: true,
       photoIndex: num
@@ -77,9 +86,9 @@ class PriorImages extends Component{
         <div className="underline"/>
         <div className="ImageGroup">
           <ul>
-            <li><div className="imageCaption"><img src = {case11images[0]} alt="Image_0" onClick = {() => this.handleClick(0)}/>{dates[0]}</div></li>
-            <li><div className="imageCaption"><img src = {case11images[1]} alt="Image_1" onClick = {() => this.handleClick(1)}/>{dates[1]}</div></li>
-            <li><div className="imageCaption"><img src = {case11images[2]} alt="Image_2" onClick = {() => this.handleClick(2)}/>{dates[2]}</div></li>
+            <li><div className="imageCaption"><img src = {case11images[0]} alt="Image_0" onClick = {() => this.handleClickPriorImage(0)}/>{dates[0]}</div></li>
+            <li><div className="imageCaption"><img src = {case11images[1]} alt="Image_1" onClick = {() => this.handleClickPriorImage(1)}/>{dates[1]}</div></li>
+            <li><div className="imageCaption"><img src = {case11images[2]} alt="Image_2" onClick = {() => this.handleClickPriorImage(2)}/>{dates[2]}</div></li>
           </ul>
         </div>
       </div>
@@ -94,10 +103,10 @@ class PriorImages extends Component{
         <div className="underline"/>
         <div className="ImageGroup">
           <ul>
-            <li><div className="imageCaption"><img src = {case11CrossPatient[0][0]} alt="Image_0" onClick = {() => this.handleClick(0)}/>{case11CrossPatient[0][1]}</div></li>
-            <li><div className="imageCaption"><img src = {case11CrossPatient[1][0]} alt="Image_1" onClick = {() => this.handleClick(1)}/>{case11CrossPatient[1][1]}</div></li>
-            <li><div className="imageCaption"><img src = {case11CrossPatient[2][0]} alt="Image_2" onClick = {() => this.handleClick(2)}/>{case11CrossPatient[2][1]}</div></li>
-            <li><div className="imageCaption"><img src = {case11CrossPatient[3][0]} alt="Image_3" onClick = {() => this.handleClick(3)}/>{case11CrossPatient[3][1]}</div></li>
+            <li><div className="imageCaption"><img src = {case11CrossPatient[0][0]} alt="Image_0" onClick = {() => this.handleClickCrossPatient(0)}/>{case11CrossPatient[0][1]}</div></li>
+            <li><div className="imageCaption"><img src = {case11CrossPatient[1][0]} alt="Image_1" onClick = {() => this.handleClickCrossPatient(1)}/>{case11CrossPatient[1][1]}</div></li>
+            <li><div className="imageCaption"><img src = {case11CrossPatient[2][0]} alt="Image_2" onClick = {() => this.handleClickCrossPatient(2)}/>{case11CrossPatient[2][1]}</div></li>
+            <li><div className="imageCaption"><img src = {case11CrossPatient[3][0]} alt="Image_3" onClick = {() => this.handleClickCrossPatient(3)}/>{case11CrossPatient[3][1]}</div></li>
           </ul>
         </div>
       </div>
@@ -106,12 +115,12 @@ class PriorImages extends Component{
       <div>
       <div className="display">
       <div className="currentImage">
-        <Magnifier src={images[this.state.photoIndex]}  mgShape='square' mgShowOverflow='false' />
+        <Magnifier src={this.props.currentImage}  mgShape='square' mgShowOverflow='false' />
         <div className="text">Current CXR Image 2019/7/10</div>
       </div>
       <div className="divider2"/><div className="divider2"/><div className="divider2"/><div className="divider"/>
       <div className="priorImage">
-        <Magnifier src={images[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' />
+        <Magnifier className="magnifier" src={this.state.priorImageMode?case11images[this.state.photoIndex]:case11CrossPatient[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' />
         <div className="text">Prior CXR Image {dates[this.state.photoIndex]}</div>
       </div>
       <div className="headerPriorImage">

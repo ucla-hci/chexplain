@@ -8,7 +8,7 @@ import ImageDisplay from './ImageDisplay';
 import ToggleAnnotation from './ToggleAnnotation';
 import PriorImages from './PriorImages';
 import AdjustQuery from './AdjustQuery';
-
+import HoverWindow from './HoverWindow';
 
 class Results extends Component {
   constructor(props){
@@ -57,11 +57,12 @@ class Results extends Component {
           callbackFromParentQuestion={this.callbackFromQuestion}/>
         <Observations observations={this.state.observations}/>
         <Impressions impressions={this.state.impressions}/>
+        <HoverWindow/>
       </div>
     );
     let resultpart2 = ( //prior images
       <div>
-      <PriorImages patientAge={this.state.age} patientGender={this.state.gender} callbackFromParent={this.callbackFromPriorImages}/>
+      <PriorImages currentImage={this.state.imageurl} patientAge={this.state.age} patientGender={this.state.gender} callbackFromParent={this.callbackFromPriorImages}/>
       </div>
     );
     return (

@@ -1,4 +1,4 @@
-@mixin PriorImages($width: 55.21%){
+@mixin PriorImages($width: 55.21%, $left: 1.04%, $height: 20.22%){
   .title{
     @include defaultFont(1.02vw, normal);
     position: absolute;
@@ -46,8 +46,8 @@
   font-size: 0.694vw;
   position: absolute;
   width: $width;
-  height: 20.22%;
-  top: 77.55%;  left: 1.04%;
+  height: $height;
+  top: 77.55%;  left: $left;
   background: $darkGrey;
 }
 
@@ -55,10 +55,10 @@
   @include PriorImages;
 }
 .PriorImagesOpened{
-  @include PriorImages(100%);
+  @include PriorImages(100%, 0%, 23%);
 }
 
-@mixin AcrossPatient($width: 55.21%){
+@mixin AcrossPatient($width: 55.21%, $left: 1.04%, $height: 20.22%){
   .title{
     @include defaultFont(1.02vw, normal);
     position: absolute;
@@ -106,8 +106,8 @@
   font-size: 0.694vw;
   position: absolute;
   width: $width;
-  height: 20.22%;
-  top: 77.55%;  left: 1.04%;
+  height: $height;
+  top: 77.55%;  left: $left;
   background: $darkGrey;
 }
 
@@ -116,7 +116,7 @@
 }
 
 .AcrossPatientOpened{
-  @include AcrossPatient(100%);
+  @include AcrossPatient(100%, 0%, 23%);
 }
 
 //FROM HERE ON ITS CSS FOR PRIOR IMAGE VIEWING MODE
@@ -176,23 +176,27 @@
 
 
 .display{
-  img{
-    height: 58.2%;
-  }
   .currentImage{
     position: absolute;
-    left: 1.8%; top: 8.8%;
+    left: 1.8%; top:8%;
     z-index: 0;
-    width: 43.3%;
+    height: 36.389vw;
+    width: auto;
     @include defaultFont(0.885vw, normal, $white );
   }
   .priorImage{
     position: absolute;
     left: 50.6%;
-    top: 8.8%;
-    width: 43.3%;
+    top: 8%;
+    right: 4%;
+    height: 36.389vw;
+    width: 20%;
     z-index: 0;
-    @include defaultFont(0.885vw, normal, $white );
+    border: 5px solid $white;
+    @include defaultFont(0.885vw, normal, $white);
+    .magnifier{
+      width: 10px;
+    }
   }
 }
 

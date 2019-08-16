@@ -1,7 +1,5 @@
-$width: 19.86%;
-$height: 67.89%;
 //result box is used for Observations and Differential Diagnosis
-@mixin resultBox($top: 7.56%, $left:57.57%, $position: absolute){
+@mixin resultBox($top: 7.56%, $left:57.57%, $position: absolute, $width:19.86%, $height: 51.78%){
   .title{
     .text{
       @include defaultFont(1.20vw, normal);
@@ -35,42 +33,6 @@ $height: 67.89%;
   height: $height;
   background: $darkGrey;
 }
-//NOT USED
-@mixin resultBoxButton($top: 9.31%, $position: relative, $minheight: 13%){
-  @include resultBox($top, $position, $minheight);
-  ul, li{
-    list-style-type: none !important;
-    list-style-position: inside;
-    display: inline-block;
-    li{
-      padding: 0.347vw;
-      background: $white;
-      font-family: 'Roboto', sans-serif;
-      font-size: 0.972vw;
-    }
-    margin: 0.5vw;
-    padding-left: 0;
-    padding-top: 0.494vw;
-    padding-bottom: 0.694vw;
-  }
-}
-//NOT USED
-@mixin rectangle{
-  width: $width;
-  height: 3.472vw;
-  background: #FFFFFF;
-  border: 0.069vw solid #000000;
-  box-sizing: border-box;
-  box-shadow: 0px 0.278vw 0.278vw rgba(0, 0, 0, 0.25);
-}
-
-.QuestionInputSelected{
-  @include resultBoxButton;
-}
-
-.TimeConstraintSelected{
-  @include resultBox;
-}
 
 .queryList{
   position: absolute;
@@ -87,6 +49,11 @@ $height: 67.89%;
 .Impressions{
   @include resultBox(7.56%, 78.26%);
 }
+
+.HoverWindow{
+  @include resultBox(60.66%, 57.57%, absolute, 40.62%, 37.11%);
+}
+
 .imageDisplayWindow{
   position: absolute;
   top: 7.55%; left:1.04%;
