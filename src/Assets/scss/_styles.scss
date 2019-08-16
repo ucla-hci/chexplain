@@ -1,0 +1,70 @@
+$black: #010000;
+$white: #ffffff;
+$lightGrey: #393F52;
+$darkGrey: #212530;
+$lightBlue: #42C0FC; //BLUE USED FOR SHOW ALL BUTTON
+$darkGrey: #2D3242; //USED FOR ONLY ABNORMAL BUTTON
+
+@mixin translateX($e){
+	-webkit-transform: translateX($e);
+		-moz-transform: translateX($e);
+			transform: translateX($e);
+}
+
+@mixin translateY($e){
+	-webkit-transform: translateY($e);
+		-moz-transform: translateY($e);
+			transform: translateY($e);
+}
+
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+     -moz-transform: translate($x, $y);
+      -ms-transform: translate($x, $y);
+       -o-transform: translate($x, $y);
+          transform: translate($x, $y);
+}
+
+
+//condensed roboto font style used for Show All Button
+@mixin defaultFont($fontSize: 0.972vw, $fontWeight: bold, $color: #FFFEFE){
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+  color: $color;
+}
+//alignment of font to centered
+@mixin fontAlign($align: center){
+	margin: 0;
+	width: 100%;
+	text-align: $align;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+//NO BORDER WITH COLOR FILL
+@mixin defaultButton($color: $darkGrey, $fontSize: 0.972vw, $fontWeight: bold){
+  width: 15.47%;
+  height: 4.9%;
+  background: $color;
+  outline: none; border: 0px;
+  cursor: pointer;
+  .text{
+    @include defaultFont($fontSize, $fontWeight);
+    @include fontAlign;
+  }
+}
+//BORDER WITH NO COLOR FILL
+@mixin borderButton($color: $lightBlue, $width:15.47%, $height: 4.9%){
+  width: $width;
+  height: $height;
+  border: 2px solid $color;
+  box-sizing: border-box;
+  cursor: pointer;
+  .text{
+    @include defaultFont(0.972vw, normal, $color);
+    @include fontAlign;
+  }
+}

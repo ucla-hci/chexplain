@@ -1,17 +1,160 @@
-.PriorImages{
-  ul, li{ //list of image
-    list-style-type: none !important;
-    list-style-position: inside;
-    display: inline-block;
-    margin-bottom: 0.894vw;
-    padding-left: 0;
-    img{
-      height: 6vw;
+@mixin PriorImages($width: 55.21%){
+  .title{
+    @include defaultFont(1.02vw, normal);
+    position: absolute;
+    left: 0.628%;
+    top: 5.5%;
+  }
+  .hiddenTitle{
+    @include defaultFont(1.02vw, normal, #5E6375);
+    position: absolute;
+    left: 12.45%;
+    top: 5.5%;
+    cursor: pointer;
+  }
+  .underline{
+    position: absolute;
+    width: 5.060vw;
+    height: 0vw;
+    left: 0.64%;
+    top: 16.41%;
+    border: 0.11vw solid #42C0FC;
+  }
+  .ImageGroup{
+    ul, li{ //list of image
+      list-style-type: none !important;
+      list-style-position: inside;
+      display: inline-block;
+      padding-right: 5px;
+      margin-left: 0;
+      padding-left: 0;
+      .imageCaption{
+        width: 8vw;
+        text-align: right;
+        @include defaultFont(0.625vw, normal, $lightBlue);
+        img{
+          height: 6.5vw;
+          display: table;
+          margin: 0 auto;
+        }
+      }
     }
+    position: absolute;
+    left:1.14%;
+    top:30%;
   }
   font-size: 0.694vw;
   position: absolute;
-  top: 8%;  left: 91.5%;
+  width: $width;
+  height: 20.22%;
+  top: 77.55%;  left: 1.04%;
+  background: $darkGrey;
+}
+
+.PriorImages{
+  @include PriorImages;
+}
+.PriorImagesOpened{
+  @include PriorImages(100%);
+}
+
+@mixin AcrossPatient($width: 55.21%){
+  .title{
+    @include defaultFont(1.02vw, normal);
+    position: absolute;
+    left: 12.45%;
+    top: 5.5%;
+  }
+  .hiddenTitle{
+    @include defaultFont(1.02vw, normal, #5E6375);
+    position: absolute;
+    left: 0.628%;
+    top: 5.5%;
+    cursor: pointer;
+  }
+  .underline{
+    position: absolute;
+    width: 5.890vw;
+    height: 0vw;
+    left: 12.4%;
+    top: 16.41%;
+    border: 0.11vw solid #42C0FC;
+  }
+  .ImageGroup{
+    ul, li{ //list of image
+      list-style-type: none !important;
+      list-style-position: inside;
+      display: inline-block;
+      padding-right: 5px;
+      margin-left: 0;
+      padding-left: 0;
+      .imageCaption{
+        width: 8vw;
+        text-align: center;
+        @include defaultFont(0.625vw, normal, $white);
+        img{
+          height: 6.5vw;
+          display: table;
+          margin: 0 auto;
+        }
+      }
+    }
+    position: absolute;
+    left:1.14%;
+    top:30%;
+  }
+  font-size: 0.694vw;
+  position: absolute;
+  width: $width;
+  height: 20.22%;
+  top: 77.55%;  left: 1.04%;
+  background: $darkGrey;
+}
+
+.AcrossPatient{
+  @include AcrossPatient;
+}
+
+.AcrossPatientOpened{
+  @include AcrossPatient(100%);
+}
+
+//FROM HERE ON ITS CSS FOR PRIOR IMAGE VIEWING MODE
+
+.headerPriorImage{
+  .PatientInfo{
+    position: absolute;
+    margin: 0;
+    top: 1.8%;
+    left: 12.78%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.111vw;
+    line-height: 1.944vw;
+    color: $white;
+  }
+  .ReturnButton{
+    position: absolute;
+    z-index: 900;
+    top: 1.8%;
+    left: 2.22%;
+    @include borderButton($white, 8.54%, 3.33%);
+  }
+  .ShowAnnotation{
+    position: absolute;
+    z-index: 900;
+    top: 1.8%;
+    left: 79.86%;
+    @include borderButton($white, 8.54%, 3.33%);
+  }
+  .BookmarkRegions{
+    position: absolute;
+    z-index: 900;
+    top: 1.8%;
+    left: 89.65%;
+    @include borderButton($white, 8.54%, 3.33%);
+  }
 }
 
 .PriorImages2{
@@ -34,20 +177,22 @@
 
 .display{
   img{
-    width: 720px;
+    height: 58.2%;
   }
   .currentImage{
     position: absolute;
-    left: 0px; top: 6%;
-    width: 45%;
+    left: 1.8%; top: 8.8%;
     z-index: 0;
+    width: 43.3%;
+    @include defaultFont(0.885vw, normal, $white );
   }
   .priorImage{
     position: absolute;
-    left: 50%;
-    top: 6%;
-    width: 45%;
+    left: 50.6%;
+    top: 8.8%;
+    width: 43.3%;
     z-index: 0;
+    @include defaultFont(0.885vw, normal, $white );
   }
 }
 

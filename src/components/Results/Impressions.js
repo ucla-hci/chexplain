@@ -13,10 +13,7 @@ class Impressions extends Component {
     return (
       <div>
       <div className="Impressions">
-        <div className="title">Impressions</div>
-        <div className="rectangle"/>
-        <div className="rectangle"/>
-        <div className="rectangle"/>
+        <div className="title"><div className="text">Impressions</div></div>
         <div className="obList">
           <ul>
             {

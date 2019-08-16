@@ -1,8 +1,7 @@
 @mixin Dialog($width: 47%, $height: 65%){
   position: absolute;
   min-width: $width;
-  margin: 0 auto;
-  padding: 10px 10px 40px 40px;
+  margin: 0 auto; 
   left: 50%;
   top: 50%;
   min-height: $height;

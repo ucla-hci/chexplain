@@ -11,7 +11,9 @@ class Inputs extends Component {
       dataFromSlider: [], //Time Constraint, not most updated after going in output page
       finishedAnalyze: false,
       questionInput: [],
-      imageurl: ''
+      imageurl: '',
+      gender: "Female", //will be obtained when input window is done implemented
+      age: "60"
     }
   }
 
@@ -44,7 +46,11 @@ class Inputs extends Component {
 
   render(){
     let results = (
-      <Results dataFromImage={this.state.imageurl} dataFromSlider={this.state.dataFromSlider} dataFromQuestion={this.state.questionInput}/>
+      <Results dataFromImage={this.state.imageurl}
+        patientGender={this.state.gender}
+        patientAge={this.state.age}
+        dataFromSlider={this.state.dataFromSlider}
+        dataFromQuestion={this.state.questionInput}/>
     );
     let inputs = (
       <div>

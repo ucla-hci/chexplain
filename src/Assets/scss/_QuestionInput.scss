@@ -3,7 +3,7 @@ $red: #FAB9B9;
 $green: #B2F3CC;
 $gray: #C4C4C4;
 
-@mixin QuestionInput($w: 37%, $t:12%) {
+@mixin QuestionInput($w: 37%, $t:12%, $position: absolute) {
   .title{
     font-size: 1.389vw;
     font-weight: bold;
@@ -70,7 +70,7 @@ $gray: #C4C4C4;
       background-color: $green;
     }
   }
-  position: absolute;
+  position: $position;
   top: $t;
   left: 2%;
   width: $w;
@@ -83,7 +83,7 @@ $gray: #C4C4C4;
 }
 
 .QuestionInputDialog{
-  @include QuestionInput(95%, 0%);
+  @include QuestionInput(95%, 0%, relative);
 }
 
 //NO LONGER USED, BECAUSE MINIMIZED IS DEPRECATED

@@ -13,9 +13,7 @@ class Observations extends Component {
     return (
       <div>
       <div className="Observations" id="ob">
-        <div className="title">Significant Observations</div>
-        <div className="rectangle"/>
-        <div className="rectangle"/>
+        <div className="title"><div className="text">Significant Observations</div></div>
         <div className="obList">
           <ul>
             {

@@ -12,6 +12,20 @@ const images = [
   'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2Ftest6.jpg?alt=media&token=a7e46bbd-6917-4957-be30-0985173d062e',
 ];
 
+const case11images = [
+  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s1_view1_frontal.jpg?alt=media&token=1a215ff2-bc35-448c-8e4f-9c7c56661c71',
+  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s9_view1_frontal.jpg?alt=media&token=df7f4348-88bd-4ee3-b0ed-8ec1cd951b79',
+  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s11_view1_frontal.jpg?alt=media&token=411551be-0228-45ba-9261-cf485637c022'
+];
+const case11CrossPatient = [
+  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fcardiomegaly.jpeg?alt=media&token=bc6e62ce-5fb8-4e8c-9ccb-4c36406c017a', "Cardiomegaly"], //2Fcardiomegaly
+  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2FEdema.png?alt=media&token=0b5545a1-f8fc-4aad-9aa6-efca0e3e06ad', "Edema"], //Edema
+  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fpleural%20effusion.jpg?alt=media&token=292eaa7b-9dd7-49b9-8424-084f1b1463bb', "Pleural Effusion"], //pleural effusion
+  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fround-atelectasis.jpg?alt=media&token=9e9328a1-9045-4e42-8224-85a925e7edc7', "Round Atelectasis"]
+];
+
+
+
 const dates = [
   '2018/5/10',
   '2017/7/4',
@@ -27,6 +41,9 @@ class PriorImages extends Component{
       photoIndex: 0,
       isOpen: false,
       dateIndex: 0,
+      priorImageMode: true,
+      gender: this.props.patientGender,
+      age: this.props.patientAge
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -50,56 +67,78 @@ class PriorImages extends Component{
 
   render(){
     const { photoIndex,dateIndex,isOpen } = this.state;
+    let priorImage = this.state.isOpen?"PriorImagesOpened":"PriorImages";
+    let priorImageSelectWindow = (
+      <div className={priorImage}>
+        <div className="title">Prior Images</div>
+        <div className="hiddenTitle" onClick={() => this.setState({
+          priorImageMode: false
+        })}>Across Patient</div>
+        <div className="underline"/>
+        <div className="ImageGroup">
+          <ul>
+            <li><div className="imageCaption"><img src = {case11images[0]} alt="Image_0" onClick = {() => this.handleClick(0)}/>{dates[0]}</div></li>
+            <li><div className="imageCaption"><img src = {case11images[1]} alt="Image_1" onClick = {() => this.handleClick(1)}/>{dates[1]}</div></li>
+            <li><div className="imageCaption"><img src = {case11images[2]} alt="Image_2" onClick = {() => this.handleClick(2)}/>{dates[2]}</div></li>
+          </ul>
+        </div>
+      </div>
+    );
+    let acrossPatient = this.state.isOpen?"AcrossPatientOpened":"AcrossPatient";
+    let acrossPatientSelectWindow = (
+      <div className={acrossPatient}>
+        <div className="title">Across Patient</div>
+        <div className="hiddenTitle" onClick={() => this.setState({
+          priorImageMode: true
+        })}>Prior Images</div>
+        <div className="underline"/>
+        <div className="ImageGroup">
+          <ul>
+            <li><div className="imageCaption"><img src = {case11CrossPatient[0][0]} alt="Image_0" onClick = {() => this.handleClick(0)}/>{case11CrossPatient[0][1]}</div></li>
+            <li><div className="imageCaption"><img src = {case11CrossPatient[1][0]} alt="Image_1" onClick = {() => this.handleClick(1)}/>{case11CrossPatient[1][1]}</div></li>
+            <li><div className="imageCaption"><img src = {case11CrossPatient[2][0]} alt="Image_2" onClick = {() => this.handleClick(2)}/>{case11CrossPatient[2][1]}</div></li>
+            <li><div className="imageCaption"><img src = {case11CrossPatient[3][0]} alt="Image_3" onClick = {() => this.handleClick(3)}/>{case11CrossPatient[3][1]}</div></li>
+          </ul>
+        </div>
+      </div>
+    );
     let display = (
       <div>
       <div className="display">
       <div className="currentImage">
         <Magnifier src={images[this.state.photoIndex]}  mgShape='square' mgShowOverflow='false' />
+        <div className="text">Current CXR Image 2019/7/10</div>
       </div>
       <div className="divider2"/><div className="divider2"/><div className="divider2"/><div className="divider"/>
       <div className="priorImage">
         <Magnifier src={images[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' />
+        <div className="text">Prior CXR Image {dates[this.state.photoIndex]}</div>
       </div>
       <div className="headerPriorImage">
-        <div className="ImageDescriptionRight">Prior CXR Image: {dates[this.state.dateIndex]}</div>
-        <div className="ImageDescriptionLeft">Current CXR Image: 7/19/2019</div>
-        <IconContext.Provider value={{ size: "2.8vw", color: "white" }}>
-        <div className="closeButton" onClick={() => this.handleClose()}><GoX/></div>
-        </IconContext.Provider>
-        <button className="annotationButton">Annotations</button>
+        <div className="PatientInfo">Patient Information: {this.state.gender}. {this.state.age}</div>
+        <div className="ReturnButton" onClick={() => this.handleClose()}><div className="text">Return</div></div>
+        <div className="ShowAnnotation"><div className="text">Show Annotations</div></div>
+        <div className="BookmarkRegions"><div className="text">Bookmark Regions</div></div>
       </div>
       </div>
-      <div className="PriorImages2">
-        <div className="ImageGroup">
-          <ul>
-            <li><img src = {images[0]} alt="Image_0" onClick = {() => this.handleClick(0)}/></li>
-            <li><img src = {images[1]} alt="Image_1" onClick = {() => this.handleClick(1)}/></li>
-            <li><img src = {images[2]} alt="Image_2" onClick = {() => this.handleClick(2)}/></li>
-            <li><img src = {images[3]} alt="Image_3" onClick = {() => this.handleClick(3)}/></li>
-            <li><img src = {images[4]} alt="Image_4" onClick = {() => this.handleClick(4)}/></li>
-            <li><img src = {images[5]} alt="Image_5" onClick = {() => this.handleClick(5)}/></li>
-          </ul>
-        </div>
+      <div className="ImageSelectionWindow">
+        {
+          !this.state.priorImageMode && acrossPatientSelectWindow
+        }
+        {
+          this.state.priorImageMode && priorImageSelectWindow
+        }
       </div>
       </div>
     );
+
     return (
       <div>
       {
-        !this.state.isOpen && (
-          <div className="PriorImages">
-            <div className="ImageGroup">
-              <ul>
-                <li><img src = {images[0]} alt="Image_0" onClick = {() => this.handleClick(0)}/></li>
-                <li><img src = {images[1]} alt="Image_1" onClick = {() => this.handleClick(1)}/></li>
-                <li><img src = {images[2]} alt="Image_2" onClick = {() => this.handleClick(2)}/></li>
-                <li><img src = {images[3]} alt="Image_3" onClick = {() => this.handleClick(3)}/></li>
-                <li><img src = {images[4]} alt="Image_4" onClick = {() => this.handleClick(4)}/></li>
-                <li><img src = {images[5]} alt="Image_5" onClick = {() => this.handleClick(5)}/></li>
-              </ul>
-            </div>
-          </div>
-        )
+        !this.state.isOpen && !this.state.priorImageMode && acrossPatientSelectWindow
+      }
+      {
+        !this.state.isOpen && this.state.priorImageMode && priorImageSelectWindow
       }
       {
         this.state.isOpen && display
@@ -110,114 +149,3 @@ class PriorImages extends Component{
 }
 
 export default PriorImages;
-
-// <div className="prevNext">
-// <button onClick={() => this.setState({
-//   photoIndex: (this.state.photoIndex + images.length - 1) % images.length,
-//   dateIndex: (this.state.dateIndex -1),
-// })}>Previous</button>
-// <button onClick={() => this.setState({
-//   photoIndex: (this.state.photoIndex + 1) % images.length,
-//   dateIndex:  (this.state.dateIndex + 1),
-// })}>Next</button>
-// </div>
-
-// import React, {Component} from 'react'
-// import Dialog from '../Dialog';
-// import ReactImageMagnify from 'react-image-magnify';
-//
-// const images = [
-//   'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2Ftest1.jpg?alt=media&token=8b20e1dc-6641-4a85-9a74-a5135bc0275e',
-//   'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2Fview1_frontal.jpg?alt=media&token=dea45d71-dcd1-49bd-83d9-41dd2bce2378',
-//   'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2Ftest3.jpg?alt=media&token=ffd7b1be-43a5-4cc0-bf74-baeeac1e535f',
-//   'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2Ftest4.jpg?alt=media&token=ab7aa1e4-b43c-4bf9-bbbc-f7155e30cbad',
-//   'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2Ftest5.jpg?alt=media&token=3b318c41-b2a1-44a8-a8d2-fccd84731041',
-//   'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2Ftest6.jpg?alt=media&token=a7e46bbd-6917-4957-be30-0985173d062e',
-// ];
-//
-// class PriorImages extends Component{
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       photoIndex: 0,
-//       isOpen: false,
-//     };
-//   }
-//
-//   render(){
-//     const { photoIndex, isOpen } = this.state;
-//     var iheight = 108, iwidth = 132;
-//     return (
-//       <div>
-//       <div className="PriorImages">
-//         <div className="title"></div>
-//         <div className="ImageGroup">
-//           <ul>
-//             <li><img src = {images[0]} alt="Image_0" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 0})}/></li>
-//             <li><img src = {images[1]} alt="Image_1" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 1})}/></li>
-//             <li><img src = {images[2]} alt="Image_2" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 2})}/></li>
-//             <li><img src = {images[3]} alt="Image_3" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 3})}/></li>
-//             <li><img src = {images[4]} alt="Image_4" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 4})}/></li>
-//             <li><img src = {images[5]} alt="Image_5" height = {iheight} width = {iwidth} onClick = {() => this.setState({isOpen: true, photoIndex: 5})}/></li>
-//           </ul>
-//         </div>
-//       </div>
-//        <Dialog isOpen={this.state.isOpen} big = {true} onClose={(e) => this.setState({isOpen:false})}>
-//       <div className="blah">
-//             <ReactImageMagnify {...{
-//                 smallImage: {
-//                     alt: 'PriorImage',
-//                     isFluidWidth: false,
-//                     width: 500*0.8,
-//                     height: 550*0.8,
-//                     src: require('../../images/testimage.png'),
-//                 },
-//                 largeImage: {
-//                     src: require('../../images/testimage.png'),
-//                     width: 500*2,
-//                     height: 550*2
-//                 },
-//                 enlargedImageContainerDimensions: {
-//                     width: '30%',
-//                     height: '30%'
-//                 },
-//                 isHintEnabled: true
-//             }} />
-//       </div>
-//       <div className="divider2"/><div className="divider2"/><div className="divider2"/><div className="divider"/>
-//       <div className="blah2">
-//             <ReactImageMagnify {...{
-//                 smallImage: {
-//                     alt: 'PriorImage',
-//                     isFluidWidth: false,
-//                     width: iwidth*3.5,
-//                     height: iheight*3.5,
-//                     src: images[this.state.photoIndex],
-//                 },
-//                 largeImage: {
-//                     src: images[this.state.photoIndex],
-//                     width: iwidth*6,
-//                     height: iheight*6
-//                 },
-//                 enlargedImageContainerDimensions: {
-//                     width: '30%',
-//                     height: '40%'
-//                 },
-//                 isHintEnabled: true
-//             }} />
-//       </div>
-//       <div className="prevNext">
-//       <button onClick={() => this.setState({
-//         photoIndex: (this.state.photoIndex + images.length - 1) % images.length
-//       })}>Previous</button>
-//       <button onClick={() => this.setState({
-//         photoIndex: (this.state.photoIndex + 1) % images.length
-//       })}>Next</button>
-//       </div>
-//       </Dialog>
-//       </div>
-//     );
-//   }
-// }
-//
-// export default PriorImages;

@@ -5,8 +5,9 @@ class ToggleAnnotation extends Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.state = {
-            show: true,
+            show: true, //controls show of everything related to annotation
             showAll: false,
+            customizeMode: false,
             inherited: [...this.props.display],
             args: [false, false, false, false, true, false], //pleural effusion, airway, breathing, cardiac, unclear, abnormal
             pressedResults:["Hom Opac"]
@@ -31,6 +32,13 @@ class ToggleAnnotation extends Component {
         } else {
             this.setState({showAll: false});
             console.log("false");
+        }
+      }
+      if(whichButton==="customize"){
+        if(this.state.customizeMode === false){
+            this.setState({customizeMode: true});
+        } else {
+            this.setState({customizeMode: false});
         }
       }
     }
@@ -86,12 +94,14 @@ class ToggleAnnotation extends Component {
         );
         let showAll = this.state.showAll?"pressed_s":"showAll";
         let showAllButton = (
-          <div><button className = {showAll} onClick = {() => this.handleClick("showAll")}> Show All </button></div>
+          <div className = {showAll} onClick = {() => this.handleClick("showAll")}><div className="text"> Show All </div></div>
         );
         let toggle = this.state.args[5]?"pressed_t":"toggle";
+        let customize = this.state.customizeMode?"pressed_c":"customize"; //for now, will have two div modes later when design is decided
         return(
             <div className = "Annotations">
-              <button className = {toggle} onClick = {() => this.handleClick("onlyAbnormal")}> Only Abnormal </button>
+              <div className = {toggle} onClick = {() => this.handleClick("onlyAbnormal")}><div className="text"> Only Abnormal </div></div>
+              <div className = {customize} onClick = {() => this.handleClick("customize")}><div className="text"> Customize Labels </div></div>
               {
                 this.state.show && showAllButton
               }

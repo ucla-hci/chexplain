@@ -7,6 +7,7 @@ import Impressions from './Impressions';
 import ImageDisplay from './ImageDisplay';
 import ToggleAnnotation from './ToggleAnnotation';
 import PriorImages from './PriorImages';
+import AdjustQuery from './AdjustQuery';
 
 
 class Results extends Component {
@@ -18,7 +19,9 @@ class Results extends Component {
       questionInput: this.props.dataFromQuestion,
       observations: ["Large right sided pleural effusion","Small left sided pleural effusion"], //to be passed here by backend
       impressions: ["Pneumonia", "Pulmonary Edema", "Pulmonary Infarction"],
-      priorImagesOpened: false
+      priorImagesOpened: false,
+      age: this.props.patientAge,
+      gender: this.props.patientGender
     }
   }
 
@@ -28,6 +31,7 @@ class Results extends Component {
     });
   }
 
+  //NOTE: Inputs class does not have updated time constraint, but doesn't concern results for now
   callbackFromTime = (dataFromChild) => {
     this.setState({
       timeConstraint: dataFromChild
@@ -40,26 +44,24 @@ class Results extends Component {
     });
   }
 
+
   render(){
     let resultpart1 = (
       <div className="resultpart1">
-        <Header/>
-        <div className="results">
-          <QuestionInputSelected dataFromQuestion={this.state.questionInput} callbackFromParent={this.callbackFromQuestion}/>
-          <br/>
-          <TimeConstraintSelected dataFromTime={this.state.timeConstraint} callbackFromParent={this.callbackFromTime}/>
-          <br/>
-          <Observations observations={this.state.observations}/>
-          <br/>
-          <Impressions impressions={this.state.impressions}/>
-        </div>
+        <Header patientAge={this.state.age} patientGender={this.state.gender}/>
         <ImageDisplay url={this.state.imageurl}/>
         <ToggleAnnotation display={this.state.questionInput}/>
+        <AdjustQuery dataFromQuestion={this.state.questionInput}
+          dataFromTime={this.state.timeConstraint}
+          callbackFromParentTime={this.callbackFromTime}
+          callbackFromParentQuestion={this.callbackFromQuestion}/>
+        <Observations observations={this.state.observations}/>
+        <Impressions impressions={this.state.impressions}/>
       </div>
     );
     let resultpart2 = ( //prior images
       <div>
-      <PriorImages callbackFromParent={this.callbackFromPriorImages}/>
+      <PriorImages patientAge={this.state.age} patientGender={this.state.gender} callbackFromParent={this.callbackFromPriorImages}/>
       </div>
     );
     return (

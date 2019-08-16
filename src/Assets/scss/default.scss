@@ -1,5 +1,4 @@
-
-@import "_colors.scss"; //needs to be the first one as other files use the colors
+@import "_styles.scss"; //needs to be the first one as other files use the colors
 @import "_ImageUpload.scss";
 @import "_PriorImages.scss";
 @import "_QuestionInput.scss";
@@ -8,8 +7,14 @@
 @import "_Annotations.scss";
 @import "_Header.scss";
 @import "_Dialog.scss";
+@import "_AdjustQuery.scss";
 
+//overall background color
+body{
+  background: $black;
+}
 
+//overlay on loading page
 .overlay{
   position: fixed; /* Sit on top of the page content */
   width: 100%; /* Full width (cover the whole page) */
@@ -20,18 +25,6 @@
   bottom: 0;
   background-color: rgba(0,0,0,0.5); /* Black background with opacity */
   z-index: 990; /* Specify a stack order in case you're using a different order for other elements */
-}
-
-.magnifying-glass{
-  z-index: 999;
-  position: absolute;
-}
-
-
-.divider{
-    width:10px;
-    height:auto;
-    display:table-cell;
 }
 
 .divider2{
@@ -54,11 +47,4 @@
 .prevNext{
   position: absolute;
   right:200px;
-}
-
-#SendButton{
-  position: absolute;
-  top:80%; left:38%;
-  font-size: 20px;
-  visibility: hidden;
 }

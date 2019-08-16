@@ -16,6 +16,7 @@
   }
 }
 
+//header for input page
 .AnalyzeButton{
   .StartAnalysis{
     position: absolute;
@@ -32,48 +33,21 @@
   background: $black;
 }
 
+//header for result page
 .headerResult{
   .PatientInfo{
     position: absolute;
     margin: 0;
     top: 50%;
-    left: 1%;
+    left: 1.04%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     font-style: normal;
-    font-weight: bold;
-    font-size: 1.528vw;
+    font-weight: normal;
+    font-size: 1.111vw;
     line-height: 1.944vw;
     color: $white;
-  }
-  .PriorImages{
-    position: absolute;
-    margin: 0;
-    top: 50%;
-    left: 90%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    font-family: 'Roboto', sans-serif;;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.528vw;
-    line-height: 1.944vw;
-    color: $white;
-  }
-  .ShowHide{
-    position: absolute;
-    top: 50%;
-    left: 39.4%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-  .OnlyAb{
-    position: absolute;
-    top: 50%;
-    left: 56%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
   }
   button{
     font-size: 1.111vw;
@@ -81,56 +55,5 @@
   position: absolute;
   top: 0; left: 0;
   width: 100%;
-  height: 6%;
-  background: $black;
-}
-
-.headerPriorImage{
-  .ImageDescriptionRight{
-    position: absolute;
-    top: 50%;
-    left: 55.4%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-  .ImageDescriptionLeft{
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-  .closeButton{
-    position: absolute;
-    top: 50%;
-    left: 0%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-  .annotationButton{
-    position: absolute;
-    margin: 0;
-    top: 50%;
-    left: 90%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    font-family: 'Roboto', sans-serif;;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.528vw;
-    line-height: 1.944vw;
-    background-color: $white;
-    color: $black;
-  }
-  font-family: 'Roboto', sans-serif;;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.528vw;
-  line-height: 1.944vw;
-  color: $white;
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 6%;
-  background: $black;
+  height: 7%;
 }
