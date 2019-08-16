@@ -14,38 +14,39 @@ class ToggleAnnotation extends Component {
             inherited: [...this.props.display],
             args: [false, false, false, false, true, false], //pleural effusion, airway, breathing, cardiac, unclear, abnormal
             pressedResults:["Hom Opac"],
-            clicked: "",
+            clicked: [],
             casePressed: ["c1p11s12","c2p11s12","c3p11s12","c4p11s12","c5p11s12",
                           "c6p11s12", "c7p11s12", "c8p11s12"]
         }
     }
 
     componentWillReceiveProps(nextProps, nextState) {
-      if(nextProps.clickedObservation != this.state.clicked){
-        this.setState({clicked: nextProps.clickedObservation});
+      if(JSON.stringify(nextProps.clickedObservation) != JSON.stringify(this.state.clicked)){
+        this.setState({clicked: [...nextProps.clickedObservation]});
       }
-      console.log("called");
-      let tempList = caseList;
-      switch(nextProps.clickedObservation){
-        case "Cardiomegaly":
-          tempList[0]="c1p11s12_p";
-          break;
-        case "Edema":
-          tempList[1]="c2p11s12_p";
-          break;
-        case "Atelectasis":
-          tempList[2]="c3p11s12_p";
-          break;
-        case "Pleural Effusion":
-          tempList[3]="c4p11s12_p";
-          tempList[4]="c1p11s12_p";
-          break;
-        case "Support Device":
-          tempList[5]="c5p11s12_p";
-          tempList[6]="c6p11s12_p";
-          tempList[7]="c7p11s12_p";
-          break;
-      }
+      let tempList = [...caseList];
+      nextProps.clickedObservation.map((currElement) => {
+        switch(currElement){
+          case "Cardiomegaly":
+            tempList[5]="c6p11s12_p";
+            break;
+          case "Edema":
+            tempList[4]="c5p11s12_p";
+            break;
+          case "Atelectasis":
+            tempList[3]="c4p11s12_p";
+            break;
+          case "Pleural Effusion":
+            tempList[6]="c7p11s12_p";
+            tempList[7]="c8p11s12_p";
+            break;
+          case "Support Device":
+            tempList[0]="c1p11s12_p";
+            tempList[1]="c2p11s12_p";
+            tempList[2]="c3p11s12_p";
+            break;
+        }
+      });
       this.setState({
         casePressed: tempList
       });

@@ -24,8 +24,6 @@ const case11CrossPatient = [
   ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fround-atelectasis.jpg?alt=media&token=9e9328a1-9045-4e42-8224-85a925e7edc7', "Round Atelectasis"]
 ];
 
-
-
 const dates = [
   '2018/5/10',
   '2017/7/4',
@@ -43,13 +41,17 @@ class PriorImages extends Component{
       dateIndex: 0,
       priorImageMode: true,
       gender: this.props.patientGender,
-      age: this.props.patientAge
+      age: this.props.patientAge,
+      bookmarkRegionOn: true,
+      showAnnotation: false
     };
+    //functions need to be binded to class before they can be used
     this.handleClickPriorImage = this.handleClickPriorImage.bind(this);
     this.handleClickCrossPatient = this.handleClickCrossPatient.bind(this);
     this.handleClose = this.handleClose.bind(this);
   }
 
+// NOTE: handles switiching to prior image mode
   async handleClickPriorImage(num){
     await this.setState({
       isOpen: true,
@@ -58,6 +60,7 @@ class PriorImages extends Component{
     this.props.callbackFromParent(this.state.isOpen);
   }
 
+// NOTE: handles switching to cross patient mode
   async handleClickCrossPatient(num){
     await this.setState({
       isOpen: true,
@@ -66,6 +69,7 @@ class PriorImages extends Component{
     this.props.callbackFromParent(this.state.isOpen);
   }
 
+// NOTE: Handles exit of prior image mode
   async handleClose(){
     await this.setState({
       isOpen: false
@@ -75,7 +79,7 @@ class PriorImages extends Component{
 
 
   render(){
-    const { photoIndex,dateIndex,isOpen } = this.state;
+    // NOTE: Below is rendered in result mode, not prior image mode
     let priorImage = this.state.isOpen?"PriorImagesOpened":"PriorImages";
     let priorImageSelectWindow = (
       <div className={priorImage}>
@@ -111,24 +115,112 @@ class PriorImages extends Component{
         </div>
       </div>
     );
+
+    // NOTE: Below is rendering of annotation for case 11 main image and prior images
+    let currentImageAnnotation = (
+      <div className="annotations">
+        <div className="c1p11s12"/>
+        <div className="c2p11s12"/>
+        <div className="c3p11s12"/>
+        <div className="c4p11s12"/>
+        <div className="c5p11s12"/>
+        <div className="c6p11s12"/>
+        <div className="c7p11s12"/>
+        <div className="c8p11s12"/>
+      </div>
+    );
+    let priorStudy1Annotation = (
+      <div className="annotations">
+        <div className="c1p11s1"/>
+        <div className="c2p11s1"/>
+      </div>
+    );
+    let priorStudy11Annotation = (
+      <div className="annotations">
+        <div className="c1p11s11"/>
+        <div className="c2p11s11"/>
+        <div className="c3p11s11"/>
+        <div className="c4p11s11"/>
+        <div className="c5p11s11"/>
+        <div className="c6p11s11"/>
+        <div className="c7p11s11"/>
+        <div className="c8p11s11"/>
+      </div>
+    );
+    let priorStudy9Annotation = (
+      <div className="annotations">
+        <div className="c1p11s9"/>
+        <div className="c2p11s9"/>
+        <div className="c3p11s9"/>
+        <div className="c4p11s9"/>
+        <div className="c5p11s9"/>
+        <div className="c6p11s9"/>
+      </div>
+    );
+
+    // NOTE: select which prior study annotation to render
+    let priorAnnotation = priorStudy1Annotation;
+    if(this.state.photoIndex===1){
+      priorAnnotation = priorStudy9Annotation;
+    }else if(this.state.photoIndex===2){
+      priorAnnotation = priorStudy11Annotation;
+    }
+
+    if(!this.state.priorImageMode){
+      priorAnnotation = null;
+    }
+
+    // NOTE: below is rendered when you enter prior image mode
     let caption = this.state.priorImageMode?"Prior CXR Image ":"Similar patient with ";
+    let bookmarkRegion = this.state.bookmarkRegionOn?"BookmarkRegions_p":"BookmarkRegions",
+        showAnnotationButton = this.state.showAnnotation?"ShowAnnotation_p":"ShowAnnotation";
     let display = (
       <div>
       <div className="display">
       <div className="currentImage">
-        <Magnifier src={this.props.currentImage}  mgShape='square' mgShowOverflow='false' />
+        {
+          this.state.bookmarkRegionOn && (
+            <Magnifier src={this.props.currentImage} mgShape='square' mgShowOverflow='false' />
+          )
+        }
+        {
+          !this.state.bookmarkRegionOn && (
+            <img src={this.props.currentImage} alt="prior image"/>
+          )
+        }
+        {
+          !this.state.bookmarkRegionOn && currentImageAnnotation
+        }
         <div className="text">Current CXR Image 2019/7/10</div>
       </div>
       <div className="divider2"/><div className="divider2"/><div className="divider2"/><div className="divider"/>
       <div className="priorImage">
-        <div className="image"><Magnifier src={this.state.priorImageMode?case11images[this.state.photoIndex]:case11CrossPatient[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' /></div>
+        {
+          this.state.bookmarkRegionOn && (
+            <div className="image"><Magnifier src={this.state.priorImageMode?case11images[this.state.photoIndex]:case11CrossPatient[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' /></div>
+          )
+        }
+        {
+          !this.state.bookmarkRegionOn && (
+            <img src={this.state.priorImageMode?case11images[this.state.photoIndex]:case11CrossPatient[this.state.photoIndex]} alt="prior image"/>
+          )
+        }
+        {
+          !this.state.bookmarkRegionOn && priorAnnotation
+        }
         <div className="text">{caption} {this.state.priorImageMode?dates[this.state.photoIndex]:case11CrossPatient[this.state.photoIndex][1]}</div>
       </div>
       <div className="headerPriorImage">
         <div className="PatientInfo">Patient Information: {this.state.gender}. {this.state.age}</div>
         <div className="ReturnButton" onClick={() => this.handleClose()}><div className="text">Return</div></div>
-        <div className="ShowAnnotation"><div className="text">Show Annotations</div></div>
-        <div className="BookmarkRegions"><div className="text">Bookmark Regions</div></div>
+        <div className={showAnnotationButton} onClick={() => this.setState({
+          showAnnotation: !this.state.showAnnotation,
+          bookmarkRegionOn: !this.state.bookmarkRegionOn
+        })}><div className="text">Show Annotations</div></div>
+        <div className={bookmarkRegion} onClick={() => this.setState({
+          bookmarkRegionOn: !this.state.bookmarkRegionOn,
+          showAnnotation: !this.state.showAnnotation
+        })}><div className="text">Bookmark Regions</div></div>
       </div>
       </div>
       <div className="ImageSelectionWindow">

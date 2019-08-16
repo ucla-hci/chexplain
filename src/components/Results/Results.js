@@ -18,11 +18,13 @@ class Results extends Component {
       timeConstraint: this.props.dataFromSlider,
       questionInput: this.props.dataFromQuestion,
       observations: ["Cardiomegaly","Edema","Atelectasis","Pleural Effusion", "Support Device"], //to be passed here by backend
-      impressions: ["Pneumonia", "Pulmonary Edema", "Pulmonary Infarction"],
+      observationsPercentage: ["<60%>", "<78%>", "<55%>", "<84%>", "<93%>"],
+      impressions: ["Congestive Heart Failure", "Pneumonia", "Lung Cancer"],
       priorImagesOpened: false,
       age: this.props.patientAge,
       gender: this.props.patientGender,
-      clickedObservation: ""
+      clickedObservation: [],
+      clickedImpression: ""
     }
   }
 
@@ -46,6 +48,22 @@ class Results extends Component {
   }
 
   callbackFromObservations = (dataFromChild) => {
+    let tempList = [];
+    tempList.push(dataFromChild);
+    this.setState({
+      clickedObservation: tempList
+    });
+  }
+
+  // NOTE: callback from impression for clicked impression
+  callbackFromImpressions = (dataFromChild) => {
+    this.setState({
+      clickedImpression: dataFromChild
+    });
+  }
+
+  // NOTE: callback from impression for observation list related to clicked impression
+  callbackfromImpressionsObs = (dataFromChild) => {
     this.setState({
       clickedObservation: dataFromChild
     });
@@ -62,9 +80,8 @@ class Results extends Component {
           dataFromTime={this.state.timeConstraint}
           callbackFromParentTime={this.callbackFromTime}
           callbackFromParentQuestion={this.callbackFromQuestion}/>
-        <Observations callbackFromParent={this.callbackFromObservations} observations={this.state.observations}/>
-        <Impressions impressions={this.state.impressions}/>
-        <HoverWindow/>
+        <Observations callbackFromParent={this.callbackFromObservations} clickedImpression={this.state.clickedImpression} observations={this.state.observations} percentages={this.state.observationsPercentage}/>
+        <Impressions callbackFromParent={this.callbackFromImpressions} callbackFromParent2={this.callbackfromImpressionsObs} impressions={this.state.impressions} observations={this.state.observations}/>
       </div>
     );
     let resultpart2 = ( //prior images

@@ -1,5 +1,4 @@
 //ALL STYLING MIXIN COMES FROM STYLES.SCSS
-
 .Annotations{
   height: 67.9%;
   width: 55.2%;
@@ -124,62 +123,146 @@ $baseHeight: 898;
   @return percentage($height/$baseHeight);
 }
 
-@mixin circle($width, $height, $left, $top){
+@mixin circle($width, $height, $left, $top, $border: 2px solid $white){
   border-radius: 100%;
+  border: $border;
   position: absolute;
   width: divideWidth($width);
   height: divideHeight($height);
   left: divideWidth($left);
   top: divideHeight($top);
-  z-index: 999;
+  z-index: 980;
   background: rgba(238, 101, 101, 0.45);
 }
 
 //CASE 11
-.c1p11s11{ //edema
-  @include circle(805, 361, 157, 500);
-}
-
-.c2p11s11{ //support device
-  @include circle(124, 114, 923, 200);
-}
-
-.c3p11s11{ //support device
-  @include circle(100, 91, 348, 314);
-}
-.c4p11s11{ //support device
-  @include circle(100, 91, 348, 314);
-}
-
-//CASE 12
+//study 12
 .c1p11s12{ //support device
+  @include circle(78, 74, 875, 163, none);
+}
+
+.c1p11s12_p{ //support device
   @include circle(78, 74, 875, 163);
 }
 
 .c2p11s12{ //support device
+  @include circle(78, 81, 275, 241, none);
+}
+
+.c2p11s12_p{ //support device
   @include circle(78, 81, 275, 241);
 }
 
 .c3p11s12{ //support device
+  @include circle(56, 70, 338, 545, none);
+}
+
+.c3p11s12_p{ //support device
   @include circle(56, 70, 338, 545);
 }
 
 .c4p11s12{ //Atelectasis
+  @include circle(259, 363, 624, 200, none);
+}
+
+.c4p11s12_p{ //Atelectasis
   @include circle(259, 363, 624, 200);
 }
 
 .c5p11s12{ //Edema
+  @include circle(320, 373, 594, 449, none);
+}
+
+.c5p11s12_p{ //Edema
   @include circle(320, 373, 594, 449);
 }
 
 .c6p11s12{ //Cardiomegaly
+  @include circle(445, 251, 338, 407, none);
+}
+
+.c6p11s12_p{ //Cardiomegaly
   @include circle(445, 251, 338, 407);
 }
 
 .c7p11s12{ //Pleural effusion
+  @include circle(153, 159, 761, 578, none);
+}
+
+.c7p11s12_p{ //Pleural effusion
   @include circle(153, 159, 761, 578);
 }
 
 .c8p11s12{ //Pleural effusion
+  @include circle(201, 207, 93, 615, none);
+}
+
+.c8p11s12_p{ //Pleural effusion
   @include circle(201, 207, 93, 615);
+}
+
+//study 1
+.c1p11s1{
+  @include circle(309, 437, 510, 186, none);
+}
+.c2p11s1{
+  @include circle(96, 85, 819, 74, none);
+}
+
+//study 11
+.c1p11s11{ //edema
+  @include circle(805, 361, 157, 500, none);
+}
+
+.c2p11s11{ //support device
+  @include circle(124, 114, 923, 200, none);
+}
+
+.c3p11s11{ //support device
+  @include circle(100, 91, 348, 314, none);
+}
+
+.c4p11s11{ //support device
+  @include circle(100, 91, 348, 314, none);
+}
+
+.c5p11s11{ //lung opacity
+  @include circle(285, 591, 654, 121, none);
+}
+
+.c6p11s11{ //pleural effusion right
+  @include circle(258, 283, 760, 578, none);
+}
+
+.c7p11s11{ //pleural effusion left
+  @include circle(258, 283, 90, 578, none);
+}
+
+.c8p11s11{ //edema
+  @include circle(154, 142, 583, 235, none);
+}
+
+//study 9
+.c1p11s9{ //support device
+  @include circle(85, 82, 200, 273, none);
+}
+
+.c2p11s9{ //support device
+  @include circle(74, 71, 233, 574, none);
+}
+
+.c3p11s9{ //support device
+  @include circle(70, 89, 789, 115, none);
+}
+
+.c4p11s9{ //enlarged cardiomediastinum
+  @include circle(407, 236, 356, 374, none);
+}
+
+.c5p11s9{ //pleural effusion
+  @include circle(222, 211, 711, 567, none);
+}
+
+.c6p11s9{ //pleural effusion
+  @include circle(211, 204, 137, 574, none);
 }

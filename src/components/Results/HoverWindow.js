@@ -10,6 +10,9 @@ class HoverWindow extends Component {
       <div>
       <div className="HoverWindow">
         <div className="title"><div className="text">Hover</div></div>
+        <div className="content">
+          {this.props.children}
+        </div>
       </div>
       </div>
     );

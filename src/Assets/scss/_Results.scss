@@ -20,6 +20,7 @@
       li{
         @include defaultFont(1.111vw, medium, #CDCDCD);
       }
+      cursor: pointer;
       margin: 0.8vw;
       padding-left: 0;
       padding-top: 0.494vw;
@@ -52,6 +53,33 @@
 
 .HoverWindow{
   @include resultBox(60.66%, 57.57%, absolute, 40.62%, 37.11%);
+  .content{
+    color: $white;
+    position: absolute;
+    top: 60%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 29.8vh;
+    width: 41.319vw;
+    z-index: 991;
+    ul, li{
+      list-style-type: none !important;
+      list-style-position: inside;
+      display: inline-block;
+      margin-right: 15px;
+    }
+    .imageCaption{
+      width: 17.069vw;
+      height: 29.88888888888889vh;
+      @include defaultFont(0.625vw, normal, $white);
+      img{
+        display: table;
+        margin: 0 auto;
+        width: 15.069vw;
+      }
+    }
+
+  }
 }
 
 .imageDisplayWindow{

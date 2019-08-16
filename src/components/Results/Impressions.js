@@ -1,12 +1,48 @@
 import React, {Component} from 'react';
 
+const impressionList = ["Congestive Heart Failure", "Pneumonia", "Lung Cancer"];
+
 class Impressions extends Component {
   constructor(props){
     super(props);
     this.state = {
       impressions:this.props.impressions,
-      //add onclick on the rectangles later
+      clicked: ""
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  async handleClick(impressions){
+    await this.setState({
+      clicked: impressions
+    });
+    this.state.impressions.map((currElement) => {
+      document.getElementById(currElement).style.color = "#CDCDCD";
+    });
+    document.getElementById(impressions).style.color = "#42C0FC";
+    this.props.callbackFromParent(this.state.clicked);
+    let tempList = [];
+    switch(impressions){
+      case this.state.impressions[0]:
+        tempList.push("Edema");
+        tempList.push("Pleural Effusion");
+        break;
+      case this.state.impressions[1]:
+        tempList.push("Atelectasis");
+        tempList.push("Pleural Effusion");
+        break;
+      case this.state.impressions[2]:
+        tempList.push("Pleural Effusion");
+        break;
+    }
+    this.props.observations.map((currElement) => {
+      document.getElementById(currElement).style.color = "#CDCDCD";
+    });
+    tempList.map((currElement) => {
+      document.getElementById(currElement).style.color = "#42C0FC";
+    });
+    //return to parent obs list
+    this.props.callbackFromParent2(tempList);
   }
 
   render(){
@@ -18,7 +54,7 @@ class Impressions extends Component {
           <ul>
             {
               this.state.impressions.map((currElement) => {
-                return <li>{currElement}</li>
+                return <li id={currElement} onClick={() => this.handleClick(currElement)}>{currElement}</li>
               })
             }
           </ul>
