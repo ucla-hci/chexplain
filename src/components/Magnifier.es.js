@@ -215,9 +215,8 @@ class Magnifier extends PureComponent {
     }
 }
 Magnifier.defaultProps = {
-    width: "100%",
-    height: "auto",
-    className: "",
+    className: "image",
+    height: "100%",
     zoomFactor: 1.5,
     mgWidth: 150,
     mgHeight: 150,

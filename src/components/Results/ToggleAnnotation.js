@@ -1,18 +1,58 @@
 import React, {Component} from 'react';
 
+const caseList = ["c1p11s12","c2p11s12","c3p11s12","c4p11s12","c5p11s12",
+              "c6p11s12", "c7p11s12", "c8p11s12"];
+
 class ToggleAnnotation extends Component {
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.state = {
             show: true, //controls show of everything related to annotation
-            showAll: false,
+            showAll: true,
             customizeMode: false,
             inherited: [...this.props.display],
             args: [false, false, false, false, true, false], //pleural effusion, airway, breathing, cardiac, unclear, abnormal
-            pressedResults:["Hom Opac"]
+            pressedResults:["Hom Opac"],
+            clicked: "",
+            casePressed: ["c1p11s12","c2p11s12","c3p11s12","c4p11s12","c5p11s12",
+                          "c6p11s12", "c7p11s12", "c8p11s12"]
         }
     }
+
+    componentWillReceiveProps(nextProps, nextState) {
+      if(nextProps.clickedObservation != this.state.clicked){
+        this.setState({clicked: nextProps.clickedObservation});
+      }
+      console.log("called");
+      let tempList = caseList;
+      switch(nextProps.clickedObservation){
+        case "Cardiomegaly":
+          tempList[0]="c1p11s12_p";
+          break;
+        case "Edema":
+          tempList[1]="c2p11s12_p";
+          break;
+        case "Atelectasis":
+          tempList[2]="c3p11s12_p";
+          break;
+        case "Pleural Effusion":
+          tempList[3]="c4p11s12_p";
+          tempList[4]="c1p11s12_p";
+          break;
+        case "Support Device":
+          tempList[5]="c5p11s12_p";
+          tempList[6]="c6p11s12_p";
+          tempList[7]="c7p11s12_p";
+          break;
+      }
+      this.setState({
+        casePressed: tempList
+      });
+    }
+
+
+
 
     handleClick(whichButton){
       if(whichButton==="onlyAbnormal"){
@@ -45,14 +85,24 @@ class ToggleAnnotation extends Component {
 
 
     render(){
+        const {casePressed} = this.state;
+        let allCircle = (
+          <div className="annotations">
+            <div className={casePressed[0]} id="c1p11s12"/>
+            <div className={casePressed[1]} id="c2p11s12"/>
+            <div className={casePressed[2]} id="c3p11s12"/>
+            <div className={casePressed[3]} id="c4p11s12"/>
+            <div className={casePressed[4]} id="c5p11s12"/>
+            <div className={casePressed[5]} id="c6p11s12"/>
+            <div className={casePressed[6]} id="c7p11s12"/>
+            <div className={casePressed[7]} id="c8p11s12"/>
+          </div>
+        );
         let group1 = ( //pleural effusion
           <div>
             <textarea className= { `${"a4"} ${"Breathing"}`} rows="4" cols="12" disabled> Minor blunting of the left costophrenic angle</textarea>
             <textarea className= { `${"a5"} ${"Breathing"}`} rows="3" cols="7" disabled> Meniscus present</textarea>
             <textarea className= { `${"a6"} ${"Breathing"}`} rows="3" cols="12" disabled> Homogenous opacity </textarea>
-            <div className="c1p11s11"/>
-            <div className="c2p11s11"/>
-            <div className="c3p11s11"/>
           </div>
         );
         let group2 = ( //airway
@@ -98,36 +148,16 @@ class ToggleAnnotation extends Component {
         );
         let toggle = this.state.args[5]?"pressed_t":"toggle";
         let customize = this.state.customizeMode?"pressed_c":"customize"; //for now, will have two div modes later when design is decided
+        console.log(this.props.clickedObservation);
         return(
-            <div className = "Annotations">
+            <div className = "Annotations" key={this.props.clickedObservation}>
               <div className = {toggle} onClick = {() => this.handleClick("onlyAbnormal")}><div className="text"> Only Abnormal </div></div>
               <div className = {customize} onClick = {() => this.handleClick("customize")}><div className="text"> Customize Labels </div></div>
               {
                 this.state.show && showAllButton
               }
               {
-                this.state.show && this.state.showAll &&
-                  all
-              }
-              {
-                this.state.show && (this.props.display.includes("Chest Pain")||this.props.display.includes("Pleural Effusion")) &&
-                  group1
-              }
-              {
-                this.state.show && this.props.display.includes("Airway") &&
-                  group2
-              }
-              {
-                this.state.show && this.props.display.includes("Breathing") &&
-                  group3
-              }
-              {
-                this.state.show && this.props.display.includes("Cardiac") &&
-                  group4
-              }
-              {
-                this.state.show && this.state.args[5] &&
-                  group6
+                this.state.show && this.state.showAll && allCircle
               }
             </div>
         );

@@ -5,8 +5,17 @@ class Observations extends Component {
     super(props);
     this.state = {
       observations:this.props.observations,
+      clicked: ""
       //add onclick on the rectangles later
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  async handleClick(observation){
+    await this.setState({
+      clicked: observation
+    });
+    this.props.callbackFromParent(this.state.clicked);
   }
 
   render(){
@@ -18,7 +27,7 @@ class Observations extends Component {
           <ul>
             {
               this.state.observations.map((currElement) => {
-                return <li>{currElement}</li>
+                return <li onClick={() => this.handleClick(currElement)}>{currElement}</li>
               })
             }
           </ul>

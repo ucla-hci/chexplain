@@ -17,11 +17,12 @@ class Results extends Component {
       imageurl: this.props.dataFromImage,
       timeConstraint: this.props.dataFromSlider,
       questionInput: this.props.dataFromQuestion,
-      observations: ["Large right sided pleural effusion","Small left sided pleural effusion"], //to be passed here by backend
+      observations: ["Cardiomegaly","Edema","Atelectasis","Pleural Effusion", "Support Device"], //to be passed here by backend
       impressions: ["Pneumonia", "Pulmonary Edema", "Pulmonary Infarction"],
       priorImagesOpened: false,
       age: this.props.patientAge,
-      gender: this.props.patientGender
+      gender: this.props.patientGender,
+      clickedObservation: ""
     }
   }
 
@@ -44,18 +45,24 @@ class Results extends Component {
     });
   }
 
+  callbackFromObservations = (dataFromChild) => {
+    this.setState({
+      clickedObservation: dataFromChild
+    });
+  }
+
 
   render(){
     let resultpart1 = (
       <div className="resultpart1">
         <Header patientAge={this.state.age} patientGender={this.state.gender}/>
         <ImageDisplay url={this.state.imageurl}/>
-        <ToggleAnnotation display={this.state.questionInput}/>
+        <ToggleAnnotation clickedObservation={this.state.clickedObservation} display={this.state.questionInput}/>
         <AdjustQuery dataFromQuestion={this.state.questionInput}
           dataFromTime={this.state.timeConstraint}
           callbackFromParentTime={this.callbackFromTime}
           callbackFromParentQuestion={this.callbackFromQuestion}/>
-        <Observations observations={this.state.observations}/>
+        <Observations callbackFromParent={this.callbackFromObservations} observations={this.state.observations}/>
         <Impressions impressions={this.state.impressions}/>
         <HoverWindow/>
       </div>

@@ -181,21 +181,24 @@
     left: 1.8%; top:8%;
     z-index: 0;
     height: 36.389vw;
-    width: auto;
+    width: 47.361vw;
+    .image{
+      height: 36.389vw;
+      width:47.361vw;
+    }
     @include defaultFont(0.885vw, normal, $white );
   }
   .priorImage{
     position: absolute;
     left: 50.6%;
     top: 8%;
-    right: 4%;
     height: 36.389vw;
-    width: 20%;
+    width: auto;
     z-index: 0;
-    border: 5px solid $white;
     @include defaultFont(0.885vw, normal, $white);
-    .magnifier{
-      width: 10px;
+    .image{
+      height: 36.389vw;
+      width:47.361vw;
     }
   }
 }

@@ -111,6 +111,7 @@ class PriorImages extends Component{
         </div>
       </div>
     );
+    let caption = this.state.priorImageMode?"Prior CXR Image ":"Similar patient with ";
     let display = (
       <div>
       <div className="display">
@@ -120,8 +121,8 @@ class PriorImages extends Component{
       </div>
       <div className="divider2"/><div className="divider2"/><div className="divider2"/><div className="divider"/>
       <div className="priorImage">
-        <Magnifier className="magnifier" src={this.state.priorImageMode?case11images[this.state.photoIndex]:case11CrossPatient[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' />
-        <div className="text">Prior CXR Image {dates[this.state.photoIndex]}</div>
+        <div className="image"><Magnifier src={this.state.priorImageMode?case11images[this.state.photoIndex]:case11CrossPatient[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' /></div>
+        <div className="text">{caption} {this.state.priorImageMode?dates[this.state.photoIndex]:case11CrossPatient[this.state.photoIndex][1]}</div>
       </div>
       <div className="headerPriorImage">
         <div className="PatientInfo">Patient Information: {this.state.gender}. {this.state.age}</div>

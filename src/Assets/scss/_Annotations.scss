@@ -5,7 +5,16 @@
   width: 55.2%;
   position: absolute;
   top: 7.55%; left: 1.04%;
-  // border: 5px solid $white;
+  .annotations{
+    position: absolute;
+    top: 1%;
+    left:5%;
+    height: 100%;
+    width: 90%;
+    .pressed{
+      border: 5px solid $white;
+    }
+  }
   .toggle{
     position: absolute;
     z-index: 900;
@@ -122,9 +131,11 @@ $baseHeight: 898;
   height: divideHeight($height);
   left: divideWidth($left);
   top: divideHeight($top);
+  z-index: 999;
   background: rgba(238, 101, 101, 0.45);
 }
 
+//CASE 11
 .c1p11s11{ //edema
   @include circle(805, 361, 157, 500);
 }
@@ -138,4 +149,37 @@ $baseHeight: 898;
 }
 .c4p11s11{ //support device
   @include circle(100, 91, 348, 314);
+}
+
+//CASE 12
+.c1p11s12{ //support device
+  @include circle(78, 74, 875, 163);
+}
+
+.c2p11s12{ //support device
+  @include circle(78, 81, 275, 241);
+}
+
+.c3p11s12{ //support device
+  @include circle(56, 70, 338, 545);
+}
+
+.c4p11s12{ //Atelectasis
+  @include circle(259, 363, 624, 200);
+}
+
+.c5p11s12{ //Edema
+  @include circle(320, 373, 594, 449);
+}
+
+.c6p11s12{ //Cardiomegaly
+  @include circle(445, 251, 338, 407);
+}
+
+.c7p11s12{ //Pleural effusion
+  @include circle(153, 159, 761, 578);
+}
+
+.c8p11s12{ //Pleural effusion
+  @include circle(201, 207, 93, 615);
 }
