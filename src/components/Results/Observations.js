@@ -49,11 +49,12 @@ class Observations extends Component {
     let obs1hover = ( //what appears for hover when obs1 is clicked
       <div>
       <ul>
-        <li><div className="imageCaption"><img src={hoverImage[0]}/>ffff</div></li>
-        <li><div className="imageCaption"><img src={hoverImage[1]}/>dddd</div></li>
+        <li><div className="imageCaption"><img src={hoverImage[0]}/>0%</div></li>
+        <li><div className="imageCaption"><img src={hoverImage[1]}/>100%</div></li>
       </ul>
       </div>
     );
+
     return (
       <div>
       <div className="Observations" id="ob">
@@ -68,7 +69,11 @@ class Observations extends Component {
           </ul>
         </div>
       </div>
-      <HoverWindow>{obs1hover}</HoverWindow>
+      <HoverWindow>
+        {
+          this.state.clicked==="Cardiomegaly"?obs1hover:""
+        }
+      </HoverWindow>
       </div>
     );
   }

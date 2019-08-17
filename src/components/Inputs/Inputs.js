@@ -3,6 +3,7 @@ import Header from './Header';
 import TimeConstraint from './TimeConstraint';
 import QuestionInput from './QuestionInput';
 import Results from '../Results/Results';
+import SelectPatient from './SelectPatient';
 
 class Inputs extends Component {
   constructor(props){
@@ -55,6 +56,7 @@ class Inputs extends Component {
     let inputs = (
       <div>
         <TimeConstraint type={true} original={[]} callbackFromParent={this.myCallBackFromSlider}/>
+        <SelectPatient callbackFromParent={this.myCallBackFromImage}/>
         <QuestionInput type={true} currentSet={this.state.questionInput}  callbackFromParent={this.myCallBackFromQuestionInput}/>
         <Header callbackFromParentLoading={this.myCallBackFromHeader} callbackFromParentImage={this.myCallBackFromImage}/>
       </div>

@@ -36,16 +36,16 @@ class Header extends Component {
     );
     return (
       <div>
-      <div className="header">
-        <ImageUpload callbackFromParent={this.myCallBackFromImage}/>
-        <div className="AnalyzeButton">
-          <button className="StartAnalysis" onClick={(e)=>(
-            this.setState({
-              isOpen: true,
-              isPressed: true
-            })
-          )}>Start Analysis</button>
-        </div>
+      <div className="headerResult">
+        <div className="PatientInfo">Patient Information: Female. 60</div>
+      </div>
+      <div className="AnalyzeButton">
+        <button className="StartAnalysis" onClick={(e)=>(
+          this.setState({
+            isOpen: true,
+            isPressed: true
+          })
+        )}>Start Analysis</button>
       </div>
       <div>
           {

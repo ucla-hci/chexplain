@@ -57,8 +57,8 @@ class TimeConstraint extends Component {
     var I1 = "I1", I2 = "I2", I3 = "I3";
     var divName = this.props.type?"TimeConstraint":"TimeConstraintResult";
     return (
-      <div className={divName}>
-        <div className="title">Time Constraint</div>
+      <div className="TimeConstraint">
+        <div className="title"><div className="text">Time Constraint</div></div>
         <div className="buttonGroup1">
           <ul>
             <li>

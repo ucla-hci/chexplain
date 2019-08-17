@@ -102,13 +102,15 @@ class QuestionInput extends Component {
         I20_c = this.state.buttonPressed[19][1]? "pressed":"I20";
     var I14 = "I14", I15 = "I15", I16 = "I16", I17 = "I17", I18 = "I18", I19 = "I19", I20 = "I20";
     var divName = this.props.type?"QuestionInput":"QuestionInputDialog";
+    // <div className="selectedInputs">Selected Questions:&ensp;{this.state.displayInput.join(", ")}</div>
     return (
-      <div className={divName}>
-        <div className="title">Question Input</div>
+      <div className="QuestionInput">
+        <div className="title"><div className="text">Question Input</div></div>
         <button className="clear" onClick = {() => this.handleClear()}>Clear</button>
-        <div className="selectedInputs">Selected Questions:&ensp;{this.state.displayInput.join(", ")}</div>
+        <div className="buttonGroup">
         <div className="buttonGroup1">
           <ul>
+            <li>Suspected Observations: </li>
             <li>
             <button className={I1_c} onClick = {() => this.handleClick(I1)}>{this.state.buttonPressed[0][2]}</button>
             </li>
@@ -123,6 +125,7 @@ class QuestionInput extends Component {
         </div>
         <div className="buttonGroup2">
           <ul>
+            <li>Symptoms: </li>
             <li><button className={I7_c} onClick = {() => this.handleClick(I7)}>{this.state.buttonPressed[6][2]}</button></li>
             <li><button className={I8_c} onClick = {() => this.handleClick(I8)}>{this.state.buttonPressed[7][2]}</button></li>
             <li><button className={I9_c} onClick = {() => this.handleClick(I9)}>{this.state.buttonPressed[8][2]}</button></li>
@@ -134,6 +137,7 @@ class QuestionInput extends Component {
         </div>
         <div className="buttonGroup3">
           <ul>
+            <li>Region: </li>
             <li><button className={I14_c} onClick = {() => this.handleClick(I14)}>{this.state.buttonPressed[13][2]}</button></li>
             <li><button className={I15_c} onClick = {() => this.handleClick(I15)}>{this.state.buttonPressed[14][2]}</button></li>
             <li><button className={I16_c} onClick = {() => this.handleClick(I16)}>{this.state.buttonPressed[15][2]}</button></li>
@@ -142,6 +146,7 @@ class QuestionInput extends Component {
             <li><button className={I19_c} onClick = {() => this.handleClick(I19)}>{this.state.buttonPressed[18][2]}</button></li>
             <li><button className={I20_c} onClick = {() => this.handleClick(I20)}>{this.state.buttonPressed[19][2]}</button></li>
           </ul>
+        </div>
         </div>
       </div>
     );

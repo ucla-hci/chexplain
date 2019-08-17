@@ -13,7 +13,7 @@
   }
   .obList{ //list of items concerning DD or Observations
     position: absolute;
-    top: 4%;
+    top: 6%;
     ul, li{
       list-style-type: none !important;
       list-style-position: inside;
@@ -72,6 +72,7 @@
       width: 17.069vw;
       height: 29.88888888888889vh;
       @include defaultFont(0.625vw, normal, $white);
+      text-align: right;
       img{
         display: table;
         margin: 0 auto;
