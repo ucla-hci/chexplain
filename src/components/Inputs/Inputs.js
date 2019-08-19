@@ -39,10 +39,13 @@ class Inputs extends Component {
     });
   }
 
-  myCallBackFromImage = (dataFromChild) => {
+  myCallBackFromImage = (urlFromChild, patientDataFromChild) => {
     this.setState({
-      imageurl: dataFromChild
+      imageurl: urlFromChild,
+      gender: patientDataFromChild[0],
+      age: patientDataFromChild[1]
     });
+    console.log(this.state.gender+" "+this.state.age);
   }
 
   render(){
@@ -58,7 +61,7 @@ class Inputs extends Component {
         <TimeConstraint type={true} original={[]} callbackFromParent={this.myCallBackFromSlider}/>
         <SelectPatient callbackFromParent={this.myCallBackFromImage}/>
         <QuestionInput type={true} currentSet={this.state.questionInput}  callbackFromParent={this.myCallBackFromQuestionInput}/>
-        <Header callbackFromParentLoading={this.myCallBackFromHeader} callbackFromParentImage={this.myCallBackFromImage}/>
+        <Header gender={this.state.gender} age={this.state.age} callbackFromParentLoading={this.myCallBackFromHeader} callbackFromParentImage={this.myCallBackFromImage}/>
       </div>
     );
     return (

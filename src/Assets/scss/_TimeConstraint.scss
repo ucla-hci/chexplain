@@ -1,4 +1,4 @@
-@mixin TimeConstraint($w: 37%, $t: 65%, $position: absolute){
+@mixin TimeConstraint($w: 37%, $t: 65%, $position: absolute, $height:20%){
   .title{
     .text{
       @include defaultFont(1.20vw, normal);
@@ -40,7 +40,7 @@
   top: $t;
   left: 2%;
   width: $w;
-  height: 20%;
+  height: $height;
   background: $darkGrey;
 }
 
@@ -49,5 +49,5 @@
 }
 
 .TimeConstraintResult{
-  @include TimeConstraint($w: 90%, $t:0%, $position: relative);
+  @include TimeConstraint($w: 90%, $t:34.4vh, $position: absolute, $height: 22.2vh);
 }

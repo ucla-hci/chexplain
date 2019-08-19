@@ -1,7 +1,7 @@
 @mixin Dialog($width: 47%, $height: 65%){
   position: absolute;
   min-width: $width;
-  margin: 0 auto; 
+  margin: 0 auto;
   left: 50%;
   top: 50%;
   min-height: $height;
@@ -16,7 +16,9 @@
   .closeButton{
     align-self: flex-end;
     z-index: 999;
+    color: $white;
   }
+  background: $black;
 }
 
 .Dialog{

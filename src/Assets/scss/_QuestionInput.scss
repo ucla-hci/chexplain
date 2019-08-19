@@ -109,7 +109,8 @@ $gray: #C4C4C4;
 }
 
 .QuestionInputDialog{
-  @include QuestionInput(95%, 0%, relative);
+  @include QuestionInput(5%, 2%, absolute, 90%, 55.55555555555556vh);
+
 }
 
 //NO LONGER USED, BECAUSE MINIMIZED IS DEPRECATED

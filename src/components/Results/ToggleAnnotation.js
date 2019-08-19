@@ -7,6 +7,7 @@ class ToggleAnnotation extends Component {
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleClickAnnotation = this.handleClickAnnotation.bind(this);
         this.state = {
             show: true, //controls show of everything related to annotation
             showAll: true,
@@ -17,14 +18,18 @@ class ToggleAnnotation extends Component {
             clicked: [],
             casePressed: ["c1p11s12","c2p11s12","c3p11s12","c4p11s12","c5p11s12",
                           "c6p11s12", "c7p11s12", "c8p11s12"]
+                          //support, support, suppot, atelect, edema, cardio, pleural, pleural
         }
     }
 
+    //calls every time prop changes
     componentWillReceiveProps(nextProps, nextState) {
+      //stringify so we can compare arrays easier
       if(JSON.stringify(nextProps.clickedObservation) != JSON.stringify(this.state.clicked)){
         this.setState({clicked: [...nextProps.clickedObservation]});
       }
-      let tempList = [...caseList];
+      let tempList = [...caseList]; //case list is set list of case names
+      //map through clicked observation to know which ones to highlight
       nextProps.clickedObservation.map((currElement) => {
         switch(currElement){
           case "Cardiomegaly":
@@ -51,9 +56,6 @@ class ToggleAnnotation extends Component {
         casePressed: tempList
       });
     }
-
-
-
 
     handleClick(whichButton){
       if(whichButton==="onlyAbnormal"){
@@ -84,19 +86,57 @@ class ToggleAnnotation extends Component {
       }
     }
 
+    handleClickAnnotation(clickedElement){
+      let tempList = [...caseList];
+      let callbackList = [];
+      //case list listens for when annotation is clicked similar annoation should be highlighted
+      switch(clickedElement){
+        case caseList[5]: //cardio
+          tempList[5]="c6p11s12_p";
+          callbackList.push("Cardiomegaly");
+          break;
+        case caseList[4]: //edema
+          tempList[4]="c5p11s12_p";
+          callbackList.push("Edema");
+          break;
+        case caseList[3]: //atelect
+          tempList[3]="c4p11s12_p";
+          callbackList.push("Atelectasis");
+          break;
+        case caseList[6]: //pleurl
+        case caseList[7]: //pleurl
+          tempList[6]="c7p11s12_p";
+          tempList[7]="c8p11s12_p";
+          callbackList.push("Pleural Effusion");
+          break;
+        case caseList[0]: //support
+        case caseList[1]:
+        case caseList[2]:
+          tempList[0]="c1p11s12_p";
+          tempList[1]="c2p11s12_p";
+          tempList[2]="c3p11s12_p";
+          callbackList.push("Support Device");
+          break;
+      }
+      if(JSON.stringify(tempList) != JSON.stringify(this.state.casePressed)){
+        this.setState({
+          casePressed: tempList
+        });
+      }
+      this.props.callbackFromParent(callbackList);
+    }
+
 
     render(){
         const {casePressed} = this.state;
         let allCircle = (
           <div className="annotations">
-            <div className={casePressed[0]} id="c1p11s12"/>
-            <div className={casePressed[1]} id="c2p11s12"/>
-            <div className={casePressed[2]} id="c3p11s12"/>
-            <div className={casePressed[3]} id="c4p11s12"/>
-            <div className={casePressed[4]} id="c5p11s12"/>
-            <div className={casePressed[5]} id="c6p11s12"/>
-            <div className={casePressed[6]} id="c7p11s12"/>
-            <div className={casePressed[7]} id="c8p11s12"/>
+            {
+              casePressed.map((currElement, index) => {
+                return <div className={currElement} onMouseEnter={() => this.handleClickAnnotation(currElement)} onClick={() => this.handleClickAnnotation(currElement)} id={currElement}/>
+              })
+            }
+
           </div>
         );
         let group1 = ( //pleural effusion

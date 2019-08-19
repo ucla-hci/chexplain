@@ -21,14 +21,14 @@ class QuestionInputSelected extends Component {
     this.props.callbackFromParent(this.state.inputsSelected);
   }
 
-
-  componentDidMount(){
-    //mark size of flex box
-    const bound = this.getBound("qselected");
-    this.setState({
-      questionHeight: bound.height
-    });
-  }
+  //
+  // componentDidMount(){
+  //   //mark size of flex box
+  //   const bound = this.getBound("qselected");
+  //   this.setState({
+  //     questionHeight: bound.height
+  //   });
+  // }
 
   // componentDidUpdate(){
   //   //Shifts time constraint down, when question input begins to expand

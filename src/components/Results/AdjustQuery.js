@@ -42,8 +42,8 @@ class AdjustQuery extends Component {
                   adjustOpen: false
                 }))}>
                 <div className="queryList">
-                <QuestionInput type={false} currentSet={this.state.questionInputsSelected} callbackFromParent={this.myCallBackQuestion}/>
-                <TimeConstraint type={false} original={this.state.timeConstraintSelected} callbackFromParent={this.myCallBackTime}/>
+                  <QuestionInput type={false} currentSet={this.state.questionInputsSelected} callbackFromParent={this.myCallBackQuestion}/>
+                  <TimeConstraint type={false} original={this.state.timeConstraintSelected} callbackFromParent={this.myCallBackTime}/>
                 </div>
         </Dialog>
       </div>

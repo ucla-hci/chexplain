@@ -9,7 +9,17 @@ class Header extends Component {
       isOpen: false,
       isAnalyzed: false,
       isPressed: false,
-      url: ''
+      gender: "",
+      age: ""
+    }
+  }
+
+  componentWillReceiveProps(nextProps, nextState){
+    if((nextProps.gender != this.state.gender)||(nextProps.age != this.state.age)){
+      this.setState({
+        gender: nextProps.gender,
+        age: nextProps.age
+      });
     }
   }
 
@@ -37,7 +47,7 @@ class Header extends Component {
     return (
       <div>
       <div className="headerResult">
-        <div className="PatientInfo">Patient Information: Female. 60</div>
+        <div className="PatientInfo">Patient Information: {this.state.gender}. {this.state.age}</div>
       </div>
       <div className="AnalyzeButton">
         <button className="StartAnalysis" onClick={(e)=>(

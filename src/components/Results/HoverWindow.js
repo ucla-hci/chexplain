@@ -9,7 +9,7 @@ class HoverWindow extends Component {
     return (
       <div>
       <div className="HoverWindow">
-        <div className="title"><div className="text">Hover</div></div>
+        <div className="title"><div className="text">{this.props.title||"Hover"}</div></div>
         <div className="content">
           {this.props.children}
         </div>
