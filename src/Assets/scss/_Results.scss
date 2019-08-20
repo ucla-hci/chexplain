@@ -18,7 +18,7 @@
       list-style-type: none !important;
       list-style-position: inside;
       li{
-        @include defaultFont(1.111vw, medium, #CDCDCD);
+        @include defaultFont(1.111vw, lighter, #B0B0B0);
       }
       cursor: pointer;
       margin: 0.8vw;
@@ -62,21 +62,31 @@
     height: 29.8vh;
     width: 41.319vw;
     z-index: 991;
-    ul, li{
-      list-style-type: none !important;
-      list-style-position: inside;
-      display: inline-block;
-      margin-right: 15px;
+    .obsDetails{
+      ul, li{
+        list-style-type: none !important;
+        list-style-position: inside;
+        display: inline-block;
+        margin-right: 15px;
+      }
+      .imageCaption{
+        width: 17.069vw;
+        height: 29.88888888888889vh;
+        @include defaultFont(0.625vw, normal, $white);
+        text-align: right;
+        img{
+          display: table;
+          margin: 0 auto;
+          width: 15.069vw;
+        }
+      }
     }
-    .imageCaption{
-      width: 17.069vw;
-      height: 29.88888888888889vh;
-      @include defaultFont(0.625vw, normal, $white);
-      text-align: right;
-      img{
-        display: table;
-        margin: 0 auto;
-        width: 15.069vw;
+    .impressionExplan{
+      @include defaultFont(1.125vw, normal, $white);
+      ul, li{
+        list-style-type: none !important;
+        list-style-position: inside;
+        margin-right: 15px;
       }
     }
 

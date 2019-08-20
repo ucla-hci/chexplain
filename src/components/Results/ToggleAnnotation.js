@@ -1,13 +1,21 @@
 import React, {Component} from 'react';
+import HoverWindow from './HoverWindow';
+import ObsDetails from './ObsDetails';
 
 const caseList = ["c1p11s12","c2p11s12","c3p11s12","c4p11s12","c5p11s12",
               "c6p11s12", "c7p11s12", "c8p11s12"];
+const relatedImageList = [
+  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fright_pleural100%25.png?alt=media&token=ed28e3df-e8ba-4e31-8109-945811e7e102','https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fpleuraleffusionconfident.jpg?alt=media&token=a188b354-afcc-4683-80bd-3a4b0fa3a3a0'],
+
+];
 
 class ToggleAnnotation extends Component {
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleClickAnnotation = this.handleClickAnnotation.bind(this);
+        this.displayHoverWindow = this.displayHoverWindow.bind(this);
+        this.handleUnclick = this.handleUnclick.bind(this);
         this.state = {
             show: true, //controls show of everything related to annotation
             showAll: true,
@@ -16,6 +24,7 @@ class ToggleAnnotation extends Component {
             args: [false, false, false, false, true, false], //pleural effusion, airway, breathing, cardiac, unclear, abnormal
             pressedResults:["Hom Opac"],
             clicked: [],
+            clickedAnno: "",
             casePressed: ["c1p11s12","c2p11s12","c3p11s12","c4p11s12","c5p11s12",
                           "c6p11s12", "c7p11s12", "c8p11s12"]
                           //support, support, suppot, atelect, edema, cardio, pleural, pleural
@@ -85,8 +94,11 @@ class ToggleAnnotation extends Component {
         }
       }
     }
-
+    // NOTE: called when annotation is clicked/hovered
     handleClickAnnotation(clickedElement){
+      this.setState({
+        clickedAnno: clickedElement
+      });
       let tempList = [...caseList];
       let callbackList = [];
       //case list listens for when annotation is clicked similar annoation should be highlighted
@@ -126,6 +138,58 @@ class ToggleAnnotation extends Component {
       this.props.callbackFromParent(callbackList);
     }
 
+    // NOTE: handle unclick basically resets all values, so it looks like nothing is pressed
+    handleUnclick(){
+      this.setState({
+        clicked: [""],
+        clickedAnno: "",
+        casePressed: ["c1p11s12","c2p11s12","c3p11s12","c4p11s12","c5p11s12",
+                      "c6p11s12", "c7p11s12", "c8p11s12"]
+      });
+    }
+
+    displayHoverWindow(clickedElement){
+      let captionTemplate1 = "Sample region with ";
+      let captionTemplate2 = "Sample region without ";
+      switch(clickedElement){
+        case caseList[5]: //cardio
+          return <HoverWindow title="Cardiomegaly (Compare region with abnormal/normal cases)">
+                    <ObsDetails image1={relatedImageList[0][0]} image2={relatedImageList[0][1]}
+                      caption1={captionTemplate1+"Cardiomegaly"}
+                      caption2={captionTemplate2+"Cardiomegaly"}/>
+                 </HoverWindow>;
+        case caseList[4]: //edema
+          return <HoverWindow title="Edema (Compare region with abnormal/normal cases)">
+                  <ObsDetails image1={relatedImageList[0][0]} image2={relatedImageList[0][1]}
+                    caption1={captionTemplate1+"Edema"}
+                    caption2={captionTemplate2+"Edema"}/>
+                 </HoverWindow>;
+        case caseList[3]: //atelect
+          return <HoverWindow title="Atelectasis (Compare region with abnormal/normal cases)">
+                  <ObsDetails image1={relatedImageList[0][0]} image2={relatedImageList[0][1]}
+                  caption1={captionTemplate1+"Atelectasis"}
+                  caption2={captionTemplate2+"Atelectasis"}/>
+                 </HoverWindow>;
+        case caseList[6]: //pleurl
+        case caseList[7]: //pleurl //pleurl
+          return <HoverWindow title="Pleural Effusion (Compare region with abnormal/normal cases)">
+                  <ObsDetails image1={relatedImageList[0][0]} image2={relatedImageList[0][1]}
+                    caption1={captionTemplate1+"Pleural Effusion"}
+                    caption2={captionTemplate2+"Pleural Effusion"}/>
+                 </HoverWindow>;
+        case caseList[0]: //support
+        case caseList[1]:
+        case caseList[2]:
+          return <HoverWindow title="Support Device (Compare region with abnormal/normal cases)">
+                  <ObsDetails image1={relatedImageList[0][0]} image2={relatedImageList[0][1]}
+                    caption1={captionTemplate1+"Support Device"}
+                    caption2={captionTemplate2+"Support Device"}/>
+                 </HoverWindow>;
+        default:
+          return null;
+      }
+    }
+
 
     render(){
         const {casePressed} = this.state;
@@ -133,7 +197,7 @@ class ToggleAnnotation extends Component {
           <div className="annotations">
             {
               casePressed.map((currElement, index) => {
-                return <div className={currElement} onMouseEnter={() => this.handleClickAnnotation(currElement)} onClick={() => this.handleClickAnnotation(currElement)} id={currElement}/>
+                return <div className={currElement} onMouseLeave={() => this.handleUnclick()} onMouseEnter={() => this.handleClickAnnotation(currElement)} id={currElement}/>
               })
             }
 
@@ -146,51 +210,15 @@ class ToggleAnnotation extends Component {
             <textarea className= { `${"a6"} ${"Breathing"}`} rows="3" cols="12" disabled> Homogenous opacity </textarea>
           </div>
         );
-        let group2 = ( //airway
-          <div>
-            <textarea className= { `${"a1"} ${"Airway"}`} rows="2" cols="6" disabled> Central Trachea </textarea>
-          </div>
-        );
-        let group3 = ( //breathing
-          <div>
-            <textarea className= { `${"a4"} ${"Breathing"}`} rows="4" cols="12" disabled> Minor blunting of the left costophrenic angle</textarea>
-            <textarea className= { `${"a5"} ${"Breathing"}`} rows="3" cols="7" disabled> Meniscus present</textarea>
-            <textarea className= { `${"a6"} ${"Breathing"}`} rows="3" cols="12" disabled> Homogenous opacity </textarea>
-            <textarea className= { `${"a2"} ${"Breathing"}`} rows="2" cols="7" disabled> Clear left lung </textarea>
-            <textarea className= { `${"a9"} ${"Breathing"}`} rows="3" cols="10" disabled> Evaluable right lung clear </textarea>
-          </div>
-        );
-        let group4 = ( //cardiac
-          <div>
-            <textarea className= { `${"a3"} ${"Cardiac"}`} rows="4" cols="13" disabled> Normal position of the left mediastinal and cardiac contours </textarea>
-          </div>
-        );
-        let group5 = ( //unclear
-          <div>
-            <textarea className= { `${"a7"} ${"Unclear"}`} rows="4" cols="18" disabled> The right hemidiaphragm and cardiac contour are not visible</textarea>
-            <textarea className= { `${"a8"} ${"Unclear"}`} rows="4" cols="10" disabled> Obliteration of the right costophrenic angle </textarea>
-          </div>
-        );
-        let group6 = ( //abnormal
-          <div>
-            <textarea className= { `${"a4"} ${"Breathing"}`} rows="4" cols="12" disabled> Minor blunting of the left costophrenic angle</textarea>
-            <textarea className= { `${"a5"} ${"Breathing"}`} rows="3" cols="7" disabled> Meniscus present</textarea>
-            <textarea className= { `${"a6"} ${"Breathing"}`} rows="3" cols="12" disabled> Homogenous opacity </textarea>
-            <textarea className= { `${"a7"} ${"Unclear"}`} rows="4" cols="18" disabled> The right hemidiaphragm and cardiac contour are not visible</textarea>
-            <textarea className= { `${"a8"} ${"Unclear"}`} rows="4" cols="10" disabled> Obliteration of the right costophrenic angle </textarea>
-          </div>
-        );
-        let all = (
-          <div>{group1}{group2}{group3}{group4}{group5}</div>
-        );
         let showAll = this.state.showAll?"pressed_s":"showAll";
         let showAllButton = (
           <div className = {showAll} onClick = {() => this.handleClick("showAll")}><div className="text"> Show All </div></div>
         );
         let toggle = this.state.args[5]?"pressed_t":"toggle";
         let customize = this.state.customizeMode?"pressed_c":"customize"; //for now, will have two div modes later when design is decided
-        console.log(this.props.clickedObservation);
+
         return(
+          <div>
             <div className = "Annotations" key={this.props.clickedObservation}>
               <div className = {toggle} onClick = {() => this.handleClick("onlyAbnormal")}><div className="text"> Only Abnormal </div></div>
               <div className = {customize} onClick = {() => this.handleClick("customize")}><div className="text"> Customize Labels </div></div>
@@ -201,6 +229,14 @@ class ToggleAnnotation extends Component {
                 this.state.show && this.state.showAll && allCircle
               }
             </div>
+            <div>
+            {
+              (() =>
+                this.displayHoverWindow(this.state.clickedAnno)
+              )()
+            }
+            </div>
+          </div>
         );
     }
 

@@ -49,10 +49,12 @@ class Results extends Component {
     }
     //map through observation to highlight them
     this.state.observations.map((currElement) => { //clear all previous highlights
-      document.getElementById(currElement).style.color = "#CDCDCD";
+      document.getElementById(currElement).style.color = "#B0B0B0";
+      document.getElementById(currElement).style.fontWeight = "lighter";
     });
     tempList.map((currElement) => {
-      document.getElementById(currElement).style.color = "#42C0FC";
+      document.getElementById(currElement).style.color = "#FFFFFF"; //sets color of clicked currElement to blue
+      document.getElementById(currElement).style.fontWeight = "600";
     });
     this.setState({ //this call allows related annotation to be highlighted
       clickedObservation: tempList
@@ -62,11 +64,13 @@ class Results extends Component {
   highlightObsFromAnnotation(observationList){
     //clear prev obs highlights
     this.state.observations.map((currElement) => { //clear all previous highlights
-      document.getElementById(currElement).style.color = "#CDCDCD";
+      document.getElementById(currElement).style.color = "#B0B0B0";
+      document.getElementById(currElement).style.fontWeight = "lighter";
     });
     //highlight related ones
     observationList.map((currElement) => {
-      document.getElementById(currElement).style.color = "#42C0FC";
+      document.getElementById(currElement).style.color = "#FFFFFF"; //sets color of clicked currElement to blue
+      document.getElementById(currElement).style.fontWeight = "600";
     });
     this.highlightImpression(observationList);
   }
@@ -74,22 +78,28 @@ class Results extends Component {
   highlightImpression(observation){
     //clear impression colors
     const {impressions} = this.state;
-    this.state.impressions.map((currElement) => {
-      document.getElementById(currElement).style.color = "#CDCDCD";
+    this.state.impressions.map((currElement) => { //clears style
+      document.getElementById(currElement).style.color = "#B0B0B0";
+      document.getElementById(currElement).style.fontWeight = "lighter";
     });
     //link observation and related impression
     observation.map((currElement) => {
       switch(currElement){
         case "Edema":
-          document.getElementById(impressions[0]).style.color = "#42C0FC";
+          document.getElementById(impressions[0]).style.color = "#FFFFFF";
+          document.getElementById(impressions[0]).style.fontWeight = "600";
           break;
         case "Pleural Effusion":
-          document.getElementById(impressions[0]).style.color = "#42C0FC";
-          document.getElementById(impressions[1]).style.color = "#42C0FC";
-          document.getElementById(impressions[2]).style.color = "#42C0FC";
+          document.getElementById(impressions[0]).style.color = "#FFFFFF";
+          document.getElementById(impressions[0]).style.fontWeight = "600";
+          document.getElementById(impressions[1]).style.color = "#FFFFFF";
+          document.getElementById(impressions[1]).style.fontWeight = "600";
+          document.getElementById(impressions[2]).style.color = "#FFFFFF";
+          document.getElementById(impressions[2]).style.fontWeight = "600";
           break;
         case "Atelectasis":
-          document.getElementById(impressions[1]).style.color = "#42C0FC";
+          document.getElementById(impressions[1]).style.color = "#FFFFFF";
+          document.getElementById(impressions[1]).style.fontWeight = "600";
       }
     });
   }

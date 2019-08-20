@@ -20,7 +20,7 @@ $gray: #C4C4C4;
   .imageCaption{
     width: 11.208vw;
     text-align: right;
-    @include defaultFont;
+    @include defaultFont($fontSize: 0.972vw, $fontWeight: regular);
     img{
       height: 8.500vw;
       display: table;
