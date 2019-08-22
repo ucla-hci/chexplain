@@ -23,6 +23,7 @@ class Results extends Component {
       observations: ["Cardiomegaly","Edema","Atelectasis","Pleural Effusion", "Support Device"], //to be passed here by backend
       observationsPercentage: ["<60%>", "<78%>", "<55%>", "<84%>", "<93%>"],
       impressions: ["Congestive Heart Failure", "Pneumonia", "Lung Cancer"],
+      impressionsPercentage: ["<60%>", "<30%>", "<5%>"],
       priorImagesOpened: false,
       age: this.props.patientAge,
       gender: this.props.patientGender,
@@ -160,7 +161,7 @@ class Results extends Component {
           callbackFromParentTime={this.callbackFromTime}
           callbackFromParentQuestion={this.callbackFromQuestion}/>
         <Observations callbackFromParent={this.callbackFromObservations} clickedImpression={this.state.clickedImpression} observations={this.state.observations} percentages={this.state.observationsPercentage}/>
-        <Impressions callbackFromParent={this.callbackFromImpressions} impressions={this.state.impressions} observations={this.state.observations}/>
+        <Impressions callbackFromParent={this.callbackFromImpressions} impressions={this.state.impressions} observations={this.state.observations} percentages={this.state.observationsPercentage}/>
       </div>
     );
     let resultpart2 = ( //prior images

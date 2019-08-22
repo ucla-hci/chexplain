@@ -4,12 +4,13 @@
   width: 55.2%;
   position: absolute;
   top: 7.55%; left: 1.04%;
+
   .annotations{
     position: absolute;
     top: 1%;
-    left:5%;
+    left:7%;
     height: 100%;
-    width: 90%;
+    width: 86%;
     .pressed{
       border: 5px solid $white;
     }
@@ -59,12 +60,12 @@
   .a1{ //central trachea
     position: absolute;
     z-index: 900;
-    top: 3%; left: 15%;
+    top: 3%; left: 40%;
   }
   .a2{ //clear left lung
     position: absolute;
     z-index: 900;
-    top: 15%; left: 35%;
+    top: 30%; left: 13%;
   }
   .a3{ //Normal position of left...
     position: absolute;
@@ -123,21 +124,51 @@ $baseHeight: 898;
   @return percentage($height/$baseHeight);
 }
 
-@mixin circle($width, $height, $left, $top, $opac: 0.55){
-  border-radius: 100%;
-  border: none;
-  position: absolute;
-  width: divideWidth($width);
-  height: divideHeight($height);
-  left: divideWidth($left);
-  top: divideHeight($top);
-  z-index: 980;
-  background: rgba(238, 101, 101, $opac);
-  cursor: pointer;
+@function divideby2($width){
+  @return (percentage($width/$baseWidth)/4);
+}
+
+@mixin circle($width, $height, $left, $top, $opac: 0.55, $red: true){
+  .circle{
+    border-radius: 100%;
+    border: none;
+    position: absolute;
+    width: divideWidth($width);
+    height: divideHeight($height);
+    left: divideWidth($left);
+    top: divideHeight($top);
+    z-index: 980;
+    //background: rgba(238, 101, 101, $opac);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    @if $red == true {
+      background: rgba(238, 101, 101, $opac);
+      cursor: pointer;
+    } @else {
+      background: rgba(50, 169, 30, $opac);
+    }
+  }
+  .caption{
+    position: absolute;
+    left: divideWidth($left)+ divideby2($width);
+    top: divideHeight($top);
+    width: auto;
+    height: auto;
+    @include defaultFont(0.927vw, regular);
+    padding-left: 10px;
+    padding-right: 10px;
+    z-index: 981;
+    @if $red == true {
+      background: rgba(238, 101, 101, $opac);
+      cursor: pointer;
+    } @else {
+      background: rgba(50, 169, 30, $opac);
+    }
+  }
 }
 $opacLight: 0.20;
 //CASE 11
 //study 12
+
 .c1p11s12{ //support device
   @include circle(78, 74, 875, 163, $opacLight);
 }
@@ -202,17 +233,44 @@ $opacLight: 0.20;
   @include circle(201, 207, 93, 615);
 }
 
-//study 1
-.c1p11s1{
-  @include circle(309, 437, 510, 186, $opacLight);
+//normal region study 12
+.c9p11s12{ //central trachea
+  @include circle(165, 133, 478, 17, $opacLight, false);
 }
-.c2p11s1{
+
+.c9p11s12_p{ //central trachea
+  @include circle(121, 119, 559, 31, $opacLight, false);
+}
+
+.c10p11s12{ //clear right lung
+  @include circle(289, 397, 208, 123, $opacLight, false);
+}
+
+.c10p11s12_p{ //clear right lung
+  @include circle(302, 356, 293, 127, $opacLight, false);
+}
+
+//study 1
+.c1p11s1{ //lung opacity
+  @include circle(309, 437, 510, 186, $opacLight);
+  .circle{
+    border: 3px solid red;
+  }
+}
+.c2p11s1{ //support device
   @include circle(96, 85, 819, 74, $opacLight);
+}
+
+.c3p11s1{ //clear right lung
+  @include circle(333, 430, 153, 186, $opacLight, false);
 }
 
 //study 11
 .c1p11s11{ //edema
   @include circle(805, 361, 157, 500, $opacLight);
+  .circle{
+    border: 3px solid red;
+  }
 }
 
 .c2p11s11{ //support device
@@ -229,6 +287,9 @@ $opacLight: 0.20;
 
 .c5p11s11{ //lung opacity
   @include circle(285, 591, 654, 121, $opacLight);
+  .circle{
+    border: 3px solid red;
+  }
 }
 
 .c6p11s11{ //pleural effusion right
@@ -241,6 +302,18 @@ $opacLight: 0.20;
 
 .c8p11s11{ //edema
   @include circle(154, 142, 583, 235, $opacLight);
+  .circle{
+    border: 3px solid red;
+  }
+}
+
+//study 11 normal Regions
+.c9p11s11{ //central traches
+  @include circle(121, 119, 559, 31, $opacLight, false);
+}
+
+.c10p11s11{ //clear right lung
+  @include circle(302, 356, 293, 127, $opacLight, false);
 }
 
 //study 9
@@ -258,6 +331,9 @@ $opacLight: 0.20;
 
 .c4p11s9{ //enlarged cardiomediastinum
   @include circle(407, 236, 356, 374, $opacLight);
+  .circle{
+    border: 3px solid red;
+  }
 }
 
 .c5p11s9{ //pleural effusion
@@ -266,4 +342,8 @@ $opacLight: 0.20;
 
 .c6p11s9{ //pleural effusion
   @include circle(211, 204, 137, 574, $opacLight);
+}
+
+.c7p11s9{
+  @include circle(289, 397, 239, 145, $opacLight, false);
 }

@@ -2,7 +2,7 @@ $blue: #BDD6FB;
 $red: #FAB9B9;
 $green: #B2F3CC;
 $gray: #C4C4C4;
-@mixin QuestionInput($top: 7.56%, $left:57.57%, $position: absolute, $width:19.86%, $height: 51.78%){
+@mixin QuestionInput($top: 7.56%, $left:57.57%, $position: absolute, $width:19.86%, $height: 80.78%){
   .title{
     .text{
       @include defaultFont(1.20vw, normal);
@@ -16,7 +16,7 @@ $gray: #C4C4C4;
   }
   .clear{
     position: absolute;
-    top: 11%;
+    top: 2%; left: 88%;
     margin-left: 2%;
     font-size: 0.8vw;
   }
@@ -29,7 +29,7 @@ $gray: #C4C4C4;
   }
   .buttonGroup{
     position: absolute;
-    top: 17%;
+    top: 11%;
     .buttonGroup1{
       @include defaultFont(0.972vw, regular);
       .pressed{
@@ -90,6 +90,66 @@ $gray: #C4C4C4;
         border: 1.5px solid $white;
       }
     }
+    .buttonGroup4{
+      @include defaultFont(0.972vw, regular);
+      .pressed{
+        @include defaultFont(0.872vw, regular, $lightBlue);
+        border: 1.5px solid $lightBlue;
+      }
+      ul, li{
+        list-style-type: none !important;
+        list-style-position: inside;
+        display: inline-block;
+        margin: 0.278vw;
+        padding-left: 0;
+        padding-top: 0;
+      }
+      button{
+        background-color: transparent;
+        @include defaultFont(0.872vw, regular);
+        border: 1.5px solid $white;
+      }
+    }
+    .buttonGroup5{
+      @include defaultFont(0.972vw, regular);
+      .pressed{
+        @include defaultFont(0.872vw, regular, $lightBlue);
+        border: 1.5px solid $lightBlue;
+      }
+      ul, li{
+        list-style-type: none !important;
+        list-style-position: inside;
+        display: inline-block;
+        margin: 0.278vw;
+        padding-left: 0;
+        padding-top: 0;
+      }
+      button{
+        background-color: transparent;
+        @include defaultFont(0.872vw, regular);
+        border: 1.5px solid $white;
+      }
+    }
+    .buttonGroup6{
+      @include defaultFont(0.972vw, regular);
+      .pressed{
+        @include defaultFont(0.872vw, regular, $lightBlue);
+        border: 1.5px solid $lightBlue;
+      }
+      ul, li{
+        list-style-type: none !important;
+        list-style-position: inside;
+        display: inline-block;
+        margin: 0.278vw;
+        padding-left: 0;
+        padding-top: 0;
+      }
+      button{
+        background-color: transparent;
+        @include defaultFont(0.872vw, regular);
+        border: 1.5px solid $white;
+      }
+    }
   }
   button{
     background-color: transparent;
@@ -105,7 +165,7 @@ $gray: #C4C4C4;
 }
 
 .QuestionInput{
-  @include QuestionInput(10%, 2%, absolute, 37%, 50%);
+  @include QuestionInput(30%, 2%, absolute, 37%, 64%);
 }
 
 .QuestionInputDialog{

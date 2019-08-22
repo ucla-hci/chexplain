@@ -1,12 +1,31 @@
 import React, {Component} from 'react';
 import HoverWindow from './HoverWindow';
 import ObsDetails from './ObsDetails';
+import AnnotationBubble from './AnnotationBubble';
 
 const caseList = ["c1p11s12","c2p11s12","c3p11s12","c4p11s12","c5p11s12",
               "c6p11s12", "c7p11s12", "c8p11s12"];
 const relatedImageList = [
-  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fright_pleural100%25.png?alt=media&token=ed28e3df-e8ba-4e31-8109-945811e7e102','https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fpleuraleffusionconfident.jpg?alt=media&token=a188b354-afcc-4683-80bd-3a4b0fa3a3a0'],
+  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fpleuraleffusionconfident.jpg?alt=media&token=a188b354-afcc-4683-80bd-3a4b0fa3a3a0','https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fright_pleural100%25.png?alt=media&token=ed28e3df-e8ba-4e31-8109-945811e7e102'], //pleuralEffusionImage
+  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fatelectsmall.jpg?alt=media&token=c0c47ef3-66b3-424f-8bc5-542ff94d3598','https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fnoatelect.jpg?alt=media&token=3cf8689e-644c-47a4-880a-5cc5eef17eed'], //atelectasis
+  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fcardiosmall.jpg?alt=media&token=81e9b209-b02f-469f-8783-2614d1352155','https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fnocardio.jpg?alt=media&token=2e0a8a5a-dd09-4116-81e1-67752f8d123c'], //cardio
+  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fedemasmall.jpg?alt=media&token=88848484-faef-4e93-be5f-25ae0bb725df','https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fnoedema.jpg?alt=media&token=78b6338b-d890-45ee-ac34-ad701e8513a1'], //edema
+];
 
+const caseNormalCaption = [
+  "Central Trachea",
+  "Clear Right Lung"
+];
+
+const caseAbnormalCaption = [
+  "Support Device",
+  "Support Device",
+  "Support Device",
+  "Atelectasis",
+  "Edema",
+  "Cardiomegaly",
+  "Pleural Effusion",
+  "Pleural Effusion"
 ];
 
 class ToggleAnnotation extends Component {
@@ -20,14 +39,13 @@ class ToggleAnnotation extends Component {
             show: true, //controls show of everything related to annotation
             showAll: true,
             customizeMode: false,
-            inherited: [...this.props.display],
-            args: [false, false, false, false, true, false], //pleural effusion, airway, breathing, cardiac, unclear, abnormal
-            pressedResults:["Hom Opac"],
+            onlyAbnormal: false,
             clicked: [],
             clickedAnno: "",
             casePressed: ["c1p11s12","c2p11s12","c3p11s12","c4p11s12","c5p11s12",
-                          "c6p11s12", "c7p11s12", "c8p11s12"]
+                          "c6p11s12", "c7p11s12", "c8p11s12"],
                           //support, support, suppot, atelect, edema, cardio, pleural, pleural
+            caseNormal: ["c9p11s12", "c10p11s12"],
         }
     }
 
@@ -68,14 +86,10 @@ class ToggleAnnotation extends Component {
 
     handleClick(whichButton){
       if(whichButton==="onlyAbnormal"){
-        var temp = this.state.args;
-        if(this.state.args[5] === false){
-            temp[5]=true;
-            this.setState({args: temp});
-        } else {
-            temp[5]=false;
-            this.setState({args: temp});
-        }
+        this.setState({
+          onlyAbnormal: !this.state.onlyAbnormal,
+          showAll: true
+        });
       }
       if(whichButton==="showAll"){
         if(this.state.showAll === false){
@@ -154,19 +168,19 @@ class ToggleAnnotation extends Component {
       switch(clickedElement){
         case caseList[5]: //cardio
           return <HoverWindow title="Cardiomegaly (Compare region with abnormal/normal cases)">
-                    <ObsDetails image1={relatedImageList[0][0]} image2={relatedImageList[0][1]}
+                    <ObsDetails image1={relatedImageList[2][0]} image2={relatedImageList[2][1]}
                       caption1={captionTemplate1+"Cardiomegaly"}
                       caption2={captionTemplate2+"Cardiomegaly"}/>
                  </HoverWindow>;
         case caseList[4]: //edema
           return <HoverWindow title="Edema (Compare region with abnormal/normal cases)">
-                  <ObsDetails image1={relatedImageList[0][0]} image2={relatedImageList[0][1]}
+                  <ObsDetails image1={relatedImageList[3][0]} image2={relatedImageList[3][1]}
                     caption1={captionTemplate1+"Edema"}
                     caption2={captionTemplate2+"Edema"}/>
                  </HoverWindow>;
         case caseList[3]: //atelect
           return <HoverWindow title="Atelectasis (Compare region with abnormal/normal cases)">
-                  <ObsDetails image1={relatedImageList[0][0]} image2={relatedImageList[0][1]}
+                  <ObsDetails image1={relatedImageList[1][0]} image2={relatedImageList[1][1]}
                   caption1={captionTemplate1+"Atelectasis"}
                   caption2={captionTemplate2+"Atelectasis"}/>
                  </HoverWindow>;
@@ -192,29 +206,35 @@ class ToggleAnnotation extends Component {
 
 
     render(){
-        const {casePressed} = this.state;
+        const {casePressed, caseNormal} = this.state;
+        let group1 = ( //pleural effusion
+          <div>
+            <textarea className="a1" rows="2" cols="6" disabled>Central Trachea</textarea>
+            <textarea className="a2" rows="3" cols="7" disabled>Evaulable right lung clear</textarea>
+          </div>
+        );
         let allCircle = (
           <div className="annotations">
             {
-              casePressed.map((currElement, index) => {
-                return <div className={currElement} onMouseLeave={() => this.handleUnclick()} onMouseEnter={() => this.handleClickAnnotation(currElement)} id={currElement}/>
+              !this.state.onlyAbnormal && caseNormal.map((currElement, index) => {
+                return <AnnotationBubble caption={caseNormalCaption[index]} label={currElement}/>
               })
             }
-
-          </div>
-        );
-        let group1 = ( //pleural effusion
-          <div>
-            <textarea className= { `${"a4"} ${"Breathing"}`} rows="4" cols="12" disabled> Minor blunting of the left costophrenic angle</textarea>
-            <textarea className= { `${"a5"} ${"Breathing"}`} rows="3" cols="7" disabled> Meniscus present</textarea>
-            <textarea className= { `${"a6"} ${"Breathing"}`} rows="3" cols="12" disabled> Homogenous opacity </textarea>
+            {
+              casePressed.map((currElement, index) => {
+                return <div onMouseLeave={() => this.handleUnclick()} onMouseEnter={() => this.handleClickAnnotation(currElement)}>
+                        <AnnotationBubble caption={caseAbnormalCaption[index]} label={currElement} id={currElement} />
+                       </div>
+              })
+            }
           </div>
         );
         let showAll = this.state.showAll?"pressed_s":"showAll";
+        let buttonWord = this.state.showAll?"Hide All":"Show All";
         let showAllButton = (
-          <div className = {showAll} onClick = {() => this.handleClick("showAll")}><div className="text"> Show All </div></div>
+          <div className = {showAll} onClick = {() => this.handleClick("showAll")}><div className="text"> {buttonWord} </div></div>
         );
-        let toggle = this.state.args[5]?"pressed_t":"toggle";
+        let toggle = this.state.onlyAbnormal?"pressed_t":"toggle";
         let customize = this.state.customizeMode?"pressed_c":"customize"; //for now, will have two div modes later when design is decided
 
         return(

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Magnifier from "../Magnifier.es";
 import { GoX } from "react-icons/go";
 import { IconContext } from "react-icons";
+import AnnotationBubble from "./AnnotationBubble";
 
 const images = [
   'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2Ftest1.jpg?alt=media&token=8b20e1dc-6641-4a85-9a74-a5135bc0275e',
@@ -13,15 +14,46 @@ const images = [
 ];
 
 const case11images = [
-  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s1_view1_frontal.jpg?alt=media&token=1a215ff2-bc35-448c-8e4f-9c7c56661c71',
+  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s11_view1_frontal.jpg?alt=media&token=411551be-0228-45ba-9261-cf485637c022',
   'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s9_view1_frontal.jpg?alt=media&token=df7f4348-88bd-4ee3-b0ed-8ec1cd951b79',
-  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s11_view1_frontal.jpg?alt=media&token=411551be-0228-45ba-9261-cf485637c022'
+  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s1_view1_frontal.jpg?alt=media&token=1a215ff2-bc35-448c-8e4f-9c7c56661c71'
 ];
+
+const caseCurrentList = ["c1p11s12","c2p11s12","c3p11s12","c4p11s12","c5p11s12",
+              "c6p11s12", "c7p11s12", "c8p11s12", "c9p11s12", "c10p11s12"];
+
+//support, support, suppot, atelect, edema, cardio, pleural, pleural
+
+const caseCurrentCaption = [
+  "Support Device",
+  "Support Device",
+  "Support Device",
+  "Atelectasis",
+  "Edema",
+  "Cardiomegaly",
+  "Pleural Effusion",
+  "Pleural Effusion",
+  "Central Trachea",
+  "Clear Right Lung"
+];
+
+const prevCaseLists = [
+  ["c1p11s11", "c2p11s11", "c3p11s11", "c4p11s11", "c5p11s11", "c6p11s11", "c7p11s11", "c8p11s11", "c9p11s11", "c10p11s11"],
+  ["c1p11s9", "c2p11s9", "c3p11s9", "c4p11s9", "c5p11s9", "c6p11s9", "c7p11s9"],
+  ["c1p11s1", "c2p11s1", "c3p11s1"]
+];
+
+const prevCaseCaptions = [
+  ["Edema", "Support Device", "Support Device", "Support Device", "Lung Opacity", "Pleural Effusion", "Pleural Effusion", "Edema", "Central Trachea", "Clear Right Lung"],
+  ["Support Device", "Support Device", "Support Device", "Enlarged Cardiomediastinum", "Pleural Effusion", "Pleural Effusion", "Clear Right Lung"],
+  ["Lung Opacity", "Support Device",  "Clear Right Lung"]
+];
+
 const case11CrossPatient = [
-  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fcardiomegaly.jpeg?alt=media&token=bc6e62ce-5fb8-4e8c-9ccb-4c36406c017a', "Cardiomegaly"], //2Fcardiomegaly
-  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2FEdema.png?alt=media&token=0b5545a1-f8fc-4aad-9aa6-efca0e3e06ad', "Edema"], //Edema
-  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fpleural%20effusion.jpg?alt=media&token=292eaa7b-9dd7-49b9-8424-084f1b1463bb', "Pleural Effusion"], //pleural effusion
-  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fround-atelectasis.jpg?alt=media&token=9e9328a1-9045-4e42-8224-85a925e7edc7', "Atelectasis"]
+  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fcardiomegaly.jpeg?alt=media&token=bc6e62ce-5fb8-4e8c-9ccb-4c36406c017a', "Cardiomegaly", "Female", "60"], //cardiomegaly
+  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2FEdema.png?alt=media&token=0b5545a1-f8fc-4aad-9aa6-efca0e3e06ad', "Edema", "Male", "45"], //Edema
+  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fpleural%20effusion.jpg?alt=media&token=292eaa7b-9dd7-49b9-8424-084f1b1463bb', "Pleural Effusion", "Male", "80"], //pleural effusion
+  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fround-atelectasis.jpg?alt=media&token=9e9328a1-9045-4e42-8224-85a925e7edc7', "Atelectasis", "Female", "73"] //atelectasis
 ];
 
 const dates = [
@@ -49,7 +81,29 @@ class PriorImages extends Component{
     this.handleClickPriorImage = this.handleClickPriorImage.bind(this);
     this.handleClickCrossPatient = this.handleClickCrossPatient.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.colorBorder = this.colorBorder.bind(this);
   }
+
+  colorBorder(){
+    if(this.state.showAnnotation){
+      //need to highlight region
+      caseCurrentList.map((currElement) => {
+        document.getElementById(currElement).style.border = "none";
+      });
+      switch(this.state.photoIndex){
+        case 2:
+          document.getElementById("c7p11s12").style.border = "3px solid red"; //pleural
+          document.getElementById("c8p11s12").style.border = "3px solid red"; //pleural
+        case 0:
+        case 1:
+          //cardio,atelect, edema
+          document.getElementById("c4p11s12").style.border = "3px solid red"; //atelect
+          document.getElementById("c5p11s12").style.border = "3px solid red"; //edema
+          document.getElementById("c6p11s12").style.border = "3px solid red"; //cardio
+      }
+    }
+  }
+
 
 // NOTE: handles switiching to prior image mode
   async handleClickPriorImage(num){
@@ -57,8 +111,10 @@ class PriorImages extends Component{
       isOpen: true,
       photoIndex: num
     });
+    this.colorBorder();
     this.props.callbackFromParent(this.state.isOpen);
   }
+
 
 // NOTE: handles switching to cross patient mode
   async handleClickCrossPatient(num){
@@ -75,6 +131,15 @@ class PriorImages extends Component{
       isOpen: false
     });
     this.props.callbackFromParent(this.state.isOpen);
+  }
+
+// NOTE: Handles click of show annotation button
+  async handleClick(){
+    await this.setState({
+      showAnnotation: !this.state.showAnnotation,
+      bookmarkRegionOn: !this.state.bookmarkRegionOn
+    });
+    this.colorBorder();
   }
 
 
@@ -119,51 +184,47 @@ class PriorImages extends Component{
     // NOTE: Below is rendering of annotation for case 11 main image and prior images
     let currentImageAnnotation = (
       <div className="annotations">
-        <div className="c1p11s12"/>
-        <div className="c2p11s12"/>
-        <div className="c3p11s12"/>
-        <div className="c4p11s12"/>
-        <div className="c5p11s12"/>
-        <div className="c6p11s12"/>
-        <div className="c7p11s12"/>
-        <div className="c8p11s12"/>
+        {
+          caseCurrentList.map((currElement, index) => {
+            return <AnnotationBubble caption={caseCurrentCaption[index]} label={currElement}/>
+          })
+        }
       </div>
     );
     let priorStudy1Annotation = (
       <div className="annotations">
-        <div className="c1p11s1"/>
-        <div className="c2p11s1"/>
+      {
+        prevCaseLists[2].map((currElement, index) => {
+          return <AnnotationBubble caption={prevCaseCaptions[2][index]} label={currElement}/>
+        })
+      }
       </div>
     );
     let priorStudy11Annotation = (
       <div className="annotations">
-        <div className="c1p11s11"/>
-        <div className="c2p11s11"/>
-        <div className="c3p11s11"/>
-        <div className="c4p11s11"/>
-        <div className="c5p11s11"/>
-        <div className="c6p11s11"/>
-        <div className="c7p11s11"/>
-        <div className="c8p11s11"/>
+      {
+        prevCaseLists[0].map((currElement, index) => {
+          return <AnnotationBubble caption={prevCaseCaptions[0][index]} label={currElement}/>
+        })
+      }
       </div>
     );
     let priorStudy9Annotation = (
       <div className="annotations">
-        <div className="c1p11s9"/>
-        <div className="c2p11s9"/>
-        <div className="c3p11s9"/>
-        <div className="c4p11s9"/>
-        <div className="c5p11s9"/>
-        <div className="c6p11s9"/>
+      {
+        prevCaseLists[1].map((currElement, index) => {
+          return <AnnotationBubble caption={prevCaseCaptions[1][index]} label={currElement}/>
+        })
+      }
       </div>
     );
 
     // NOTE: select which prior study annotation to render
-    let priorAnnotation = priorStudy1Annotation;
+    let priorAnnotation = priorStudy11Annotation;
     if(this.state.photoIndex===1){
       priorAnnotation = priorStudy9Annotation;
     }else if(this.state.photoIndex===2){
-      priorAnnotation = priorStudy11Annotation;
+      priorAnnotation = priorStudy1Annotation;
     }
 
     //will not render annotation for cross patient comparison
@@ -209,15 +270,23 @@ class PriorImages extends Component{
         {
           !this.state.bookmarkRegionOn && priorAnnotation
         }
-        <div className="text">{caption} {this.state.priorImageMode?dates[this.state.photoIndex]:case11CrossPatient[this.state.photoIndex][1]}</div>
+        <div className="text">
+          {caption}
+          {
+            this.state.priorImageMode?
+            dates[this.state.photoIndex]:
+            case11CrossPatient[this.state.photoIndex][1]
+          }
+          {
+            !this.state.priorImageMode &&
+            "("+case11CrossPatient[this.state.photoIndex][2]+". "+case11CrossPatient[this.state.photoIndex][3]+")"
+          }
+        </div>
       </div>
       <div className="headerPriorImage">
         <div className="PatientInfo">Patient Information: {this.state.gender}. {this.state.age}</div>
         <div className="ReturnButton" onClick={() => this.handleClose()}><div className="text">Return</div></div>
-        <div className={showAnnotationButton} onClick={() => this.setState({
-          showAnnotation: !this.state.showAnnotation,
-          bookmarkRegionOn: !this.state.bookmarkRegionOn
-        })}><div className="text">Show Annotations</div></div>
+        <div className={showAnnotationButton} onClick={() => this.handleClick()}><div className="text">Show Annotations</div></div>
         <div className={bookmarkRegion} onClick={() => this.setState({
           bookmarkRegionOn: !this.state.bookmarkRegionOn,
           showAnnotation: !this.state.showAnnotation

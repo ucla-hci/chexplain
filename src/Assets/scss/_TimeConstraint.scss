@@ -1,4 +1,4 @@
-@mixin TimeConstraint($w: 37%, $t: 65%, $position: absolute, $height:20%){
+@mixin TimeConstraint($w: 37%, $t: 10%, $position: absolute, $height:17%){
   .title{
     .text{
       @include defaultFont(1.20vw, normal);

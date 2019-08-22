@@ -12,7 +12,7 @@ class ImpDetails extends Component {
       <div className="impressionExplan">
       <IconContext.Provider value={{ size: "1.2vw"}}>
       <ul>
-        <li><MdRemove/> Base: {this.props.base}%</li>
+        <li><MdRemove/> Prevalence: {this.props.base}%</li>
         <li>
           <ul>
           {

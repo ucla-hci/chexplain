@@ -3,9 +3,21 @@ import HoverWindow from './HoverWindow';
 import ImpDetails from './ImpDetails';
 
 const congHeartFailureExplan = [
-  [5],
-  ["Central Trachea Clear", "Evaluable Right Lung Clear"],
-  ["Meniscus Present", "Homogenous Opacity", "Pleural Effusion"]
+  [4],
+  ["Heart Evaluable"],
+  ["Cardiomegaly", "Pleural Effusion", "Coronary Artery Disease", "Hypertension", "Diabetes", "Obesity"]
+];
+
+const pneumoniaExplan = [
+  [7],
+  ["Right lung and visible left lung Evaulable"],
+  ["Actelectasis", "Smoking History", "Pleural Effusion"]
+];
+
+const lungCancerExplan = [
+  ["<1"],
+  ["Right lung and visible left lung Evaulable"],
+  ["Pleural Effusion", "Smoking History", "History of Lung Cancer", "Radiation Therapy to the chest"]
 ];
 
 class Impressions extends Component {
@@ -44,6 +56,16 @@ class Impressions extends Component {
         <ImpDetails base="5" pos={congHeartFailureExplan[1]} neg={congHeartFailureExplan[2]}/>
       </HoverWindow>
     );
+    let imp2hover = (
+      <HoverWindow title={this.state.impressions[1]+"(Factors that influence probability)"}>
+        <ImpDetails base={pneumoniaExplan[0]} pos={pneumoniaExplan[1]} neg={pneumoniaExplan[2]}/>
+      </HoverWindow>
+    );
+    let imp3hover = (
+      <HoverWindow title={this.state.impressions[2]+"(Factors that influence probability)"}>
+        <ImpDetails base={lungCancerExplan[0]} pos={lungCancerExplan[1]} neg={lungCancerExplan[2]}/>
+      </HoverWindow>
+    );
     return (
       <div>
       <div className="Impressions">
@@ -51,8 +73,8 @@ class Impressions extends Component {
         <div className="obList">
           <ul>
             {
-              this.state.impressions.map((currElement) => {
-                return <li id={currElement} onMouseEnter={() => this.handleClick(currElement)} onMouseLeave={() => this.handleClose()} onClick={() => this.handleClick(currElement)}>{currElement}</li>
+              this.state.impressions.map((currElement, index) => {
+                return <li id={currElement} onMouseEnter={() => this.handleClick(currElement)} onMouseLeave={() => this.handleClose()} onClick={() => this.handleClick(currElement)}>{currElement} {this.props.percentages[index]}</li>
               })
             }
           </ul>
@@ -65,9 +87,9 @@ class Impressions extends Component {
               case "Congestive Heart Failure":
                 return imp1hover;
               case "Pneumonia":
-                return imp1hover;
+                return imp2hover;
               case "Lung Cancer":
-                return imp1hover;
+                return imp3hover;
               default:
                 return null;
             }
