@@ -1,5 +1,5 @@
 //result box is used for Observations and Differential Diagnosis
-@mixin resultBox($top: 7.56%, $left:57.57%, $position: absolute, $width:19.86%, $height: 51.78%){
+@mixin resultBox($top: 7.56%, $left:49.57%, $position: absolute, $width:18.86%, $height: 51.78%){
   .title{
     .text{
       @include defaultFont(1.20vw, normal);
@@ -48,11 +48,19 @@
 }
 
 .Impressions{
-  @include resultBox(7.56%, 78.26%);
+  @include resultBox(7.56%, 69.26%);
+}
+
+.PriorImageObservation1{
+  @include resultBox(70%, 46%, absolute, 40%);
+}
+
+.PriorImageObservation2{
+  @include resultBox(70%, 3%, absolute, 37%);
 }
 
 .HoverWindow{
-  @include resultBox(60.66%, 57.57%, absolute, 40.62%, 37.11%);
+  @include resultBox(60.66%, 49.57%, absolute, 38.62%, 37.11%);
   .content{
     color: $white;
     position: absolute;
@@ -95,9 +103,9 @@
 
 .imageDisplayWindow{
   position: absolute;
-  top: 7.55%; left:1.04%;
+  top: 17%; left:1.04%;
   height: 67.9%;
-  width: 55.2%;
+  width: 40.2%;
   .imageDisplay{
     display: table;
     margin: 0 auto;

@@ -3,8 +3,8 @@
   height: 67.9%;
   width: 55.2%;
   position: absolute;
-  top: 7.55%; left: 1.04%;
-
+  top: 17%; left: -3.5%;
+  // border: 5px solid white;
   .annotations{
     position: absolute;
     top: 1%;
@@ -19,42 +19,42 @@
     position: absolute;
     z-index: 900;
     top: 93.12%;
-    left: 82.4%;
+    left: 78.4%;
     @include defaultButton($darkGrey, 0.972vw, normal);
   }
   .showAll{
     position: absolute;
     z-index: 900;
     top: 93.12%;
-    left: 64.6%;
+    left: 60.6%;
     @include defaultButton;
   }
   .customize{
     position: absolute;
     z-index: 900;
     top: -8.44%;
-    left: 84.7%;
+    left: 78.7%;
     @include borderButton($white);
   }
   .pressed_c{
     position: absolute;
     z-index: 900;
     top: -8.44%;
-    left: 84.7%;
+    left: 78.7%;
     @include borderButton($lightBlue);
   }
   .pressed_t{
     position: absolute;
     z-index: 900;
     top: 93.12%;
-    left: 82.4%;
+    left: 78.4%;
     @include defaultButton($lightBlue, 0.972vw, normal);
   }
   .pressed_s{
     position: absolute;
     z-index: 900;
     top: 93.12%;
-    left: 64.6%;
+    left: 60.6%;
     @include defaultButton($lightBlue);
   }
   .a1{ //central trachea
@@ -130,7 +130,7 @@ $baseHeight: 898;
 
 @mixin circle($width, $height, $left, $top, $opac: 0.55, $red: true){
   .circle{
-    border-radius: 100%;
+    // border-radius: 100%;
     border: none;
     position: absolute;
     width: divideWidth($width);
@@ -149,7 +149,7 @@ $baseHeight: 898;
   }
   .caption{
     position: absolute;
-    left: divideWidth($left)+ divideby2($width);
+    left: divideWidth($left);
     top: divideHeight($top);
     width: auto;
     height: auto;

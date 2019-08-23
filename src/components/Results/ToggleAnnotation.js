@@ -241,7 +241,6 @@ class ToggleAnnotation extends Component {
           <div>
             <div className = "Annotations" key={this.props.clickedObservation}>
               <div className = {toggle} onClick = {() => this.handleClick("onlyAbnormal")}><div className="text"> Only Abnormal </div></div>
-              <div className = {customize} onClick = {() => this.handleClick("customize")}><div className="text"> Customize Labels </div></div>
               {
                 this.state.show && showAllButton
               }
@@ -262,4 +261,7 @@ class ToggleAnnotation extends Component {
 
 
 }
+
+//              <div className = {customize} onClick = {() => this.handleClick("customize")}><div className="text"> Customize Labels </div></div>
+
 export default ToggleAnnotation;
