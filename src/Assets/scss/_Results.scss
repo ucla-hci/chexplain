@@ -27,6 +27,22 @@
       padding-bottom: 0.694vw;
     }
   }
+  .obList2{ //list of items in prior image comparison window
+    position: absolute;
+    top: 6%;
+    ul, li{
+      list-style-type: none !important;
+      list-style-position: inside;
+      li{
+        @include defaultFont(1.111vw, lighter, #B0B0B0);
+      }
+      cursor: pointer;
+      margin: 0.8vw;
+      padding-left: 0;
+      padding-top: 0.2vw;
+      padding-bottom: 0.2vw;
+    }
+  }
   position: $position;
   top: $top;
   left: $left;

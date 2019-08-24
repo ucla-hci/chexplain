@@ -128,6 +128,7 @@ $baseHeight: 898;
   @return (percentage($width/$baseWidth)/4);
 }
 
+//actually a rectangle...
 @mixin circle($width, $height, $left, $top, $opac: 0.55, $red: true){
   .circle{
     // border-radius: 100%;
@@ -138,13 +139,15 @@ $baseHeight: 898;
     left: divideWidth($left);
     top: divideHeight($top);
     z-index: 980;
-    //background: rgba(238, 101, 101, $opac);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     @if $red == true {
-      background: rgba(238, 101, 101, $opac);
+      @if $opac != 0.55 {
+        border: 2px dotted red;
+      } @else{
+        border: 2px solid red;
+      }
       cursor: pointer;
     } @else {
-      background: rgba(50, 169, 30, $opac);
+      border: 2px dotted green;
     }
   }
   .caption{

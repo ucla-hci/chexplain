@@ -1,22 +1,22 @@
-// NOTE: DON'T CHANGE THIS FILE, CHANGE PriorImagesCase2 FILE
+// TODO: CHANGE THIS FILE TO MATCH YOUR CASE
 import React, {Component} from 'react'
 import Magnifier from "../Magnifier.es";
 import { GoX } from "react-icons/go";
 import { IconContext } from "react-icons";
 import AnnotationBubble from "./AnnotationBubble";
 
-//below are case 11 prior images
+//below are case 11 prior images, change it to your prior images
 const case11images = [
   'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s11_view1_frontal.jpg?alt=media&token=411551be-0228-45ba-9261-cf485637c022',
   'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s9_view1_frontal.jpg?alt=media&token=df7f4348-88bd-4ee3-b0ed-8ec1cd951b79',
   'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s1_view1_frontal.jpg?alt=media&token=1a215ff2-bc35-448c-8e4f-9c7c56661c71'
 ];
 
-//below are all the classnames for the current image, including normal and abnormal
+//below are all the classnames for the current image, including normal and abnormal, change it to your classnames
 const caseCurrentList = ["c1p11s12","c2p11s12","c3p11s12","c4p11s12","c5p11s12",
               "c6p11s12", "c7p11s12", "c8p11s12", "c9p11s12", "c10p11s12"];
 
-//below is caption for current case in the order of c1 to c10
+//below is caption for current case in the order of c1 to c10, change it to match your captions for your annotations
 const caseCurrentCaption = [
   "Support Device",
   "Support Device",
@@ -44,7 +44,7 @@ const prevCaseCaptions = [
   ["Lung Opacity", "Support Device",  "Clear Right Lung"]
 ];
 
-//below are thr cross patient comparison images for case 11
+//below are the cross patient comparison images for case 11
 const case11CrossPatient = [
   ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fcardiomegaly.jpeg?alt=media&token=bc6e62ce-5fb8-4e8c-9ccb-4c36406c017a', "Cardiomegaly", "Female", "60"], //cardiomegaly
   ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2FEdema.png?alt=media&token=0b5545a1-f8fc-4aad-9aa6-efca0e3e06ad', "Edema", "Male", "45"], //Edema

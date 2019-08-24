@@ -116,7 +116,7 @@
 }
 
 .AcrossPatientOpened{
-  @include AcrossPatient(100%, 0%, 23%);
+  @include AcrossPatient;
 }
 
 //FROM HERE ON ITS CSS FOR PRIOR IMAGE VIEWING MODE

@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import HoverWindow from './HoverWindow';
 import ObsDetails from './ObsDetails';
 
-const impressionList = ["Congestive Heart Failure", "Pneumonia", "Lung Cancer"];
-
 const cardiomegalyImage = ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fnormal-chest-x-ray.jpg?alt=media&token=a461a18d-e864-47fc-8cb6-46d4ab4e171c',
                     'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fcardiomegaly.jpeg?alt=media&token=bc6e62ce-5fb8-4e8c-9ccb-4c36406c017a'];
 const edemaImage = ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fnormal-chest-x-ray.jpg?alt=media&token=a461a18d-e864-47fc-8cb6-46d4ab4e171c',
@@ -14,6 +12,8 @@ const pleuralEffusionImage = ['https://firebasestorage.googleapis.com/v0/b/chexi
                     'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fpleural%20effusion.jpg?alt=media&token=292eaa7b-9dd7-49b9-8424-084f1b1463bb'];
 const supportDeviceImage = ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fnormal-chest-x-ray.jpg?alt=media&token=a461a18d-e864-47fc-8cb6-46d4ab4e171c',
                     'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2FEdema.png?alt=media&token=0b5545a1-f8fc-4aad-9aa6-efca0e3e06ad'];
+
+// TODO: ADD MORE CONFIDENCE COMPARISONS IF YOU NEED IT FOR OTHER OBSERVATIONS, FORMAT [0% CONFIDENCE IMG, 100% CONFIDENCE IMG]
 
 class Observations extends Component {
   constructor(props){
@@ -37,46 +37,48 @@ class Observations extends Component {
     document.getElementById(observation).style.color = "#FFFFFF"; //sets color of clicked observation to blue
     document.getElementById(observation).style.fontWeight = "600";
     this.props.callbackFromParent(this.state.clicked);
+    this.props.callbackClickedComponent("observations");
   }
 
   render(){
     let captionTemplate1 = "Sample patient image with 0% confidence ";
     let captionTemplate2 = "Sample patient image with 100% confidence ";
-    let obs1hover = ( //what appears for hover when obs1 is clicked
+    let cardioHover = ( //what appears for hover when obs1 is clicked
       <HoverWindow title="Cardiomegaly">
         <ObsDetails image1={cardiomegalyImage[0]} image2={cardiomegalyImage[1]}
           caption1={captionTemplate1+"Cardiomegaly"}
           caption2={captionTemplate2+"Cardiomegaly"}/>
       </HoverWindow>
     );
-    let obs2hover = ( //what appears for hover when obs2 is clicked
+    let edemaHover = ( //what appears for hover when obs2 is clicked
       <HoverWindow title="Edema">
         <ObsDetails image1={edemaImage[0]} image2={edemaImage[1]}
           caption1={captionTemplate1+"Edema"}
           caption2={captionTemplate2+"Edema"}/>
       </HoverWindow>
     );
-    let obs3hover = ( //what appears for hover when obs3 is clicked
+    let atelectHover = ( //what appears for hover when obs3 is clicked
       <HoverWindow title="Atelectasis">
         <ObsDetails image1={atelectasisImage[0]} image2={atelectasisImage[1]}
           caption1={captionTemplate1+"Atelectasis"}
           caption2={captionTemplate2+"Atelectasis"}/>
       </HoverWindow>
     );
-    let obs4hover = ( //what appears for hover when obs4 is clicked
+    let pleuralHover = ( //what appears for hover when obs4 is clicked
       <HoverWindow title="Pleural Effusion">
         <ObsDetails image1={pleuralEffusionImage[0]} image2={pleuralEffusionImage[1]}
           caption1={captionTemplate1+"Pleural Effusion"}
           caption2={captionTemplate2+"Pleural Effusion"}/>
       </HoverWindow>
     );
-    let obs5hover = ( //what appears for hover when obs5 is clicked
+    let supportHover = ( //what appears for hover when obs5 is clicked
       <HoverWindow title="Support Device">
         <ObsDetails image1={supportDeviceImage[0]} image2={supportDeviceImage[1]}
           caption1={captionTemplate1+"Support Device"}
           caption2={captionTemplate2+"Support Device"}/>
       </HoverWindow>
     );
+    // TODO: ADD MORE ____Hover FOR OTHER OBSERVATIONS IF YOUR OBSERVATION IS NOT ABOVE, CAN USE SAME FORMAT
 
     return (
       <div>
@@ -86,9 +88,7 @@ class Observations extends Component {
           <ul>
             {
               this.state.observations.map((currElement, index) => {
-                return <li id={currElement} onMouseLeave={() => this.setState({
-                  clicked: ""
-                })} onMouseEnter={() => this.handleClick(currElement)} onClick={() => this.handleClick(currElement)}>{currElement} {this.props.percentages[index]}</li>
+                return <li id={currElement} onClick={() => this.handleClick(currElement)}>{currElement} {this.props.percentages[index]}</li>
               })
             }
           </ul>
@@ -96,18 +96,19 @@ class Observations extends Component {
       </div>
       <div>
         {
-          (() => {
+          this.props.clickedComponent === "observations" && (() => {
             switch(this.state.clicked){
               case "Cardiomegaly":
-                return obs1hover;
+                return cardioHover;
               case "Edema":
-                return obs2hover;
+                return edemaHover;
               case "Atelectasis":
-                return obs3hover;
+                return atelectHover;
               case "Pleural Effusion":
-                return obs4hover;
+                return pleuralHover;
               case "Support Device":
-                return obs5hover;
+                return supportHover;
+              // TODO: ADD YOUR OBSERVATION IF IT IS NOT INCLUDED ABOVE
               default:
                 return null;
             }

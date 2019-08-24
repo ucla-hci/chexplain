@@ -42,6 +42,7 @@ class Impressions extends Component {
     document.getElementById(impressions).style.color = "#FFFFFF"; //sets color of clicked impressions to blue
     document.getElementById(impressions).style.fontWeight = "600";
     this.props.callbackFromParent(this.state.clicked);
+    this.props.callbackClickedComponent("impressions");
   }
 
   handleClose(){
@@ -74,7 +75,7 @@ class Impressions extends Component {
           <ul>
             {
               this.state.impressions.map((currElement, index) => {
-                return <li id={currElement} onMouseEnter={() => this.handleClick(currElement)} onMouseLeave={() => this.handleClose()} onClick={() => this.handleClick(currElement)}>{currElement} {this.props.percentages[index]}</li>
+                return <li id={currElement} onClick={() => this.handleClick(currElement)}>{currElement} {this.props.percentages[index]}</li>
               })
             }
           </ul>
@@ -82,7 +83,7 @@ class Impressions extends Component {
       </div>
       <div>
         {
-          (() => {
+          this.props.clickedComponent === "impressions" && (() => {
             switch(this.state.clicked){
               case "Congestive Heart Failure":
                 return imp1hover;
