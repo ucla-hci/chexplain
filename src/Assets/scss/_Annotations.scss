@@ -350,3 +350,162 @@ $opacLight: 0.20;
 .c7p11s9{
   @include circle(289, 397, 239, 145, $opacLight, false);
 }
+
+// TODO: draw the annotations like what i did above but with different class names
+// class name format: c(circle number)p(patient number)s(study number)
+// use width height left top provided by figma
+// only for main case do you need to do one with _p at the end
+// for unhighlighted abnormal annotation: @include circle(width, height, left, top, $opacLight);
+// for highlighted (classname with _p at the end) annotation: @include circle(153, 159, 761, 578);
+// for normal annotations(green ones): @include circle(289, 397, 239, 145, $opacLight, false);
+
+// TODO: need to draw annoations for all prior images too, for each study start from c1, and change study number
+// patient number should be the same for all your prior images and selected image
+
+
+//patient 21653 study 8
+.c1p21653s8{ //support device
+  @include circle(174,179,801,391, $opacLight);
+}
+
+.c1p21653s8_p{ //support device
+  @include circle(174,179,801,391);
+}
+
+.c2p21653s8{ //support device
+  @include circle(59,53,269,196, $opacLight);
+}
+
+.c2p21653s8_p{ //support device
+  @include circle(59,53,269,196);
+}
+
+.c3p21653s8{ //support device
+  @include circle(69,71,803,249, $opacLight);
+}
+
+.c3p21653s8_p{ //support device
+  @include circle(69,71,803,249);
+}
+
+.c4p21653s8{ //cardiomegaly
+  @include circle(467,306,358,435, $opacLight);
+}
+
+.c4p21653s8_p{ //cardiomegaly
+  @include circle(467,306,358,435);
+}
+
+.c5p21653s8{ //pleurl
+  @include circle(230,239,128,547, $opacLight);
+}
+
+.c5p21653s8_p{ //pleurl
+  @include circle(230,239,128,547);
+}
+
+.c6p21653s8{ //central trachea
+  @include circle(237,336,197,139, $opacLight, false);
+}
+
+.c7p21653s8{ //central trachea
+  @include circle(205,258,651,177, $opacLight, false);
+}
+
+//study 7
+.c1p21653s7{//pleurl
+  @include circle(218,222,146,662, $opacLight);
+}
+
+.c2p21653s7{//pleurl
+  @include circle(152,156,853,712, $opacLight);
+}
+
+.c3p21653s7{//support device
+  @include circle(137,154,815,342, $opacLight);
+}
+
+.c4p21653s7{//pneumonia
+  @include circle(67,165,412,397, $opacLight);
+}
+
+.c5p21653s7{//pneumonia
+  @include circle(81,198,685,364, $opacLight);
+}
+
+.c6p21653s7{//cardio
+  @include circle(469,227,384,529, $opacLight);
+}
+
+.c7p21653s7{//lung opacity
+  @include circle(297,300,666,397, $opacLight);
+}
+
+.c8p21653s7{//central
+  @include circle(162,249,500,26, $opacLight,false);
+}
+
+.c9p21653s7{//clear right lung
+  @include circle(263,392,237,189, $opacLight,false);
+}
+
+//study 6
+.c1p21653s6{//support device
+  @include circle(146,168,782,356, $opacLight);
+}
+
+.c2p21653s6{//Lung opacity
+  @include circle(144,140,628,416, $opacLight);
+}
+
+.c3p21653s6{//pleurl
+  @include circle(237,210,132,561, $opacLight);
+}
+
+.c4p21653s6{//pleurl
+  @include circle(190,194,772,627, $opacLight);
+}
+
+.c5p21653s6{//Lung Opacity
+  @include circle(132,168,327,419, $opacLight);
+}
+
+.c6p21653s6{//central trachea
+  @include circle(113,207,505,37, $opacLight, false);
+}
+
+.c7p21653s6{//clear right lung
+  @include circle(271,364,232,122, $opacLight, false);
+}
+
+//study 5
+.c1p21653s5{//Lung Opacity
+  @include circle(206,324,143,469, $opacLight);
+}
+
+.c2p21653s5{//Lung Opacity
+  @include circle(214,322,651,532, $opacLight);
+}
+
+.c3p21653s5{//Support device
+  @include circle(174,202,758,363, $opacLight);
+}
+
+//study 1
+.c1p21653s1{//pleurl
+  @include circle(226,238,129,476, $opacLight);
+}
+
+.c2p21653s1{//pleurl
+  @include circle(236,241,776,524, $opacLight);
+}
+
+.c3p21653s1{//lung opacity
+  @include circle(169,253,607,309, $opacLight);
+}
+.c4p21653s1{//clear right lung
+  @include circle(243,382,214,93, $opacLight, false);
+}
+.c5p21653s1{//central trachea
+  @include circle(169,253,467,0, $opacLight, false);
+}

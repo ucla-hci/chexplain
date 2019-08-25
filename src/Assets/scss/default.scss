@@ -17,6 +17,14 @@ body{
   overflow-x: hidden;
 }
 
+.returnButton1{
+  position: absolute;
+  z-index: 900;
+  top: 1.8%;
+  left: 90%;
+  @include borderButton($white, 8.54%, 3.33%);
+}
+
 //overlay on loading page
 .overlay{
   position: fixed; /* Sit on top of the page content */

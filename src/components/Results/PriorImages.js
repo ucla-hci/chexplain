@@ -242,18 +242,23 @@ class PriorImages extends Component{
     let display = (
       <div>
       <div className="display">
-      <div className="PriorImageObservation1">
-        <div className="title"><div className="text">Observations</div></div>
-        <div className="obList2">
-        <ul>
-          {
-            obslistprior.map((currElement, index) => {
-              return <li>{currElement}</li>
-            })
-          }
-        </ul>
-        </div>
-      </div>
+
+      {
+        this.state.priorImageMode && (
+          <div className="PriorImageObservation1">
+            <div className="title"><div className="text">Observations</div></div>
+            <div className="obList2">
+            <ul>
+              {
+                obslistprior.map((currElement, index) => {
+                  return <li>{currElement}</li>
+                })
+              }
+            </ul>
+            </div>
+          </div>
+        )
+      }
       <div className="PriorImageObservation2">
         <div className="title"><div className="text">Observations</div></div>
         <div className="obList2">

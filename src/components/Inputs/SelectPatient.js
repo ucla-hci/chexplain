@@ -27,7 +27,7 @@ class SelectPatient extends Component {
   constructor(props){
     super(props);
     this.state = {
-      selectedImage: ""
+      selectedImage: "00011"
     }
     this.handleClick = this.handleClick.bind(this);
   }
@@ -36,7 +36,11 @@ class SelectPatient extends Component {
     await this.setState({
       selectedImage: imageName
     });
-    this.props.callbackFromParent(patientImageList[index], patientData[index]);
+    let newIndex = 0;
+    if(index!==0){
+      newIndex = 1;
+    }
+    this.props.callbackFromParent(patientImageList[index], patientData[index], newIndex);
   }
 
   render(){

@@ -6,50 +6,47 @@ import { IconContext } from "react-icons";
 import AnnotationBubble from "./AnnotationBubble";
 
 //below are case 11 prior images, change it to your prior images
-const case11images = [
-  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s11_view1_frontal.jpg?alt=media&token=411551be-0228-45ba-9261-cf485637c022',
-  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s9_view1_frontal.jpg?alt=media&token=df7f4348-88bd-4ee3-b0ed-8ec1cd951b79',
-  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fc11s1_view1_frontal.jpg?alt=media&token=1a215ff2-bc35-448c-8e4f-9c7c56661c71'
-];
+const case21653images = [
+  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2Fcase%2021653%2Fstudy7.jpg?alt=media&token=173ba65f-b12b-4d7c-b642-b3eeecef7c00',
+  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2Fcase%2021653%2Fstudy6.jpg?alt=media&token=e9e2d8f3-2ee0-4e31-a921-d6382d30df5b',
+  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2Fcase%2021653%2Fstudy5.jpg?alt=media&token=9fd44398-0872-426c-bfce-066d03b285fa',
+  'https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2Fcase%2021653%2Fstudy1.jpg?alt=media&token=98ee4454-fa0d-47b1-8d9d-c95aa6170f05'];
 
 //below are all the classnames for the current image, including normal and abnormal, change it to your classnames
-const caseCurrentList = ["c1p11s12","c2p11s12","c3p11s12","c4p11s12","c5p11s12",
-              "c6p11s12", "c7p11s12", "c8p11s12", "c9p11s12", "c10p11s12"];
+const caseCurrentList =
+  ["c1p21653s8","c2p21653s8","c3p21653s8","c4p21653s8","c5p21653s8","c6p21653s8","c7p21653s8"];
 
 //below is caption for current case in the order of c1 to c10, change it to match your captions for your annotations
 const caseCurrentCaption = [
   "Support Device",
   "Support Device",
   "Support Device",
-  "Atelectasis",
-  "Edema",
   "Cardiomegaly",
   "Pleural Effusion",
-  "Pleural Effusion",
-  "Central Trachea",
-  "Clear Right Lung"
+  "Clear Right Lung",
+  "Clear Left Lung"
 ];
 
 //below are the classnames for the annotation for previous patient images
 const prevCaseLists = [
-  ["c1p11s11", "c2p11s11", "c3p11s11", "c4p11s11", "c5p11s11", "c6p11s11", "c7p11s11", "c8p11s11", "c9p11s11", "c10p11s11"],
-  ["c1p11s9", "c2p11s9", "c3p11s9", "c4p11s9", "c5p11s9", "c6p11s9", "c7p11s9"],
-  ["c1p11s1", "c2p11s1", "c3p11s1"]
+  ["c1p21653s7", "c2p21653s7", "c3p21653s7", "c4p21653s7", "c5p21653s7", "c6p21653s7", "c7p21653s7", "c8p21653s7"],
+  ["c1p21653s6", "c2p21653s6", "c3p21653s6", "c4p21653s6", "c5p21653s6", "c6p21653s6", "c7p21653s6"],
+  ["c1p21653s5", "c2p21653s5", "c3p21653s5"],
+  ["c1p21653s1", "c2p21653s1", "c3p21653s1","c4p21653s1","c5p21653s1"]
 ];
 
 //below are the captions for the annotation for previous patient images should match order above
 const prevCaseCaptions = [
-  ["Edema", "Support Device", "Support Device", "Support Device", "Lung Opacity", "Pleural Effusion", "Pleural Effusion", "Edema", "Central Trachea", "Clear Right Lung"],
-  ["Support Device", "Support Device", "Support Device", "Enlarged Cardiomediastinum", "Pleural Effusion", "Pleural Effusion", "Clear Right Lung"],
-  ["Lung Opacity", "Support Device",  "Clear Right Lung"]
+  ["Pleural Effusion", "Pleural Effusion", "Support Device", "Pneumonia", "Pneumonia", "Cardiomegaly", "Lung Opacity", "Central Trachea", "Clear Right Lung"],
+  ["Support Device", "Lung Opacity", "Pleural Effusion", "Pleural Effusion", "Lung Opacity", "Central Trachea", "Clear Right Lung"],
+  ["Lung Opacity", "Lung Opacity", "Support Device"],
+  ["Pleural Effusion","Pleural Effusion", "Lung Opacity","Clear Right Lung","Central Trachea"] //study 1
 ];
 
 //below are the cross patient comparison images for case 11
 const case11CrossPatient = [
   ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fcardiomegaly.jpeg?alt=media&token=bc6e62ce-5fb8-4e8c-9ccb-4c36406c017a', "Cardiomegaly", "Female", "60"], //cardiomegaly
-  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2FEdema.png?alt=media&token=0b5545a1-f8fc-4aad-9aa6-efca0e3e06ad', "Edema", "Male", "45"], //Edema
   ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fpleural%20effusion.jpg?alt=media&token=292eaa7b-9dd7-49b9-8424-084f1b1463bb', "Pleural Effusion", "Male", "80"], //pleural effusion
-  ['https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fround-atelectasis.jpg?alt=media&token=9e9328a1-9045-4e42-8224-85a925e7edc7', "Atelectasis", "Female", "73"] //atelectasis
 ];
 
 const dates = [
@@ -60,7 +57,7 @@ const dates = [
   '2014/3/2',
   '2013/11/14'];
 
-class PriorImages extends Component{
+class PriorImages2 extends Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -87,15 +84,16 @@ class PriorImages extends Component{
         document.getElementById(currElement).style.borderStyle = "dotted";
       });
       switch(this.state.photoIndex){
-        case 2:
-          document.getElementById("c7p11s12").style.border = "3px solid red"; //pleural
-          document.getElementById("c8p11s12").style.border = "3px solid red"; //pleural
-        case 0:
+        case 3:
         case 1:
-          //cardio,atelect, edema
-          document.getElementById("c4p11s12").style.border = "3px solid red"; //atelect
-          document.getElementById("c5p11s12").style.border = "3px solid red"; //edema
-          document.getElementById("c6p11s12").style.border = "3px solid red"; //cardio
+          document.getElementById("c4p21653s8").style.border = "3px solid red"; //cardio
+          document.getElementById("c4p21653s8").style.border = "3px solid red"; //cardio
+          break;
+        case 2:
+          document.getElementById("c4p21653s8").style.border = "3px solid red"; //cardio
+          document.getElementById("c4p21653s8").style.border = "3px solid red"; //cardio
+          document.getElementById("c5p21653s8").style.border = "3px solid red"; //plerual
+          document.getElementById("c5p21653s8").style.border = "3px solid red"; //plerual
       }
     }
   }
@@ -147,14 +145,16 @@ class PriorImages extends Component{
       <div className={priorImage}>
         <div className="title">Prior Images</div>
         <div className="hiddenTitle" onClick={() => this.setState({
-          priorImageMode: false
+          priorImageMode: false,
+          photoIndex: 0
         })}>Across Patient</div>
         <div className="underline"/>
         <div className="ImageGroup">
           <ul>
-            <li><div className="imageCaption"><img src = {case11images[0]} alt="Image_0" onClick = {() => this.handleClickPriorImage(0)}/>{dates[0]}</div></li>
-            <li><div className="imageCaption"><img src = {case11images[1]} alt="Image_1" onClick = {() => this.handleClickPriorImage(1)}/>{dates[1]}</div></li>
-            <li><div className="imageCaption"><img src = {case11images[2]} alt="Image_2" onClick = {() => this.handleClickPriorImage(2)}/>{dates[2]}</div></li>
+            <li><div className="imageCaption"><img src = {case21653images[0]} alt="Image_0" onClick = {() => this.handleClickPriorImage(0)}/>{dates[0]}</div></li>
+            <li><div className="imageCaption"><img src = {case21653images[1]} alt="Image_1" onClick = {() => this.handleClickPriorImage(1)}/>{dates[1]}</div></li>
+            <li><div className="imageCaption"><img src = {case21653images[2]} alt="Image_2" onClick = {() => this.handleClickPriorImage(2)}/>{dates[2]}</div></li>
+            <li><div className="imageCaption"><img src = {case21653images[3]} alt="Image_2" onClick = {() => this.handleClickPriorImage(3)}/>{dates[3]}</div></li>
           </ul>
         </div>
       </div>
@@ -171,8 +171,6 @@ class PriorImages extends Component{
           <ul>
             <li><div className="imageCaption"><img src = {case11CrossPatient[0][0]} alt="Image_0" onClick = {() => this.handleClickCrossPatient(0)}/>{case11CrossPatient[0][1]}</div></li>
             <li><div className="imageCaption"><img src = {case11CrossPatient[1][0]} alt="Image_1" onClick = {() => this.handleClickCrossPatient(1)}/>{case11CrossPatient[1][1]}</div></li>
-            <li><div className="imageCaption"><img src = {case11CrossPatient[2][0]} alt="Image_2" onClick = {() => this.handleClickCrossPatient(2)}/>{case11CrossPatient[2][1]}</div></li>
-            <li><div className="imageCaption"><img src = {case11CrossPatient[3][0]} alt="Image_3" onClick = {() => this.handleClickCrossPatient(3)}/>{case11CrossPatient[3][1]}</div></li>
           </ul>
         </div>
       </div>
@@ -190,16 +188,7 @@ class PriorImages extends Component{
     );
 
     // TODO: change the 3 prior case annotation below to match your case
-    let priorStudy1Annotation = (
-      <div className="annotations">
-      {
-        prevCaseLists[2].map((currElement, index) => {
-          return <AnnotationBubble caption={prevCaseCaptions[2][index]} label={currElement}/>
-        })
-      }
-      </div>
-    );
-    let priorStudy11Annotation = (
+    let priorStudy7Annotation = (
       <div className="annotations">
       {
         prevCaseLists[0].map((currElement, index) => {
@@ -208,7 +197,7 @@ class PriorImages extends Component{
       }
       </div>
     );
-    let priorStudy9Annotation = (
+    let priorStudy6Annotation = (
       <div className="annotations">
       {
         prevCaseLists[1].map((currElement, index) => {
@@ -217,13 +206,33 @@ class PriorImages extends Component{
       }
       </div>
     );
+    let priorStudy5Annotation = (
+      <div className="annotations">
+      {
+        prevCaseLists[2].map((currElement, index) => {
+          return <AnnotationBubble caption={prevCaseCaptions[2][index]} label={currElement}/>
+        })
+      }
+      </div>
+    );
+    let priorStudy1Annotation = (
+      <div className="annotations">
+      {
+        prevCaseLists[3].map((currElement, index) => {
+          return <AnnotationBubble caption={prevCaseCaptions[3][index]} label={currElement}/>
+        })
+      }
+      </div>
+    );
 
     // TODO: alter code below to match your number of prior images and which photo index corresponds to which study
     // NOTE: select which prior study annotation to render
-    let priorAnnotation = priorStudy11Annotation; //default study 11 because it is first image
+    let priorAnnotation = priorStudy7Annotation; //default study 11 because it is first image
     if(this.state.photoIndex===1){ //if photo index is 1, then show study 9, since 2nd image is study 9
-      priorAnnotation = priorStudy9Annotation;
+      priorAnnotation = priorStudy6Annotation;
     }else if(this.state.photoIndex===2){
+      priorAnnotation = priorStudy5Annotation;
+    }else if(this.state.photoIndex===3){
       priorAnnotation = priorStudy1Annotation;
     }
     //will not render annotation for cross patient comparison
@@ -286,12 +295,12 @@ class PriorImages extends Component{
       <div className="priorImage">
         {
           this.state.bookmarkRegionOn && (
-            <div className="image"><Magnifier src={this.state.priorImageMode?case11images[this.state.photoIndex]:case11CrossPatient[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' /></div>
+            <div className="image"><Magnifier src={this.state.priorImageMode?case21653images[this.state.photoIndex]:case11CrossPatient[this.state.photoIndex]} mgShape='square' mgShowOverflow='false' /></div>
           )
         }
         {
           !this.state.bookmarkRegionOn && (
-            <img src={this.state.priorImageMode?case11images[this.state.photoIndex]:case11CrossPatient[this.state.photoIndex]} alt="prior image"/>
+            <img src={this.state.priorImageMode?case21653images[this.state.photoIndex]:case11CrossPatient[this.state.photoIndex]} alt="prior image"/>
           )
         }
         {
@@ -347,4 +356,4 @@ class PriorImages extends Component{
   }
 }
 
-export default PriorImages;
+export default PriorImages2;

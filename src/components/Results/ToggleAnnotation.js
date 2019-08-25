@@ -4,18 +4,45 @@ import ObsDetails from './ObsDetails';
 import AnnotationBubble from './AnnotationBubble';
 
 // NOTE: currently this indicated which patient we are doing as I Have not connected different patient to different data
-const PATIENT_NUMBER = 0;
+// const this.props.imageIndex = 1;
 
 //this is list of circle names for abnormal annotations
 const caseList = [
   ["c1p11s12","c2p11s12","c3p11s12","c4p11s12","c5p11s12","c6p11s12", "c7p11s12", "c8p11s12"], //for case 11
+  ["c1p21653s8","c2p21653s8","c3p21653s8","c4p21653s8","c5p21653s8"],
   //support, support, suppot, atelect, edema, cardio, pleural, pleural
   // TODO: INSERT MORE CIRCLE NAMES FOR OTHER CASES HERE
+  //"Support Device",
+  // "Support Device",
+  // "Support Device",
+  // "Cardiomegaly",
+  // "Pleural Effusion",
+  // "Clear Right Lung",
+  // "Clear Left Lung"
+];
+
+//this is list of circle names grouped by question input
+const caseListSorted = [
+  [
+    ["c4p11s12","c5p11s12","c6p11s12", "c7p11s12", "c8p11s12"],
+    ["c4p11s12", "c7p11s12", "c8p11s12"],
+    ["c4p11s12","c5p11s12","c6p11s12", "c7p11s12", "c8p11s12"]
+  ], //for case 11
+
+];
+
+const caseListSortedCaption = [
+  [
+    ["Atelectasis", "Edema", "Cardiomegaly", "Pleural Effusion", "Pleural Effusion"],
+    ["Atelectasis", "Pleural Effusion", "Pleural Effusion"],
+    ["Atelectasis", "Edema", "Cardiomegaly", "Pleural Effusion", "Pleural Effusion"],
+  ]
 ];
 
 //this is list of circle names for normal annotations
 const caseListNormal = [
   ["c9p11s12", "c10p11s12"],
+  ["c6p21653s8","c7p21653s8"],
   //TODO: INSERT MORE CIRCLE NAMES FOR OTHER CASES HERE
 ];
 
@@ -36,12 +63,14 @@ const relatedImageList = [
 //list of captions for normal observations
 const caseNormalCaption = [
   ["Central Trachea", "Clear Right Lung"], //for case 11
+  ["Clear Right Lung","Clear Left Lung"],
   //TODO: INSERT MORE NORMAL CAPTIONS FOR OTHER CASES, SHOULD BE IN THE ORDER OF YOUR CIRCLE NUMBER
 ];
 
 //list of captions for abnormal obervations
 const caseAbnormalCaption = [
   ["Support Device", "Support Device", "Support Device", "Atelectasis", "Edema", "Cardiomegaly", "Pleural Effusion", "Pleural Effusion"], //patient 11
+  ["Support Device", "Support Device", "Support Device","Cardiomegaly","Pleural Effusion"],
   //TODO: INSERT MORE ABNORMAL CAPTIONS FOR OTHER CASES, SHOULD BE IN THE ORDER OF YOUR CIRCLE NUMBER
 ];
 
@@ -59,8 +88,8 @@ class ToggleAnnotation extends Component {
             onlyAbnormal: false,
             clicked: [],
             clickedAnno: "",
-            casePressed: caseList[PATIENT_NUMBER],
-            caseNormal: caseListNormal[PATIENT_NUMBER],
+            casePressed: caseList[this.props.imageIndex],
+            caseNormal: caseListNormal[this.props.imageIndex],
         }
     }
 
@@ -70,11 +99,11 @@ class ToggleAnnotation extends Component {
       if(JSON.stringify(nextProps.clickedObservation) != JSON.stringify(this.state.clicked)){
         this.setState({clicked: [...nextProps.clickedObservation]});
       }
-      let tempList = [...caseList[PATIENT_NUMBER]]; //case list is set list of case names
+      let tempList = [...caseList[this.props.imageIndex]]; //case list is set list of case names
       //map through clicked observation to know which ones to highlight
       //when _p is added at the end of a className it indicated that it becomes highlighted
       nextProps.clickedObservation.map((currElement) => {
-        if(PATIENT_NUMBER===0){
+        if(this.props.imageIndex===0){
           switch(currElement){
             case "Cardiomegaly":
               tempList[5]+="_p";
@@ -95,11 +124,23 @@ class ToggleAnnotation extends Component {
               tempList[2]+="_p";
               break;
           }
-        }else if(PATIENT_NUMBER===1){
+        }else if(this.props.imageIndex===1){
             //TODO: CONNECT EACH OBSERVATION FOR YOUR CASE TO ANNOTATION BOXES TO HIGHLIGHT,
             // SIMILAR TO WHAT I DID ABOVE WITH SWITCH STATEMENT, BUT WITH DIFF OBSERVATION
             // LEADING TO DIFFERENT ANNOTATION BEING HIGHLIGHTED
-
+            switch(currElement){
+              case "Cardiomegaly":
+                tempList[3]+="_p";
+                break;
+              case "Pleural Effusion":
+                tempList[4]+="_p";
+                break;
+              case "Support Device":
+                tempList[0]+="_p";
+                tempList[1]+="_p";
+                tempList[2]+="_p";
+                break;
+            }
         }
       });
       this.setState({
@@ -132,45 +173,63 @@ class ToggleAnnotation extends Component {
       }
     }
     // NOTE: called when annotation is clicked/hovered
-    handleClickAnnotation(clickedElement){
+    handleClickAnnotation(clickedElement, index = -1){
       this.setState({
         clickedAnno: clickedElement
       });
-      let tempList = [...caseList[PATIENT_NUMBER]];
+      let tempList = [...caseList[this.props.imageIndex]];
       let callbackList = [];
       //case list listens for when annotation is clicked similar annoation should be highlighted
-      if(PATIENT_NUMBER===0){
+      if(this.props.imageIndex===0){
         switch(clickedElement){ //here clickedElement is an annotation className (ex. c6p11s12)
-          case caseList[PATIENT_NUMBER][5]: //cardio
+          case caseList[this.props.imageIndex][5]: //cardio
             tempList[5]+="_p"; //changes clicked annotation to highlighted
             callbackList.push("Cardiomegaly"); //push related observation back to callback list, so we know which observation to highlight
             break;
-          case caseList[PATIENT_NUMBER][4]: //edema
+          case caseList[this.props.imageIndex][4]: //edema
             tempList[4]+="_p";
             callbackList.push("Edema");
             break;
-          case caseList[PATIENT_NUMBER][3]: //atelect
+          case caseList[this.props.imageIndex][3]: //atelect
             tempList[3]+="_p";
             callbackList.push("Atelectasis");
             break;
-          case caseList[PATIENT_NUMBER][6]: //pleurl
-          case caseList[PATIENT_NUMBER][7]: //pleurl
+          case caseList[this.props.imageIndex][6]: //pleurl
+          case caseList[this.props.imageIndex][7]: //pleurl
             tempList[6]+="_p";
             tempList[7]+="_p";
             callbackList.push("Pleural Effusion");
             break;
-          case caseList[PATIENT_NUMBER][0]: //support 1
-          case caseList[PATIENT_NUMBER][1]: //support 2
-          case caseList[PATIENT_NUMBER][2]: //support 3
+          case caseList[this.props.imageIndex][0]: //support 1
+          case caseList[this.props.imageIndex][1]: //support 2
+          case caseList[this.props.imageIndex][2]: //support 3
             tempList[0]+="_p";
             tempList[1]+="_p";
             tempList[2]+="_p";
             callbackList.push("Support Device");
             break;
         }
-     } else if(PATIENT_NUMBER===0){
+     } else if(this.props.imageIndex===1){
        //TODO: CONNECT CLICKED ANNOTATION TO OBSERVATION LIKE THE CASE STATEMENT ABOVE
        // AND CHANGE CLASSNAME OF CLICKED ANNOTATION TO NAME + _p
+       switch(clickedElement){ //here clickedElement is an annotation className (ex. c6p11s12)
+          case caseList[this.props.imageIndex][4]: //edema
+            tempList[4]+="_p";
+            callbackList.push("Pleural Effusion");
+            break;
+          case caseList[this.props.imageIndex][3]: //atelect
+            tempList[3]+="_p";
+            callbackList.push("Cardiomegaly");
+            break;
+          case caseList[this.props.imageIndex][0]: //support 1
+          case caseList[this.props.imageIndex][1]: //support 2
+          case caseList[this.props.imageIndex][2]: //support 3
+            tempList[0]+="_p";
+            tempList[1]+="_p";
+            tempList[2]+="_p";
+            callbackList.push("Support Device");
+            break;
+        }
      }
       if(JSON.stringify(tempList) != JSON.stringify(this.state.casePressed)){
         this.setState({
@@ -200,6 +259,7 @@ class ToggleAnnotation extends Component {
       // AS AN ADDITIONAL CASE ABOVE THE RETURN HOVER WINDOW OF CARDIOMEGALY
       switch(clickedElement){
         case caseList[0][5]: //cardio
+        case caseList[1][3]: //cardio
         //INSERT ANNOTATION BOX CLASSNAME AS "case caseList[x][y]:" RELATED TO CARDIOMEGALY HERE
           return <HoverWindow title="Cardiomegaly (Compare region with abnormal/normal cases)">
                     <ObsDetails image1={relatedImageList[2][0]} image2={relatedImageList[2][1]}
@@ -221,6 +281,7 @@ class ToggleAnnotation extends Component {
                  </HoverWindow>;
         case caseList[0][6]: //pleurl
         case caseList[0][7]: //pleurl
+        case caseList[1][4]: //pleurl
           return <HoverWindow title="Pleural Effusion (Compare region with abnormal/normal cases)">
                   <ObsDetails image1={relatedImageList[0][0]} image2={relatedImageList[0][1]}
                     caption1={captionTemplate1+"Pleural Effusion"}
@@ -245,19 +306,55 @@ class ToggleAnnotation extends Component {
 
     render(){
         const {casePressed, caseNormal} = this.state;
+        const {questionInput} = this.props;
         let allCircle = (
           <div className="annotations">
             {
-              !this.state.onlyAbnormal && caseNormal.map((currElement, index) => {
-                return <AnnotationBubble caption={caseNormalCaption[PATIENT_NUMBER][index]} label={currElement}/>
+              !this.state.onlyAbnormal && !this.props.statMode && caseNormal.map((currElement, index) => {
+                return <AnnotationBubble caption={caseNormalCaption[this.props.imageIndex][index]} label={currElement}/>
               })
             }
             {
               casePressed.map((currElement, index) => {
-                return <div onClick={() => this.handleClickAnnotation(currElement)}>
-                        <AnnotationBubble caption={caseAbnormalCaption[PATIENT_NUMBER][index]} label={currElement} id={currElement} />
-                       </div>
+                if(this.props.imageIndex===0){
+                  if((questionInput.length===1 && questionInput[0]==="Pneumonia")||(questionInput.length>=2)){
+                    if(index >=3 && index<=7){
+                      return <div onClick={() => this.handleClickAnnotation(currElement)}>
+                              <AnnotationBubble caption={caseAbnormalCaption[this.props.imageIndex][index]} label={currElement} id={currElement} />
+                             </div>
+                    }
+                  }else if(questionInput.length===1 && questionInput[0]==="Chest Pain"){
+                    if(index===3 || index===6 || index===7){
+                      return <div onClick={() => this.handleClickAnnotation(currElement)}>
+                              <AnnotationBubble caption={caseAbnormalCaption[this.props.imageIndex][index]} label={currElement} id={currElement} />
+                             </div>
+                    }
+                  }else{
+                    return <div onClick={() => this.handleClickAnnotation(currElement)}>
+                            <AnnotationBubble caption={caseAbnormalCaption[this.props.imageIndex][index]} label={currElement} id={currElement} />
+                           </div>
+                  }
+                }else{
+                  if((questionInput.length===2)||(questionInput.length===1 && (questionInput[0]==="Cough" || questionInput[0]==="Shortness of Breath"))){
+                    if(index===3 || index===4){
+                      return <div onClick={() => this.handleClickAnnotation(currElement)}>
+                              <AnnotationBubble caption={caseAbnormalCaption[this.props.imageIndex][index]} label={currElement} id={currElement} />
+                             </div>
+                    }
+                  }else if(questionInput.length===1 && (questionInput[0]==="Cardiac")){
+                    if(index===3){
+                      return <div onClick={() => this.handleClickAnnotation(currElement)}>
+                              <AnnotationBubble caption={caseAbnormalCaption[this.props.imageIndex][index]} label={currElement} id={currElement} />
+                             </div>
+                    }
+                  }else{
+                    return <div onClick={() => this.handleClickAnnotation(currElement)}>
+                            <AnnotationBubble caption={caseAbnormalCaption[this.props.imageIndex][index]} label={currElement} id={currElement} />
+                           </div>
+                  }
+                }
               })
+
             }
           </div>
         );

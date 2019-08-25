@@ -20,6 +20,18 @@ const lungCancerExplan = [
   ["Pleural Effusion", "Smoking History", "History of Lung Cancer", "Radiation Therapy to the chest"]
 ];
 
+const pericardialExplan = [
+  ["5"],
+  ["Right lung clear"],
+  ['Chest pain','Age > 65','ECG abnormal','Cardiomegaly','Pleural Effusion']
+];
+
+const heartvalveExplan = [
+  ['10'],
+  ['Right and left lung clear'],
+  ['Chest pain','Age>60','Cardiomegaly','Short of breath','fever']
+];
+
 class Impressions extends Component {
   constructor(props){
     super(props);
@@ -52,19 +64,29 @@ class Impressions extends Component {
   }
 
   render(){
-    let imp1hover = (
-      <HoverWindow title={this.state.impressions[0]+"(Factors that influence probability)"}>
+    let congHeartFailure = (
+      <HoverWindow title={"Congestive Heart Failure (Factors that influence probability)"}>
         <ImpDetails base="5" pos={congHeartFailureExplan[1]} neg={congHeartFailureExplan[2]}/>
       </HoverWindow>
     );
-    let imp2hover = (
-      <HoverWindow title={this.state.impressions[1]+"(Factors that influence probability)"}>
+    let pneumonia = (
+      <HoverWindow title={"Pneumonia (Factors that influence probability)"}>
         <ImpDetails base={pneumoniaExplan[0]} pos={pneumoniaExplan[1]} neg={pneumoniaExplan[2]}/>
       </HoverWindow>
     );
-    let imp3hover = (
-      <HoverWindow title={this.state.impressions[2]+"(Factors that influence probability)"}>
+    let lungCancer = (
+      <HoverWindow title={"Lung Cancer (Factors that influence probability)"}>
         <ImpDetails base={lungCancerExplan[0]} pos={lungCancerExplan[1]} neg={lungCancerExplan[2]}/>
+      </HoverWindow>
+    );
+    let percicardial = (
+      <HoverWindow title={"Pericardial Disease (Factors that influence probability)"}>
+        <ImpDetails base={pericardialExplan[0]} pos={pericardialExplan[1]} neg={pericardialExplan[2]}/>
+      </HoverWindow>
+    );
+    let heartValve = (
+      <HoverWindow title={"Heart Valve Disease (Factors that influence probability)"}>
+        <ImpDetails base={heartvalveExplan[0]} pos={heartvalveExplan[1]} neg={heartvalveExplan[2]}/>
       </HoverWindow>
     );
     return (
@@ -86,11 +108,15 @@ class Impressions extends Component {
           this.props.clickedComponent === "impressions" && (() => {
             switch(this.state.clicked){
               case "Congestive Heart Failure":
-                return imp1hover;
+                return congHeartFailure;
               case "Pneumonia":
-                return imp2hover;
+                return pneumonia;
               case "Lung Cancer":
-                return imp3hover;
+                return lungCancer;
+              case "Pericardial Disease":
+                return percicardial;
+              case "Heart Valve Disease":
+                return heartValve;
               default:
                 return null;
             }

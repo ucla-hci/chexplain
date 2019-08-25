@@ -20,7 +20,9 @@
     "react-image-magnify": "^2.7.4",
     "react-magnifier": "^3.0.1",
     "react-scripts": "3.0.1",
-    "react-spinkit": "^3.0.0"
+    "react-spinkit": "^3.0.0",
+    "react-toggle": "^4.0.2",
+    "react-toggle-button": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

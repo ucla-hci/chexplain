@@ -4,34 +4,40 @@ import Observations from './Observations';
 import Impressions from './Impressions';
 import ImageDisplay from './ImageDisplay';
 import ToggleAnnotation from './ToggleAnnotation';
-import PriorImages from './PriorImagesCase2';
+import PriorImages2 from './PriorImagesCase2';
+import PriorImages from './PriorImages';
 import AdjustQuery from './AdjustQuery';
 import HoverWindow from './HoverWindow';
+import TimeConstraint from '../Inputs/TimeConstraint';
 
-const PATIENT_NUMBER = 0;
-// change patient number to 1 for your case
+const PATIENT_NUMBER = 1;
+// change patient number to 2 for your case
 
 //PATIENT OBSERVATION DATA
 const observationData = [
   ["Cardiomegaly","Edema","Atelectasis","Pleural Effusion", "Support Device"], //patient 11
+  ["Cardiomegaly","Pleural Effusion", "Support Device"],
   //TODO: ADD OTHER PATIENT'S OBERVATION HERE
 ];
 
 //PATIENT OBSERVATION PERCENTAGE DATA
 const observationPercentageData = [
   ["<60%>", "<78%>", "<55%>", "<84%>", "<93%>"], //patient 11
+  ["<Very Likely>", "<Likely>", "<Definitely>"],
   //TODO: ADD OTHER PATIENT'S OBERSVATION CONFIDENCE HERE
 ];
 
 //PATIENT IMPRESSION DATA
 const impressionData = [
-  ["Congestive Heart Failure", "Pneumonia", "Lung Cancer"], //patient 11
+  ["Congestive Heart Failure", "Pneumonia"], //patient 11
+  ["Pericardial Disease","Heart Valve Disease","Congestive Heart Failure"],
   //TODO: ADD OTHER PATIENT'S IMPRESSION HERE
 ];
 
 //PATIENT IMPRESSION PERCENTAGE DATA
 const impressionPercentageData = [
-  ["<60%>", "<30%>", "<5%>"], //patient 11
+  ["<60%>", "<30%>"], //patient 11
+  ["<25%>","<60%>","<70%>"],
   //TODO: ADD OTHER PATIENT'S IMPRESSION CONFIDENCE HERE
 ];
 
@@ -45,10 +51,10 @@ class Results extends Component {
       imageurl: this.props.dataFromImage,
       timeConstraint: this.props.dataFromSlider,
       questionInput: this.props.dataFromQuestion,
-      observations: observationData[PATIENT_NUMBER], //change later so its different for every patient
-      observationsPercentage: observationPercentageData[PATIENT_NUMBER],
-      impressions: impressionData[PATIENT_NUMBER],
-      impressionsPercentage: observationPercentageData[PATIENT_NUMBER],
+      observations: observationData[this.props.imageIndex], //change later so its different for every patient
+      observationsPercentage: observationPercentageData[this.props.imageIndex],
+      impressions: impressionData[this.props.imageIndex],
+      impressionsPercentage: observationPercentageData[this.props.imageIndex],
       priorImagesOpened: false,
       age: this.props.patientAge,
       gender: this.props.patientGender,
@@ -61,7 +67,7 @@ class Results extends Component {
   // NOTE: this function highlights observation base on an impression that is clicked/interact with
   highlightObsFromImpression(impression){
     let tempList = [];
-    if(PATIENT_NUMBER===0){
+    if(this.props.imageIndex===0){
       switch(impression){
         case this.state.impressions[0]: //if clicked impression is impressions[0], then highlight edema and pleural
           tempList.push("Edema");
@@ -75,8 +81,21 @@ class Results extends Component {
           tempList.push("Pleural Effusion");
           break;
       }
-    }else if(PATIENT_NUMBER===1){
+    }else if(this.props.imageIndex===1){
       // TODO: CONNECT GIVEN IMPRESSION TO RELATED OBSERVATION LIKE ABOVE, PUSH RELATED OBERVSATION INTO TEMP LIST
+      switch(impression){
+        case this.state.impressions[0]: //if clicked impression is impressions[0], then highlight edema and pleural
+          tempList.push("Cardiomegaly");
+          tempList.push("Pleural Effusion");
+          break;
+        case this.state.impressions[1]:
+          tempList.push("Cardiomegaly");
+          break;
+        case this.state.impressions[2]:
+          tempList.push("Pleural Effusion");
+          tempList.push("Cardiomegaly");
+          break;// TODO: CONNECT GIVEN IMPRESSION TO RELATED OBSERVATION LIKE ABOVE, PUSH RELATED OBERVSATION INTO TEMP LIST
+      }
     }
     //map through observation to highlight them
     this.state.observations.map((currElement) => { //clear all previous highlights
@@ -117,7 +136,7 @@ class Results extends Component {
     });
     //link observation and related impression
     observation.map((currElement) => {
-      if(PATIENT_NUMBER===0){
+      if(this.props.imageIndex===0){
         switch(currElement){
           case "Edema":
             document.getElementById(impressions[0]).style.color = "#FFFFFF";
@@ -128,16 +147,30 @@ class Results extends Component {
             document.getElementById(impressions[0]).style.fontWeight = "600";
             document.getElementById(impressions[1]).style.color = "#FFFFFF";
             document.getElementById(impressions[1]).style.fontWeight = "600";
-            document.getElementById(impressions[2]).style.color = "#FFFFFF";
-            document.getElementById(impressions[2]).style.fontWeight = "600";
             break;
           case "Atelectasis":
             document.getElementById(impressions[1]).style.color = "#FFFFFF";
             document.getElementById(impressions[1]).style.fontWeight = "600";
         }
-      }else if(PATIENT_NUMBER===1){
-        // TODO: BASE ON OBSERVATION, HIGHLIGHT RELATED IMPRESSION WITH SWITCH STATEMENT LIKE ABOVE,
-        // BUT IT'S FOR YOUR OWN CASE
+      }else if(this.props.imageIndex===1){
+        switch(currElement){
+          case "Cardiomegaly":
+              document.getElementById(impressions[0]).style.color = "#FFFFFF";
+              document.getElementById(impressions[0]).style.fontWeight = "600";
+              document.getElementById(impressions[1]).style.color = "#FFFFFF";
+              document.getElementById(impressions[1]).style.fontWeight = "600";
+              document.getElementById(impressions[2]).style.color = "#FFFFFF";
+              document.getElementById(impressions[2]).style.fontWeight = "600";
+              break;
+          case "Pleural Effusion":
+              document.getElementById(impressions[0]).style.color = "#FFFFFF";
+              document.getElementById(impressions[0]).style.fontWeight = "600";
+              document.getElementById(impressions[2]).style.color = "#FFFFFF";
+              document.getElementById(impressions[2]).style.fontWeight = "600";
+              break;
+          // TODO: BASE ON OBSERVATION, HIGHLIGHT RELATED IMPRESSION WITH SWITCH STATEMENT LIKE ABOVE,
+          // BUT IT'S FOR YOUR OWN CASE
+      }
       }
     });
   }
@@ -158,6 +191,7 @@ class Results extends Component {
     this.setState({
       timeConstraint: dataFromChild
     });
+    console.log(dataFromChild);
   }
 
   callbackFromPriorImages = (dataFromChild) => {
@@ -199,6 +233,9 @@ class Results extends Component {
         <Header patientAge={this.state.age} patientGender={this.state.gender}/>
         <ImageDisplay url={this.state.imageurl}/>
         <ToggleAnnotation clickedComponent={this.state.clickedComponent}
+          questionInput={this.state.questionInput}
+          statMode={this.state.timeConstraint}
+          imageIndex={this.props.imageIndex}
           callbackClickedComponent={this.callbackClickedComponent}
           callbackFromParent={this.callbackfromAnnotationsObs}
           clickedObservation={this.state.clickedObservation} display={this.state.questionInput}/>
@@ -216,15 +253,26 @@ class Results extends Component {
           callbackFromParent={this.callbackFromImpressions}
           impressions={this.state.impressions} observations={this.state.observations}
           percentages={this.state.observationsPercentage}/>
+        <TimeConstraint type={false} data={this.state.timeConstraint} callbackFromParent={this.callbackFromTime}/>
+        <div className="returnButton1" onClick={()=> window.location.reload()}><div className="text"> Return </div></div>
       </div>
     );
     let resultpart2 = ( //prior images
       <div>
-      <PriorImages currentImage={this.state.imageurl} patientAge={this.state.age} patientGender={this.state.gender} callbackFromParent={this.callbackFromPriorImages}/>
+      {
+        this.props.imageIndex===0?
+        (
+          <PriorImages currentImage={this.state.imageurl} patientAge={this.state.age} patientGender={this.state.gender} callbackFromParent={this.callbackFromPriorImages}/>
+        ):
+        (
+          <PriorImages2 currentImage={this.state.imageurl} patientAge={this.state.age} patientGender={this.state.gender} callbackFromParent={this.callbackFromPriorImages}/>
+        )
+      }
       </div>
     );
     return (
       <div>
+
         {
           !this.state.priorImagesOpened && resultpart1
         }
