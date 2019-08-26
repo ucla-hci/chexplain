@@ -94,12 +94,12 @@
 .react-toggle-screenreader-only {
   border: 0;
   clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
+  height: 0.069vw;
+  margin: -0.069vw;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px;
+  width: 0.069vw;
 }
 
 .react-toggle--disabled {
@@ -110,10 +110,10 @@
 }
 
 .react-toggle-track {
-  width: 50px;
-  height: 24px;
+  width: 3.472vw;
+  height: 1.667vw;
   padding: 0;
-  border-radius: 30px;
+  border-radius: 2.083vw;
   background-color: #4D4D4D;
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -134,14 +134,14 @@
 
 .react-toggle-track-check {
   position: absolute;
-  width: 14px;
-  height: 10px;
+  width: 0.972vw;
+  height: 0.694vw;
   top: 0px;
   bottom: 0px;
   margin-top: auto;
   margin-bottom: auto;
   line-height: 0;
-  left: 8px;
+  left: 0.556vw;
   opacity: 0;
   -webkit-transition: opacity 0.25s ease;
   -moz-transition: opacity 0.25s ease;
@@ -157,14 +157,14 @@
 
 .react-toggle-track-x {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 0.694vw;
+  height: 0.694vw;
   top: 0px;
   bottom: 0px;
   margin-top: auto;
   margin-bottom: auto;
   line-height: 0;
-  right: 10px;
+  right: 0.694vw;
   opacity: 1;
   -webkit-transition: opacity 0.25s ease;
   -moz-transition: opacity 0.25s ease;
@@ -178,11 +178,11 @@
 .react-toggle-thumb {
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
   position: absolute;
-  top: 1px;
-  left: 1px;
-  width: 22px;
-  height: 22px;
-  border: 1px solid #4D4D4D;
+  top: 0.069vw;
+  left: 0.069vw;
+  width: 1.528vw;
+  height: 1.528vw;
+  border: 0.069vw solid #4D4D4D;
   border-radius: 50%;
   background-color: #FAFAFA;
 
@@ -196,18 +196,18 @@
 }
 
 .react-toggle--checked .react-toggle-thumb {
-  left: 27px;
+  left: 1.875vw;
   border-color: red;
 }
 
 .react-toggle--focus .react-toggle-thumb {
-  -webkit-box-shadow: 0px 0px 3px 2px #0099E0;
-  -moz-box-shadow: 0px 0px 3px 2px #0099E0;
-  box-shadow: 0px 0px 2px 3px #0099E0;
+  -webkit-box-shadow: 0px 0px 0.208vw 0.139vw #0099E0;
+  -moz-box-shadow: 0px 0px 0.208vw 0.139vw #0099E0;
+  box-shadow: 0px 0px 0.139vw 0.208vw #0099E0;
 }
 
 .react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
-  -webkit-box-shadow: 0px 0px 5px 5px #0099E0;
-  -moz-box-shadow: 0px 0px 5px 5px #0099E0;
-  box-shadow: 0px 0px 5px 5px #0099E0;
+  -webkit-box-shadow: 0px 0px 0.347vw 0.347vw #0099E0;
+  -moz-box-shadow: 0px 0px 0.347vw 0.347vw #0099E0;
+  box-shadow: 0px 0px 0.347vw 0.347vw #0099E0;
 }

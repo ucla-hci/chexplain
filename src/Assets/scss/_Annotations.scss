@@ -157,8 +157,8 @@ $baseHeight: 898;
     width: auto;
     height: auto;
     @include defaultFont(0.927vw, regular);
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0.694vw;
+    padding-right: 0.694vw;
     z-index: 981;
     @if $red == true {
       background: rgba(238, 101, 101, $opac);

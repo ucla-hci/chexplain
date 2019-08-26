@@ -81,6 +81,7 @@
     color: $white;
     position: absolute;
     top: 60%;
+    left: -5%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     height: 29.8vh;
@@ -91,7 +92,8 @@
         list-style-type: none !important;
         list-style-position: inside;
         display: inline-block;
-        margin-right: 15px;
+        margin-right: 1.042vw;
+        margin-left: 0;
       }
       .imageCaption{
         width: 17.069vw;

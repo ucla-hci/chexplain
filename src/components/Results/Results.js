@@ -22,7 +22,7 @@ const observationData = [
 
 //PATIENT OBSERVATION PERCENTAGE DATA
 const observationPercentageData = [
-  ["<60%>", "<78%>", "<55%>", "<84%>", "<93%>"], //patient 11
+  ["<Likely>", "<Likely>", "<Likely>", "<Very Likely>", "<Definitely>"], //patient 11
   ["<Very Likely>", "<Likely>", "<Definitely>"],
   //TODO: ADD OTHER PATIENT'S OBERSVATION CONFIDENCE HERE
 ];
@@ -36,8 +36,8 @@ const impressionData = [
 
 //PATIENT IMPRESSION PERCENTAGE DATA
 const impressionPercentageData = [
-  ["<60%>", "<30%>"], //patient 11
-  ["<25%>","<60%>","<70%>"],
+  ["<Very Likely>", "<Likely>"], //patient 11
+  ["<Unlikely>","<Very Likely>","<Likely>"],
   //TODO: ADD OTHER PATIENT'S IMPRESSION CONFIDENCE HERE
 ];
 
@@ -54,7 +54,7 @@ class Results extends Component {
       observations: observationData[this.props.imageIndex], //change later so its different for every patient
       observationsPercentage: observationPercentageData[this.props.imageIndex],
       impressions: impressionData[this.props.imageIndex],
-      impressionsPercentage: observationPercentageData[this.props.imageIndex],
+      impressionsPercentage: impressionPercentageData[this.props.imageIndex],
       priorImagesOpened: false,
       age: this.props.patientAge,
       gender: this.props.patientGender,
@@ -252,7 +252,7 @@ class Results extends Component {
           clickedComponent={this.state.clickedComponent}
           callbackFromParent={this.callbackFromImpressions}
           impressions={this.state.impressions} observations={this.state.observations}
-          percentages={this.state.observationsPercentage}/>
+          percentages={this.state.impressionsPercentage}/>
         <TimeConstraint type={false} data={this.state.timeConstraint} callbackFromParent={this.callbackFromTime}/>
         <div className="returnButton1" onClick={()=> window.location.reload()}><div className="text"> Return </div></div>
       </div>

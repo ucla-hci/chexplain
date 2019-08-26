@@ -287,14 +287,6 @@ class ToggleAnnotation extends Component {
                     caption1={captionTemplate1+"Pleural Effusion"}
                     caption2={captionTemplate2+"Pleural Effusion"}/>
                  </HoverWindow>;
-        case caseList[0][0]: //support
-        case caseList[0][1]:
-        case caseList[0][2]:
-          return <HoverWindow title="Support Device (Compare region with abnormal/normal cases)">
-                  <ObsDetails image1={relatedImageList[0][0]} image2={relatedImageList[0][1]}
-                    caption1={captionTemplate1+"Support Device"}
-                    caption2={captionTemplate2+"Support Device"}/>
-                 </HoverWindow>;
         //IF YOU CANNOT FIND YOUR RELATED OBSERVATION IN LIST ABOVE YOU CAN ADD A SEPARATE CASE
         // OR JUST PUT IT AS DEFAULT AND WE CAN DEAL WITH IT LATER, PLEASE LABEL WHAT OBERVATION YOUR caseList[x][y]
         // IS RELATED TO AS A COMMENT TO THE RIGHT

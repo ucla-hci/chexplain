@@ -60,7 +60,7 @@ $darkGrey: #2D3242; //USED FOR ONLY ABNORMAL BUTTON
 @mixin borderButton($color: $lightBlue, $width:15.47%, $height: 4.9%){
   width: $width;
   height: $height;
-  border: 2px solid $color;
+  border: 0.139vw solid $color;
   box-sizing: border-box;
   cursor: pointer;
   .text{
