@@ -11,13 +11,13 @@
 @import "_ImageSelect.scss";
 
 //overall background color
-body{
+body {
   background: $black;
   overflow-y: hidden;
   overflow-x: hidden;
 }
 
-.returnButton1{
+.returnButton1 {
   position: absolute;
   z-index: 900;
   top: 1.8%;
@@ -25,8 +25,19 @@ body{
   @include borderButton($white, 8.54%, 3.33%);
 }
 
+//styling for pop up explanations
+.card {
+  font-size: 12px;
+}
+.card > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 14px;
+  text-align: center;
+}
+
 //overlay on loading page
-.overlay{
+.overlay {
   position: fixed; /* Sit on top of the page content */
   width: 100%; /* Full width (cover the whole page) */
   height: 100%; /* Full height (cover the whole page) */
@@ -34,28 +45,29 @@ body{
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
   z-index: 990; /* Specify a stack order in case you're using a different order for other elements */
 }
 
-.divider2{
-    width:50px;
-    height:auto;
-    display:table-cell;
+.divider2 {
+  width: 50px;
+  height: auto;
+  display: table-cell;
 }
 
-.divider3{
-  width:auto;
+.divider3 {
+  width: auto;
   position: absolute;
   height: 50%;
 }
 
-.test{
+.test {
   position: absolute;
-  top: 80%; left:50%;
+  top: 80%;
+  left: 50%;
 }
 
-.prevNext{
+.prevNext {
   position: absolute;
-  right:200px;
+  right: 200px;
 }

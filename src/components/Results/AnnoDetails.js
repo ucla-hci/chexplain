@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 
-class ObsDetails extends Component {
+class AnnoDetails extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <div className="obsDetails">
+      <div className="AnnoDetails">
         <ul>
           <li>
             <div className="imageCaption">
@@ -27,4 +27,4 @@ class ObsDetails extends Component {
   }
 }
 
-export default ObsDetails;
+export default AnnoDetails;

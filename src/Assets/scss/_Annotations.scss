@@ -257,7 +257,7 @@ $opacLight: 0.20;
 .c1p11s1{ //lung opacity
   @include circle(309, 437, 510, 186, $opacLight);
   .circle{
-    border: 3px solid red;
+    border: solid 0.139vw white;
   }
 }
 .c2p11s1{ //support device
@@ -271,9 +271,6 @@ $opacLight: 0.20;
 //study 11
 .c1p11s11{ //edema
   @include circle(805, 361, 157, 500, $opacLight);
-  .circle{
-    border: 3px solid red;
-  }
 }
 
 .c2p11s11{ //support device
@@ -291,7 +288,7 @@ $opacLight: 0.20;
 .c5p11s11{ //lung opacity
   @include circle(285, 591, 654, 121, $opacLight);
   .circle{
-    border: 3px solid red;
+    border: solid 0.139vw white;
   }
 }
 
@@ -305,9 +302,6 @@ $opacLight: 0.20;
 
 .c8p11s11{ //edema
   @include circle(154, 142, 583, 235, $opacLight);
-  .circle{
-    border: 3px solid red;
-  }
 }
 
 //study 11 normal Regions
@@ -335,7 +329,7 @@ $opacLight: 0.20;
 .c4p11s9{ //enlarged cardiomediastinum
   @include circle(407, 236, 356, 374, $opacLight);
   .circle{
-    border: 3px solid red;
+    border: solid 0.139vw white;
   }
 }
 
@@ -427,10 +421,16 @@ $opacLight: 0.20;
 
 .c4p21653s7{//pneumonia
   @include circle(67,165,412,397, $opacLight);
+  .circle{
+    border: solid 0.139vw white;
+  }
 }
 
 .c5p21653s7{//pneumonia
   @include circle(81,198,685,364, $opacLight);
+  .circle{
+    border: solid 0.139vw white;
+  }
 }
 
 .c6p21653s7{//cardio
@@ -439,6 +439,9 @@ $opacLight: 0.20;
 
 .c7p21653s7{//lung opacity
   @include circle(297,300,666,397, $opacLight);
+  .circle{
+    border: solid 0.139vw white;
+  }
 }
 
 .c8p21653s7{//central
@@ -456,6 +459,9 @@ $opacLight: 0.20;
 
 .c2p21653s6{//Lung opacity
   @include circle(144,140,628,416, $opacLight);
+  .circle{
+    border: solid 0.139vw white;
+  }
 }
 
 .c3p21653s6{//pleurl
@@ -468,6 +474,9 @@ $opacLight: 0.20;
 
 .c5p21653s6{//Lung Opacity
   @include circle(132,168,327,419, $opacLight);
+  .circle{
+    border: solid 0.139vw white;
+  }
 }
 
 .c6p21653s6{//central trachea
@@ -481,10 +490,16 @@ $opacLight: 0.20;
 //study 5
 .c1p21653s5{//Lung Opacity
   @include circle(206,324,143,469, $opacLight);
+  .circle{
+    border: solid 0.139vw white;
+  }
 }
 
 .c2p21653s5{//Lung Opacity
   @include circle(214,322,651,532, $opacLight);
+  .circle{
+    border: solid 0.139vw white;
+  }
 }
 
 .c3p21653s5{//Support device
@@ -502,6 +517,9 @@ $opacLight: 0.20;
 
 .c3p21653s1{//lung opacity
   @include circle(169,253,607,309, $opacLight);
+  .circle{
+    border: solid 0.139vw white;
+  }
 }
 .c4p21653s1{//clear right lung
   @include circle(243,382,214,93, $opacLight, false);

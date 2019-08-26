@@ -155,7 +155,7 @@ class QuestionInput extends Component {
     // <div className="selectedInputs">Selected Questions:&ensp;{this.state.displayInput.join(", ")}</div>
     return (
       <div className={divName}>
-        <div className="title"><div className="text">Question Input</div></div>
+        <div className="title"><div className="text">Question Input (Optional)</div></div>
         <button className="clear" onClick = {() => this.handleClear()}>Clear</button>
         <div className="buttonGroup">
         <div className="buttonGroup1">

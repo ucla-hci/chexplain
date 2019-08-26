@@ -1,8 +1,14 @@
 //result box is used for Observations and Differential Diagnosis
-@mixin resultBox($top: 7.56%, $left:49.57%, $position: absolute, $width:18.86%, $height: 51.78%){
-  .title{
-    .text{
-      @include defaultFont(1.20vw, normal);
+@mixin resultBox(
+  $top: 7.56%,
+  $left: 49.57%,
+  $position: absolute,
+  $width: 18.86%,
+  $height: 51.78%
+) {
+  .title {
+    .text {
+      @include defaultFont(1.2vw, normal);
       @include fontAlign(left);
       padding-left: 0.694vw;
     }
@@ -11,14 +17,16 @@
     height: 4.666666666666667vh;
     background: $lightGrey;
   }
-  .obList{ //list of items concerning DD or Observations
+  .obList {
+    //list of items concerning DD or Observations
     position: absolute;
     top: 6%;
-    ul, li{
+    ul,
+    li {
       list-style-type: none !important;
       list-style-position: inside;
-      li{
-        @include defaultFont(1.111vw, lighter, #B0B0B0);
+      li {
+        @include defaultFont(1.111vw, lighter, #b0b0b0);
       }
       cursor: pointer;
       margin: 0.8vw;
@@ -27,14 +35,16 @@
       padding-bottom: 0.694vw;
     }
   }
-  .obList2{ //list of items in prior image comparison window
+  .obList2 {
+    //list of items in prior image comparison window
     position: absolute;
     top: 6%;
-    ul, li{
+    ul,
+    li {
       list-style-type: none !important;
       list-style-position: inside;
-      li{
-        @include defaultFont(1.111vw, lighter, #B0B0B0);
+      li {
+        @include defaultFont(1.111vw, lighter, #b0b0b0);
       }
       cursor: pointer;
       margin: 0.8vw;
@@ -51,80 +61,80 @@
   background: $darkGrey;
 }
 
-.queryList{
+.queryList {
   position: absolute;
   top: 3%;
-  width:100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.Observations{
+.Observations {
   @include resultBox;
 }
 
-.Impressions{
+.Impressions {
   @include resultBox(7.56%, 69.26%);
 }
 
-.PriorImageObservation1{
+.PriorImageObservation1 {
   @include resultBox(70%, 46%, absolute, 40%);
 }
 
-.PriorImageObservation2{
+.PriorImageObservation2 {
   @include resultBox(70%, 3%, absolute, 37%);
 }
 
-.HoverWindow{
+.HoverWindow {
   @include resultBox(60.66%, 49.57%, absolute, 38.62%, 37.11%);
-  .content{
+  .content {
     color: $white;
     position: absolute;
-    top: 60%;
+    top: 16%;
     left: -5%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
     height: 29.8vh;
     width: 41.319vw;
     z-index: 991;
-    .obsDetails{
-      ul, li{
+    .obsDetails {
+      ul,
+      li {
         list-style-type: none !important;
         list-style-position: inside;
         display: inline-block;
         margin-right: 1.042vw;
         margin-left: 0;
       }
-      .imageCaption{
+      .imageCaption {
         width: 17.069vw;
         height: 29.88888888888889vh;
-        @include defaultFont(0.625vw, normal, $white);
+        @include defaultFont(0.725vw, normal, $white);
         text-align: right;
-        img{
+        img {
           display: table;
           margin: 0 auto;
           width: 15.069vw;
         }
       }
     }
-    .impressionExplan{
+    .impressionExplan {
       @include defaultFont(1.125vw, normal, $white);
-      ul, li{
+      ul,
+      li {
         list-style-type: none !important;
         list-style-position: inside;
         margin-right: 15px;
       }
     }
-
   }
 }
 
-.imageDisplayWindow{
+.imageDisplayWindow {
   position: absolute;
-  top: 17%; left:1.04%;
+  top: 17%;
+  left: 1.04%;
   height: 67.9%;
   width: 40.2%;
-  .imageDisplay{
+  .imageDisplay {
     display: table;
     margin: 0 auto;
     height: 100%;
