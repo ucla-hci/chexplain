@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HoverWindow from "./HoverWindow";
+import HoverWindow from "../HoverWindow";
 import ImpDetails from "./ImpDetails";
 
 const congHeartFailureExplan = [

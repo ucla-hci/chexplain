@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import HoverWindow from "./HoverWindow";
-import ObsDetails from "./ObsDetails";
+import HoverWindow from "../HoverWindow";
+import AnnoDetails from "./AnnoDetails";
 import AnnotationBubble from "./AnnotationBubble";
-
-// NOTE: currently this indicated which patient we are doing as I Have not connected different patient to different data
-// const this.props.imageIndex = 1;
 
 //this is list of circle names for abnormal annotations
 const caseList = [
@@ -329,9 +326,8 @@ class ToggleAnnotation extends Component {
         //INSERT ANNOTATION BOX CLASSNAME AS "case caseList[x][y]:" RELATED TO CARDIOMEGALY HERE
         return (
           <HoverWindow title="Cardiomegaly (Compare region with abnormal/normal cases)">
-            <ObsDetails
-              image1={relatedImageList[2][0]}
-              image2={relatedImageList[2][1]}
+            <AnnoDetails
+              label="Cardiomegaly"
               caption1={captionTemplate1 + "Cardiomegaly"}
               caption2={captionTemplate2 + "Cardiomegaly"}
             />
@@ -341,9 +337,8 @@ class ToggleAnnotation extends Component {
         //INSERT ANNOTATION BOX CLASSNAME AS caseList[x][y] RELATED TO EDEMA HERE
         return (
           <HoverWindow title="Edema (Compare region with abnormal/normal cases)">
-            <ObsDetails
-              image1={relatedImageList[3][0]}
-              image2={relatedImageList[3][1]}
+            <AnnoDetails
+              label="Edema"
               caption1={captionTemplate1 + "Edema"}
               caption2={captionTemplate2 + "Edema"}
             />
@@ -352,9 +347,8 @@ class ToggleAnnotation extends Component {
       case caseList[0][3]: //atelect
         return (
           <HoverWindow title="Atelectasis (Compare region with abnormal/normal cases)">
-            <ObsDetails
-              image1={relatedImageList[1][0]}
-              image2={relatedImageList[1][1]}
+            <AnnoDetails
+              label="Atelectasis"
               caption1={captionTemplate1 + "Atelectasis"}
               caption2={captionTemplate2 + "Atelectasis"}
             />
@@ -365,9 +359,8 @@ class ToggleAnnotation extends Component {
       case caseList[1][4]: //pleurl
         return (
           <HoverWindow title="Pleural Effusion (Compare region with abnormal/normal cases)">
-            <ObsDetails
-              image1={relatedImageList[0][0]}
-              image2={relatedImageList[0][1]}
+            <AnnoDetails
+              label="Pleural Effusion"
               caption1={captionTemplate1 + "Pleural Effusion"}
               caption2={captionTemplate2 + "Pleural Effusion"}
             />

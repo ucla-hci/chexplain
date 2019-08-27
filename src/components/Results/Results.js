@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import Observations from "./Observations";
-import Impressions from "./Impressions";
+import Observations from "./Observations/Observations";
+import Impressions from "./Impressions/Impressions";
 import ImageDisplay from "./ImageDisplay";
-import ToggleAnnotation from "./ToggleAnnotation";
-import PriorImages2 from "./PriorImagesCase2";
-import PriorImages from "./PriorImages";
+import ToggleAnnotation from "./Annotation/ToggleAnnotation";
+import PriorImages2 from "./PriorImages/PriorImagesCase2";
+import PriorImages from "./PriorImages/PriorImages";
 import AdjustQuery from "./AdjustQuery";
 import HoverWindow from "./HoverWindow";
 import TimeConstraint from "../Inputs/TimeConstraint";
