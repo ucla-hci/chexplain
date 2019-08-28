@@ -315,8 +315,8 @@ class ToggleAnnotation extends Component {
       //will only render hover window in non-STAT mode
       clickedElement = null;
     //clickedElement is a className of the annotation clicked (Ex. c1p11s1)
-    let captionTemplate1 = "Sample region with ";
-    let captionTemplate2 = "Sample region without ";
+    let captionTemplate1 = "Normal region";
+    let captionTemplate2 = "Abnormal region";
     // TODO: ADD YOUR CASE LIST'S ANNOTATION CLASSNAME TO THE CORRESPONDING HOVER WINDOW
     // IF THE ANNOTATION BOX IS RELATED TO CARDIOMEGALY, YOU PUT caseList[x][y] WHICH HAS YOUR ANNOTATION BOXES CLASSNAME
     // AS AN ADDITIONAL CASE ABOVE THE RETURN HOVER WINDOW OF CARDIOMEGALY
@@ -328,8 +328,8 @@ class ToggleAnnotation extends Component {
           <HoverWindow title="Cardiomegaly (Compare region with abnormal/normal cases)">
             <AnnoDetails
               label="Cardiomegaly"
-              caption1={captionTemplate1 + "Cardiomegaly"}
-              caption2={captionTemplate2 + "Cardiomegaly"}
+              caption1={captionTemplate1}
+              caption2={captionTemplate2}
             />
           </HoverWindow>
         );
@@ -339,8 +339,8 @@ class ToggleAnnotation extends Component {
           <HoverWindow title="Edema (Compare region with abnormal/normal cases)">
             <AnnoDetails
               label="Edema"
-              caption1={captionTemplate1 + "Edema"}
-              caption2={captionTemplate2 + "Edema"}
+              caption1={captionTemplate1}
+              caption2={captionTemplate2}
             />
           </HoverWindow>
         );
@@ -349,8 +349,8 @@ class ToggleAnnotation extends Component {
           <HoverWindow title="Atelectasis (Compare region with abnormal/normal cases)">
             <AnnoDetails
               label="Atelectasis"
-              caption1={captionTemplate1 + "Atelectasis"}
-              caption2={captionTemplate2 + "Atelectasis"}
+              caption1={captionTemplate1}
+              caption2={captionTemplate2}
             />
           </HoverWindow>
         );
@@ -361,8 +361,8 @@ class ToggleAnnotation extends Component {
           <HoverWindow title="Pleural Effusion (Compare region with abnormal/normal cases)">
             <AnnoDetails
               label="Pleural Effusion"
-              caption1={captionTemplate1 + "Pleural Effusion"}
-              caption2={captionTemplate2 + "Pleural Effusion"}
+              caption1={captionTemplate1}
+              caption2={captionTemplate2}
             />
           </HoverWindow>
         );

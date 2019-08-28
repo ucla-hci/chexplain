@@ -101,7 +101,7 @@ const case11CrossPatient = [
     "60"
   ], //cardiomegaly
   [
-    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fpleural%20effusion.jpg?alt=media&token=292eaa7b-9dd7-49b9-8424-084f1b1463bb",
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FMainImages%2Fp11_view1_frontal.jpg?alt=media&token=fe4a268d-8e4d-4c84-8392-78e54631c646",
     "Pleural Effusion",
     "Male",
     "80"

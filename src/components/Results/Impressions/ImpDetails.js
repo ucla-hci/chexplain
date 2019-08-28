@@ -1,38 +1,48 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import { MdDone, MdClear, MdRemove } from "react-icons/md";
 import { IconContext } from "react-icons";
 
 class ImpDetails extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
 
-  render(){
+  render() {
     return (
       <div className="impressionExplan">
-      <IconContext.Provider value={{ size: "1.2vw"}}>
-      <ul>
-        <li><MdRemove/> Prevalence: {this.props.base}%</li>
-        <li>
+        <IconContext.Provider value={{ size: "1.2vw" }}>
           <ul>
-          {
-            this.props.pos.map((currElement) => {
-              return <li><MdDone/> {currElement}</li>
-            })
-          }
+            <li>Prevalence: {this.props.base}% </li>
+            <li>Factors that decrease probability: </li>
+            <li>
+              <div className="nestedExplan">
+                <ul>
+                  {this.props.pos.map(currElement => {
+                    return (
+                      <li>
+                        <div className="text">{currElement}</div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </li>
+            <li>Factors that increase probability: </li>
+            <li>
+              <div className="nestedExplan">
+                <ul>
+                  {this.props.neg.map(currElement => {
+                    return (
+                      <li>
+                        <div className="text">{currElement}</div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </li>
           </ul>
-        </li>
-        <li>
-          <ul>
-          {
-            this.props.neg.map((currElement) => {
-              return <li><MdClear/> {currElement}</li>
-            })
-          }
-          </ul>
-        </li>
-      </ul>
-      </IconContext.Provider>
+        </IconContext.Provider>
       </div>
     );
   }

@@ -130,7 +130,7 @@
         // border: 5px solid white;
         width: 18.069vw;
         // height: 29.88888888888889vh;
-        @include defaultFont(0.885vw, normal, $white);
+        @include defaultFont(1.285vw, normal, $white);
         text-align: center;
         img {
           display: table;
@@ -160,7 +160,18 @@
       li {
         list-style-type: none !important;
         list-style-position: inside;
-        margin-right: 15px;
+      }
+      .nestedExplan {
+        ul,
+        li {
+          // display: inline-block;
+          list-style-type: none !important;
+          list-style-position: inside;
+          margin-right: 15px;
+        }
+        .text {
+          @include defaultFont(1.125vw, lighter, #b0b0b0);
+        }
       }
     }
   }
