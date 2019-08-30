@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import HoverWindow from "../HoverWindow";
 import ObsDetails from "./ObsDetails";
+import { IoIosArrowRoundForward, IoMdArrowDropright } from "react-icons/io";
+import { IconContext } from "react-icons";
 
 const cardiomegalyImage = [
   "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fnormal-chest-x-ray.jpg?alt=media&token=a461a18d-e864-47fc-8cb6-46d4ab4e171c",
@@ -35,18 +37,25 @@ class Observations extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  async handleClick(observation) {
+  async handleClick(observation, index) {
     await this.setState({
       clicked: observation
     });
     //highlight clicked observation
-    this.state.observations.map(currElement => {
+    this.state.observations.map((currElement, count) => {
       //clears previously set colors
       document.getElementById(currElement).style.color = "#B0B0B0";
       document.getElementById(currElement).style.fontWeight = "lighter";
+      document.getElementById(
+        "triangle" + currElement.replace(/ /g, "")
+      ).style.display = "none";
     });
     document.getElementById(observation).style.color = "#FFFFFF"; //sets color of clicked observation to blue
     document.getElementById(observation).style.fontWeight = "600";
+    if (observation !== "Cardiomegaly" && observation !== "Support Device")
+      document.getElementById(
+        "triangle" + observation.replace(/ /g, "")
+      ).style.display = "inline";
     this.props.callbackFromParent(this.state.clicked);
     this.props.callbackClickedComponent("observations");
   }
@@ -111,7 +120,13 @@ class Observations extends Component {
       <div>
         <div className="Observations" id="ob">
           <div className="title">
-            <div className="text">Significant Observations</div>
+            <IconContext.Provider value={{ size: "1.8vw" }}>
+              <div className="text">
+                Significant
+                Observations&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+                <IoIosArrowRoundForward />
+              </div>
+            </IconContext.Provider>
           </div>
           <div className="obList">
             <ul>
@@ -119,14 +134,19 @@ class Observations extends Component {
                 return (
                   <li
                     id={currElement}
-                    onClick={() => this.handleClick(currElement)}
+                    onClick={() => this.handleClick(currElement, index)}
                     onMouseEnter={
                       this.props.statMode
                         ? () => this.handleClick(currElement)
                         : false
                     }
                   >
-                    {currElement} {this.props.percentages[index]}
+                    {currElement} {this.props.percentages[index]}{" "}
+                    <IconContext.Provider value={{ size: "1.8vw" }}>
+                      <IoMdArrowDropright
+                        id={"triangle" + currElement.replace(/ /g, "")}
+                      />
+                    </IconContext.Provider>
                   </li>
                 );
               })}

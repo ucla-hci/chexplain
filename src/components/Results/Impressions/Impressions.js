@@ -3,45 +3,59 @@ import HoverWindow from "../HoverWindow";
 import ImpDetails from "./ImpDetails";
 
 const congHeartFailureExplan = [
-  [4],
+  [1.8],
   ["Heart Evaluable"],
   [
-    "Cardiomegaly",
-    "Pleural Effusion",
-    "Coronary Artery Disease",
-    "Hypertension",
-    "Diabetes",
-    "Obesity"
+    ["Cardiomegaly", "text"],
+    ["Pleural Effusion", "text"],
+    ["Hypertension", "text"],
+    ["Diabetes", "text"],
+    ["Obesity", "text"]
   ]
 ];
 
 const pneumoniaExplan = [
   [7],
   ["Right lung and visible left lung Evaulable"],
-  ["Actelectasis", "Smoking History", "Pleural Effusion"]
+  [
+    ["Actelectasis", "text"],
+    ["Smoking History", "text"],
+    ["Pleural Effusion", "text"]
+  ]
 ];
 
 const lungCancerExplan = [
   ["<1"],
   ["Right lung and visible left lung Evaulable"],
   [
-    "Pleural Effusion",
-    "Smoking History",
-    "History of Lung Cancer",
-    "Radiation Therapy to the chest"
+    ["Pleural Effusion", "text"],
+    ["Smoking History", "text"],
+    ["History of Lung Cancer", "text"],
+    ["Radiation Therapy to the chest", "text"]
   ]
 ];
 
 const pericardialExplan = [
   ["5"],
   ["Right lung clear"],
-  ["Chest pain", "Age > 65", "ECG abnormal", "Cardiomegaly", "Pleural Effusion"]
+  [
+    ["Chest pain", "text2"],
+    ["Age > 65", "text"],
+    ["ECG abnormal", "text"],
+    ["Cardiomegaly", "text"],
+    ["Pleural Effusion", "text"]
+  ]
 ];
 
 const heartvalveExplan = [
   ["10"],
   ["Right and left lung clear"],
-  ["Chest pain", "Age>60", "Cardiomegaly", "Short of breath", "fever"]
+  [
+    ["Chest pain", "text2"],
+    ["Age > 60", "text"],
+    ["Cardiomegaly", "text"],
+    ["Short of breath", "text2"]
+  ]
 ];
 
 class Impressions extends Component {
@@ -81,7 +95,7 @@ class Impressions extends Component {
         title={"Congestive Heart Failure (Factors that influence probability)"}
       >
         <ImpDetails
-          base="5"
+          base={congHeartFailureExplan[0]}
           pos={congHeartFailureExplan[1]}
           neg={congHeartFailureExplan[2]}
         />

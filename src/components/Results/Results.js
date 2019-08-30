@@ -112,10 +112,17 @@ class Results extends Component {
       //clear all previous highlights
       document.getElementById(currElement).style.color = "#B0B0B0";
       document.getElementById(currElement).style.fontWeight = "lighter";
+      document.getElementById(
+        "triangle" + currElement.replace(/ /g, "")
+      ).style.display = "none";
     });
     tempList.map(currElement => {
       document.getElementById(currElement).style.color = "#FFFFFF"; //sets color of clicked currElement to blue
       document.getElementById(currElement).style.fontWeight = "600";
+      if (currElement !== "Cardiomegaly" && currElement !== "Support Device")
+        document.getElementById(
+          "triangle" + currElement.replace(/ /g, "")
+        ).style.display = "inline";
     });
     this.setState({
       //this call allows related annotation to be highlighted
@@ -131,11 +138,18 @@ class Results extends Component {
       //clear all previous highlights
       document.getElementById(currElement).style.color = "#B0B0B0";
       document.getElementById(currElement).style.fontWeight = "lighter";
+      document.getElementById(
+        "triangle" + currElement.replace(/ /g, "")
+      ).style.display = "none";
     });
     //highlight related ones
     observationList.map(currElement => {
       document.getElementById(currElement).style.color = "#FFFFFF"; //sets color of clicked currElement to blue
       document.getElementById(currElement).style.fontWeight = "600";
+      if (currElement !== "Cardiomegaly" && currElement !== "Support Device")
+        document.getElementById(
+          "triangle" + currElement.replace(/ /g, "")
+        ).style.display = "inline";
     });
     this.highlightImpression(observationList); //call highlight impression to highlight impression related to each observation
   }

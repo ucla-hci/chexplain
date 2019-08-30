@@ -620,7 +620,9 @@ class PriorImages extends Component {
             {!this.state.bookmarkRegionOn && (
               <img src={this.props.currentImage} alt="prior image" />
             )}
-            {!this.state.bookmarkRegionOn && currentImageAnnotation}
+            {!this.state.bookmarkRegionOn &&
+              this.state.priorImageMode &&
+              currentImageAnnotation}
             <div className="text">Current CXR Image 2019/7/10</div>
           </div>
           <div className="divider2" />
@@ -672,23 +674,28 @@ class PriorImages extends Component {
             <div className="ReturnButton" onClick={() => this.handleClose()}>
               <div className="text">Return</div>
             </div>
-            <div
-              className={showAnnotationButton}
-              onClick={() => this.handleClick()}
-            >
-              <div className="text">Show Annotations</div>
-            </div>
-            <div
-              className={bookmarkRegion}
-              onClick={() =>
-                this.setState({
-                  bookmarkRegionOn: !this.state.bookmarkRegionOn,
-                  showAnnotation: !this.state.showAnnotation
-                })
-              }
-            >
-              <div className="text">Bookmark Regions</div>
-            </div>
+            {this.state.priorImageMode && (
+              <div>
+                <div
+                  className={showAnnotationButton}
+                  onClick={() => this.handleClick()}
+                >
+                  <div className="text">Show Annotations</div>
+                </div>
+                <div
+                  className={bookmarkRegion}
+                  onClick={() =>
+                    this.setState({
+                      bookmarkRegionOn: !this.state.bookmarkRegionOn,
+                      showAnnotation: !this.state.showAnnotation
+                    })
+                  }
+                >
+                  <div className="text">Bookmark Regions</div>
+                </div>
+              </div>
+            )}
+
             {this.state.priorImageMode && this.state.showAnnotation && (
               <div
                 className={showDiffButton}

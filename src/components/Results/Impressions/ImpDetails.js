@@ -1,6 +1,16 @@
 import React, { Component } from "react";
-import { MdDone, MdClear, MdRemove } from "react-icons/md";
 import { IconContext } from "react-icons";
+import Popup from "reactjs-popup";
+
+//card below is for popup function explanations
+const Card = ({ title }) => (
+  <div className="card">
+    <div className="header">
+      Prevalence is the percentage of the population in the US with a certain
+      differential diagnosis.
+    </div>
+  </div>
+);
 
 class ImpDetails extends Component {
   constructor(props) {
@@ -12,7 +22,16 @@ class ImpDetails extends Component {
       <div className="impressionExplan">
         <IconContext.Provider value={{ size: "1.2vw" }}>
           <ul>
-            <li>Prevalence: {this.props.base}% </li>
+            <li>
+              <Popup
+                trigger={<div>Prevalence: {this.props.base}%</div>}
+                position="left bottom"
+                on="hover"
+                defaultOpen={true}
+              >
+                <Card />
+              </Popup>
+            </li>
             <li>Factors that decrease probability: </li>
             <li>
               <div className="nestedExplan">
@@ -34,7 +53,7 @@ class ImpDetails extends Component {
                   {this.props.neg.map(currElement => {
                     return (
                       <li>
-                        <div className="text">{currElement}</div>
+                        <div className={currElement[1]}>{currElement[0]}</div>
                       </li>
                     );
                   })}

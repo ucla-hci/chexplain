@@ -70,6 +70,15 @@
     }
     .impressionExplan {
       @include defaultFont(1.125vw, normal, $white);
+      .card {
+        font-size: 0.833vw;
+        color: black;
+      }
+      .card > .header {
+        width: 100%;
+        text-align: left;
+        @include defaultFont(0.792vw, lighter, black);
+      }
       ul,
       li {
         list-style-type: none !important;
@@ -85,6 +94,9 @@
         }
         .text {
           @include defaultFont(1.125vw, lighter, #b0b0b0);
+        }
+        .text2 {
+          @include defaultFont(1.125vw, 300, white);
         }
       }
     }
