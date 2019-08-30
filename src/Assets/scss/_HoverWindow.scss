@@ -1,0 +1,92 @@
+//SCSS FOR HOVER WINDOW, USES TEMPLATE FROM _RESULT.SCSS
+.HoverWindow {
+  @include resultBox(55.66%, 49.57%, absolute, 38.62%, 39.11%);
+  .content {
+    color: $white;
+    position: absolute;
+    top: 16%;
+    left: -3.3%;
+    height: 29.8vh;
+    width: 41.319vw;
+    z-index: 991;
+    // border: 5px solid white;
+    .obsDetails {
+      ul,
+      li {
+        list-style-type: none !important;
+        list-style-position: inside;
+        display: inline-block;
+        margin-right: 1.042vw;
+        margin-left: 0;
+      }
+      .imageCaption {
+        width: 17.069vw;
+        height: 29.88888888888889vh;
+        @include defaultFont(1.025vw, normal, $white);
+        text-align: center;
+        img {
+          display: table;
+          margin: 0 auto;
+          width: 15.069vw;
+        }
+      }
+    }
+    .annoDetails {
+      ul,
+      li {
+        list-style-type: none !important;
+        list-style-position: inside;
+        display: inline-block;
+        margin-right: 0vw;
+        margin-left: 0;
+      }
+      .imageCaption {
+        // border: 5px solid white;
+        width: 18.069vw;
+        // height: 29.88888888888889vh;
+        @include defaultFont(1.085vw, normal, $white);
+        text-align: center;
+        img {
+          display: table;
+          margin: 0 auto;
+          width: 12.069vw;
+        }
+        .moreImageList {
+          margin-top: 5px;
+          text-align: left;
+          ul,
+          li {
+            list-style-type: none !important;
+            list-style-position: inside;
+            display: inline-block;
+            margin-right: 0.42vw;
+            margin-left: 0;
+          }
+          img {
+            width: 3.069vw;
+          }
+        }
+      }
+    }
+    .impressionExplan {
+      @include defaultFont(1.125vw, normal, $white);
+      ul,
+      li {
+        list-style-type: none !important;
+        list-style-position: inside;
+      }
+      .nestedExplan {
+        ul,
+        li {
+          // display: inline-block;
+          list-style-type: none !important;
+          list-style-position: inside;
+          margin-right: 15px;
+        }
+        .text {
+          @include defaultFont(1.125vw, lighter, #b0b0b0);
+        }
+      }
+    }
+  }
+}

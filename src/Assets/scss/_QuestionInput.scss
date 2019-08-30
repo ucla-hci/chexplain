@@ -1,11 +1,17 @@
-$blue: #BDD6FB;
-$red: #FAB9B9;
-$green: #B2F3CC;
-$gray: #C4C4C4;
-@mixin QuestionInput($top: 7.56%, $left:57.57%, $position: absolute, $width:19.86%, $height: 80.78%){
-  .title{
-    .text{
-      @include defaultFont(1.20vw, normal);
+$blue: #bdd6fb;
+$red: #fab9b9;
+$green: #b2f3cc;
+$gray: #c4c4c4;
+@mixin QuestionInput(
+  $top: 7.56%,
+  $left: 57.57%,
+  $position: absolute,
+  $width: 19.86%,
+  $height: 80.78%
+) {
+  .title {
+    .text {
+      @include defaultFont(1.2vw, normal);
       @include fontAlign(left);
       padding-left: 0.694vw;
     }
@@ -14,29 +20,31 @@ $gray: #C4C4C4;
     height: 4.666666666666667vh;
     background: $lightGrey;
   }
-  .clear{
+  .clear {
     position: absolute;
-    top: 1.4%; left: 88%;
+    top: 1.4%;
+    left: 88%;
     margin-left: 2%;
     font-size: 0.8vw;
   }
-  .selectedInputs{
+  .selectedInputs {
     position: absolute;
     top: 16%;
-    color:$white;
+    color: $white;
     font-size: 1.042vw;
     margin-left: 2%;
   }
-  .buttonGroup{
+  .buttonGroup {
     position: absolute;
     top: 11%;
-    .buttonGroup1{
+    .buttonGroup1 {
       @include defaultFont(0.972vw, regular);
-      .pressed{
+      .pressed {
         @include defaultFont(0.872vw, regular, $lightBlue);
         border: 1.5px solid $lightBlue;
       }
-      ul, li{
+      ul,
+      li {
         list-style-type: none !important;
         list-style-position: inside;
         display: inline-block;
@@ -44,19 +52,20 @@ $gray: #C4C4C4;
         padding-left: 0;
         padding-top: 0;
       }
-      button{
+      button {
         background-color: transparent;
         @include defaultFont(0.872vw, lighter);
         border: 1.5px solid $white;
       }
     }
-    .buttonGroup2{
+    .buttonGroup2 {
       @include defaultFont(0.972vw, regular);
-      .pressed{
+      .pressed {
         @include defaultFont(0.872vw, regular, $lightBlue);
         border: 1.5px solid $lightBlue;
       }
-      ul, li{
+      ul,
+      li {
         list-style-type: none !important;
         list-style-position: inside;
         display: inline-block;
@@ -64,19 +73,20 @@ $gray: #C4C4C4;
         padding-left: 0;
         padding-top: 0;
       }
-      button{
+      button {
         background-color: transparent;
-        @include defaultFont(0.872vw, regular);
+        @include defaultFont(0.872vw, lighter);
         border: 1.5px solid $white;
       }
     }
-    .buttonGroup3{
+    .buttonGroup3 {
       @include defaultFont(0.972vw, regular);
-      .pressed{
+      .pressed {
         @include defaultFont(0.872vw, regular, $lightBlue);
         border: 1.5px solid $lightBlue;
       }
-      ul, li{
+      ul,
+      li {
         list-style-type: none !important;
         list-style-position: inside;
         display: inline-block;
@@ -84,19 +94,20 @@ $gray: #C4C4C4;
         padding-left: 0;
         padding-top: 0;
       }
-      button{
+      button {
         background-color: transparent;
-        @include defaultFont(0.872vw, regular);
+        @include defaultFont(0.872vw, lighter);
         border: 1.5px solid $white;
       }
     }
-    .buttonGroup4{
+    .buttonGroup4 {
       @include defaultFont(0.972vw, regular);
-      .pressed{
+      .pressed {
         @include defaultFont(0.872vw, regular, $lightBlue);
         border: 1.5px solid $lightBlue;
       }
-      ul, li{
+      ul,
+      li {
         list-style-type: none !important;
         list-style-position: inside;
         display: inline-block;
@@ -104,19 +115,20 @@ $gray: #C4C4C4;
         padding-left: 0;
         padding-top: 0;
       }
-      button{
+      button {
         background-color: transparent;
-        @include defaultFont(0.872vw, regular);
+        @include defaultFont(0.872vw, lighter);
         border: 1.5px solid $white;
       }
     }
-    .buttonGroup5{
+    .buttonGroup5 {
       @include defaultFont(0.972vw, regular);
-      .pressed{
+      .pressed {
         @include defaultFont(0.872vw, regular, $lightBlue);
         border: 1.5px solid $lightBlue;
       }
-      ul, li{
+      ul,
+      li {
         list-style-type: none !important;
         list-style-position: inside;
         display: inline-block;
@@ -124,19 +136,20 @@ $gray: #C4C4C4;
         padding-left: 0;
         padding-top: 0;
       }
-      button{
+      button {
         background-color: transparent;
-        @include defaultFont(0.872vw, regular);
+        @include defaultFont(0.872vw, lighter);
         border: 1.5px solid $white;
       }
     }
-    .buttonGroup6{
+    .buttonGroup6 {
       @include defaultFont(0.972vw, regular);
-      .pressed{
+      .pressed {
         @include defaultFont(0.872vw, regular, $lightBlue);
         border: 1.5px solid $lightBlue;
       }
-      ul, li{
+      ul,
+      li {
         list-style-type: none !important;
         list-style-position: inside;
         display: inline-block;
@@ -144,14 +157,14 @@ $gray: #C4C4C4;
         padding-left: 0;
         padding-top: 0;
       }
-      button{
+      button {
         background-color: transparent;
-        @include defaultFont(0.872vw, regular);
+        @include defaultFont(0.872vw, lighter);
         border: 1.5px solid $white;
       }
     }
   }
-  button{
+  button {
     background-color: transparent;
     @include defaultFont(0.872vw, regular);
     border: 1.5px solid $white;
@@ -164,25 +177,26 @@ $gray: #C4C4C4;
   background: $darkGrey;
 }
 
-.QuestionInput{
+.QuestionInput {
   @include QuestionInput(10%, 2%, absolute, 37%, 74%);
 }
 
-.QuestionInputDialog{
+.QuestionInputDialog {
   @include QuestionInput(5%, 2%, absolute, 90%, 55.55555555555556vh);
-
 }
 
 //NO LONGER USED, BECAUSE MINIMIZED IS DEPRECATED
-.QuestionInputTitle{
+.QuestionInputTitle {
   position: absolute;
-  top: 75%; right: 1100px; left: 20px;
+  top: 75%;
+  right: 1100px;
+  left: 20px;
   @include translate(0%, 30%);
-  .title{
+  .title {
     font-size: 20px;
     font-weight: bold;
   }
-  .selectedInputs{
+  .selectedInputs {
     font-size: 15px;
   }
 }

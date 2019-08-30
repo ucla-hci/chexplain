@@ -1,7 +1,7 @@
 // NOTE: DON'T CHANGE THIS FILE, CHANGE PriorImagesCase2 FILE
 import React, { Component } from "react";
 import Magnifier from "../../Magnifier.es";
-import { GoX } from "react-icons/go";
+import { GoChevronDown, GoChevronRight } from "react-icons/go";
 import { IconContext } from "react-icons";
 import AnnotationBubble from "../Annotation/AnnotationBubble";
 
@@ -84,8 +84,34 @@ const prevCaseCaptions = [
   ["Lung Opacity", "Support Device", "Clear Right Lung"]
 ];
 
-//below are thr cross patient comparison images for case 11
-const case11CrossPatient = [
+//below are the classnames for the different annotations
+const prevCaseListsDiff = [["c5p11s11"], ["c4p11s9"], ["c1p11s1"]];
+//captions for above cases
+const prevCaseListsDiffCaptions = [
+  ["Lung Opacity"],
+  ["Enlarged Cardiomediastinum"],
+  ["Lung Opacity"]
+];
+
+//below are the classnames for different annotations for currentimage
+const caseCurrentListDiff = [
+  ["c4p11s12", "c6p11s12", "c5p11s12"],
+  ["c4p11s12", "c6p11s12", "c5p11s12"],
+  ["c4p11s12", "c6p11s12", "c5p11s12", "c7p11s12", "c8p11s12"]
+];
+const caseCurrentListDiffCaption = [
+  ["Atelectasis", "Cardiomegaly", "Edema"],
+  ["Atelectasis", "Cardiomegaly", "Edema"],
+  [
+    "Atelectasis",
+    "Cardiomegaly",
+    "Edema",
+    "Pleural Effusion",
+    "Pleural Effusion"
+  ]
+];
+
+const cardioCrossPatient = [
   [
     "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fcardiomegaly.jpeg?alt=media&token=bc6e62ce-5fb8-4e8c-9ccb-4c36406c017a",
     "Cardiomegaly",
@@ -93,22 +119,81 @@ const case11CrossPatient = [
     "60"
   ], //cardiomegaly
   [
-    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2FEdema.png?alt=media&token=0b5545a1-f8fc-4aad-9aa6-efca0e3e06ad",
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYCardioFull.jpg?alt=media&token=240c6d39-1af0-42e9-8fe9-8eae97140810",
+    "Cardiomegaly",
+    "Female",
+    "64"
+  ], //cardiomegaly
+  [
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYCardioP111S1.jpg?alt=media&token=c17654f8-7685-4f23-8604-1bbf7ef9e6bf",
+    "Cardiomegaly",
+    "Male",
+    "55"
+  ] //cardiomegaly
+];
+
+const edemaCrossPatient = [
+  [
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYEdemap146s5.jpg?alt=media&token=df36e741-7465-4da2-a89b-00ea76436ee7",
     "Edema",
     "Male",
     "45"
   ], //Edema
   [
-    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fpleural%20effusion.jpg?alt=media&token=292eaa7b-9dd7-49b9-8424-084f1b1463bb",
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYEdemap151s5.jpg?alt=media&token=f56800a6-0b44-4a4c-8cc3-6e2948a1937b",
+    "Edema",
+    "Female",
+    "33"
+  ], //Edema
+  [
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYEdemap171s7.jpg?alt=media&token=fb79f8d0-6e80-43af-aed1-c7cde29b0c96",
+    "Edema",
+    "Male",
+    "23"
+  ] //Edema
+];
+
+const pleuralCrossPatient = [
+  [
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYPleural3Full.jpg?alt=media&token=24771fc4-0858-45b4-b0fe-431fdf98e73d",
     "Pleural Effusion",
     "Male",
     "80"
   ], //pleural effusion
   [
-    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fround-atelectasis.jpg?alt=media&token=9e9328a1-9045-4e42-8224-85a925e7edc7",
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYpleuralFull.jpg?alt=media&token=a1059104-db34-44eb-8b41-119c0a262678",
+    "Pleural Effusion",
+    "Male",
+    "50"
+  ], //pleural effusion
+  [
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYPleural2Full.jpg?alt=media&token=c3b78003-1edc-4d59-a4b9-95d74553455a",
+    "Pleural Effusion",
+    "Female",
+    "80"
+  ] //pleural effusion
+];
+
+const atelectCrossPatient = [
+  [
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYAtelectp204s13.jpg?alt=media&token=7e78e226-b49b-4abd-892b-3d629f78059f",
     "Atelectasis",
     "Female",
     "73"
+  ],
+  [
+    //atelectasis,
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYAtelectp23s8.jpg?alt=media&token=e5c8bbf9-3b7c-4083-afde-19c8c01d5b9d",
+    "Atelectasis",
+    "Male",
+    "53"
+  ],
+  [
+    //atelectasis,
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYAtelectp69s20.jpg?alt=media&token=8ba85db6-4ddc-42fb-b210-690f29cdc72c",
+    "Atelectasis",
+    "Female",
+    "46"
   ] //atelectasis
 ];
 
@@ -132,7 +217,12 @@ class PriorImages extends Component {
       gender: this.props.patientGender,
       age: this.props.patientAge,
       bookmarkRegionOn: true,
-      showAnnotation: false
+      showAnnotation: false,
+      cardioList: false,
+      edemaList: false,
+      pleuralList: false,
+      atelectList: false,
+      showDiff: false
     };
     //functions need to be binded to class before they can be used
     this.handleClickPriorImage = this.handleClickPriorImage.bind(this);
@@ -144,9 +234,15 @@ class PriorImages extends Component {
   colorBorder() {
     if (this.state.showAnnotation) {
       //need to highlight region
-      caseCurrentList.map(currElement => {
-        document.getElementById(currElement).style.borderStyle = "dotted";
-      });
+      if (!this.state.showDiff) {
+        caseCurrentList.map(currElement => {
+          document.getElementById(currElement).style.borderStyle = "dotted";
+        });
+      } else {
+        document.getElementById("c4p11s12").style.border = "dotted"; //atelect
+        document.getElementById("c5p11s12").style.border = "dotted"; //edema
+        document.getElementById("c6p11s12").style.border = "dotted"; //cardio
+      }
       switch (this.state.photoIndex) {
         case 2:
           document.getElementById("c7p11s12").style.border = "3px solid red"; //pleural
@@ -254,6 +350,56 @@ class PriorImages extends Component {
     let acrossPatient = this.state.isOpen
       ? "AcrossPatientOpened"
       : "AcrossPatient";
+    let case11CrossPatient = cardioCrossPatient;
+    if (this.state.atelectList) case11CrossPatient = atelectCrossPatient;
+    else if (this.state.pleuralList) case11CrossPatient = pleuralCrossPatient;
+    else if (this.state.edemaList) case11CrossPatient = edemaCrossPatient;
+    let imageGroup = (
+      <div className="ImageGroup">
+        <ul>
+          <li>
+            <div className="imageCaption">
+              <img
+                src={case11CrossPatient[0][0]}
+                alt="Image_0"
+                onClick={() => this.handleClickCrossPatient(0)}
+              />
+              {case11CrossPatient[0][1]}
+            </div>
+          </li>
+          <li>
+            <div className="imageCaption">
+              <img
+                src={case11CrossPatient[1][0]}
+                alt="Image_1"
+                onClick={() => this.handleClickCrossPatient(1)}
+              />
+              {case11CrossPatient[1][1]}
+            </div>
+          </li>
+          <li>
+            <div className="imageCaption">
+              <img
+                src={case11CrossPatient[2][0]}
+                alt="Image_2"
+                onClick={() => this.handleClickCrossPatient(2)}
+              />
+              {case11CrossPatient[2][1]}
+            </div>
+          </li>
+        </ul>
+      </div>
+    );
+    let triangle = (
+      <IconContext.Provider value={{ size: "1em" }}>
+        <GoChevronRight />
+      </IconContext.Provider>
+    );
+    let triangleDown = (
+      <IconContext.Provider value={{ size: "1em" }}>
+        <GoChevronDown />
+      </IconContext.Provider>
+    );
     let acrossPatientSelectWindow = (
       <div className={acrossPatient}>
         <div className="title">Across Patient</div>
@@ -267,61 +413,91 @@ class PriorImages extends Component {
         >
           Prior Images
         </div>
-        <div className="underline" />
-        <div className="ImageGroup">
+        <div className="categoryList">
           <ul>
-            <li>
-              <div className="imageCaption">
-                <img
-                  src={case11CrossPatient[0][0]}
-                  alt="Image_0"
-                  onClick={() => this.handleClickCrossPatient(0)}
-                />
-                {case11CrossPatient[0][1]}
-              </div>
+            <li
+              onClick={() =>
+                this.setState({
+                  cardioList: !this.state.cardioList,
+                  pleuralList: false,
+                  edemaList: false,
+                  atelectList: false
+                })
+              }
+            >
+              {this.state.cardioList ? triangleDown : triangle} Cardiomegaly
             </li>
-            <li>
-              <div className="imageCaption">
-                <img
-                  src={case11CrossPatient[1][0]}
-                  alt="Image_1"
-                  onClick={() => this.handleClickCrossPatient(1)}
-                />
-                {case11CrossPatient[1][1]}
-              </div>
+            {this.state.cardioList && imageGroup}
+            <li
+              onClick={() =>
+                this.setState({
+                  cardioList: false,
+                  pleuralList: !this.state.pleuralList,
+                  edemaList: false,
+                  atelectList: false
+                })
+              }
+            >
+              {this.state.pleuralList ? triangleDown : triangle} Pleural
+              Effusion
             </li>
-            <li>
-              <div className="imageCaption">
-                <img
-                  src={case11CrossPatient[2][0]}
-                  alt="Image_2"
-                  onClick={() => this.handleClickCrossPatient(2)}
-                />
-                {case11CrossPatient[2][1]}
-              </div>
+            {this.state.pleuralList && imageGroup}
+            <li
+              onClick={() =>
+                this.setState({
+                  cardioList: false,
+                  pleuralList: false,
+                  edemaList: !this.state.edemaList,
+                  atelectList: false
+                })
+              }
+            >
+              {this.state.edemaList ? triangleDown : triangle} Edema
             </li>
-            <li>
-              <div className="imageCaption">
-                <img
-                  src={case11CrossPatient[3][0]}
-                  alt="Image_3"
-                  onClick={() => this.handleClickCrossPatient(3)}
-                />
-                {case11CrossPatient[3][1]}
-              </div>
+            {this.state.edemaList && imageGroup}
+            <li
+              onClick={() =>
+                this.setState({
+                  cardioList: false,
+                  pleuralList: false,
+                  edemaList: false,
+                  atelectList: !this.state.atelectList
+                })
+              }
+            >
+              {this.state.atelectList ? triangleDown : triangle} Atelectasis
             </li>
+            {this.state.atelectList && imageGroup}
           </ul>
         </div>
+        <div className="underline" />
       </div>
     );
 
     // NOTE: Below is rendering of annotation for case 11 main image and prior images
+
+    // this is to control the "Show Diff" function for which annotation is shown
+    let tempList = caseCurrentList;
+    let tempCaption = caseCurrentCaption;
+    if (this.state.showDiff) {
+      if (this.state.photoIndex === 0) {
+        tempList = caseCurrentListDiff[0];
+        tempCaption = caseCurrentListDiffCaption[0];
+      } else if (this.state.photoIndex === 1) {
+        tempList = caseCurrentListDiff[1];
+        tempCaption = caseCurrentListDiffCaption[1];
+      } else {
+        tempList = caseCurrentListDiff[2];
+        tempCaption = caseCurrentListDiffCaption[2];
+      }
+    }
+
     let currentImageAnnotation = (
       <div className="annotations">
-        {caseCurrentList.map((currElement, index) => {
+        {tempList.map((currElement, index) => {
           return (
             <AnnotationBubble
-              caption={caseCurrentCaption[index]}
+              caption={tempCaption[index]}
               label={currElement}
             />
           );
@@ -330,12 +506,18 @@ class PriorImages extends Component {
     );
 
     // TODO: change the 3 prior case annotation below to match your case
+    let caseList = prevCaseLists;
+    let captionList = prevCaseCaptions;
+    if (this.state.showDiff) {
+      caseList = prevCaseListsDiff;
+      captionList = prevCaseListsDiffCaptions;
+    }
     let priorStudy1Annotation = (
       <div className="annotations">
-        {prevCaseLists[2].map((currElement, index) => {
+        {caseList[2].map((currElement, index) => {
           return (
             <AnnotationBubble
-              caption={prevCaseCaptions[2][index]}
+              caption={captionList[2][index]}
               label={currElement}
             />
           );
@@ -344,10 +526,10 @@ class PriorImages extends Component {
     );
     let priorStudy11Annotation = (
       <div className="annotations">
-        {prevCaseLists[0].map((currElement, index) => {
+        {caseList[0].map((currElement, index) => {
           return (
             <AnnotationBubble
-              caption={prevCaseCaptions[0][index]}
+              caption={captionList[0][index]}
               label={currElement}
             />
           );
@@ -356,10 +538,10 @@ class PriorImages extends Component {
     );
     let priorStudy9Annotation = (
       <div className="annotations">
-        {prevCaseLists[1].map((currElement, index) => {
+        {caseList[1].map((currElement, index) => {
           return (
             <AnnotationBubble
-              caption={prevCaseCaptions[1][index]}
+              caption={captionList[1][index]}
               label={currElement}
             />
           );
@@ -390,7 +572,8 @@ class PriorImages extends Component {
         : "BookmarkRegions",
       showAnnotationButton = this.state.showAnnotation
         ? "ShowAnnotation_p"
-        : "ShowAnnotation";
+        : "ShowAnnotation",
+      showDiffButton = this.state.showDiff ? "ShowDiff_p" : "ShowDiff";
     var obslistcurrent_s = new Set(caseCurrentCaption); //convert caption to set so we don't repeat observation
     var obslistcurrent = [...obslistcurrent_s]; //convert back to array so we can map through it
     var obslistprior_s = new Set(prevCaseCaptions[this.state.photoIndex]);
@@ -412,18 +595,20 @@ class PriorImages extends Component {
               </div>
             </div>
           )}
-          <div className="PriorImageObservation2">
-            <div className="title">
-              <div className="text">Observations</div>
+          {this.state.priorImageMode && (
+            <div className="PriorImageObservation2">
+              <div className="title">
+                <div className="text">Observations</div>
+              </div>
+              <div className="obList2">
+                <ul>
+                  {obslistcurrent.map((currElement, index) => {
+                    return <li>{currElement}</li>;
+                  })}
+                </ul>
+              </div>
             </div>
-            <div className="obList2">
-              <ul>
-                {obslistcurrent.map((currElement, index) => {
-                  return <li>{currElement}</li>;
-                })}
-              </ul>
-            </div>
-          </div>
+          )}
           <div className="currentImage">
             {this.state.bookmarkRegionOn && (
               <Magnifier
@@ -504,6 +689,19 @@ class PriorImages extends Component {
             >
               <div className="text">Bookmark Regions</div>
             </div>
+            {this.state.priorImageMode && this.state.showAnnotation && (
+              <div
+                className={showDiffButton}
+                onClick={() => {
+                  this.setState({
+                    showDiff: !this.state.showDiff
+                  });
+                  this.colorBorder();
+                }}
+              >
+                <div className="text">Show Change</div>
+              </div>
+            )}
           </div>
         </div>
         <div className="ImageSelectionWindow">

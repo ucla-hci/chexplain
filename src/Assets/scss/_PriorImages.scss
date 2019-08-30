@@ -83,16 +83,26 @@
     top: 3.7%;
     border: 0.11vw solid #42c0fc;
   }
+  .categoryList {
+    position: absolute;
+    left: -3%;
+    top: 7%;
+    @include defaultFont(0.925vw, normal, $white);
+    ul,
+    li {
+      list-style-type: none !important;
+      padding-bottom: 0.56vh;
+      cursor: pointer;
+    }
+  }
   .ImageGroup {
     ul,
     li {
       //list of image
       list-style-type: none !important;
       list-style-position: inside;
-      padding-right: 5px;
-      margin-left: 5px;
-      padding-left: 5px;
-      padding-bottom: 5px;
+      padding-bottom: 0.56vh;
+      padding-left: 0;
       .imageCaption {
         width: 8vw;
         text-align: right;
@@ -104,9 +114,6 @@
         }
       }
     }
-    position: absolute;
-    left: 1.14%;
-    top: 7%;
   }
   font-size: 0.694vw;
   position: absolute;
@@ -146,6 +153,20 @@
     top: 1.8%;
     left: 2.22%;
     @include borderButton($white, 8.54%, 3.33%);
+  }
+  .ShowDiff {
+    position: absolute;
+    z-index: 900;
+    top: 1.8%;
+    left: 70%;
+    @include borderButton($white, 8.54%, 3.33%);
+  }
+  .ShowDiff_p {
+    position: absolute;
+    z-index: 900;
+    top: 1.8%;
+    left: 70%;
+    @include borderButton($lightBlue, 8.54%, 3.33%);
   }
   .ShowAnnotation {
     position: absolute;
@@ -213,7 +234,7 @@
       height: 32.75vw;
       width: 39.9249vw;
     }
-    @include defaultFont(0.885vw, normal, $white);
+    @include defaultFont(1.055vw, normal, $white);
   }
   .priorImage {
     position: absolute;
@@ -222,7 +243,7 @@
     height: 32.75vw;
     width: auto;
     z-index: 0;
-    @include defaultFont(0.885vw, normal, $white);
+    @include defaultFont(1.055vw, normal, $white);
     .image {
       height: 32.75vw;
       width: 39.9249vw;

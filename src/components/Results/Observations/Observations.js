@@ -52,10 +52,11 @@ class Observations extends Component {
   }
 
   render() {
-    let captionTemplate1 = "Sample patient image with unlikely ";
-    let captionTemplate2 = "Sample patient image with definitely ";
+    let captionTemplate1 = "Label: Unlikely ";
+    let captionTemplate2 = "Label: Definitely ";
+    let titleTemplate = " (Unlikely vs. Definitely)";
     let cardioHover = ( //what appears for hover when obs1 is clicked
-      <HoverWindow title="Cardiomegaly">
+      <HoverWindow title={"Cardiomegaly" + titleTemplate}>
         <ObsDetails
           image1={cardiomegalyImage[0]}
           image2={cardiomegalyImage[1]}
@@ -65,7 +66,7 @@ class Observations extends Component {
       </HoverWindow>
     );
     let edemaHover = ( //what appears for hover when obs2 is clicked
-      <HoverWindow title="Edema">
+      <HoverWindow title={"Edema" + titleTemplate}>
         <ObsDetails
           image1={edemaImage[0]}
           image2={edemaImage[1]}
@@ -75,7 +76,7 @@ class Observations extends Component {
       </HoverWindow>
     );
     let atelectHover = ( //what appears for hover when obs3 is clicked
-      <HoverWindow title="Atelectasis">
+      <HoverWindow title={"Atelectasis" + titleTemplate}>
         <ObsDetails
           image1={atelectasisImage[0]}
           image2={atelectasisImage[1]}
@@ -85,7 +86,7 @@ class Observations extends Component {
       </HoverWindow>
     );
     let pleuralHover = ( //what appears for hover when obs4 is clicked
-      <HoverWindow title="Pleural Effusion">
+      <HoverWindow title={"Pleural Effusion" + titleTemplate}>
         <ObsDetails
           image1={pleuralEffusionImage[0]}
           image2={pleuralEffusionImage[1]}
@@ -95,7 +96,7 @@ class Observations extends Component {
       </HoverWindow>
     );
     let supportHover = ( //what appears for hover when obs5 is clicked
-      <HoverWindow title="Support Device">
+      <HoverWindow title={"Support Device" + titleTemplate}>
         <ObsDetails
           image1={supportDeviceImage[0]}
           image2={supportDeviceImage[1]}
