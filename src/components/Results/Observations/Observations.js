@@ -61,8 +61,8 @@ class Observations extends Component {
   }
 
   render() {
-    let captionTemplate1 = "Label: Unlikely ";
-    let captionTemplate2 = "Label: Definitely ";
+    let captionTemplate1 = "Unlikely ";
+    let captionTemplate2 = "Definitely ";
     let titleTemplate = " (Unlikely vs. Definitely)";
     let cardioHover = ( //what appears for hover when obs1 is clicked
       <HoverWindow title={"Cardiomegaly" + titleTemplate}>

@@ -216,7 +216,6 @@ class PriorImages extends Component {
       priorImageMode: true,
       gender: this.props.patientGender,
       age: this.props.patientAge,
-      bookmarkRegionOn: true,
       showAnnotation: false,
       cardioList: false,
       edemaList: false,
@@ -288,7 +287,7 @@ class PriorImages extends Component {
   async handleClick() {
     await this.setState({
       showAnnotation: !this.state.showAnnotation,
-      bookmarkRegionOn: !this.state.bookmarkRegionOn
+      showDiff: false
     });
     this.colorBorder();
   }
@@ -494,6 +493,19 @@ class PriorImages extends Component {
 
     let currentImageAnnotation = (
       <div className="annotations">
+        {caseCurrentList.map((currElement, index) => {
+          return (
+            <AnnotationBubble
+              caption={caseCurrentCaption[index]}
+              label={currElement}
+            />
+          );
+        })}
+      </div>
+    );
+
+    let currentImageAnnotationDiff = (
+      <div className="annotations">
         {tempList.map((currElement, index) => {
           return (
             <AnnotationBubble
@@ -567,10 +579,7 @@ class PriorImages extends Component {
     let caption = this.state.priorImageMode
       ? "Prior CXR Image "
       : "Similar patient with ";
-    let bookmarkRegion = this.state.bookmarkRegionOn
-        ? "BookmarkRegions_p"
-        : "BookmarkRegions",
-      showAnnotationButton = this.state.showAnnotation
+    let showAnnotationButton = this.state.showAnnotation
         ? "ShowAnnotation_p"
         : "ShowAnnotation",
       showDiffButton = this.state.showDiff ? "ShowDiff_p" : "ShowDiff";
@@ -610,19 +619,22 @@ class PriorImages extends Component {
             </div>
           )}
           <div className="currentImage">
-            {this.state.bookmarkRegionOn && (
+            {!this.state.showAnnotation && (
               <Magnifier
                 src={this.props.currentImage}
                 mgShape="square"
                 mgShowOverflow="false"
               />
             )}
-            {!this.state.bookmarkRegionOn && (
+            {this.state.showAnnotation && (
               <img src={this.props.currentImage} alt="prior image" />
             )}
-            {!this.state.bookmarkRegionOn &&
+            {this.state.showAnnotation &&
               this.state.priorImageMode &&
               currentImageAnnotation}
+            {this.state.showDiff &&
+              this.state.priorImageMode &&
+              currentImageAnnotationDiff}
             <div className="text">Current CXR Image 2019/7/10</div>
           </div>
           <div className="divider2" />
@@ -630,7 +642,7 @@ class PriorImages extends Component {
           <div className="divider2" />
           <div className="divider" />
           <div className="priorImage">
-            {this.state.bookmarkRegionOn && (
+            {!this.state.showAnnotation && (
               <div className="image">
                 <Magnifier
                   src={
@@ -643,7 +655,7 @@ class PriorImages extends Component {
                 />
               </div>
             )}
-            {!this.state.bookmarkRegionOn && (
+            {this.state.showAnnotation && (
               <img
                 src={
                   this.state.priorImageMode
@@ -653,7 +665,8 @@ class PriorImages extends Component {
                 alt="prior image"
               />
             )}
-            {!this.state.bookmarkRegionOn && priorAnnotation}
+            {this.state.showAnnotation && priorAnnotation}
+            {this.state.showDiff && priorAnnotation}
             <div className="text">
               {caption}
               {this.state.priorImageMode
@@ -682,26 +695,16 @@ class PriorImages extends Component {
                 >
                   <div className="text">Show Annotations</div>
                 </div>
-                <div
-                  className={bookmarkRegion}
-                  onClick={() =>
-                    this.setState({
-                      bookmarkRegionOn: !this.state.bookmarkRegionOn,
-                      showAnnotation: !this.state.showAnnotation
-                    })
-                  }
-                >
-                  <div className="text">Bookmark Regions</div>
-                </div>
               </div>
             )}
 
-            {this.state.priorImageMode && this.state.showAnnotation && (
+            {this.state.priorImageMode && (
               <div
                 className={showDiffButton}
                 onClick={() => {
                   this.setState({
-                    showDiff: !this.state.showDiff
+                    showDiff: !this.state.showDiff,
+                    showAnnotation: false
                   });
                   this.colorBorder();
                 }}

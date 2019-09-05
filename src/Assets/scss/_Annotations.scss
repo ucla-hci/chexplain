@@ -1,136 +1,153 @@
 //ALL STYLING MIXIN COMES FROM STYLES.SCSS
-.Annotations{
+.Annotations {
   height: 67.9%;
   width: 55.2%;
   position: absolute;
-  top: 17%; left: -3.5%;
+  top: 17%;
+  left: -3.5%;
   // border: 5px solid white;
-  .annotations{
+  .annotations {
     position: absolute;
     top: 1%;
-    left:7%;
+    left: 7%;
     height: 100%;
     width: 86%;
-    .pressed{
+    .pressed {
       border: 5px solid $white;
     }
   }
-  .toggle{
+  .toggle {
     position: absolute;
     z-index: 900;
     top: 93.12%;
     left: 78.4%;
     @include defaultButton($darkGrey, 0.972vw, normal);
   }
-  .showAll{
+  .showAll {
     position: absolute;
     z-index: 900;
     top: 93.12%;
     left: 60.6%;
     @include defaultButton;
   }
-  .customize{
+  .customize {
     position: absolute;
     z-index: 900;
     top: -8.44%;
     left: 78.7%;
     @include borderButton($white);
   }
-  .pressed_c{
+  .pressed_c {
     position: absolute;
     z-index: 900;
     top: -8.44%;
     left: 78.7%;
     @include borderButton($lightBlue);
   }
-  .pressed_t{
+  .pressed_t {
     position: absolute;
     z-index: 900;
     top: 93.12%;
     left: 78.4%;
     @include defaultButton($lightBlue, 0.972vw, normal);
   }
-  .pressed_s{
+  .pressed_s {
     position: absolute;
     z-index: 900;
     top: 93.12%;
     left: 60.6%;
     @include defaultButton($lightBlue);
   }
-  .a1{ //central trachea
+  .a1 {
+    //central trachea
     position: absolute;
     z-index: 900;
-    top: 3%; left: 40%;
+    top: 3%;
+    left: 40%;
   }
-  .a2{ //clear left lung
+  .a2 {
+    //clear left lung
     position: absolute;
     z-index: 900;
-    top: 30%; left: 13%;
+    top: 30%;
+    left: 13%;
   }
-  .a3{ //Normal position of left...
+  .a3 {
+    //Normal position of left...
     position: absolute;
     z-index: 900;
-    top: 24%; left: 20%;
+    top: 24%;
+    left: 20%;
   }
-  .a4{ //Minor blunting of the left...
+  .a4 {
+    //Minor blunting of the left...
     position: absolute;
     z-index: 900;
-    top: 46%; left: 40%;
+    top: 46%;
+    left: 40%;
   }
-  .a5{ //Meniscus present
+  .a5 {
+    //Meniscus present
     position: absolute;
     z-index: 900;
-    top: 12%; left: -10%;
+    top: 12%;
+    left: -10%;
   }
-  .a6{ //Homogenous opacity
+  .a6 {
+    //Homogenous opacity
     position: absolute;
     z-index: 900;
-    top: 28%; left: -7%;
+    top: 28%;
+    left: -7%;
   }
-  .a7{ //the right hemidiaphragm
+  .a7 {
+    //the right hemidiaphragm
     position: absolute;
     z-index: 900;
-    top: 43%; left: 2%;
+    top: 43%;
+    left: 2%;
   }
-  .a8{ //obliteration of the right costophrenic angle..
+  .a8 {
+    //obliteration of the right costophrenic angle..
     position: absolute;
     z-index: 900;
-    top: 58%; left: -3%;
+    top: 58%;
+    left: -3%;
   }
-  .a9{
+  .a9 {
     position: absolute;
     z-index: 900;
-    top: 9%; left: 6%;
+    top: 9%;
+    left: 6%;
   }
   textarea {
     position: relative;
     z-index: 900;
-    background-color: rgba(0,0,0,.1);
+    background-color: rgba(0, 0, 0, 0.1);
     color: $white;
     resize: none;
     font-size: 16px;
   }
-
 }
 
 $baseWidth: 1094;
 $baseHeight: 898;
 
-@function divideWidth($width){
+@function divideWidth($width) {
   @return percentage($width/$baseWidth);
 }
 
-@function divideHeight($height){
+@function divideHeight($height) {
   @return percentage($height/$baseHeight);
 }
 
-@function divideby2($width){
-  @return (percentage($width/$baseWidth)/4);
+@function divideby2($width) {
+  @return (percentage($width/$baseWidth) / 4);
 }
 
 //actually a rectangle...
-@mixin circle($width, $height, $left, $top, $opac: 0.55, $red: true){
-  .circle{
+@mixin circle($width, $height, $left, $top, $opac: 0.55, $red: true) {
+  .circle {
     // border-radius: 100%;
     border: none;
     position: absolute;
@@ -141,16 +158,16 @@ $baseHeight: 898;
     z-index: 980;
     @if $red == true {
       @if $opac != 0.55 {
-        border: 2px dotted red;
-      } @else{
-        border: 2px solid red;
+        border: 0.139vw dotted red;
+      } @else {
+        border: 0.313vw solid red;
       }
       cursor: pointer;
     } @else {
-      border: 2px dotted green;
+      border: 0.139vw dotted green;
     }
   }
-  .caption{
+  .caption {
     position: absolute;
     left: divideWidth($left);
     top: divideHeight($top);
@@ -168,180 +185,219 @@ $baseHeight: 898;
     }
   }
 }
-$opacLight: 0.20;
+$opacLight: 0.2;
 //CASE 11
 //study 12
 
-.c1p11s12{ //support device
+.c1p11s12 {
+  //support device
   @include circle(78, 74, 875, 163, $opacLight);
 }
 
-.c1p11s12_p{ //support device
+.c1p11s12_p {
+  //support device
   @include circle(78, 74, 875, 163);
 }
 
-.c2p11s12{ //support device
+.c2p11s12 {
+  //support device
   @include circle(78, 81, 275, 241, $opacLight);
 }
 
-.c2p11s12_p{ //support device
+.c2p11s12_p {
+  //support device
   @include circle(78, 81, 275, 241);
 }
 
-.c3p11s12{ //support device
+.c3p11s12 {
+  //support device
   @include circle(56, 70, 338, 545, $opacLight);
 }
 
-.c3p11s12_p{ //support device
+.c3p11s12_p {
+  //support device
   @include circle(56, 70, 338, 545);
 }
 
-.c4p11s12{ //Atelectasis
+.c4p11s12 {
+  //Atelectasis
   @include circle(259, 363, 624, 200, $opacLight);
 }
 
-.c4p11s12_p{ //Atelectasis
+.c4p11s12_p {
+  //Atelectasis
   @include circle(259, 363, 624, 200);
 }
 
-.c5p11s12{ //Edema
+.c5p11s12 {
+  //Edema
   @include circle(320, 373, 594, 449, $opacLight);
 }
 
-.c5p11s12_p{ //Edema
+.c5p11s12_p {
+  //Edema
   @include circle(320, 373, 594, 449);
 }
 
-.c6p11s12{ //Cardiomegaly
+.c6p11s12 {
+  //Cardiomegaly
   @include circle(445, 251, 338, 407, $opacLight);
 }
 
-.c6p11s12_p{ //Cardiomegaly
+.c6p11s12_p {
+  //Cardiomegaly
   @include circle(445, 251, 338, 407);
 }
 
-.c7p11s12{ //Pleural effusion
+.c7p11s12 {
+  //Pleural effusion
   @include circle(153, 159, 761, 578, $opacLight);
 }
 
-.c7p11s12_p{ //Pleural effusion
+.c7p11s12_p {
+  //Pleural effusion
   @include circle(153, 159, 761, 578);
 }
 
-.c8p11s12{ //Pleural effusion
+.c8p11s12 {
+  //Pleural effusion
   @include circle(201, 207, 93, 615, $opacLight);
 }
 
-.c8p11s12_p{ //Pleural effusion
+.c8p11s12_p {
+  //Pleural effusion
   @include circle(201, 207, 93, 615);
 }
 
 //normal region study 12
-.c9p11s12{ //central trachea
+.c9p11s12 {
+  //central trachea
   @include circle(165, 133, 478, 17, $opacLight, false);
 }
 
-.c9p11s12_p{ //central trachea
+.c9p11s12_p {
+  //central trachea
   @include circle(121, 119, 559, 31, $opacLight, false);
 }
 
-.c10p11s12{ //clear right lung
+.c10p11s12 {
+  //clear right lung
   @include circle(289, 397, 208, 123, $opacLight, false);
 }
 
-.c10p11s12_p{ //clear right lung
+.c10p11s12_p {
+  //clear right lung
   @include circle(302, 356, 293, 127, $opacLight, false);
 }
 
 //study 1
-.c1p11s1{ //lung opacity
+.c1p11s1 {
+  //lung opacity
   @include circle(309, 437, 510, 186, $opacLight);
-  .circle{
+  .circle {
     border: solid 0.139vw white;
   }
 }
-.c2p11s1{ //support device
+.c2p11s1 {
+  //support device
   @include circle(96, 85, 819, 74, $opacLight);
 }
 
-.c3p11s1{ //clear right lung
+.c3p11s1 {
+  //clear right lung
   @include circle(333, 430, 153, 186, $opacLight, false);
 }
 
 //study 11
-.c1p11s11{ //edema
+.c1p11s11 {
+  //edema
   @include circle(805, 361, 157, 500, $opacLight);
 }
 
-.c2p11s11{ //support device
+.c2p11s11 {
+  //support device
   @include circle(124, 114, 923, 200, $opacLight);
 }
 
-.c3p11s11{ //support device
+.c3p11s11 {
+  //support device
   @include circle(100, 91, 348, 314, $opacLight);
 }
 
-.c4p11s11{ //support device
+.c4p11s11 {
+  //support device
   @include circle(100, 91, 348, 314, $opacLight);
 }
 
-.c5p11s11{ //lung opacity
+.c5p11s11 {
+  //lung opacity
   @include circle(285, 591, 654, 121, $opacLight);
-  .circle{
+  .circle {
     border: solid 0.139vw white;
   }
 }
 
-.c6p11s11{ //pleural effusion right
+.c6p11s11 {
+  //pleural effusion right
   @include circle(258, 283, 760, 578, $opacLight);
 }
 
-.c7p11s11{ //pleural effusion left
+.c7p11s11 {
+  //pleural effusion left
   @include circle(258, 283, 90, 578, $opacLight);
 }
 
-.c8p11s11{ //edema
+.c8p11s11 {
+  //edema
   @include circle(154, 142, 583, 235, $opacLight);
 }
 
 //study 11 normal Regions
-.c9p11s11{ //central traches
+.c9p11s11 {
+  //central traches
   @include circle(121, 119, 559, 31, $opacLight, false);
 }
 
-.c10p11s11{ //clear right lung
+.c10p11s11 {
+  //clear right lung
   @include circle(302, 356, 293, 127, $opacLight, false);
 }
 
 //study 9
-.c1p11s9{ //support device
+.c1p11s9 {
+  //support device
   @include circle(85, 82, 200, 273, $opacLight);
 }
 
-.c2p11s9{ //support device
+.c2p11s9 {
+  //support device
   @include circle(74, 71, 233, 574, $opacLight);
 }
 
-.c3p11s9{ //support device
+.c3p11s9 {
+  //support device
   @include circle(70, 89, 789, 115, $opacLight);
 }
 
-.c4p11s9{ //enlarged cardiomediastinum
+.c4p11s9 {
+  //enlarged cardiomediastinum
   @include circle(407, 236, 356, 374, $opacLight);
-  .circle{
+  .circle {
     border: solid 0.139vw white;
   }
 }
 
-.c5p11s9{ //pleural effusion
+.c5p11s9 {
+  //pleural effusion
   @include circle(222, 211, 711, 567, $opacLight);
 }
 
-.c6p11s9{ //pleural effusion
+.c6p11s9 {
+  //pleural effusion
   @include circle(211, 204, 137, 574, $opacLight);
 }
 
-.c7p11s9{
+.c7p11s9 {
   @include circle(289, 397, 239, 145, $opacLight, false);
 }
 
@@ -356,174 +412,209 @@ $opacLight: 0.20;
 // TODO: need to draw annoations for all prior images too, for each study start from c1, and change study number
 // patient number should be the same for all your prior images and selected image
 
-
 //patient 21653 study 8
-.c1p21653s8{ //support device
-  @include circle(174,179,801,391, $opacLight);
+.c1p21653s8 {
+  //support device
+  @include circle(174, 179, 801, 391, $opacLight);
 }
 
-.c1p21653s8_p{ //support device
-  @include circle(174,179,801,391);
+.c1p21653s8_p {
+  //support device
+  @include circle(174, 179, 801, 391);
 }
 
-.c2p21653s8{ //support device
-  @include circle(59,53,269,196, $opacLight);
+.c2p21653s8 {
+  //support device
+  @include circle(59, 53, 269, 196, $opacLight);
 }
 
-.c2p21653s8_p{ //support device
-  @include circle(59,53,269,196);
+.c2p21653s8_p {
+  //support device
+  @include circle(59, 53, 269, 196);
 }
 
-.c3p21653s8{ //support device
-  @include circle(69,71,803,249, $opacLight);
+.c3p21653s8 {
+  //support device
+  @include circle(69, 71, 803, 249, $opacLight);
 }
 
-.c3p21653s8_p{ //support device
-  @include circle(69,71,803,249);
+.c3p21653s8_p {
+  //support device
+  @include circle(69, 71, 803, 249);
 }
 
-.c4p21653s8{ //cardiomegaly
-  @include circle(467,306,358,435, $opacLight);
+.c4p21653s8 {
+  //cardiomegaly
+  @include circle(467, 306, 358, 435, $opacLight);
 }
 
-.c4p21653s8_p{ //cardiomegaly
-  @include circle(467,306,358,435);
+.c4p21653s8_p {
+  //cardiomegaly
+  @include circle(467, 306, 358, 435);
 }
 
-.c5p21653s8{ //pleurl
-  @include circle(230,239,128,547, $opacLight);
+.c5p21653s8 {
+  //pleurl
+  @include circle(230, 239, 128, 547, $opacLight);
 }
 
-.c5p21653s8_p{ //pleurl
-  @include circle(230,239,128,547);
+.c5p21653s8_p {
+  //pleurl
+  @include circle(230, 239, 128, 547);
 }
 
-.c6p21653s8{ //central trachea
-  @include circle(237,336,197,139, $opacLight, false);
+.c6p21653s8 {
+  //central trachea
+  @include circle(237, 336, 197, 139, $opacLight, false);
 }
 
-.c7p21653s8{ //central trachea
-  @include circle(205,258,651,177, $opacLight, false);
+.c7p21653s8 {
+  //central trachea
+  @include circle(205, 258, 651, 177, $opacLight, false);
 }
 
 //study 7
-.c1p21653s7{//pleurl
-  @include circle(218,222,146,662, $opacLight);
+.c1p21653s7 {
+  //pleurl
+  @include circle(218, 222, 146, 662, $opacLight);
 }
 
-.c2p21653s7{//pleurl
-  @include circle(152,156,853,712, $opacLight);
+.c2p21653s7 {
+  //pleurl
+  @include circle(152, 156, 853, 712, $opacLight);
 }
 
-.c3p21653s7{//support device
-  @include circle(137,154,815,342, $opacLight);
+.c3p21653s7 {
+  //support device
+  @include circle(137, 154, 815, 342, $opacLight);
 }
 
-.c4p21653s7{//pneumonia
-  @include circle(67,165,412,397, $opacLight);
-  .circle{
+.c4p21653s7 {
+  //pneumonia
+  @include circle(67, 165, 412, 397, $opacLight);
+  .circle {
     border: solid 0.139vw white;
   }
 }
 
-.c5p21653s7{//pneumonia
-  @include circle(81,198,685,364, $opacLight);
-  .circle{
+.c5p21653s7 {
+  //pneumonia
+  @include circle(81, 198, 685, 364, $opacLight);
+  .circle {
     border: solid 0.139vw white;
   }
 }
 
-.c6p21653s7{//cardio
-  @include circle(469,227,384,529, $opacLight);
+.c6p21653s7 {
+  //cardio
+  @include circle(469, 227, 384, 529, $opacLight);
 }
 
-.c7p21653s7{//lung opacity
-  @include circle(297,300,666,397, $opacLight);
-  .circle{
+.c7p21653s7 {
+  //lung opacity
+  @include circle(297, 300, 666, 397, $opacLight);
+  .circle {
     border: solid 0.139vw white;
   }
 }
 
-.c8p21653s7{//central
-  @include circle(162,249,500,26, $opacLight,false);
+.c8p21653s7 {
+  //central
+  @include circle(162, 249, 500, 26, $opacLight, false);
 }
 
-.c9p21653s7{//clear right lung
-  @include circle(263,392,237,189, $opacLight,false);
+.c9p21653s7 {
+  //clear right lung
+  @include circle(263, 392, 237, 189, $opacLight, false);
 }
 
 //study 6
-.c1p21653s6{//support device
-  @include circle(146,168,782,356, $opacLight);
+.c1p21653s6 {
+  //support device
+  @include circle(146, 168, 782, 356, $opacLight);
 }
 
-.c2p21653s6{//Lung opacity
-  @include circle(144,140,628,416, $opacLight);
-  .circle{
+.c2p21653s6 {
+  //Lung opacity
+  @include circle(144, 140, 628, 416, $opacLight);
+  .circle {
     border: solid 0.139vw white;
   }
 }
 
-.c3p21653s6{//pleurl
-  @include circle(237,210,132,561, $opacLight);
+.c3p21653s6 {
+  //pleurl
+  @include circle(237, 210, 132, 561, $opacLight);
 }
 
-.c4p21653s6{//pleurl
-  @include circle(190,194,772,627, $opacLight);
+.c4p21653s6 {
+  //pleurl
+  @include circle(190, 194, 772, 627, $opacLight);
 }
 
-.c5p21653s6{//Lung Opacity
-  @include circle(132,168,327,419, $opacLight);
-  .circle{
+.c5p21653s6 {
+  //Lung Opacity
+  @include circle(132, 168, 327, 419, $opacLight);
+  .circle {
     border: solid 0.139vw white;
   }
 }
 
-.c6p21653s6{//central trachea
-  @include circle(113,207,505,37, $opacLight, false);
+.c6p21653s6 {
+  //central trachea
+  @include circle(113, 207, 505, 37, $opacLight, false);
 }
 
-.c7p21653s6{//clear right lung
-  @include circle(271,364,232,122, $opacLight, false);
+.c7p21653s6 {
+  //clear right lung
+  @include circle(271, 364, 232, 122, $opacLight, false);
 }
 
 //study 5
-.c1p21653s5{//Lung Opacity
-  @include circle(206,324,143,469, $opacLight);
-  .circle{
+.c1p21653s5 {
+  //Lung Opacity
+  @include circle(206, 324, 143, 469, $opacLight);
+  .circle {
     border: solid 0.139vw white;
   }
 }
 
-.c2p21653s5{//Lung Opacity
-  @include circle(214,322,651,532, $opacLight);
-  .circle{
+.c2p21653s5 {
+  //Lung Opacity
+  @include circle(214, 322, 651, 532, $opacLight);
+  .circle {
     border: solid 0.139vw white;
   }
 }
 
-.c3p21653s5{//Support device
-  @include circle(174,202,758,363, $opacLight);
+.c3p21653s5 {
+  //Support device
+  @include circle(174, 202, 758, 363, $opacLight);
 }
 
 //study 1
-.c1p21653s1{//pleurl
-  @include circle(226,238,129,476, $opacLight);
+.c1p21653s1 {
+  //pleurl
+  @include circle(226, 238, 129, 476, $opacLight);
 }
 
-.c2p21653s1{//pleurl
-  @include circle(236,241,776,524, $opacLight);
+.c2p21653s1 {
+  //pleurl
+  @include circle(236, 241, 776, 524, $opacLight);
 }
 
-.c3p21653s1{//lung opacity
-  @include circle(169,253,607,309, $opacLight);
-  .circle{
+.c3p21653s1 {
+  //lung opacity
+  @include circle(169, 253, 607, 309, $opacLight);
+  .circle {
     border: solid 0.139vw white;
   }
 }
-.c4p21653s1{//clear right lung
-  @include circle(243,382,214,93, $opacLight, false);
+.c4p21653s1 {
+  //clear right lung
+  @include circle(243, 382, 214, 93, $opacLight, false);
 }
-.c5p21653s1{//central trachea
-  @include circle(169,253,467,0, $opacLight, false);
+.c5p21653s1 {
+  //central trachea
+  @include circle(169, 253, 467, 0, $opacLight, false);
 }

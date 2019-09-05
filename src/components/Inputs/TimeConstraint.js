@@ -37,7 +37,7 @@ class TimeConstraint extends Component {
         <Popup
           trigger={
             <div>
-              <div className="text">STAT</div>
+              <div className="text">Urgent</div>
               <Toggle
                 defaultChecked={this.props.data}
                 icons={false}
