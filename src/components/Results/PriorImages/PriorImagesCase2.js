@@ -93,7 +93,7 @@ const prevCaseCaptions = [
 
 //below are the classnames for the different annotations
 const prevCaseListsDiff = [
-  ["c4p21653s7", "c5p21653s7", "c6p21653s7"],
+  ["c4p21653s7", "c5p21653s7", "c7p21653s7"],
   ["c2p21653s6", "c5p21653s6"],
   ["c1p21653s5", "c2p21653s5"],
   ["c3p21653s1"]
@@ -629,14 +629,14 @@ class PriorImages extends Component {
             </div>
           )}
           <div className="currentImage">
-            {!this.state.showAnnotation && (
+            {!this.state.showAnnotation && !this.state.showDiff && (
               <Magnifier
                 src={this.props.currentImage}
                 mgShape="square"
                 mgShowOverflow="false"
               />
             )}
-            {this.state.showAnnotation && (
+            {(this.state.showAnnotation || this.state.showDiff) && (
               <img src={this.props.currentImage} alt="prior image" />
             )}
             {this.state.showAnnotation &&
@@ -652,25 +652,25 @@ class PriorImages extends Component {
           <div className="divider2" />
           <div className="divider" />
           <div className="priorImage">
-            {!this.state.showAnnotation && (
+            {!this.state.showAnnotation && !this.state.showDiff && (
               <div className="image">
                 <Magnifier
                   src={
                     this.state.priorImageMode
                       ? case21653images[this.state.photoIndex]
-                      : case11CrossPatient[this.state.photoIndex]
+                      : case11CrossPatient[this.state.photoIndex % 3]
                   }
                   mgShape="square"
                   mgShowOverflow="false"
                 />
               </div>
             )}
-            {this.state.showAnnotation && (
+            {(this.state.showAnnotation || this.state.showDiff) && (
               <img
                 src={
                   this.state.priorImageMode
                     ? case21653images[this.state.photoIndex]
-                    : case11CrossPatient[this.state.photoIndex]
+                    : case11CrossPatient[this.state.photoIndex % 3]
                 }
                 alt="prior image"
               />
@@ -681,12 +681,12 @@ class PriorImages extends Component {
               {caption}
               {this.state.priorImageMode
                 ? dates[this.state.photoIndex]
-                : case11CrossPatient[this.state.photoIndex][1]}
+                : case11CrossPatient[this.state.photoIndex % 3][1]}
               {!this.state.priorImageMode &&
                 "(" +
-                  case11CrossPatient[this.state.photoIndex][2] +
+                  case11CrossPatient[this.state.photoIndex % 3][2] +
                   ". " +
-                  case11CrossPatient[this.state.photoIndex][3] +
+                  case11CrossPatient[this.state.photoIndex % 3][3] +
                   ")"}
             </div>
           </div>

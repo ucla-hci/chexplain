@@ -27,7 +27,7 @@ class ImpDetails extends Component {
                 trigger={<div>Prevalence: {this.props.base}%</div>}
                 position="left bottom"
                 on="hover"
-                defaultOpen={true}
+                defaultOpen={false}
               >
                 <Card />
               </Popup>

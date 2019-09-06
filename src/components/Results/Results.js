@@ -119,10 +119,17 @@ class Results extends Component {
     tempList.map(currElement => {
       document.getElementById(currElement).style.color = "#FFFFFF"; //sets color of clicked currElement to blue
       document.getElementById(currElement).style.fontWeight = "600";
-      if (currElement !== "Cardiomegaly" && currElement !== "Support Device")
-        document.getElementById(
-          "triangle" + currElement.replace(/ /g, "")
-        ).style.display = "inline";
+      if (this.props.imageIndex === 0) {
+        if (currElement !== "Cardiomegaly" && currElement !== "Support Device")
+          document.getElementById(
+            "triangle" + currElement.replace(/ /g, "")
+          ).style.display = "inline";
+      } else {
+        if (currElement !== "Support Device")
+          document.getElementById(
+            "triangle" + currElement.replace(/ /g, "")
+          ).style.display = "inline";
+      }
     });
     this.setState({
       //this call allows related annotation to be highlighted
@@ -146,10 +153,17 @@ class Results extends Component {
     observationList.map(currElement => {
       document.getElementById(currElement).style.color = "#FFFFFF"; //sets color of clicked currElement to blue
       document.getElementById(currElement).style.fontWeight = "600";
-      if (currElement !== "Cardiomegaly" && currElement !== "Support Device")
-        document.getElementById(
-          "triangle" + currElement.replace(/ /g, "")
-        ).style.display = "inline";
+      if (this.props.imageIndex === 0) {
+        if (currElement !== "Cardiomegaly" && currElement !== "Support Device")
+          document.getElementById(
+            "triangle" + currElement.replace(/ /g, "")
+          ).style.display = "inline";
+      } else {
+        if (currElement !== "Support Device")
+          document.getElementById(
+            "triangle" + currElement.replace(/ /g, "")
+          ).style.display = "inline";
+      }
     });
     this.highlightImpression(observationList); //call highlight impression to highlight impression related to each observation
   }
@@ -285,6 +299,7 @@ class Results extends Component {
           observations={this.state.observations}
           percentages={this.state.observationsPercentage}
           statMode={this.state.timeConstraint}
+          imageIndex={this.props.imageIndex}
         />
         <Impressions
           callbackClickedComponent={this.callbackClickedComponent}

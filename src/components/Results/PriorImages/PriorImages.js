@@ -619,7 +619,7 @@ class PriorImages extends Component {
             </div>
           )}
           <div className="currentImage">
-            {!this.state.showAnnotation && (
+            {!this.state.showAnnotation && !this.state.showDiff && (
               <Magnifier
                 src={this.props.currentImage}
                 mgShape="square"
@@ -627,6 +627,9 @@ class PriorImages extends Component {
               />
             )}
             {this.state.showAnnotation && (
+              <img src={this.props.currentImage} alt="prior image" />
+            )}
+            {this.state.showDiff && (
               <img src={this.props.currentImage} alt="prior image" />
             )}
             {this.state.showAnnotation &&
@@ -642,7 +645,7 @@ class PriorImages extends Component {
           <div className="divider2" />
           <div className="divider" />
           <div className="priorImage">
-            {!this.state.showAnnotation && (
+            {!this.state.showAnnotation && !this.state.showDiff && (
               <div className="image">
                 <Magnifier
                   src={
@@ -655,7 +658,7 @@ class PriorImages extends Component {
                 />
               </div>
             )}
-            {this.state.showAnnotation && (
+            {(this.state.showAnnotation || this.state.showDiff) && (
               <img
                 src={
                   this.state.priorImageMode

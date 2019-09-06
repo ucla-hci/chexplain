@@ -5,13 +5,7 @@ import ImpDetails from "./ImpDetails";
 const congHeartFailureExplan = [
   [1.8],
   ["Heart Evaluable"],
-  [
-    ["Cardiomegaly", "text"],
-    ["Pleural Effusion", "text"],
-    ["Hypertension", "text"],
-    ["Diabetes", "text"],
-    ["Obesity", "text"]
-  ]
+  [["Cardiomegaly", "text"], ["Pleural Effusion", "text"], ["Obesity", "text"]]
 ];
 
 const pneumoniaExplan = [
@@ -30,7 +24,6 @@ const lungCancerExplan = [
   [
     ["Pleural Effusion", "text"],
     ["Smoking History", "text"],
-    ["History of Lung Cancer", "text"],
     ["Radiation Therapy to the chest", "text"]
   ]
 ];

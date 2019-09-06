@@ -315,8 +315,8 @@ class ToggleAnnotation extends Component {
       //will only render hover window in non-STAT mode
       clickedElement = null;
     //clickedElement is a className of the annotation clicked (Ex. c1p11s1)
-    let captionTemplate1 = "Normal region";
-    let captionTemplate2 = "Abnormal region";
+    let captionTemplate1 = "Abnormal region";
+    let captionTemplate2 = "Normal region";
     // TODO: ADD YOUR CASE LIST'S ANNOTATION CLASSNAME TO THE CORRESPONDING HOVER WINDOW
     // IF THE ANNOTATION BOX IS RELATED TO CARDIOMEGALY, YOU PUT caseList[x][y] WHICH HAS YOUR ANNOTATION BOXES CLASSNAME
     // AS AN ADDITIONAL CASE ABOVE THE RETURN HOVER WINDOW OF CARDIOMEGALY
@@ -477,7 +477,9 @@ class ToggleAnnotation extends Component {
                 if (index === 3 || index === 4) {
                   return (
                     <div
-                      onClick={() => this.handleClickAnnotation(currElement)}
+                      onMouseEnter={() =>
+                        this.handleClickAnnotation(currElement)
+                      }
                     >
                       <AnnotationBubble
                         caption={
@@ -496,7 +498,9 @@ class ToggleAnnotation extends Component {
                 if (index === 3) {
                   return (
                     <div
-                      onClick={() => this.handleClickAnnotation(currElement)}
+                      onMouseEnter={() =>
+                        this.handleClickAnnotation(currElement)
+                      }
                     >
                       <AnnotationBubble
                         caption={
@@ -510,7 +514,9 @@ class ToggleAnnotation extends Component {
                 }
               } else {
                 return (
-                  <div onClick={() => this.handleClickAnnotation(currElement)}>
+                  <div
+                    onMouseEnter={() => this.handleClickAnnotation(currElement)}
+                  >
                     <AnnotationBubble
                       caption={
                         caseAbnormalCaption[this.props.imageIndex][index]

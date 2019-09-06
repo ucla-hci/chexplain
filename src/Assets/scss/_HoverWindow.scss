@@ -96,7 +96,7 @@
           @include defaultFont(1.125vw, lighter, #b0b0b0);
         }
         .text2 {
-          @include defaultFont(1.125vw, 300, white);
+          @include defaultFont(1.125vw, regular, white);
         }
       }
     }
