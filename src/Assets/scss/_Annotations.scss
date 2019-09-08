@@ -5,13 +5,12 @@
   position: absolute;
   top: 17%;
   left: -3.5%;
-  // border: 5px solid white;
   .annotations {
     position: absolute;
     top: 1%;
     left: 7%;
     height: 100%;
-    width: 86%;
+    width: 47vw;
     .pressed {
       border: 5px solid $white;
     }
