@@ -19,14 +19,14 @@
     position: absolute;
     z-index: 900;
     top: 93.12%;
-    left: 78.4%;
+    left: 60.6%;
     @include defaultButton($darkGrey, 0.972vw, normal);
   }
   .showAll {
     position: absolute;
     z-index: 900;
     top: 93.12%;
-    left: 60.6%;
+    left: 78.4%;
     @include defaultButton;
   }
   .customize {
@@ -47,85 +47,15 @@
     position: absolute;
     z-index: 900;
     top: 93.12%;
-    left: 78.4%;
+    left: 60.6%;
     @include defaultButton($lightBlue, 0.972vw, normal);
   }
   .pressed_s {
     position: absolute;
     z-index: 900;
     top: 93.12%;
-    left: 60.6%;
+    left: 78.4%;
     @include defaultButton($lightBlue);
-  }
-  .a1 {
-    //central trachea
-    position: absolute;
-    z-index: 900;
-    top: 3%;
-    left: 40%;
-  }
-  .a2 {
-    //clear left lung
-    position: absolute;
-    z-index: 900;
-    top: 30%;
-    left: 13%;
-  }
-  .a3 {
-    //Normal position of left...
-    position: absolute;
-    z-index: 900;
-    top: 24%;
-    left: 20%;
-  }
-  .a4 {
-    //Minor blunting of the left...
-    position: absolute;
-    z-index: 900;
-    top: 46%;
-    left: 40%;
-  }
-  .a5 {
-    //Meniscus present
-    position: absolute;
-    z-index: 900;
-    top: 12%;
-    left: -10%;
-  }
-  .a6 {
-    //Homogenous opacity
-    position: absolute;
-    z-index: 900;
-    top: 28%;
-    left: -7%;
-  }
-  .a7 {
-    //the right hemidiaphragm
-    position: absolute;
-    z-index: 900;
-    top: 43%;
-    left: 2%;
-  }
-  .a8 {
-    //obliteration of the right costophrenic angle..
-    position: absolute;
-    z-index: 900;
-    top: 58%;
-    left: -3%;
-  }
-  .a9 {
-    position: absolute;
-    z-index: 900;
-    top: 9%;
-    left: 6%;
-  }
-  textarea {
-    position: relative;
-    z-index: 900;
-    background-color: rgba(0, 0, 0, 0.1);
-    color: $white;
-    resize: none;
-    font-size: 16px;
   }
 }
 
@@ -616,4 +546,58 @@ $opacLight: 0.2;
 .c5p21653s1 {
   //central trachea
   @include circle(169, 253, 467, 0, $opacLight, false);
+}
+
+//across patient image comparison
+
+.c1cardio1 {
+  @include circle(683, 353, 237, 366, $opacLight);
+}
+
+.c1cardio2 {
+  @include circle(579, 354, 319, 483, $opacLight);
+}
+
+.c1cardio3 {
+  @include circle(496, 304, 374, 301, $opacLight);
+}
+
+.c1pleural1 {
+  @include circle(307, 305, 547, 506, $opacLight);
+}
+
+.c1pleural2 {
+  @include circle(307, 305, 578, 449, $opacLight);
+}
+
+.c1pleural3 {
+  @include circle(307, 305, 119, 518, $opacLight);
+}
+
+.c1edema1 {
+  @include circle(307, 305, 685, 449, $opacLight);
+}
+
+.c1edema2 {
+  @include circle(258, 170, 193, 510, $opacLight);
+}
+
+.c2edema2 {
+  @include circle(194, 257, 733, 482, $opacLight);
+}
+
+.c1edema3 {
+  @include circle(321, 436, 114, 393, $opacLight);
+}
+
+.c1atelect1 {
+  @include circle(292, 184, 667, 357, $opacLight);
+}
+
+.c1atelect2 {
+  @include circle(236, 171, 746, 433, $opacLight);
+}
+
+.c1atelect3 {
+  @include circle(292, 241, 640, 313, $opacLight);
 }

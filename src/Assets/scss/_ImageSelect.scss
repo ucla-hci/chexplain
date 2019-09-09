@@ -1,15 +1,16 @@
-$blue: #BDD6FB;
-$red: #FAB9B9;
-$green: #B2F3CC;
-$gray: #C4C4C4;
+$blue: #bdd6fb;
+$red: #fab9b9;
+$green: #b2f3cc;
+$gray: #c4c4c4;
 
-@mixin ImageSelect($w: 60%, $t:9%) {
-  .title{
+@mixin ImageSelect($w: 60%, $t: 9%) {
+  .title {
     @include defaultFont;
     padding-left: 2%;
     padding-top: 2%;
   }
-  ul, li{
+  ul,
+  li {
     list-style-type: none !important;
     list-style-position: inside;
     display: inline-block;
@@ -17,19 +18,20 @@ $gray: #C4C4C4;
     padding-left: 0.378vw;
     padding-bottom: 3.472vw;
   }
-  .imageCaption{
+  .imageCaption {
     width: 11.208vw;
     text-align: right;
     @include defaultFont($fontSize: 0.972vw, $fontWeight: regular);
-    img{
-      height: 8.500vw;
+    img {
+      height: 8.5vw;
       display: table;
       margin: 0 auto;
     }
   }
-  .pressed{
+  .pressed {
     border: 0.147vw solid $lightBlue;
   }
+  z-index: 980;
   position: absolute;
   top: $t;
   left: 45%;
@@ -37,6 +39,6 @@ $gray: #C4C4C4;
   height: 70%;
 }
 
-.ImageSelect{
+.ImageSelect {
   @include ImageSelect;
 }

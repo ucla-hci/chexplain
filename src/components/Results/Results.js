@@ -285,12 +285,15 @@ class Results extends Component {
           clickedObservation={this.state.clickedObservation}
           display={this.state.questionInput}
         />
-        <AdjustQuery
-          dataFromQuestion={this.state.questionInput}
-          dataFromTime={this.state.timeConstraint}
-          callbackFromParentTime={this.callbackFromTime}
-          callbackFromParentQuestion={this.callbackFromQuestion}
-        />
+        {!this.state.timeConstraint && (
+          <AdjustQuery
+            dataFromQuestion={this.state.questionInput}
+            dataFromTime={this.state.timeConstraint}
+            callbackFromParentTime={this.callbackFromTime}
+            callbackFromParentQuestion={this.callbackFromQuestion}
+          />
+        )}
+
         <Observations
           clickedComponent={this.state.clickedComponent}
           callbackClickedComponent={this.callbackClickedComponent}
@@ -342,7 +345,7 @@ class Results extends Component {
     return (
       <div>
         {!this.state.priorImagesOpened && resultpart1}
-        {resultpart2}
+        {!this.state.timeConstraint && resultpart2}
       </div>
     );
   }

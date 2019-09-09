@@ -1,54 +1,57 @@
-.loading{
-  h1{
+.loading {
+  h1 {
     position: absolute;
-    left:38%;
-    top:65%;
+    left: 38%;
+    top: 65%;
     z-index: 999;
-    color:$white;
+    color: $white;
     font-size: 27px;
   }
   .sk-spinner {
     transform: scale(4);
     position: absolute;
-    left:50%;
-    top:40%;
+    left: 50%;
+    top: 40%;
     z-index: 999;
   }
 }
 
 //header for input page
-.AnalyzeButton{
-  .StartAnalysis{
+.AnalyzeButton {
+  .StartAnalysis {
     @include defaultFont;
     background: transparent;
     border: 2px solid $white;
   }
   position: absolute;
-  top: 90%; left: 80%;
+  top: 90%;
+  left: 80%;
+  z-index: 983;
   background: $black;
 }
 
 //header for result page
-.headerResult{
-  .PatientInfo{
+.headerResult {
+  .PatientInfo {
     position: absolute;
     margin: 0;
     top: 50%;
     left: 1.04%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    font-family: 'Roboto';
+    font-family: "Roboto";
     font-style: normal;
     font-weight: normal;
     font-size: 1.111vw;
     line-height: 1.944vw;
     color: $white;
   }
-  button{
+  button {
     font-size: 1.111vw;
   }
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 7%;
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import HoverWindow from "../HoverWindow";
 import AnnoDetails from "./AnnoDetails";
 import AnnotationBubble from "./AnnotationBubble";
+import { thisExpression } from "@babel/types";
 
 //this is list of circle names for abnormal annotations
 const caseList = [
@@ -544,12 +545,14 @@ class ToggleAnnotation extends Component {
     return (
       <div>
         <div className="Annotations" key={this.props.clickedObservation}>
-          <div
-            className={toggle}
-            onClick={() => this.handleClick("onlyAbnormal")}
-          >
-            <div className="text"> Only Abnormal </div>
-          </div>
+          {!this.props.statMode && (
+            <div
+              className={toggle}
+              onClick={() => this.handleClick("onlyAbnormal")}
+            >
+              <div className="text"> Only Abnormal </div>
+            </div>
+          )}
           {this.state.show && showAllButton}
           {this.state.show && this.state.showAll && allCircle}
         </div>

@@ -49,18 +49,18 @@ class Inputs extends Component {
       imageIndex: index
     });
     console.log(this.state.gender + " " + this.state.age);
-    //I8(Shortness of breath), I9(Cough), I17(Cardiac), I7(Chest Pain), I26(Pneumonia)
-    //focus on chest pain for case 1, and cough, short of breath for case 2
-    //uncolor all labels that might be highlighted
-    document.getElementById("I7").style.color = "white";
-    document.getElementById("I8").style.color = "white";
-    document.getElementById("I9").style.color = "white";
-    if (index === 0) {
-      document.getElementById("I7").style.color = "yellow";
-    } else if (index === 1) {
-      document.getElementById("I8").style.color = "yellow";
-      document.getElementById("I9").style.color = "yellow";
-    }
+    // //I8(Shortness of breath), I9(Cough), I17(Cardiac), I7(Chest Pain), I26(Pneumonia)
+    // //focus on chest pain for case 1, and cough, short of breath for case 2
+    // //uncolor all labels that might be highlighted
+    // document.getElementById("I7").style.color = "white";
+    // document.getElementById("I8").style.color = "white";
+    // document.getElementById("I9").style.color = "white";
+    // if (index === 0) {
+    //   document.getElementById("I7").style.color = "yellow";
+    // } else if (index === 1) {
+    //   document.getElementById("I8").style.color = "yellow";
+    //   document.getElementById("I9").style.color = "yellow";
+    // }
   };
 
   render() {

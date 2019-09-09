@@ -116,19 +116,22 @@ const cardioCrossPatient = [
     "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCase%2011%2Fcardiomegaly.jpeg?alt=media&token=bc6e62ce-5fb8-4e8c-9ccb-4c36406c017a",
     "Cardiomegaly",
     "Female",
-    "60"
+    "60",
+    ["c1cardio1"]
   ], //cardiomegaly
   [
-    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYCardioFull.jpg?alt=media&token=240c6d39-1af0-42e9-8fe9-8eae97140810",
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYCardioNew.png?alt=media&token=50ae3066-5341-4b92-9d29-40b54de78824",
     "Cardiomegaly",
     "Female",
-    "64"
+    "64",
+    ["c1cardio2"]
   ], //cardiomegaly
   [
     "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYCardioP111S1.jpg?alt=media&token=c17654f8-7685-4f23-8604-1bbf7ef9e6bf",
     "Cardiomegaly",
     "Male",
-    "55"
+    "55",
+    ["c1cardio3"]
   ] //cardiomegaly
 ];
 
@@ -137,40 +140,46 @@ const edemaCrossPatient = [
     "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYEdemap146s5.jpg?alt=media&token=df36e741-7465-4da2-a89b-00ea76436ee7",
     "Edema",
     "Male",
-    "45"
+    "45",
+    ["c1edema1"]
   ], //Edema
   [
-    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYEdemap151s5.jpg?alt=media&token=f56800a6-0b44-4a4c-8cc3-6e2948a1937b",
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYEdemaNew.png?alt=media&token=9d2b12a4-5da5-4b61-92ac-60df4af61775",
     "Edema",
     "Female",
-    "33"
+    "33",
+    ["c1edema2", "c2edema2"]
   ], //Edema
   [
     "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYEdemap171s7.jpg?alt=media&token=fb79f8d0-6e80-43af-aed1-c7cde29b0c96",
     "Edema",
     "Male",
-    "23"
+    "23",
+    ["c1edema3"]
   ] //Edema
 ];
 
 const pleuralCrossPatient = [
   [
-    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYPleural3Full.jpg?alt=media&token=24771fc4-0858-45b4-b0fe-431fdf98e73d",
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYPleuralNew.png?alt=media&token=67bd1079-3145-4459-8d4f-aee309ea1a1a",
     "Pleural Effusion",
     "Male",
-    "80"
+    "80",
+    ["c1pleural1"]
   ], //pleural effusion
   [
     "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYpleuralFull.jpg?alt=media&token=a1059104-db34-44eb-8b41-119c0a262678",
     "Pleural Effusion",
     "Male",
-    "50"
+    "50",
+    ["c1pleural2"]
   ], //pleural effusion
   [
     "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYPleural2Full.jpg?alt=media&token=c3b78003-1edc-4d59-a4b9-95d74553455a",
     "Pleural Effusion",
     "Female",
-    "80"
+    "80",
+    ["c1pleural3"]
   ] //pleural effusion
 ];
 
@@ -179,21 +188,24 @@ const atelectCrossPatient = [
     "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYAtelectp204s13.jpg?alt=media&token=7e78e226-b49b-4abd-892b-3d629f78059f",
     "Atelectasis",
     "Female",
-    "73"
+    "73",
+    ["c1atelect1"]
   ],
   [
     //atelectasis,
-    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYAtelectp23s8.jpg?alt=media&token=e5c8bbf9-3b7c-4083-afde-19c8c01d5b9d",
+    "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYAtelectNew.png?alt=media&token=e0db6d88-5404-4154-8a45-8017ce11e527",
     "Atelectasis",
     "Male",
-    "53"
+    "53",
+    ["c1atelect2"]
   ],
   [
     //atelectasis,
     "https://firebasestorage.googleapis.com/v0/b/chexinterface.appspot.com/o/images%2FPriorImages%2FCompImages%2FYAtelectp69s20.jpg?alt=media&token=8ba85db6-4ddc-42fb-b210-690f29cdc72c",
     "Atelectasis",
     "Female",
-    "46"
+    "46",
+    ["c1atelect3"]
   ] //atelectasis
 ];
 
@@ -575,6 +587,67 @@ class PriorImages extends Component {
       priorAnnotation = null;
     }
 
+    // annotation for across patient comparison
+    let cardioAnno = (
+      <div className="annotations">
+        {cardioCrossPatient[this.state.photoIndex][4].map(currElement => {
+          return (
+            <AnnotationBubble caption="Cardiomegaly" label={currElement} />
+          );
+        })}
+      </div>
+    );
+
+    let pleuralAnno = (
+      <div className="annotations">
+        {pleuralCrossPatient[this.state.photoIndex][4].map(currElement => {
+          return (
+            <AnnotationBubble caption="Pleural Effusion" label={currElement} />
+          );
+        })}
+      </div>
+    );
+
+    let edemaAnno = (
+      <div className="annotations">
+        {edemaCrossPatient[this.state.photoIndex][4].map(currElement => {
+          return <AnnotationBubble caption="Edema" label={currElement} />;
+        })}
+      </div>
+    );
+
+    let atelectAnno = (
+      <div className="annotations">
+        {atelectCrossPatient[this.state.photoIndex][4].map(currElement => {
+          return <AnnotationBubble caption="Atelectasis" label={currElement} />;
+        })}
+      </div>
+    );
+
+    let temp = [];
+    let name = "";
+    if (this.state.cardioList) {
+      temp = ["c6p11s12"];
+      name = "Cardiomegaly";
+    } else if (this.state.edemaList) {
+      temp = ["c5p11s12"];
+      name = "Edema";
+    } else if (this.state.pleuralList) {
+      temp = ["c7p11s12", "c8p11s12"];
+      name = "Pleural Effusion";
+    } else if (this.state.atelectList) {
+      temp = ["c4p11s12"];
+      name = "Atelectasis";
+    }
+
+    let currentAnno = (
+      <div className="annotations">
+        {temp.map(currElement => {
+          return <AnnotationBubble caption={name} label={currElement} />;
+        })}
+      </div>
+    );
+
     // NOTE: below is rendered when you enter prior image mode
     let caption = this.state.priorImageMode
       ? "Prior CXR Image "
@@ -638,6 +711,7 @@ class PriorImages extends Component {
             {this.state.showDiff &&
               this.state.priorImageMode &&
               currentImageAnnotationDiff}
+            {!this.state.priorImageMode && currentAnno}
             <div className="text">Current CXR Image 2019/7/10</div>
           </div>
           <div className="divider2" />
@@ -670,6 +744,16 @@ class PriorImages extends Component {
             )}
             {this.state.showAnnotation && priorAnnotation}
             {this.state.showDiff && priorAnnotation}
+            {/* below is show annotation for across patient comparison */}
+            {!this.state.priorImageMode && this.state.cardioList && cardioAnno}
+            {!this.state.priorImageMode &&
+              this.state.pleuralList &&
+              pleuralAnno}
+            {!this.state.priorImageMode && this.state.edemaList && edemaAnno}
+            {!this.state.priorImageMode &&
+              this.state.atelectList &&
+              atelectAnno}
+            {/* END */}
             <div className="text">
               {caption}
               {this.state.priorImageMode
@@ -700,7 +784,6 @@ class PriorImages extends Component {
                 </div>
               </div>
             )}
-
             {this.state.priorImageMode && (
               <div
                 className={showDiffButton}
