@@ -1,6 +1,6 @@
 //SCSS FOR HOVER WINDOW, USES TEMPLATE FROM _RESULT.SCSS
 .HoverWindow {
-  @include resultBox(55.66%, 49.57%, absolute, 38.62%, 39.11%);
+  @include resultBox(55.3%, 49.57%, absolute, 38.15%, 40.61%);
   .content {
     color: $white;
     position: absolute;
@@ -61,9 +61,14 @@
             display: inline-block;
             margin-right: 0.42vw;
             margin-left: 0;
-          }
-          img {
-            width: 3.069vw;
+            .imgCaption {
+              width: 3.1vw;
+              text-align: center;
+              @include defaultFont(0.825vw, normal, $white);
+              img {
+                width: 3.069vw;
+              }
+            }
           }
         }
       }

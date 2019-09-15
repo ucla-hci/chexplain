@@ -100,44 +100,56 @@ class AnnoDetails extends Component {
               <div className="moreImageList">
                 <ul>
                   <li>
-                    <img
-                      src={tempList[0][0]}
-                      onClick={() =>
-                        this.setState({
-                          index1: 0
-                        })
-                      }
-                    />
+                    <div className="imgCaption">
+                      <img
+                        src={tempList[0][0]}
+                        onClick={() =>
+                          this.setState({
+                            index1: 0
+                          })
+                        }
+                      />
+                      {this.state.index1 === 0 ? "•" : <div>&ensp;</div>}
+                    </div>
                   </li>
                   <li>
-                    <img
-                      src={tempList[0][1]}
-                      onClick={() =>
-                        this.setState({
-                          index1: 1
-                        })
-                      }
-                    />
+                    <div className="imgCaption">
+                      <img
+                        src={tempList[0][1]}
+                        onClick={() =>
+                          this.setState({
+                            index1: 1
+                          })
+                        }
+                      />
+                      {this.state.index1 === 1 ? "•" : <div>&ensp;</div>}
+                    </div>
                   </li>
                   <li>
-                    <img
-                      src={tempList[0][2]}
-                      onClick={() =>
-                        this.setState({
-                          index1: 2
-                        })
-                      }
-                    />
+                    <div className="imgCaption">
+                      <img
+                        src={tempList[0][2]}
+                        onClick={() =>
+                          this.setState({
+                            index1: 2
+                          })
+                        }
+                      />
+                      {this.state.index1 === 2 ? "•" : <div>&ensp;</div>}
+                    </div>
                   </li>
                   <li>
-                    <img
-                      src={tempList[0][3]}
-                      onClick={() =>
-                        this.setState({
-                          index1: 3
-                        })
-                      }
-                    />
+                    <div className="imgCaption">
+                      <img
+                        src={tempList[0][3]}
+                        onClick={() =>
+                          this.setState({
+                            index1: 3
+                          })
+                        }
+                      />
+                      {this.state.index1 === 3 ? "•" : <div>&ensp;</div>}
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -150,44 +162,56 @@ class AnnoDetails extends Component {
               <div className="moreImageList">
                 <ul>
                   <li>
-                    <img
-                      src={tempList[1][0]}
-                      onClick={() =>
-                        this.setState({
-                          index2: 0
-                        })
-                      }
-                    />
+                    <div className="imgCaption">
+                      <img
+                        src={tempList[1][0]}
+                        onClick={() =>
+                          this.setState({
+                            index2: 0
+                          })
+                        }
+                      />
+                      {this.state.index2 === 0 ? "•" : <div>&ensp;</div>}
+                    </div>
                   </li>
                   <li>
-                    <img
-                      src={tempList[1][1]}
-                      onClick={() =>
-                        this.setState({
-                          index2: 1
-                        })
-                      }
-                    />
+                    <div className="imgCaption">
+                      <img
+                        src={tempList[1][1]}
+                        onClick={() =>
+                          this.setState({
+                            index2: 1
+                          })
+                        }
+                      />
+                      {this.state.index2 === 1 ? "•" : <div>&ensp;</div>}
+                    </div>
                   </li>
                   <li>
-                    <img
-                      src={tempList[1][2]}
-                      onClick={() =>
-                        this.setState({
-                          index2: 2
-                        })
-                      }
-                    />
+                    <div className="imgCaption">
+                      <img
+                        src={tempList[1][2]}
+                        onClick={() =>
+                          this.setState({
+                            index2: 2
+                          })
+                        }
+                      />
+                      {this.state.index2 === 2 ? "•" : <div>&ensp;</div>}
+                    </div>
                   </li>
                   <li>
-                    <img
-                      src={tempList[1][3]}
-                      onClick={() =>
-                        this.setState({
-                          index2: 3
-                        })
-                      }
-                    />
+                    <div className="imgCaption">
+                      <img
+                        src={tempList[1][3]}
+                        onClick={() =>
+                          this.setState({
+                            index2: 3
+                          })
+                        }
+                      />
+                      {this.state.index2 === 3 ? "•" : <div>&ensp;</div>}
+                    </div>
                   </li>
                 </ul>
               </div>

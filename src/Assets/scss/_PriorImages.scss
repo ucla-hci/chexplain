@@ -1,22 +1,22 @@
-@mixin PriorImages($width: 11.21%, $left: 89%, $height: 87%) {
+@mixin PriorImages($width: 11.71%, $left: 88.25%, $height: 88.2%) {
   .title {
-    @include defaultFont(0.95vw, normal);
+    @include defaultFont(0.93vw, normal);
     position: absolute;
-    left: 1.28%;
+    left: 4.78%;
     top: 1%;
   }
   .hiddenTitle {
-    @include defaultFont(0.95vw, normal, #5e6375);
+    @include defaultFont(0.93vw, normal, #5e6375);
     position: absolute;
-    left: 48.45%;
+    left: 49.75%;
     top: 1%;
     cursor: pointer;
   }
   .underline {
     position: absolute;
-    width: 5.06vw;
+    width: 4.9vw;
     height: 0vw;
-    left: 0.64%;
+    left: 3.84%;
     top: 3.71%;
     border: 0.11vw solid #42c0fc;
   }
@@ -33,7 +33,7 @@
       .imageCaption {
         width: 8vw;
         text-align: right;
-        @include defaultFont(0.625vw, normal, $lightBlue);
+        @include defaultFont(0.7vw, normal, $lightBlue);
         img {
           height: 7.5vw;
           display: table;
@@ -61,31 +61,31 @@
   @include PriorImages;
 }
 
-@mixin AcrossPatient($width: 11.21%, $left: 89%, $height: 87%) {
+@mixin AcrossPatient($width: 11.71%, $left: 88.25%, $height: 88.2%) {
   .title {
-    @include defaultFont(0.95vw, normal);
+    @include defaultFont(0.93vw, normal);
     position: absolute;
-    left: 48.45%;
+    left: 49.75%;
     top: 1%;
   }
   .hiddenTitle {
-    @include defaultFont(0.95vw, normal, #5e6375);
+    @include defaultFont(0.93vw, normal, #5e6375);
     position: absolute;
-    left: 1.28%;
+    left: 4.78%;
     top: 1%;
     cursor: pointer;
   }
   .underline {
     position: absolute;
-    width: 5.06vw;
+    width: 5.58vw;
     height: 0vw;
-    left: 48%;
+    left: 49%;
     top: 3.7%;
     border: 0.11vw solid #42c0fc;
   }
   .categoryList {
     position: absolute;
-    left: -3%;
+    left: -12%;
     top: 7%;
     @include defaultFont(0.925vw, normal, $white);
     ul,
@@ -101,14 +101,14 @@
       //list of image
       list-style-type: none !important;
       list-style-position: inside;
-      padding-bottom: 0.56vh;
+      padding-bottom: 0.96vh;
       padding-left: 0;
       .imageCaption {
-        width: 8vw;
+        width: 9vw;
         text-align: right;
         @include defaultFont(0.625vw, normal, $lightBlue);
         img {
-          height: 6.5vw;
+          height: 7.7vw;
           display: table;
           margin: 0 auto;
         }

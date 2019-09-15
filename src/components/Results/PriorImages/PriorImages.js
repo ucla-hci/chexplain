@@ -375,7 +375,6 @@ class PriorImages extends Component {
                 alt="Image_0"
                 onClick={() => this.handleClickCrossPatient(0)}
               />
-              {case11CrossPatient[0][1]}
             </div>
           </li>
           <li>
@@ -385,7 +384,6 @@ class PriorImages extends Component {
                 alt="Image_1"
                 onClick={() => this.handleClickCrossPatient(1)}
               />
-              {case11CrossPatient[1][1]}
             </div>
           </li>
           <li>
@@ -395,7 +393,6 @@ class PriorImages extends Component {
                 alt="Image_2"
                 onClick={() => this.handleClickCrossPatient(2)}
               />
-              {case11CrossPatient[2][1]}
             </div>
           </li>
         </ul>
@@ -656,9 +653,13 @@ class PriorImages extends Component {
         ? "ShowAnnotation_p"
         : "ShowAnnotation",
       showDiffButton = this.state.showDiff ? "ShowDiff_p" : "ShowDiff";
-    var obslistcurrent_s = new Set(caseCurrentCaption); //convert caption to set so we don't repeat observation
+    var obslistcurrent_s = new Set(
+      caseCurrentListDiffCaption[this.state.photoIndex]
+    ); //convert caption to set so we don't repeat observation
     var obslistcurrent = [...obslistcurrent_s]; //convert back to array so we can map through it
-    var obslistprior_s = new Set(prevCaseCaptions[this.state.photoIndex]);
+    var obslistprior_s = new Set(
+      prevCaseListsDiffCaptions[this.state.photoIndex]
+    );
     var obslistprior = [...obslistprior_s];
     let display = (
       <div>
