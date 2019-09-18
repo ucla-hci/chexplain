@@ -6,7 +6,7 @@ const Card = ({ title }) => (
   <div className="card">
     <div className="header">{title}</div>
     <div className="content">
-      When you toggle STAT on, the system will show you significant results
+      When you toggle Urgent on, the system will show you significant results
       tailored to your time constraint.
     </div>
   </div>

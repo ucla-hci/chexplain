@@ -388,6 +388,7 @@ class ToggleAnnotation extends Component {
               <AnnotationBubble
                 caption={caseNormalCaption[this.props.imageIndex][index]}
                 label={currElement}
+                col=""
               />
             );
           })}
@@ -395,15 +396,180 @@ class ToggleAnnotation extends Component {
         regardless of question input */}
         {!this.props.statMode &&
           casePressed.map((currElement, index) => {
-            return (
-              <div onClick={() => this.handleClickAnnotation(currElement)}>
-                <AnnotationBubble
-                  caption={caseAbnormalCaption[this.props.imageIndex][index]}
-                  label={currElement}
-                  id={currElement}
-                />
-              </div>
-            );
+            if (this.props.imageIndex === 0) {
+              if (
+                (questionInput.length === 1 &&
+                  questionInput[0] === "Pneumonia") ||
+                questionInput.length >= 2
+              ) {
+                if (index >= 3 && index <= 7) {
+                  return (
+                    <div
+                      onClick={() => this.handleClickAnnotation(currElement)}
+                    >
+                      <AnnotationBubble
+                        caption={
+                          caseAbnormalCaption[this.props.imageIndex][index]
+                        }
+                        label={currElement}
+                        id={currElement}
+                        col="blue"
+                      />
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div
+                      onClick={() => this.handleClickAnnotation(currElement)}
+                    >
+                      <AnnotationBubble
+                        caption={
+                          caseAbnormalCaption[this.props.imageIndex][index]
+                        }
+                        label={currElement}
+                        id={currElement}
+                        col=""
+                      />
+                    </div>
+                  );
+                }
+              } else if (
+                questionInput.length === 1 &&
+                questionInput[0] === "Chest Pain"
+              ) {
+                if (index === 3 || index === 6 || index === 7) {
+                  return (
+                    <div
+                      onClick={() => this.handleClickAnnotation(currElement)}
+                    >
+                      <AnnotationBubble
+                        caption={
+                          caseAbnormalCaption[this.props.imageIndex][index]
+                        }
+                        label={currElement}
+                        id={currElement}
+                        col="blue"
+                      />
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div
+                      onClick={() => this.handleClickAnnotation(currElement)}
+                    >
+                      <AnnotationBubble
+                        caption={
+                          caseAbnormalCaption[this.props.imageIndex][index]
+                        }
+                        label={currElement}
+                        id={currElement}
+                        col=""
+                      />
+                    </div>
+                  );
+                }
+              } else {
+                return (
+                  <div onClick={() => this.handleClickAnnotation(currElement)}>
+                    <AnnotationBubble
+                      caption={
+                        caseAbnormalCaption[this.props.imageIndex][index]
+                      }
+                      label={currElement}
+                      id={currElement}
+                      col=""
+                    />
+                  </div>
+                );
+              }
+            } else {
+              if (
+                questionInput.length === 2 ||
+                (questionInput.length === 1 &&
+                  (questionInput[0] === "Cough" ||
+                    questionInput[0] === "Shortness of Breath"))
+              ) {
+                if (index === 3 || index === 4) {
+                  return (
+                    <div
+                      onClick={() => this.handleClickAnnotation(currElement)}
+                    >
+                      <AnnotationBubble
+                        caption={
+                          caseAbnormalCaption[this.props.imageIndex][index]
+                        }
+                        label={currElement}
+                        id={currElement}
+                        col="blue"
+                      />
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div
+                      onClick={() => this.handleClickAnnotation(currElement)}
+                    >
+                      <AnnotationBubble
+                        caption={
+                          caseAbnormalCaption[this.props.imageIndex][index]
+                        }
+                        label={currElement}
+                        id={currElement}
+                        col=""
+                      />
+                    </div>
+                  );
+                }
+              } else if (
+                questionInput.length === 1 &&
+                questionInput[0] === "Cardiac"
+              ) {
+                if (index === 3) {
+                  return (
+                    <div
+                      onClick={() => this.handleClickAnnotation(currElement)}
+                    >
+                      <AnnotationBubble
+                        caption={
+                          caseAbnormalCaption[this.props.imageIndex][index]
+                        }
+                        label={currElement}
+                        id={currElement}
+                        col="blue"
+                      />
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div
+                      onClick={() => this.handleClickAnnotation(currElement)}
+                    >
+                      <AnnotationBubble
+                        caption={
+                          caseAbnormalCaption[this.props.imageIndex][index]
+                        }
+                        label={currElement}
+                        id={currElement}
+                        col=""
+                      />
+                    </div>
+                  );
+                }
+              } else {
+                return (
+                  <div onClick={() => this.handleClickAnnotation(currElement)}>
+                    <AnnotationBubble
+                      caption={
+                        caseAbnormalCaption[this.props.imageIndex][index]
+                      }
+                      label={currElement}
+                      id={currElement}
+                      col=""
+                    />
+                  </div>
+                );
+              }
+            }
           })}
         {/* below is rendered in STAT mode, in STAT mode we show annotation
         related to question input */}
@@ -428,6 +594,7 @@ class ToggleAnnotation extends Component {
                         }
                         label={currElement}
                         id={currElement}
+                        col=""
                       />
                     </div>
                   );
@@ -449,6 +616,7 @@ class ToggleAnnotation extends Component {
                         }
                         label={currElement}
                         id={currElement}
+                        color=""
                       />
                     </div>
                   );
@@ -464,6 +632,7 @@ class ToggleAnnotation extends Component {
                       }
                       label={currElement}
                       id={currElement}
+                      color=""
                     />
                   </div>
                 );
@@ -488,6 +657,7 @@ class ToggleAnnotation extends Component {
                         }
                         label={currElement}
                         id={currElement}
+                        col=""
                       />
                     </div>
                   );
@@ -509,6 +679,7 @@ class ToggleAnnotation extends Component {
                         }
                         label={currElement}
                         id={currElement}
+                        col=""
                       />
                     </div>
                   );
@@ -524,6 +695,7 @@ class ToggleAnnotation extends Component {
                       }
                       label={currElement}
                       id={currElement}
+                      col=""
                     />
                   </div>
                 );

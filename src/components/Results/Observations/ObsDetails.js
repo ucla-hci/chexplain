@@ -12,16 +12,20 @@ class ObsDetails extends Component {
           <li>
             <div className="imageCaption">
               <img src={this.props.image1} />
-              {this.props.caption1}
             </div>
           </li>
           <li>
             <div className="imageCaption">
               <img src={this.props.image2} />
-              {this.props.caption2}
             </div>
           </li>
         </ul>
+        <div className="line">
+          <img src={require("../../../images/linearrow.png")} width="500px" />
+        </div>
+        <div className="squarelikely" />
+        <div className="squareverylikely" />
+        <div className="squaredefinitely" />
       </div>
     );
   }

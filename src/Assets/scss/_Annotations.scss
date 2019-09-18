@@ -87,9 +87,13 @@ $baseHeight: 898;
     z-index: 980;
     @if $red == true {
       @if $opac != 0.55 {
-        border: 0.139vw dotted red;
+        border: 0.139vw red;
+        border-width: 0.139vw;
+        border-style: dotted;
       } @else {
-        border: 0.313vw solid red;
+        border: 0.313vw red;
+        border-width: 0.313vw;
+        border-style: solid;
       }
       cursor: pointer;
     } @else {
@@ -113,6 +117,10 @@ $baseHeight: 898;
       background: rgba(50, 169, 30, $opac);
     }
   }
+}
+
+.blue {
+  border-color: #0669fd !important;
 }
 $opacLight: 0.2;
 //CASE 11

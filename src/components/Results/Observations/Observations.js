@@ -53,7 +53,7 @@ class Observations extends Component {
     document.getElementById(observation).style.color = "#FFFFFF"; //sets color of clicked observation to blue
     document.getElementById(observation).style.fontWeight = "600";
     if (this.props.imageIndex === 0) {
-      if (observation !== "Cardiomegaly" && observation !== "Support Device")
+      if (observation !== "Support Device")
         document.getElementById(
           "triangle" + observation.replace(/ /g, "")
         ).style.display = "inline";

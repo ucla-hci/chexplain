@@ -5,30 +5,30 @@
     color: $white;
     position: absolute;
     top: 16%;
-    left: -3.3%;
+    left: -3.4%;
     height: 29.8vh;
-    width: 41.319vw;
+    width: 49.319vw;
     z-index: 991;
-    // border: 5px solid white;
     .obsDetails {
       ul,
       li {
         list-style-type: none !important;
         list-style-position: inside;
         display: inline-block;
-        margin-right: 1.042vw;
+        margin-right: 4.542vw;
         margin-left: 0;
       }
       .imageCaption {
-        width: 17.069vw;
-        height: 29.88888888888889vh;
-        @include defaultFont(1.025vw, normal, $white);
-        text-align: center;
         img {
           display: table;
           margin: 0 auto;
           width: 15.069vw;
         }
+      }
+      .line {
+        position: absolute;
+        top: 90%;
+        left: 6%;
       }
     }
     .annoDetails {

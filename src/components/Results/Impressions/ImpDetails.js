@@ -6,7 +6,8 @@ import Popup from "reactjs-popup";
 const Card = ({ title }) => (
   <div className="card">
     <div className="header">
-      Prevalence is the percentage of the population in the US with a certain
+      Prevalence is the percentage of the population in the{" "}
+      <em>age and gender of the selected patient</em> in the US with a certain
       differential diagnosis.
     </div>
   </div>
@@ -32,7 +33,7 @@ class ImpDetails extends Component {
                 <Card />
               </Popup>
             </li>
-            <li>Factors that decrease probability: </li>
+            <li>Known factors that decrease probability: </li>
             <li>
               <div className="nestedExplan">
                 <ul>
@@ -46,7 +47,7 @@ class ImpDetails extends Component {
                 </ul>
               </div>
             </li>
-            <li>Factors that increase probability: </li>
+            <li>Known factors that increase probability: </li>
             <li>
               <div className="nestedExplan">
                 <ul>

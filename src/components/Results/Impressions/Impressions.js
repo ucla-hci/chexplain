@@ -5,11 +5,16 @@ import ImpDetails from "./ImpDetails";
 const congHeartFailureExplan = [
   [1.8],
   ["Heart Evaluable"],
-  [["Cardiomegaly", "text"], ["Pleural Effusion", "text"], ["Obesity", "text"]]
+  [
+    ["Cardiomegaly", "text"],
+    ["Edema", "text"],
+    ["Pleural Effusion", "text"],
+    ["Obesity", "text"]
+  ]
 ];
 
 const pneumoniaExplan = [
-  [7],
+  [3],
   ["Right lung and visible left lung Evaulable"],
   [
     ["Actelectasis", "text"],
@@ -85,7 +90,9 @@ class Impressions extends Component {
   render() {
     let congHeartFailure = (
       <HoverWindow
-        title={"Congestive Heart Failure (Factors that influence probability)"}
+        title={
+          "Congestive Heart Failure (Known factors that influence probability)"
+        }
       >
         <ImpDetails
           base={congHeartFailureExplan[0]}
@@ -95,7 +102,9 @@ class Impressions extends Component {
       </HoverWindow>
     );
     let pneumonia = (
-      <HoverWindow title={"Pneumonia (Factors that influence probability)"}>
+      <HoverWindow
+        title={"Pneumonia (Known factors that influence probability)"}
+      >
         <ImpDetails
           base={pneumoniaExplan[0]}
           pos={pneumoniaExplan[1]}
@@ -104,7 +113,9 @@ class Impressions extends Component {
       </HoverWindow>
     );
     let lungCancer = (
-      <HoverWindow title={"Lung Cancer (Factors that influence probability)"}>
+      <HoverWindow
+        title={"Lung Cancer (Known factors that influence probability)"}
+      >
         <ImpDetails
           base={lungCancerExplan[0]}
           pos={lungCancerExplan[1]}
@@ -114,7 +125,7 @@ class Impressions extends Component {
     );
     let percicardial = (
       <HoverWindow
-        title={"Pericardial Disease (Factors that influence probability)"}
+        title={"Pericardial Disease (Known factors that influence probability)"}
       >
         <ImpDetails
           base={pericardialExplan[0]}
@@ -125,7 +136,7 @@ class Impressions extends Component {
     );
     let heartValve = (
       <HoverWindow
-        title={"Heart Valve Disease (Factors that influence probability)"}
+        title={"Heart Valve Disease (Known factors that influence probability)"}
       >
         <ImpDetails
           base={heartvalveExplan[0]}

@@ -35,14 +35,14 @@ const observationPercentageData = [
 
 //PATIENT IMPRESSION DATA
 const impressionData = [
-  ["Congestive Heart Failure", "Pneumonia"], //patient 11
+  ["Pneumonia", "Congestive Heart Failure"], //patient 11
   ["Pericardial Disease", "Heart Valve Disease", "Congestive Heart Failure"]
   //TODO: ADD OTHER PATIENT'S IMPRESSION HERE
 ];
 
 //PATIENT IMPRESSION PERCENTAGE DATA
 const impressionPercentageData = [
-  ["<Likely>", "<Likely>"], //patient 11
+  ["<Very Likely>", "<Likely>"], //patient 11
   ["<Likely>", "<Likely>", "<Likely>"]
   //TODO: ADD OTHER PATIENT'S IMPRESSION CONFIDENCE HERE
 ];
@@ -82,6 +82,7 @@ class Results extends Component {
         case this.state.impressions[0]: //if clicked impression is impressions[0], then highlight edema and pleural
           tempList.push("Edema");
           tempList.push("Pleural Effusion");
+          tempList.push("Cardiomegaly");
           break;
         case this.state.impressions[1]:
           tempList.push("Atelectasis");
@@ -120,7 +121,7 @@ class Results extends Component {
       document.getElementById(currElement).style.color = "#FFFFFF"; //sets color of clicked currElement to blue
       document.getElementById(currElement).style.fontWeight = "600";
       if (this.props.imageIndex === 0) {
-        if (currElement !== "Cardiomegaly" && currElement !== "Support Device")
+        if (currElement !== "Support Device")
           document.getElementById(
             "triangle" + currElement.replace(/ /g, "")
           ).style.display = "inline";
@@ -183,6 +184,7 @@ class Results extends Component {
       if (this.props.imageIndex === 0) {
         switch (currElement) {
           case "Edema":
+          case "Cardiomegaly":
             document.getElementById(impressions[0]).style.color = "#FFFFFF";
             document.getElementById(impressions[0]).style.fontWeight = "600";
             break;
