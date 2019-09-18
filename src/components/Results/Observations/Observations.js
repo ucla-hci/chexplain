@@ -79,6 +79,7 @@ class Observations extends Component {
           image2={cardiomegalyImage[1]}
           caption1={captionTemplate1 + "Cardiomegaly"}
           caption2={captionTemplate2 + "Cardiomegaly"}
+          likelyhood={1}
         />
       </HoverWindow>
     );
@@ -89,6 +90,7 @@ class Observations extends Component {
           image2={edemaImage[1]}
           caption1={captionTemplate1 + "Edema"}
           caption2={captionTemplate2 + "Edema"}
+          likelyhood={1}
         />
       </HoverWindow>
     );
@@ -99,6 +101,7 @@ class Observations extends Component {
           image2={atelectasisImage[1]}
           caption1={captionTemplate1 + "Atelectasis"}
           caption2={captionTemplate2 + "Atelectasis"}
+          likelyhood={1}
         />
       </HoverWindow>
     );
@@ -109,6 +112,7 @@ class Observations extends Component {
           image2={pleuralEffusionImage[1]}
           caption1={captionTemplate1 + "Pleural Effusion"}
           caption2={captionTemplate2 + "Pleural Effusion"}
+          likelyhood={2}
         />
       </HoverWindow>
     );
@@ -119,6 +123,7 @@ class Observations extends Component {
           image2={supportDeviceImage[1]}
           caption1={captionTemplate1 + "Support Device"}
           caption2={captionTemplate2 + "Support Device"}
+          likelyhood={3}
         />
       </HoverWindow>
     );

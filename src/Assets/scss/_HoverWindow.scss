@@ -28,7 +28,58 @@
       .line {
         position: absolute;
         top: 90%;
-        left: 6%;
+        left: 5%;
+      }
+      .squarelikely {
+        position: absolute;
+        width: 4%;
+        height: 0px;
+        left: 40%;
+        top: 92%;
+        z-index: 999;
+        border: 15px solid #ffffff;
+        transform: rotate(90deg);
+      }
+      .squareverylikely {
+        position: absolute;
+        width: 4%;
+        height: 0px;
+        left: 50%;
+        top: 92%;
+        z-index: 999;
+        border: 15px solid #ffffff;
+        transform: rotate(90deg);
+      }
+      .squaredefinitely {
+        position: absolute;
+        width: 4%;
+        height: 0px;
+        left: 60%;
+        top: 92%;
+        z-index: 999;
+        border: 15px solid #ffffff;
+        transform: rotate(90deg);
+      }
+      .currentlikely {
+        position: absolute;
+        left: 39%;
+        top: 105%;
+        z-index: 999;
+        @include defaultFont(1vw, normal, $white);
+      }
+      .currentverylikely {
+        position: absolute;
+        left: 49%;
+        top: 105%;
+        z-index: 999;
+        @include defaultFont(1vw, normal, $white);
+      }
+      .currentdefinitely {
+        position: absolute;
+        left: 59%;
+        top: 105%;
+        z-index: 999;
+        @include defaultFont(1vw, normal, $white);
       }
     }
     .annoDetails {
