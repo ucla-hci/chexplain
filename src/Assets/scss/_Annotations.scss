@@ -57,6 +57,16 @@
     left: 78.4%;
     @include defaultButton($lightBlue);
   }
+  .cardioReplace {
+    border: 5px solid white;
+    position: absolute;
+    top: 46%;
+    left: 32%;
+    z-index: 999;
+    img {
+      width: 290px;
+    }
+  }
 }
 
 $baseWidth: 1094;

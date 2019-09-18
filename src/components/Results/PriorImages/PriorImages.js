@@ -667,7 +667,7 @@ class PriorImages extends Component {
           {this.state.priorImageMode && (
             <div className="PriorImageObservation1">
               <div className="title">
-                <div className="text">Observations</div>
+                <div className="text">Disappeared Observations</div>
               </div>
               <div className="obList2">
                 <ul>
@@ -681,7 +681,7 @@ class PriorImages extends Component {
           {this.state.priorImageMode && (
             <div className="PriorImageObservation2">
               <div className="title">
-                <div className="text">Observations</div>
+                <div className="text">New Observations</div>
               </div>
               <div className="obList2">
                 <ul>

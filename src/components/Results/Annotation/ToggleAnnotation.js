@@ -134,7 +134,9 @@ class ToggleAnnotation extends Component {
       clicked: [],
       clickedAnno: "",
       casePressed: caseList[this.props.imageIndex],
-      caseNormal: caseListNormal[this.props.imageIndex]
+      caseNormal: caseListNormal[this.props.imageIndex],
+      //new state for ann image replace
+      caseReplace: ""
     };
   }
 
@@ -221,12 +223,13 @@ class ToggleAnnotation extends Component {
     }
   }
   // NOTE: called when annotation is clicked/hovered
-  handleClickAnnotation(clickedElement, index = -1) {
+  handleClickAnnotation(clickedElement) {
     this.setState({
       clickedAnno: clickedElement
     });
     let tempList = [...caseList[this.props.imageIndex]];
     let callbackList = [];
+    let tempReplace = "";
     //case list listens for when annotation is clicked similar annoation should be highlighted
     if (this.props.imageIndex === 0) {
       switch (
@@ -235,20 +238,24 @@ class ToggleAnnotation extends Component {
         case caseList[this.props.imageIndex][5]: //cardio
           tempList[5] += "_p"; //changes clicked annotation to highlighted
           callbackList.push("Cardiomegaly"); //push related observation back to callback list, so we know which observation to highlight
+          tempReplace = "Cardiomegaly";
           break;
         case caseList[this.props.imageIndex][4]: //edema
           tempList[4] += "_p";
           callbackList.push("Edema");
+          tempReplace = "Edema";
           break;
         case caseList[this.props.imageIndex][3]: //atelect
           tempList[3] += "_p";
           callbackList.push("Atelectasis");
+          tempReplace = "Atelectasis";
           break;
         case caseList[this.props.imageIndex][6]: //pleurl
         case caseList[this.props.imageIndex][7]: //pleurl
           tempList[6] += "_p";
           tempList[7] += "_p";
           callbackList.push("Pleural Effusion");
+          tempReplace = "Pleural Effusion";
           break;
         case caseList[this.props.imageIndex][0]: //support 1
         case caseList[this.props.imageIndex][1]: //support 2
@@ -285,7 +292,8 @@ class ToggleAnnotation extends Component {
     }
     if (JSON.stringify(tempList) != JSON.stringify(this.state.casePressed)) {
       this.setState({
-        casePressed: tempList
+        casePressed: tempList,
+        caseReplace: tempReplace
       });
     }
     this.props.callbackFromParent(callbackList);
@@ -713,7 +721,19 @@ class ToggleAnnotation extends Component {
     );
     let toggle = this.state.onlyAbnormal ? "pressed_t" : "toggle";
     let customize = this.state.customizeMode ? "pressed_c" : "customize"; //for now, will have two div modes later when design is decided
-
+    // below is elements fir image replacement for clicked annotation
+    let cardioReplace = (
+      <div
+        className="cardioReplace"
+        onClick={() =>
+          this.setState({
+            caseReplace: ""
+          })
+        }
+      >
+        <img src={require("../../../images/cardiomegaly.png")} />
+      </div>
+    );
     return (
       <div>
         <div className="Annotations" key={this.props.clickedObservation}>
@@ -727,6 +747,7 @@ class ToggleAnnotation extends Component {
           )}
           {this.state.show && showAllButton}
           {this.state.show && this.state.showAll && allCircle}
+          {this.state.caseReplace === "Cardiomegaly" && cardioReplace}
         </div>
         <div>
           {this.props.clickedComponent === "annotations" &&

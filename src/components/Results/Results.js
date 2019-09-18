@@ -7,11 +7,7 @@ import ToggleAnnotation from "./Annotation/ToggleAnnotation";
 import PriorImages2 from "./PriorImages/PriorImagesCase2";
 import PriorImages from "./PriorImages/PriorImages";
 import AdjustQuery from "./AdjustQuery";
-import HoverWindow from "./HoverWindow";
 import TimeConstraint from "../Inputs/TimeConstraint";
-
-const PATIENT_NUMBER = 1;
-// change patient number to 2 for your case
 
 //PATIENT OBSERVATION DATA
 const observationData = [
@@ -155,7 +151,7 @@ class Results extends Component {
       document.getElementById(currElement).style.color = "#FFFFFF"; //sets color of clicked currElement to blue
       document.getElementById(currElement).style.fontWeight = "600";
       if (this.props.imageIndex === 0) {
-        if (currElement !== "Cardiomegaly" && currElement !== "Support Device")
+        if (currElement !== "Support Device")
           document.getElementById(
             "triangle" + currElement.replace(/ /g, "")
           ).style.display = "inline";
