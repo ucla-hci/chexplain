@@ -140,10 +140,7 @@
     margin: 0;
     top: 1.8%;
     left: 1.78%;
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.111vw;
+    @include defaultFont(1.211vw, regular);
     line-height: 1.944vw;
     color: $white;
   }

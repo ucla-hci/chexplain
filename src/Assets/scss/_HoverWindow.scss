@@ -38,23 +38,15 @@
       }
       .squareverylikely {
         position: absolute;
-        width: 4%;
-        height: 0px;
         left: 50%;
-        top: 92%;
+        top: 86.6%;
         z-index: 999;
-        border: 15px solid #ffffff;
-        transform: rotate(90deg);
       }
       .squaredefinitely {
         position: absolute;
-        width: 4%;
-        height: 0px;
         left: 60%;
-        top: 92%;
+        top: 86.6%;
         z-index: 999;
-        border: 15px solid #ffffff;
-        transform: rotate(90deg);
       }
       .currentlikely {
         position: absolute;
@@ -65,15 +57,15 @@
       }
       .currentverylikely {
         position: absolute;
-        left: 49%;
-        top: 105%;
+        left: 50%;
+        top: 100%;
         z-index: 999;
         @include defaultFont(1vw, normal, $white);
       }
       .currentdefinitely {
         position: absolute;
-        left: 59%;
-        top: 105%;
+        left: 60%;
+        top: 100%;
         z-index: 999;
         @include defaultFont(1vw, normal, $white);
       }

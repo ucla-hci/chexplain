@@ -640,26 +640,33 @@ class PriorImages extends Component {
         ? "ShowAnnotation_p"
         : "ShowAnnotation",
       showDiffButton = this.state.showDiff ? "ShowDiff_p" : "ShowDiff";
-    var obslistcurrent_s = new Set(
-      caseCurrentListDiffCaption[this.state.photoIndex]
-    ); //convert caption to set so we don't repeat observation
+    var obslistcurrent_s = new Set(caseCurrentCaption); //convert caption to set so we don't repeat observation
     var obslistcurrent = [...obslistcurrent_s]; //convert back to array so we can map through it
-    var obslistprior_s = new Set(
-      prevCaseListsDiffCaptions[this.state.photoIndex]
-    );
+    var obslistprior_s = new Set(prevCaseCaptions[this.state.photoIndex]);
     var obslistprior = [...obslistprior_s];
+    let tempbool = false;
     let display = (
       <div>
         <div className="display">
           {this.state.priorImageMode && (
             <div className="PriorImageObservation1">
-              <div className="title">
-                <div className="text">Disappeared Observations</div>
-              </div>
               <div className="obList2">
+                <div>Observations:</div>
                 <ul>
-                  {obslistprior.map((currElement, index) => {
-                    return <li>{currElement}</li>;
+                  {obslistprior.map(currElement => {
+                    return (
+                      <li>
+                        {prevCaseListsDiffCaptions[this.state.photoIndex].map(
+                          currDiff => {
+                            tempbool = false;
+                            if (currDiff === currElement) {
+                              tempbool = true;
+                            }
+                          }
+                        )}
+                        {tempbool ? <em>{currElement}</em> : currElement}.
+                      </li>
+                    );
                   })}
                 </ul>
               </div>
@@ -667,18 +674,29 @@ class PriorImages extends Component {
           )}
           {this.state.priorImageMode && (
             <div className="PriorImageObservation2">
-              <div className="title">
-                <div className="text">New Observations</div>
-              </div>
               <div className="obList2">
+                <div>Observations:</div>
                 <ul>
-                  {obslistcurrent.map((currElement, index) => {
-                    return <li>{currElement}</li>;
+                  {obslistcurrent.map(currElement => {
+                    tempbool = false;
+                    return (
+                      <li>
+                        {caseCurrentListDiffCaption[this.state.photoIndex].map(
+                          currDiff => {
+                            if (currDiff === currElement) {
+                              tempbool = true;
+                            }
+                          }
+                        )}
+                        {tempbool ? <em>{currElement}</em> : currElement}.
+                      </li>
+                    );
                   })}
                 </ul>
               </div>
             </div>
           )}
+          <div className="title1">Current CXR Image 2019/7/10</div>
           <div className="currentImage">
             {!this.state.showAnnotation && !this.state.showDiff && (
               <Magnifier
@@ -697,12 +715,23 @@ class PriorImages extends Component {
               this.state.priorImageMode &&
               currentImageAnnotationDiff}
             {!this.state.priorImageMode && currentAnno}
-            <div className="text">Current CXR Image 2019/7/10</div>
           </div>
           <div className="divider2" />
           <div className="divider2" />
           <div className="divider2" />
           <div className="divider" />
+          <div className="title2">
+            {caption}
+            {this.state.priorImageMode
+              ? dates[this.state.photoIndex]
+              : case11CrossPatient[this.state.photoIndex % 3][1]}
+            {!this.state.priorImageMode &&
+              "(" +
+                case11CrossPatient[this.state.photoIndex % 3][2] +
+                ". " +
+                case11CrossPatient[this.state.photoIndex % 3][3] +
+                ")"}
+          </div>
           <div className="priorImage">
             {!this.state.showAnnotation && !this.state.showDiff && (
               <div className="image">
@@ -735,18 +764,6 @@ class PriorImages extends Component {
               this.state.pleuralList &&
               pleuralAnno}
             {/* END */}
-            <div className="text">
-              {caption}
-              {this.state.priorImageMode
-                ? dates[this.state.photoIndex]
-                : case11CrossPatient[this.state.photoIndex % 3][1]}
-              {!this.state.priorImageMode &&
-                "(" +
-                  case11CrossPatient[this.state.photoIndex % 3][2] +
-                  ". " +
-                  case11CrossPatient[this.state.photoIndex % 3][3] +
-                  ")"}
-            </div>
           </div>
           <div className="headerPriorImage">
             <div className="PatientInfo">

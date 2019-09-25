@@ -39,10 +39,7 @@
     left: 1.04%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.111vw;
+    @include defaultFont(1.211vw, regular);
     line-height: 1.944vw;
     color: $white;
   }

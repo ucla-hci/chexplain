@@ -41,13 +41,29 @@ class ObsDetails extends Component {
         )}
         {this.props.likelyhood === 2 && (
           <div>
-            <div className="squareverylikely" />
+            <IconContext.Provider
+              value={{
+                color: "white",
+                size: "2.6em",
+                className: "squareverylikely"
+              }}
+            >
+              <TiArrowSortedDown />
+            </IconContext.Provider>
             <div className="currentverylikely">Current</div>
           </div>
         )}
         {this.props.likelyhood === 3 && (
           <div>
-            <div className="squaredefinitely" />
+            <IconContext.Provider
+              value={{
+                color: "white",
+                size: "2.6em",
+                className: "squaredefinitely"
+              }}
+            >
+              <TiArrowSortedDown />
+            </IconContext.Provider>
             <div className="currentdefinitely">Current</div>
           </div>
         )}

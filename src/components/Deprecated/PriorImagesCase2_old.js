@@ -1,9 +1,9 @@
 // TODO: CHANGE THIS FILE TO MATCH YOUR CASE
 import React, { Component } from "react";
-import Magnifier from "../../Magnifier.es";
+import Magnifier from "../Magnifier.es";
 import { GoX } from "react-icons/go";
 import { IconContext } from "react-icons";
-import AnnotationBubble from "../Annotation/AnnotationBubble";
+import AnnotationBubble from "../Results/Annotation/AnnotationBubble";
 
 //below are case 11 prior images, change it to your prior images
 const case21653images = [
