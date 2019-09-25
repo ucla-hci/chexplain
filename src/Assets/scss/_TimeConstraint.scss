@@ -57,19 +57,29 @@
     $height: 22.2vh
   );
 }
-
+.UrgencyTitle {
+  @include defaultFont(1.16vw, normal);
+  position: absolute;
+  top: 90.01%;
+  left: 69.9%;
+  z-index: 982;
+}
+.UrgencyTitle_result {
+  @include defaultFont(1.16vw, normal);
+  position: absolute;
+  top: 1.8%;
+  left: 69.5%;
+  z-index: 982;
+}
 .TimeConstraintToggle {
   position: absolute;
-  top: 87.5%;
-  left: 74%;
+  top: 90.1%;
+  left: 74.5%;
   z-index: 982;
-  .text {
-    @include defaultFont(1.1vw, normal);
-  }
 }
 .TimeConstraintToggle_result {
   position: absolute;
-  top: 0.5%;
+  top: 2%;
   left: 74%;
   z-index: 999;
   .text {

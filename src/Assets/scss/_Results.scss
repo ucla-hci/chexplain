@@ -1,7 +1,7 @@
 //result box is used for Observations and Differential Diagnosis
 @mixin resultBox(
   $top: 7.56%,
-  $left: 49.57%,
+  $left: 48.77%,
   $position: absolute,
   $width: 24.86%,
   $height: 46.78%
@@ -89,15 +89,41 @@
 }
 
 .Impressions {
-  @include resultBox(7.56%, 68.72%, absolute, 19%);
+  @include resultBox(7.56%, 68.72%, absolute, 17.5%);
 }
 
 .PriorImageObservation1 {
-  @include resultBox(70%, 46%, absolute, 40%);
+  position: absolute;
+  top: 78%;
+  left: 45.6%;
+  width: 38%;
+  @include defaultFont(1.1vw, regular, $white);
+  em {
+    @include defaultFont(1.1vw, bold, $white);
+  }
+  ul,
+  li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 5px;
+  }
 }
 
 .PriorImageObservation2 {
-  @include resultBox(70%, 3%, absolute, 37%);
+  position: absolute;
+  top: 78%;
+  left: 1.8%;
+  width: 38%;
+  @include defaultFont(1.1vw, regular, $white);
+  em {
+    @include defaultFont(1.1vw, bold, #f63434);
+  }
+  ul,
+  li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 5px;
+  }
 }
 
 .imageDisplayWindow {

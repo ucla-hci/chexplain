@@ -734,6 +734,49 @@ class ToggleAnnotation extends Component {
         <img src={require("../../../images/cardiomegaly.png")} />
       </div>
     );
+    let edemaReplace = (
+      <div
+        className="edemaReplace"
+        onClick={() =>
+          this.setState({
+            caseReplace: ""
+          })
+        }
+      >
+        <img src={require("../../../images/edema.png")} />
+      </div>
+    );
+    let atelectasisReplace = (
+      <div
+        className="atelectasisReplace"
+        onClick={() =>
+          this.setState({
+            caseReplace: ""
+          })
+        }
+      >
+        <img src={require("../../../images/atelectasis.png")} />
+      </div>
+    );
+    let pleuralReplace = (
+      <div
+        className="pleuralReplace"
+        onClick={() =>
+          this.setState({
+            caseReplace: ""
+          })
+        }
+      >
+        <img
+          className="left"
+          src={require("../../../images/pleuralleft.png")}
+        />
+        <img
+          className="right"
+          src={require("../../../images/pleuralright.png")}
+        />
+      </div>
+    );
     return (
       <div>
         <div className="Annotations" key={this.props.clickedObservation}>
@@ -747,7 +790,27 @@ class ToggleAnnotation extends Component {
           )}
           {this.state.show && showAllButton}
           {this.state.show && this.state.showAll && allCircle}
-          {this.state.caseReplace === "Cardiomegaly" && cardioReplace}
+          {this.state.showAll &&
+            !this.props.statMode &&
+            this.state.caseReplace === "Cardiomegaly" &&
+            cardioReplace}
+          {this.state.showAll &&
+            !this.props.statMode &&
+            this.state.caseReplace === "Edema" &&
+            edemaReplace}
+          {this.state.showAll &&
+            !this.props.statMode &&
+            this.state.caseReplace === "Atelectasis" &&
+            atelectasisReplace}
+          {this.state.showAll &&
+            !this.props.statMode &&
+            this.state.caseReplace === "Pleural Effusion" &&
+            pleuralReplace}
+          <img
+            className="legend"
+            src={require("../../../images/legend.png")}
+            width="280.3px"
+          />
         </div>
         <div>
           {this.props.clickedComponent === "annotations" &&

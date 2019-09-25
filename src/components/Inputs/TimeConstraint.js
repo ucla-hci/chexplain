@@ -32,25 +32,29 @@ class TimeConstraint extends Component {
     var divName = this.props.type
       ? "TimeConstraintToggle"
       : "TimeConstraintToggle_result";
+    var divName2 = this.props.type ? "UrgencyTitle" : "UrgencyTitle_result";
+    var divName3 = this.props.type ? "top" : "left top";
     return (
-      <div className={divName}>
-        <Popup
-          trigger={
-            <div>
-              <div className="text">Urgent</div>
-              <Toggle
-                defaultChecked={this.props.data}
-                icons={false}
-                onChange={() => this.handleClick(!this.state.stat)}
-              />
-            </div>
-          }
-          position="left top"
-          on="hover"
-          defaultOpen={this.props.type}
-        >
-          <Card title="Urgency Level" />
-        </Popup>
+      <div>
+        <div className={divName2}>Urgency:</div>
+        <div className={divName}>
+          <Popup
+            trigger={
+              <div>
+                <Toggle
+                  defaultChecked={this.props.data}
+                  icons={false}
+                  onChange={() => this.handleClick(!this.state.stat)}
+                />
+              </div>
+            }
+            position={divName3}
+            on="hover"
+            defaultOpen={this.props.type}
+          >
+            <Card title="Urgency Level" />
+          </Popup>
+        </div>
       </div>
     );
   }

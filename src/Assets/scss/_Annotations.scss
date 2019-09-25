@@ -15,18 +15,23 @@
       border: 5px solid $white;
     }
   }
+  .legend {
+    position: absolute;
+    top: 101.5%;
+    left: 9%;
+  }
   .toggle {
     position: absolute;
     z-index: 900;
-    top: 93.12%;
-    left: 60.6%;
+    top: 101%;
+    left: 58.6%;
     @include defaultButton($darkGrey, 0.972vw, normal);
   }
   .showAll {
     position: absolute;
     z-index: 900;
-    top: 93.12%;
-    left: 78.4%;
+    top: 101%;
+    left: 76%;
     @include defaultButton;
   }
   .customize {
@@ -46,25 +51,63 @@
   .pressed_t {
     position: absolute;
     z-index: 900;
-    top: 93.12%;
-    left: 60.6%;
+    top: 101%;
+    left: 58.6%;
     @include defaultButton($lightBlue, 0.972vw, normal);
   }
   .pressed_s {
     position: absolute;
     z-index: 900;
-    top: 93.12%;
-    left: 78.4%;
+    top: 101%;
+    left: 76%;
     @include defaultButton($lightBlue);
   }
   .cardioReplace {
-    border: 5px solid white;
+    border: 5px solid red;
     position: absolute;
     top: 46%;
     left: 32%;
     z-index: 999;
     img {
       width: 290px;
+    }
+  }
+  .edemaReplace {
+    border: 5px solid red;
+    position: absolute;
+    top: 49%;
+    left: 52%;
+    z-index: 999;
+    img {
+      width: 210px;
+    }
+  }
+  .atelectasisReplace {
+    border: 5px solid red;
+    position: absolute;
+    top: 22%;
+    left: 55%;
+    z-index: 999;
+    img {
+      width: 160px;
+    }
+  }
+  .pleuralReplace {
+    .left {
+      border: 5px solid red;
+      position: absolute;
+      top: 69%;
+      left: 13%;
+      z-index: 999;
+      width: 140px;
+    }
+    .right {
+      border: 5px solid red;
+      position: absolute;
+      top: 65%;
+      left: 66%;
+      z-index: 999;
+      width: 110px;
     }
   }
 }

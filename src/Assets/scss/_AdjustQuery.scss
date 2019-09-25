@@ -1,16 +1,20 @@
-.adjustQuery{
-  .adjustButton{
+.adjustQuery {
+  .adjustButton {
     position: absolute;
     z-index: 900;
     top: 1.8%;
-    left: 79% ;
-    @include borderButton($white, 8.54%, 3.3%); //size in terms of whole viewport
+    left: 79.5%;
+    @include borderButton(
+      $white,
+      8.54%,
+      3.3%
+    ); //size in terms of whole viewport
   }
-  .pressed_a{
+  .pressed_a {
     position: absolute;
     z-index: 900;
     top: 1.8%;
-    left: 79% ;
+    left: 79.5%;
     @include borderButton($lightBlue, 8.54%, 3.3%);
   }
 }

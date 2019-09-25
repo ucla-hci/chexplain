@@ -1,4 +1,4 @@
-@mixin PriorImages($width: 11.71%, $left: 88.25%, $height: 88.2%) {
+@mixin PriorImages($width: 11.71%, $left: 87%, $height: 88.2%) {
   .title {
     @include defaultFont(0.93vw, normal);
     position: absolute;
@@ -31,9 +31,9 @@
       padding-left: 5px;
       padding-bottom: 5px;
       .imageCaption {
-        width: 8vw;
+        width: 9vw;
         text-align: right;
-        @include defaultFont(0.7vw, normal, $lightBlue);
+        @include defaultFont(0.8vw, normal, $lightBlue);
         img {
           height: 7.5vw;
           display: table;
@@ -61,7 +61,7 @@
   @include PriorImages;
 }
 
-@mixin AcrossPatient($width: 11.71%, $left: 88.25%, $height: 88.2%) {
+@mixin AcrossPatient($width: 11.71%, $left: 87%, $height: 88.2%) {
   .title {
     @include defaultFont(0.93vw, normal);
     position: absolute;
@@ -217,12 +217,23 @@
   top: 80%;
   left: 8.5%;
 }
-
+.title1 {
+  position: absolute;
+  left: 1.8%;
+  top: 17%;
+  @include defaultFont(1.055vw, lighter, $white);
+}
+.title2 {
+  position: absolute;
+  left: 45.6%;
+  top: 17%;
+  @include defaultFont(1.055vw, lighter, $white);
+}
 .display {
   .currentImage {
     position: absolute;
     left: 1.8%;
-    top: 8%;
+    top: 20%;
     z-index: 0;
     height: 32.75vw;
     width: 39.9249vw;
@@ -234,16 +245,15 @@
       height: 32.75vw;
       width: 39.9249vw;
     }
-    @include defaultFont(1.055vw, normal, $white);
   }
   .priorImage {
     position: absolute;
     left: 45.6%;
-    top: 8%;
+    top: 20%;
     height: 32.75vw;
     width: auto;
     z-index: 0;
-    @include defaultFont(1.055vw, normal, $white);
+    @include defaultFont(1.055vw, lighter, $white);
     .image {
       height: 32.75vw;
       width: 39.9249vw;

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { TiArrowSortedDown } from "react-icons/ti";
+import { IconContext } from "react-icons";
 
 class ObsDetails extends Component {
   constructor(props) {
@@ -25,7 +27,15 @@ class ObsDetails extends Component {
         </div>
         {this.props.likelyhood === 1 && (
           <div>
-            <div className="squarelikely" />
+            <IconContext.Provider
+              value={{
+                color: "white",
+                size: "2.6em",
+                className: "squarelikely"
+              }}
+            >
+              <TiArrowSortedDown />
+            </IconContext.Provider>
             <div className="currentlikely">Current</div>
           </div>
         )}

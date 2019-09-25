@@ -17,7 +17,7 @@ const pneumoniaExplan = [
   [3],
   ["Right lung and visible left lung Evaulable"],
   [
-    ["Actelectasis", "text"],
+    ["Cardiomegaly", "text"],
     ["Smoking History", "text"],
     ["Pleural Effusion", "text"]
   ]

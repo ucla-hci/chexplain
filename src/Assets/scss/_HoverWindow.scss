@@ -1,6 +1,6 @@
 //SCSS FOR HOVER WINDOW, USES TEMPLATE FROM _RESULT.SCSS
 .HoverWindow {
-  @include resultBox(55.3%, 49.57%, absolute, 38.15%, 40.61%);
+  @include resultBox(55.3%, 48.77%, absolute, 37.45%, 40.61%);
   .content {
     color: $white;
     position: absolute;
@@ -32,13 +32,9 @@
       }
       .squarelikely {
         position: absolute;
-        width: 4%;
-        height: 0px;
-        left: 40%;
-        top: 92%;
+        left: 38.9%;
+        top: 86.6%;
         z-index: 999;
-        border: 15px solid #ffffff;
-        transform: rotate(90deg);
       }
       .squareverylikely {
         position: absolute;
@@ -63,7 +59,7 @@
       .currentlikely {
         position: absolute;
         left: 39%;
-        top: 105%;
+        top: 100%;
         z-index: 999;
         @include defaultFont(1vw, normal, $white);
       }
